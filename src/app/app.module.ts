@@ -19,6 +19,8 @@ import { EVerMapaTerrenoComponent } from './empleado/empleado-content/e-ver-mapa
 import { ClienteHeaderComponent } from './cliente/cliente-header/cliente-header.component';
 import { ClienteFooterComponent } from './cliente/cliente-footer/cliente-footer.component';
 import { CMostrarTerrenosComponent } from './cliente/cliente-content/c-mostrar-terrenos/c-mostrar-terrenos.component';
+import { EmpleadoHeaderComponent } from './empleado/empleado-header/empleado-header.component';
+import { EmpleadoFooterComponent } from './empleado/empleado-footer/empleado-footer.component';
 
 
 const routes: Routes = [
@@ -30,7 +32,7 @@ const routes: Routes = [
         component:ClienteContentComponent
       },
       {
-        path:'consideraciones',
+        path:'preguntasFrecuentes',
         component: CConsideracionesComponent
       },
       {
@@ -58,6 +60,14 @@ const routes: Routes = [
       path:"terrenos",
       component:ETerrenosComponent
     },
+    {
+      path:"occisos",
+      component:EOccisosComponent    
+    },
+    {
+      path:"mapaTerrenos",
+      component: EVerMapaTerrenoComponent
+    }
   ]
   }
 ];
@@ -79,7 +89,9 @@ const routes: Routes = [
     ETerrenosComponent,
     EClientesComponent,
     EOccisosComponent,
-    EVerMapaTerrenoComponent
+    EVerMapaTerrenoComponent,
+    EmpleadoHeaderComponent,
+    EmpleadoFooterComponent
    
   ],
   imports: [

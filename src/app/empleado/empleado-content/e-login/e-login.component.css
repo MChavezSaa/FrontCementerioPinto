@@ -1,0 +1,26 @@
+.container-fluid{
+    height: 102vh;
+    background-image:linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://scontent.fpmc1-1.fna.fbcdn.net/v/t1.0-9/65195595_10219875811585811_7275330757227184128_n.jpg?_nc_cat=107&_nc_ht=scontent.fpmc1-1.fna&oh=b7ad5c97d2fe3ff0240f21bbd5a9b30c&oe=5D7C89B7');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.lead{
+    font-weight: bold;
+    color:#5e5e5e;
+}
+
+.btn{
+    color: #ffffff;
+    background-color: #3a3f44;
+    border-color: #3a3f44;
+    background-image: linear-gradient(#484e55, #3a3f44 60%, #313539);
+    background-repeat: no-repeat;
+}
+
+.btn:hover{
+    background-color: #a0c705;
+    border-color: rgba(0,3,215,1);
+    background-image:linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(0,3,215,1) 100%);;
+}
