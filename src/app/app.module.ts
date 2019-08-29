@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {RouterModule,Routes} from '@angular/router'  //necesario para implementar rutas 
-import {HttpClientModule} from '@angular/common/http'; 
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router'  //necesario para implementar rutas 
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ClienteComponent } from './cliente/cliente.component';
@@ -21,55 +21,76 @@ import { ClienteFooterComponent } from './cliente/cliente-footer/cliente-footer.
 import { CMostrarTerrenosComponent } from './cliente/cliente-content/c-mostrar-terrenos/c-mostrar-terrenos.component';
 import { EmpleadoHeaderComponent } from './empleado/empleado-header/empleado-header.component';
 import { EmpleadoFooterComponent } from './empleado/empleado-footer/empleado-footer.component';
+import { EReducccionComponent } from './empleado/empleado-content/e-reducccion/e-reducccion.component';
+import { AdministracionComponent } from './administracion/administracion.component';
+import { AContentComponent } from './administracion/a-content/a-content.component';
+import { AHeaderComponent } from './administracion/a-header/a-header.component';
+import { AFooterComponent } from './administracion/a-footer/a-footer.component';
 
 
 const routes: Routes = [
-  {path:'',redirectTo:'/inicio',pathMatch:'full'},   //como pagina de inicio se debe dejar la vista para los clientes
-  {path:'inicio',component:ClienteComponent,
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
+  {
+    path: 'inicio', component: ClienteComponent,
     children: [
       {
-        path:'',
-        component:ClienteContentComponent
+        path: '',
+        component: ClienteContentComponent
       },
       {
-        path:'preguntasFrecuentes',
+        path: 'preguntasFrecuentes',
         component: CConsideracionesComponent
       },
       {
-        path:'mostrarCuotas',
-        component:CMostrarCuotasComponent
+        path: 'mostrarCuotas',
+        component: CMostrarCuotasComponent
       },
       {
-        path:'mostrarTerrenos',
-        component:CMostrarTerrenosComponent
+        path: 'mostrarTerrenos',
+        component: CMostrarTerrenosComponent
       }
     ]
   },
-  {path:'personal',component:ELoginComponent},
-  {path:'personal-inicio',component: EmpleadoComponent,
-  children:[
-    {
-      path:"",
-      component:EmpleadoContentComponent
-    },
-    {
-      path:"clientes",
-      component:EClientesComponent
-    },
-    {
-      path:"terrenos",
-      component:ETerrenosComponent
-    },
-    {
-      path:"occisos",
-      component:EOccisosComponent    
-    },
-    {
-      path:"mapaTerrenos",
-      component: EVerMapaTerrenoComponent
-    }
-  ]
-  }
+  { path: 'personal', component: ELoginComponent },
+  {
+    path: 'personal-inicio', component: EmpleadoComponent,
+    children: [
+      {
+        path: "",
+        component: EmpleadoContentComponent
+      },
+      {
+        path: "clientes",
+        component: EClientesComponent
+      },
+      {
+        path: "terrenos",
+        component: ETerrenosComponent
+      },
+      {
+        path: "occisos",
+        component: EOccisosComponent
+      },
+      {
+        path: "mapaTerrenos",
+        component: EVerMapaTerrenoComponent
+      },
+      {
+        path: "reduccion",
+        component: EReducccionComponent
+      }
+    ]
+  },
+  { path: 'administracion', component: ELoginComponent },
+  { path: 'administracion-inicio', component: AdministracionComponent,
+    children: [
+      {
+        path: "",
+        component: AContentComponent
+      },
+
+    ]
+  },
 ];
 
 
@@ -77,13 +98,13 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     ClienteComponent,
-    ClienteContentComponent, 
+    ClienteContentComponent,
     CMostrarCuotasComponent,
     CMostrarTerrenosComponent,
-    CConsideracionesComponent, 
+    CConsideracionesComponent,
     ClienteHeaderComponent,
     ClienteFooterComponent,
-    EmpleadoComponent,  
+    EmpleadoComponent,
     EmpleadoContentComponent,
     ELoginComponent,
     ETerrenosComponent,
@@ -91,8 +112,13 @@ const routes: Routes = [
     EOccisosComponent,
     EVerMapaTerrenoComponent,
     EmpleadoHeaderComponent,
-    EmpleadoFooterComponent
-   
+    EmpleadoFooterComponent,
+    EReducccionComponent,
+    AdministracionComponent,
+    AContentComponent,
+    AHeaderComponent,
+    AFooterComponent
+
   ],
   imports: [
     BrowserModule,
