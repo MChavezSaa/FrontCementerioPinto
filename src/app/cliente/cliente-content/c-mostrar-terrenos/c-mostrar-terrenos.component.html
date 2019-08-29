@@ -19,7 +19,7 @@
           <div *ngFor="let person of peopleA; let i = index">
             <div *ngIf=" i+1 == person.id_tumba; else notShow">
               <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" >
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>               
+                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>               
               </div>
             </div>
             <ng-template #notShow>
