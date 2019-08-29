@@ -4,10 +4,22 @@
     <img src="https://viejocubia.grao.net/rev/rev4/rv1_clip_image002.gif" alt="">
     <!--cambiar el ng for por el de la query -->
     <div *ngFor="let person of people; let i = index">
-      <div id="a{{i+1}}" [ngClass]="'a'+ i" ><a (click) ="guardarID(i)" href="#modal1" data-toggle="modal" data-target="#modal1">
-        <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/mas.png'}}"
-        width="50px" height="30px"></a></div>
-        <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
+      <div *ngIf=" i+1 == person.id_tumba; else notShow">
+        <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" href="#modal1" data-toggle="modal"
+            data-target="#modal1">
+            <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/tumba.png'}}" width="50px"
+              height="30px"></a>
+        </div>
+      </div>
+      <ng-template #notShow>
+          <div id="a{{i+1}}" [ngClass]="'a'+ i">
+            <a (click)="guardarID(i)" href="#modal2" data-toggle="modal"
+            data-target="#modal2">
+            <img src="{{!showimage==true ? '../assets/img/mas.png' : '../assets/img/mas.png'}}" width="50px"
+              height="30px"></a>
+        </div>
+        </ng-template>
+      <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
     </div>
   </div>
 </div>
@@ -20,7 +32,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body"> 
+      <div class="modal-body">
         <p>Nombre:{{nombre()}}</p>
         <p>Fecha Defunción: {{fd()}}</p>
       </div>
@@ -30,6 +42,8 @@
     </div>
   </div>
 </div>
+
+<!-- modal vacio -->
 <div id="modal2" class="modal" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -49,3 +63,8 @@
     </div>
   </div>
 </div>
+
+<!-- template que se mostrara en caso de que el id de tumba no sea igual a index del for 
+  REFERENCIA -> linea 7 -->
+
+  
