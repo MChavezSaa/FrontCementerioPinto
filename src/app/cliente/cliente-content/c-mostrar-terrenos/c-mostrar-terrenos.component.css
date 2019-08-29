@@ -8,20 +8,20 @@
  
 .a0{
     position: absolute;
-    top: 13%;
-    left: 33%;
+    top: 15%;
+    left: 45%;
     font-size: 15px;
 }
 .a1{
     position: absolute;   
     top: 13%;
-    left: 42%;
+    left: 50%;
     font-size: 15px;
 }
 .a2{
     position: absolute;
     top: 13%;
-    left: 60%;
+    left: 55%;
     font-size: 12px;
     font-weight: bold;
 }
