@@ -15,7 +15,7 @@ export class CMostrarTerrenosComponent implements OnInit {
   ngOnInit() {
   }
 
-  people: any[] = [
+  peopleA: any[] = [
     {      
       "id_terreno ": "1" ,
       "id_tumba" : "1" ,
@@ -38,6 +38,115 @@ export class CMostrarTerrenosComponent implements OnInit {
     }
     
   ];
+
+  peopleB: any[] = [
+    {
+      "id_terreno ": "2",
+      "id_tumba": "1",
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "2",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "3",
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "4",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "5",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "6",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "7",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "8",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "9",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "10",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "11",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "12",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "13",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "14",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "2",
+      "id_tumba": "15",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    }
+
+  ];
+
   guardarID(iD: number){
     //para poder cargar el nombre y fecha defuncion necesito id de la tumba buscada aqui se guarda ese id
     //console.log("id: "+ iD);    
@@ -45,9 +154,9 @@ export class CMostrarTerrenosComponent implements OnInit {
    // console.log("this.id: "+ this.id);
   }
   nombre(){
-    return this.people[this.id].name
+    return this.peopleA[this.id].name
   }
   fd(){
-    return this.people[this.id].FD
+    return this.peopleA[this.id].FD
   }
 }
