@@ -27,7 +27,7 @@ export class CMostrarTerrenosComponent implements OnInit {
       "id_terreno ": "1" ,
       "id_tumba" : "2" ,
       "name": "Mcleod  Mueller",
-      "FD": "26/6/2019"
+      "FD": "26/7/2019"
     },
     {
 
@@ -40,9 +40,9 @@ export class CMostrarTerrenosComponent implements OnInit {
   ];
   guardarID(iD: number){
     //para poder cargar el nombre y fecha defuncion necesito id de la tumba buscada aqui se guarda ese id
-    console.log("id: "+ iD);    
+    //console.log("id: "+ iD);    
     this.id = iD;
-    console.log("this.id: "+ this.id);
+   // console.log("this.id: "+ this.id);
   }
   nombre(){
     return this.people[this.id].name

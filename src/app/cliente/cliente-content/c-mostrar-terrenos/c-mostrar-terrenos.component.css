@@ -8,14 +8,14 @@
  
 .a0{
     position: absolute;
-    top: 15%;
-    left: 45%;
+    top: 9%;
+    left: 38%;
     font-size: 15px;
 }
 .a1{
     position: absolute;   
-    top: 13%;
-    left: 50%;
+    top: 9%;
+    left: 45%;
     font-size: 15px;
 }
 .a2{
@@ -82,6 +82,34 @@
      font-weight: bold;
  }
  .a12{
+    position: absolute;
+     top: 27%;
+     left: 77%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a13{
+    position: absolute;
+     top: 27%;
+     left: 77%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a14{
+    position: absolute;
+     top: 27%;
+     left: 77%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a15{
+    position: absolute;
+     top: 27%;
+     left: 77%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a16{
     position: absolute;
      top: 27%;
      left: 77%;

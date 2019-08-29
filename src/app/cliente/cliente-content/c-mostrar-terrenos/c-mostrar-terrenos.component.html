@@ -12,14 +12,13 @@
   </div><br>
   <div class="row">    
     <div class="col-8">
-      <div align="center">
+      <div align="left">
         <div class="container">
-          <img src="../assets/img/mapa3.jpg" alt="" width="65%" height="65%">
+          <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
           <!--cambiar el ng for por el de la query -->
           <div *ngFor="let person of people; let i = index">
             <div *ngIf=" i+1 == person.id_tumba; else notShow">
-              <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" href="#modal1" data-toggle="modal"
-                  data-target="#modal1">
+              <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" >
                   <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>
                 <!--
                     <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/tumba.png'}}" width="50px"
@@ -44,7 +43,7 @@
     <div class="col-4">
       <ul>
         <li type="circle">Nombre: {{nombre()}}</li>                
-        <li type="circle">Fecha Defuncion: {{fd()}}</li>                
+        <li type="circle">Fecha Defunción: {{fd()}}</li>                
         
         </ul>
     </div>
