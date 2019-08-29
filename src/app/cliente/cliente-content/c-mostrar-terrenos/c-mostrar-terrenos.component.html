@@ -1,33 +1,55 @@
 <!-- este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
-<div align="center">
-  <div class="container">
-    <img src="../assets/img/mapa3.jpg" alt="" width="65%" height="65%">
-    <!--cambiar el ng for por el de la query -->
-    <div *ngFor="let person of people; let i = index">
-      <div *ngIf=" i+1 == person.id_tumba; else notShow">
-        <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" href="#modal1" data-toggle="modal"
-            data-target="#modal1">
-            <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>
-          <!--
-              <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/tumba.png'}}" width="50px"
-              height="30px">
-          -->
-              <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i> -->
-              <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: white "></i> -->
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-sm" align="center">
+      <button type="button" class="btn btn-outline-primary">Libres</button>      
+    </div>
+    <div class="col-sm" >
+      
+      <button type="button" class="btn btn-outline-primary">Ocupados</button>
+        </div>
+  </div><br>
+  <div class="row">    
+    <div class="col-8">
+      <div align="center">
+        <div class="container">
+          <img src="../assets/img/mapa3.jpg" alt="" width="65%" height="65%">
+          <!--cambiar el ng for por el de la query -->
+          <div *ngFor="let person of people; let i = index">
+            <div *ngIf=" i+1 == person.id_tumba; else notShow">
+              <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" href="#modal1" data-toggle="modal"
+                  data-target="#modal1">
+                  <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>
+                <!--
+                    <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/tumba.png'}}" width="50px"
+                    height="30px">
+                -->
+                <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i> -->
+                <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: white "></i> -->
+              </div>
+            </div>
+            <ng-template #notShow>
+              <div id="a{{i+1}}" [ngClass]="'a'+ i">
+                <a (click)="guardarID(i)" href="#modal2" data-toggle="modal" data-target="#modal2">
+                </a>
+              </div>
+            </ng-template>
+            <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
+          </div>
         </div>
       </div>
-      <ng-template #notShow>
-          <div id="a{{i+1}}" [ngClass]="'a'+ i">
-            <a (click)="guardarID(i)" href="#modal2" data-toggle="modal"
-            data-target="#modal2">
-            </a>
-        </div>
-        </ng-template>
-      <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
+
+    </div>
+    <div class="col-4">
+      <ul>
+        <li type="circle">Nombre: {{nombre()}}</li>                
+        <li type="circle">Fecha Defuncion: {{fd()}}</li>                
+        
+        </ul>
     </div>
   </div>
-</div>
-
+</div><br>
 
 
 <div id="modal1" class="modal" tabindex="-1" role="dialog">
@@ -71,4 +93,4 @@
       </div>
     </div>
   </div>
-</div>  
+</div>
