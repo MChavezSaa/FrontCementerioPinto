@@ -5,7 +5,7 @@
     display: inline-block;
     text-align: center;
 }
- 
+ /*PATIO A*/
 .a0{
     position: absolute;
     top: 10%;
@@ -121,6 +121,7 @@
      font-weight: bold;
  }
 
+ /*PATIO B*/
  .b0{
     position: absolute;
      top: 52%;
@@ -223,6 +224,106 @@
     position: absolute;
      top: 67%;
      left: 31%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+/*PATIO E*/
+
+.e0{
+    position: absolute;
+     top: 75.5%;
+     left: 16.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e1{
+    position: absolute;
+     top: 74%;
+     left: 20.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e2{
+    position: absolute;
+     top: 74%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e3{
+    position: absolute;
+     top: 75%;
+     left: 30.7%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e4{
+    position: absolute;
+     top: 75%;
+     left: 33.7%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e5{
+    position: absolute;
+     top: 78%;
+     left: 20.8%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e6{
+    position: absolute;
+     top: 80%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e7{
+    position: absolute;
+     top: 82%;
+     left: 30.6%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e8{
+    position: absolute;
+     top: 81%;
+     left: 34.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e9{
+    position: absolute;
+     top: 67%;
+     left: 31%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e10{
+    position: absolute;
+     top: 83%;
+     left: 17.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e11{
+    position: absolute;
+     top: 84%;
+     left: 21.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e12{
+    position: absolute;
+     top: 85%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e13{
+    position: absolute;
+     top: 85%;
+     left: 35.5%;
      font-size: 12px;
      font-weight: bold;
  }
