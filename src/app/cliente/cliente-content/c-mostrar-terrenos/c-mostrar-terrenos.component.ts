@@ -32,7 +32,101 @@ export class CMostrarTerrenosComponent implements OnInit {
     {
 
       "id_terreno ": "1" ,
+      "id_tumba" : "3" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "1" ,
       "id_tumba" : "4" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "5" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "6" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "1" ,
+      "id_tumba" : "7" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "8" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "9" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "1" ,
+      "id_tumba" : "10" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "11" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "12" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "1" ,
+      "id_tumba" : "13" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "14" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "15" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "16" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "1" ,
+      "id_tumba" : "16" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     }

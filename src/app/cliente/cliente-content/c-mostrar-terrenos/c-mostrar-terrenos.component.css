@@ -8,104 +8,115 @@
  
 .a0{
     position: absolute;
-    top: 9%;
-    left: 38%;
-    font-size: 15px;
+    top: 10%;
+    left: 37.5%;
+    font-size: 12px;
+    font-weight: bold;
+
 }
 .a1{
     position: absolute;   
     top: 9%;
-    left: 45%;
-    font-size: 15px;
+    left: 44%;
+    font-size: 12px;
+    font-weight: bold;
+
 }
 .a2{
     position: absolute;
-    top: 13%;
-    left: 55%;
+    top: 9%;
+    left: 52%;
     font-size: 12px;
     font-weight: bold;
 }
 .a3{
    position: absolute;
-    top: 13%;
-    left: 33%;
+    top: 21%;
+    left: 28%;
     font-size: 12px;
     font-weight: bold;
 }
 .a4{
     position: absolute;
-     top: 13%;
-     left: 32%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 20%;
+    left: 37%;
+    font-size: 12px;
+    font-weight: bold;
  }
  .a5{
     position: absolute;
-     top: 13%;
-     left: 68%;
+     top: 20%;
+     left: 44%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a6{
+    position: absolute;
+     top: 20%;
+     left: 51.5%;
      font-size: 12px;
      font-weight: bold;
  }
  .a7{
     position: absolute;
-     top: 19.5%;
-     left: 33%;
+     top: 30%;
+     left: 18%;
      font-size: 12px;
      font-weight: bold;
  }
  .a8{
     position: absolute;
-     top: 19.5%;
-     left: 30%;
+     top: 30%;
+     left: 28%;
      font-size: 12px;
      font-weight: bold;
  }
  .a9{
     position: absolute;
-     top: 19.5%;
-     left: 70%;
+     top: 30%;
+     left: 37%;
      font-size: 12px;
      font-weight: bold;
  }
  .a10{
     position: absolute;
-     top: 27%;
-     left: 10%;
+    top: 30%;
+         left: 44%;
      font-size: 12px;
      font-weight: bold;
  }
  .a11{
     position: absolute;
-     top: 27%;
-     left: 35%;
+    top: 30%;
+         left: 52%;
      font-size: 12px;
      font-weight: bold;
  }
  .a12{
     position: absolute;
-     top: 27%;
-     left: 77%;
+    top: 40%;
+    left: 18%;
      font-size: 12px;
      font-weight: bold;
  }
  .a13{
     position: absolute;
-     top: 27%;
-     left: 77%;
+    top: 40%;     
+    left: 28%;
      font-size: 12px;
      font-weight: bold;
  }
  .a14{
     position: absolute;
-     top: 27%;
-     left: 77%;
+    top: 40%;     
+    left: 37%;
      font-size: 12px;
      font-weight: bold;
  }
  .a15{
     position: absolute;
-     top: 27%;
-     left: 77%;
+    top: 40%;     
+    left: 44%;
      font-size: 12px;
      font-weight: bold;
  }
