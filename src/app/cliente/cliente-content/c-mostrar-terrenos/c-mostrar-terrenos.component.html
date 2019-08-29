@@ -16,21 +16,15 @@
         <div class="container">
           <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
           <!--cambiar el ng for por el de la query -->
-          <div *ngFor="let person of people; let i = index">
+          <div *ngFor="let person of peopleA; let i = index">
             <div *ngIf=" i+1 == person.id_tumba; else notShow">
               <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)" >
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>
-                <!--
-                    <img src="{{!showimage==true ? '../assets/img/tumba.png' : '../assets/img/tumba.png'}}" width="50px"
-                    height="30px">
-                -->
-                <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i> -->
-                <!-- <i class="fas fa-map-marker-alt fa-2x" style="color: white "></i> -->
+                  <i class="fas fa-map-marker-alt fa-2x" style="color: red "></i></a>               
               </div>
             </div>
             <ng-template #notShow>
               <div id="a{{i+1}}" [ngClass]="'a'+ i">
-                <a (click)="guardarID(i)" href="#modal2" data-toggle="modal" data-target="#modal2">
+                <a (click)="guardarID(i)">
                 </a>
               </div>
             </ng-template>
@@ -49,47 +43,3 @@
     </div>
   </div>
 </div><br>
-
-
-<div id="modal1" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Detalles</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Nombre:{{nombre()}}</p>
-        <p>Fecha Defunción: {{fd()}}</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<!-- modal vacio -->
-<div id="modal2" class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Detalles</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Disponibilidad del Terreno: Libre</p>
-        <p>Orientación: Oriente a Poniente</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
