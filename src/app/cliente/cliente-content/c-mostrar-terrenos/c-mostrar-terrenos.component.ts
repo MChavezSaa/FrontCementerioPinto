@@ -7,7 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CMostrarTerrenosComponent implements OnInit {
 
-  showImage: boolean = false;
   id: any;
   Letter: any;
   nombre2: any;
