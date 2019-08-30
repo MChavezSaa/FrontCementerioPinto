@@ -18,14 +18,13 @@
           <!--cambiar el ng for por el de la query -->
           <div *ngFor="let person of peopleA; let i = index">
             <div *ngIf=" i+1 == person.id_tumba; else notShow">
-              <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)">
+              <div id="a{{i+1}}" [ngClass]="'a'+ i">
+                <a (click)="guardarDatos(i,'a', person.name, person.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
               </div>
             </div>
             <ng-template #notShow>
               <div id="a{{i+1}}" [ngClass]="'a'+ i">
-                <a (click)="guardarID(i)"></a>
-
               </div>
             </ng-template>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
@@ -36,7 +35,7 @@
             <div *ngIf=" i+1 == personB.id_tumba; else notShow">
 
               <div id="b{{i+1}}" [ngClass]="'b'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'b', personB.name, personB.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
                 </a>
               </div>
@@ -44,7 +43,6 @@
             </div>
             <ng-template #notShow>
               <div id="b{{i+1}}" [ngClass]="'b'+ i">
-                <a (click)="guardarID(i)"></a>
               </div>
             </ng-template>
           </div>
@@ -55,7 +53,7 @@
             <div *ngIf=" i+1 == personC.id_tumba; else notShow">
 
               <div id="c{{i+1}}" [ngClass]="'c'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'c', personC.name,personC.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue"></i>
                 </a>
               </div>
@@ -63,7 +61,7 @@
             </div>
             <ng-template #notShow>
               <div id="c{{i+1}}" [ngClass]="'c'+ i">
-                <a (click)="guardarID(i)"></a>
+                <a (click)="guardarDatos(i,'c', person.name)"></a>
               </div>
             </ng-template>
           </div>
@@ -74,7 +72,7 @@
             <div *ngIf=" i+1 == personD.id_tumba; else notShow">
           
               <div id="d{{i+1}}" [ngClass]="'d'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'d', personD.name, personD.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
                 </a>
               </div>
@@ -92,7 +90,7 @@
             <div *ngIf=" i+1 == personE.id_tumba; else notShow">
 
               <div id="e{{i+1}}" [ngClass]="'e'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'e', personE.name, personE.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
                 </a>
               </div>
@@ -109,7 +107,7 @@
             <div *ngIf=" i+1 == personF.id_tumba; else notShow">
 
               <div id="f{{i+1}}" [ngClass]="'f'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'f', personF.name, personF.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
                 </a>
               </div>
@@ -126,7 +124,7 @@
             <div *ngIf=" i+1 == personG.id_tumba; else notShow">
 
               <div id="g{{i+1}}" [ngClass]="'g'+ i">
-                <a (click)="guardarID(i)">
+                <a (click)="guardarDatos(i,'g', personG.name, personG.FD)">
                   <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
                 </a>
               </div>

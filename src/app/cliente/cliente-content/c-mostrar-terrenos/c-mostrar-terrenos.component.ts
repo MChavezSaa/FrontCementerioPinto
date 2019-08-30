@@ -9,6 +9,10 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   showImage: boolean = false;
   id: any;
+  Letter: any;
+  nombre2: any;
+  Fd: any;
+
 
   constructor() { }
 
@@ -16,121 +20,121 @@ export class CMostrarTerrenosComponent implements OnInit {
   }
 
   peopleA: any[] = [
-    {      
-      "id_Terreno": "1" ,
-      "id_tumba" : "1" ,
+    {
+      "id_Terreno": "1",
+      "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "2" ,
+      "id_Terreno": "1",
+      "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "3" ,
+      "id_Terreno": "1",
+      "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "1" ,
-      "id_tumba" : "4" ,
+    {
+      "id_Terreno": "1",
+      "id_tumba": "4",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "5" ,
+      "id_Terreno": "1",
+      "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "6" ,
+      "id_Terreno": "1",
+      "id_tumba": "6",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "1" ,
-      "id_tumba" : "7" ,
+    {
+      "id_Terreno": "1",
+      "id_tumba": "7",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "8" ,
+      "id_Terreno": "1",
+      "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "9" ,
+      "id_Terreno": "1",
+      "id_tumba": "9",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "1" ,
-      "id_tumba" : "10" ,
+    {
+      "id_Terreno": "1",
+      "id_tumba": "10",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "11" ,
+      "id_Terreno": "1",
+      "id_tumba": "11",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "12" ,
+      "id_Terreno": "1",
+      "id_tumba": "12",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "1" ,
-      "id_tumba" : "13" ,
+    {
+      "id_Terreno": "1",
+      "id_tumba": "13",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "14" ,
+      "id_Terreno": "1",
+      "id_tumba": "14",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "15" ,
+      "id_Terreno": "1",
+      "id_tumba": "15",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "1" ,
-      "id_tumba" : "16" ,
+      "id_Terreno": "1",
+      "id_tumba": "16",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     }
-    
+
   ];
 
   peopleB: any[] = [
     {
       "id_Terreno": "2",
       "id_tumba": "1",
-      "name": "Douglas  Pace",
+      "name": "pequeño  Pace",
       "FD": "26/6/2019"
     },
     {
@@ -303,7 +307,7 @@ export class CMostrarTerrenosComponent implements OnInit {
       "id_tumba": "10",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
-    } 
+    }
 
   ];
 
@@ -468,332 +472,486 @@ export class CMostrarTerrenosComponent implements OnInit {
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     }
-     
+
   ];
 
 
   peopleE: any[] = [
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "1" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "2" ,
+      "id_Terreno": "5",
+      "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "3" ,
+      "id_Terreno": "5",
+      "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "4" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "4",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "5" ,
+      "id_Terreno": "5",
+      "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "6" ,
+      "id_Terreno": "5",
+      "id_tumba": "6",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "7" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "7",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "8" ,
+      "id_Terreno": "5",
+      "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "9" ,
+      "id_Terreno": "5",
+      "id_tumba": "9",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "10" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "10",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "11" ,
+      "id_Terreno": "5",
+      "id_tumba": "11",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "5" ,
-      "id_tumba" : "12" ,
+      "id_Terreno": "5",
+      "id_tumba": "12",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "13" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "13",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "5" ,
-      "id_tumba" : "14" ,
+    {
+      "id_Terreno": "5",
+      "id_tumba": "14",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     }
-    
+
   ];
 
   peopleF: any[] = [
-    {      
-      "id_Terreno": "6" ,
-      "id_tumba" : "1" ,
+    {
+      "id_Terreno": "6",
+      "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "6" ,
-      "id_tumba" : "2" ,
+      "id_Terreno": "6",
+      "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "6" ,
-      "id_tumba" : "3" ,
+      "id_Terreno": "6",
+      "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "6" ,
-      "id_tumba" : "4" ,
+    {
+      "id_Terreno": "6",
+      "id_tumba": "4",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "6" ,
-      "id_tumba" : "5" ,
+      "id_Terreno": "6",
+      "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     }
   ];
-    
+
   peopleG: any[] = [
-    {      
-      "id_Terreno": "7" ,
-      "id_tumba" : "1" ,
+    {
+      "id_Terreno": "7",
+      "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "2" ,
+      "id_Terreno": "7",
+      "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "3" ,
+      "id_Terreno": "7",
+      "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "7" ,
-      "id_tumba" : "4" ,
+    {
+      "id_Terreno": "7",
+      "id_tumba": "4",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "5" ,
+      "id_Terreno": "7",
+      "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "6" ,
+      "id_Terreno": "7",
+      "id_tumba": "6",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "7" ,
-      "id_tumba" : "7" ,
+    {
+      "id_Terreno": "7",
+      "id_tumba": "7",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "8" ,
+      "id_Terreno": "7",
+      "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "9" ,
+      "id_Terreno": "7",
+      "id_tumba": "9",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "7" ,
-      "id_tumba" : "10" ,
+    {
+      "id_Terreno": "7",
+      "id_tumba": "10",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "11" ,
+      "id_Terreno": "7",
+      "id_tumba": "11",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "12" ,
+      "id_Terreno": "7",
+      "id_tumba": "12",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
-    {      
-      "id_Terreno": "7" ,
-      "id_tumba" : "13" ,
+    {
+      "id_Terreno": "7",
+      "id_tumba": "13",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "14" ,
+      "id_Terreno": "7",
+      "id_tumba": "14",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "15" ,
+      "id_Terreno": "7",
+      "id_tumba": "15",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_Terreno": "7" ,
-      "id_tumba" : "16" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "17" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    },     
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "18" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "19" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "20" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "21" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "22" ,
-      "name": "maty",
-      "FD": "26/6/2019"
-    }, 
-    {
-
-      "id_Terreno": "7" ,
-      "id_tumba" : "23" ,
+      "id_Terreno": "7",
+      "id_tumba": "16",
       "name": "maty",
       "FD": "26/6/2019"
     },
     {
-      "id_Terreno": "7" ,
-      "id_tumba" : "24" ,
+
+      "id_Terreno": "7",
+      "id_tumba": "17",
       "name": "maty",
       "FD": "26/6/2019"
     },
     {
-      "id_Terreno": "7" ,
-      "id_tumba" : "25" ,
+
+      "id_Terreno": "7",
+      "id_tumba": "18",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_Terreno": "7",
+      "id_tumba": "19",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_Terreno": "7",
+      "id_tumba": "20",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_Terreno": "7",
+      "id_tumba": "21",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_Terreno": "7",
+      "id_tumba": "22",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_Terreno": "7",
+      "id_tumba": "23",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+      "id_Terreno": "7",
+      "id_tumba": "24",
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+      "id_Terreno": "7",
+      "id_tumba": "25",
       "name": "maty",
       "FD": "26/6/2019"
     }
-    
+
   ];
 
-  guardarID(iD: number){
-    //para poder cargar el nombre y fecha defuncion necesito id de la tumba buscada aqui se guarda ese id
-    console.log("id: "+ iD);    
+  guardarDatos(iD: number, letter: string, nombre1: string, fd2: string) {
+    //vaciar var
+    this.id="";
+    this.Letter="";
+    this.nombre2="";
+    this.Fd ="";
+
+    //LLENAR VAR
     this.id = iD;
-   // console.log("this.id: "+ this.id);
+    this.Letter = letter;
+    this.nombre2 = nombre1;
+    this.Fd = fd2;
   }
-  nombre(){
-    return this.peopleA[this.id].name
+  nombre() {
+    let nombre3: string;
+    nombre3 = this.nNombreAux(this.Letter);
+    return nombre3;
   }
-  fd(){
-    return this.peopleA[this.id].FD
+  fd() {
+    let fd2: string;
+    fd2 = this.nFDAux(this.Letter);
+    return fd2;
   }
   nTerreno(){
-    console.log("terr"+this.peopleA[this.id].id_Terreno);
-
-    return this.peopleA[this.id].id_Terreno  }
-  nTumba(){
-    console.log("tumba"+this.peopleA[this.id].id_tumba);
-    return this.peopleA[this.id].id_tumba
+    let idter: number;
+    idter = this.nTerrenoAux(this.Letter);
+    return idter;
   }
+  nTumba() {
+    let idTumba: number;
+    idTumba = this.nTUMBAAux(this.Letter);
+    return idTumba;
+  }
+
+  nTerrenoAux(letter: string): number {
+    switch (letter) {
+      case "a": {
+        //statements; 
+        return this.peopleA[this.id].id_Terreno;     
+      }
+      case "b": {
+        //statements; 
+        return this.peopleB[this.id].id_Terreno;
+      }
+      case "c": {
+        //statements; 
+        return this.peopleC[this.id].id_Terreno;
+      }
+      case "d": {
+        return this.peopleD[this.id].id_Terreno
+      }
+      case "e": {
+        //statements; 
+        return this.peopleE[this.id].id_Terreno;
+      }
+      case "f": {
+        //statements; 
+        return this.peopleF[this.id].id_Terreno;
+      }
+      case "g": {
+        //statements; 
+        return this.peopleG[this.id].id_Terreno;
+      }
+
+    }
+  }
+
+  nNombreAux(letter: string): string {
+    switch (letter) {
+      case "a": {
+        //statements; 
+        return this.peopleA[this.id].name;     
+      }
+      case "b": {
+        //statements; 
+        return this.peopleB[this.id].name;
+      }
+      case "c": {
+        //statements; 
+        return this.peopleC[this.id].name;
+      }
+      case "d": {
+        return this.peopleD[this.id].name
+      }
+      case "e": {
+        //statements; 
+        return this.peopleE[this.id].name;
+      }
+      case "f": {
+        //statements; 
+        return this.peopleF[this.id].name;
+      }
+      case "g": {
+        //statements; 
+        return this.peopleG[this.id].name;
+      }
+
+      default: {
+        //statements; 
+       return "";
+      }
+    }
+  }
+  nFDAux(letter: string): string {
+    switch (letter) {
+      case "a": {
+        //statements;         
+        return this.peopleA[this.id].FD;     
+      }
+      case "b": {
+        //statements;        
+        return this.peopleB[this.id].FD;
+      }
+      case "c": {
+        //statements;         
+        return this.peopleC[this.id].FD;
+      }
+      case "d": {        
+        return this.peopleD[this.id].FD
+      }
+      case "e": {
+        //statements; 
+        
+
+        return this.peopleE[this.id].FD;
+      }
+      case "f": {
+        //statements;         
+        return this.peopleF[this.id].FD;
+      }
+      case "g": {
+        //statements;       
+        return this.peopleG[this.id].FD;
+      }
+
+      default: {
+        //statements; 
+       return "";
+      }
+    }
+  }
+  nTUMBAAux(letter: string): number {
+    switch (letter) {
+      case "a": {
+        //statements; 
+        return this.peopleA[this.id].id_tumba;     
+      }
+      case "b": {
+        //statements; 
+        return this.peopleB[this.id].id_tumba;
+      }
+      case "c": {
+        //statements; 
+        return this.peopleC[this.id].id_tumba;
+      }
+      case "d": {
+        return this.peopleD[this.id].id_tumba
+      }
+      case "e": {
+        //statements; 
+        return this.peopleE[this.id].id_tumba;
+      }
+      case "f": {
+        //statements; 
+        return this.peopleF[this.id].id_tumba;
+      }
+      case "g": {
+        //statements; 
+        return this.peopleG[this.id].id_tumba;
+      }
+
+    }
+  }
+
 }
