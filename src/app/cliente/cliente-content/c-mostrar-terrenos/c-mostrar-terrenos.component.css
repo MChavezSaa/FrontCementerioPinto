@@ -399,3 +399,41 @@
      font-size: 12px;
      font-weight: bold;
  }
+
+ /* PATIO F*/
+
+.f0{
+    position: absolute;
+     top: 75%;
+     left: 37%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f1{
+    position: absolute;
+     top: 75%;
+     left: 40.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f2{
+    position: absolute;
+     top: 75%;
+     left: 45%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f3{
+    position: absolute;
+     top: 82.5%;
+     left: 39%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f4{
+    position: absolute;
+     top: 82.5%;
+     left: 45%;
+     font-size: 12px;
+     font-weight: bold;
+ }

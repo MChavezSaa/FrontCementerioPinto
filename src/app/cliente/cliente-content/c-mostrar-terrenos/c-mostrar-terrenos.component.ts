@@ -240,6 +240,7 @@ export class CMostrarTerrenosComponent implements OnInit {
     }
 
   ];
+
   peopleC: any[] = [
     {
       "id_terreno ": "3",
@@ -410,6 +411,42 @@ export class CMostrarTerrenosComponent implements OnInit {
     
   ];
 
+  peopleF: any[] = [
+    {      
+      "id_terreno ": "6" ,
+      "id_tumba" : "1" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "2" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "3" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "6" ,
+      "id_tumba" : "4" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "5" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    }
+  ];
+    
   guardarID(iD: number){
     //para poder cargar el nombre y fecha defuncion necesito id de la tumba buscada aqui se guarda ese id
     //console.log("id: "+ iD);    
