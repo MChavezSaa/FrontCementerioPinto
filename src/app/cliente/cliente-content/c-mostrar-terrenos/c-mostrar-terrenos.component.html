@@ -68,6 +68,25 @@
             </ng-template>
           </div>
           <!--Fin Patio C-->
+
+          <!-- Patio D-->
+          <div *ngFor="let personD of peopleD; let i = index">
+            <div *ngIf=" i+1 == personD.id_tumba; else notShow">
+          
+              <div id="d{{i+1}}" [ngClass]="'d'+ i">
+                <a (click)="guardarID(i)">
+                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+                </a>
+              </div>
+          
+            </div>
+            <ng-template #notShow>
+              <div id="d{{i+1}}" [ngClass]="'d'+ i">
+              </div>
+            </ng-template>
+          </div>
+          <!-- Fin Patio D-->
+
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
             <div *ngIf=" i+1 == personE.id_tumba; else notShow">
@@ -85,6 +104,8 @@
             </ng-template>
           </div>
           <!-- fin patio E-->
+
+          
         </div>
       </div>
     </div>
