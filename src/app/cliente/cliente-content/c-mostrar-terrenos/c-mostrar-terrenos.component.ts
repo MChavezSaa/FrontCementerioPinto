@@ -17,108 +17,108 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleA: any[] = [
     {      
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "1" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "2" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "3" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "4" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "5" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "6" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "7" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "8" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "9" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "10" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "11" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "12" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "13" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "14" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "15" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "1" ,
+      "id_Terreno": "1" ,
       "id_tumba" : "16" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
@@ -128,105 +128,105 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleB: any[] = [
     {
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "4",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "6",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "7",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "9",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "10",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "11",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "12",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "13",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "14",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "2",
+      "id_Terreno": "2",
       "id_tumba": "15",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
@@ -236,70 +236,70 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleC: any[] = [
     {
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "4",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "6",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "7",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "9",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "3",
+      "id_Terreno": "3",
       "id_tumba": "10",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
@@ -309,161 +309,161 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleD: any[] = [
     {
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "1",
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "2",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "3",
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "4",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "5",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "6",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "7",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "8",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "9",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "10",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "11",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "12",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "13",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "14",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "15",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "16",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "17",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "18",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "19",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "20",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "21",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "22",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "4",
+      "id_Terreno": "4",
       "id_tumba": "23",
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
@@ -474,93 +474,93 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleE: any[] = [
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "1" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "2" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "3" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "4" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "5" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "6" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "7" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "8" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "9" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "10" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "11" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "12" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "13" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "5" ,
+      "id_Terreno": "5" ,
       "id_tumba" : "14" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
@@ -570,34 +570,34 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   peopleF: any[] = [
     {      
-      "id_terreno ": "6" ,
+      "id_Terreno": "6" ,
       "id_tumba" : "1" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "6" ,
+      "id_Terreno": "6" ,
       "id_tumba" : "2" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "6" ,
+      "id_Terreno": "6" ,
       "id_tumba" : "3" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "6" ,
+      "id_Terreno": "6" ,
       "id_tumba" : "4" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "6" ,
+      "id_Terreno": "6" ,
       "id_tumba" : "5" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
@@ -606,169 +606,169 @@ export class CMostrarTerrenosComponent implements OnInit {
     
   peopleG: any[] = [
     {      
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "1" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "2" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "3" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "4" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "5" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "6" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "7" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "8" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "9" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "10" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "11" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "12" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {      
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "13" ,
       "name": "Douglas  Pace",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "14" ,
       "name": "Mcleod  Mueller",
       "FD": "26/7/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "15" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
     },
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "16" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "17" ,
       "name": "maty",
       "FD": "26/6/2019"
     },     
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "18" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "19" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "20" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "21" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "22" ,
       "name": "maty",
       "FD": "26/6/2019"
     }, 
     {
 
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "23" ,
       "name": "maty",
       "FD": "26/6/2019"
     },
     {
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "24" ,
       "name": "maty",
       "FD": "26/6/2019"
     },
     {
-      "id_terreno ": "7" ,
+      "id_Terreno": "7" ,
       "id_tumba" : "25" ,
       "name": "maty",
       "FD": "26/6/2019"
@@ -778,7 +778,7 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   guardarID(iD: number){
     //para poder cargar el nombre y fecha defuncion necesito id de la tumba buscada aqui se guarda ese id
-    //console.log("id: "+ iD);    
+    console.log("id: "+ iD);    
     this.id = iD;
    // console.log("this.id: "+ this.id);
   }
@@ -789,9 +789,11 @@ export class CMostrarTerrenosComponent implements OnInit {
     return this.peopleA[this.id].FD
   }
   nTerreno(){
-    return this.peopleA[this.id].id_terreno
-  }
+    console.log("terr"+this.peopleA[this.id].id_Terreno);
+
+    return this.peopleA[this.id].id_Terreno  }
   nTumba(){
+    console.log("tumba"+this.peopleA[this.id].id_tumba);
     return this.peopleA[this.id].id_tumba
   }
 }
