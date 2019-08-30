@@ -26,6 +26,7 @@ import { AdministracionComponent } from './administracion/administracion.compone
 import { AContentComponent } from './administracion/a-content/a-content.component';
 import { AHeaderComponent } from './administracion/a-header/a-header.component';
 import { AFooterComponent } from './administracion/a-footer/a-footer.component';
+import { CTerrenosLibresComponent } from './cliente/cliente-content/c-terrenos-libres/c-terrenos-libres.component';
 
 
 const routes: Routes = [
@@ -48,6 +49,10 @@ const routes: Routes = [
       {
         path: 'mostrarTerrenos',
         component: CMostrarTerrenosComponent
+      },
+      {
+        path: 'mostrarTerrenosLibres',
+        component: CTerrenosLibresComponent
       }
     ]
   },
@@ -117,7 +122,8 @@ const routes: Routes = [
     AdministracionComponent,
     AContentComponent,
     AHeaderComponent,
-    AFooterComponent
+    AFooterComponent,
+    CTerrenosLibresComponent
 
   ],
   imports: [
