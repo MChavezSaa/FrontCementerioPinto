@@ -16,10 +16,13 @@
         <div class="container">
           <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
           <!--cambiar el ng for por el de la query -->
+        <!-- Patio A--> 
           <div *ngFor="let person of peopleA; let i = index">
             <div *ngIf=" i+1 == person.id_tumba; else notShow">
-              <div id="a{{i+1}}" [ngClass]="'a'+ i"><a (click)="guardarID(i)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
+              <div id="a{{i+1}}" [ngClass]="'a'+ i">
+                <a (click)="guardarID(i)">
+                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+                </a>
               </div>
             </div>
             <ng-template #notShow>
@@ -30,7 +33,7 @@
             </ng-template>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
-
+          <!--Fin Patio A-->
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
             <div *ngIf=" i+1 == personB.id_tumba; else notShow">
