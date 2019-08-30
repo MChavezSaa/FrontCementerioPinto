@@ -2,19 +2,21 @@
 
 <br>
 <div class="container">
-    <div class="card">
-        <div class="card-body">
-            <h5><b><i>Opciones</i></b></h5>
-            <div class="row">
-                <div class="col-sm" align="center">
-                  <button type="button" class="btn btn-outline-primary" [routerLink]="['/inicio/mostrarTerrenosLibres/']">Libres</button>
-                </div>
-                <div class="col-sm">            
-                  <button  [disabled]="true" type="button" class="btn btn-outline-primary" routerLink="mostrarTerrenos">Ocupados</button>
-                </div>
-              </div>
+  <div class="card">
+    <div class="card-body">
+      <h5><b><i>Terrenos Ocupados</i></b></h5>
+      <div class="row">
+        <div class="col-sm" align="center">
+          <button type="button" class="btn btn-outline-primary"
+            [routerLink]="['/inicio/mostrarTerrenosLibres/']">Libres</button>
+        </div>
+        <div class="col-sm">
+          <button [disabled]="true" type="button" class="btn btn-outline-primary"
+            routerLink="mostrarTerrenos">Ocupados</button>
         </div>
       </div>
+    </div>
+  </div>
 
   <br>
 
@@ -24,125 +26,70 @@
         <div class="container">
           <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
           <!--cambiar el ng for por el de la query -->
-        <!-- Patio A--> 
+          <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div *ngIf=" i+1 == person.id_tumba; else notShow">
-              <div id="a{{i+1}}" [ngClass]="'a'+ i">
-                <a (click)="guardarDatos(i,'a', person.name, person.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
-              </div>
+            <div [id]="'a' + person.id_Terreno" [ngClass]="'a'+ person.id_tumba">
+              <a (click)="guardarDatos(i,'a', person.name, person.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
             </div>
-            <ng-template #notShow>
-              <div id="a{{i+1}}" [ngClass]="'a'+ i">
-              </div>
-            </ng-template>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
           <!--Fin Patio A-->
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
-            <div *ngIf=" i+1 == personB.id_tumba; else notShow">
-
-              <div id="b{{i+1}}" [ngClass]="'b'+ i">
-                <a (click)="guardarDatos(i,'b', personB.name, personB.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-                </a>
-              </div>
-
+            <div [id]="'b' + personB.id_Terreno" [ngClass]="'b'+ personB.id_tumba">
+              <a (click)="guardarDatos(i,'b', personB.name, personB.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="b{{i+1}}" [ngClass]="'b'+ i">
-              </div>
-            </ng-template>
           </div>
           <!--Fin Patio B-->
 
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
-            <div *ngIf=" i+1 == personC.id_tumba; else notShow">
-
-              <div id="c{{i+1}}" [ngClass]="'c'+ i">
-                <a (click)="guardarDatos(i,'c', personC.name,personC.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue"></i>
-                </a>
-              </div>
-
+            <div [id]="'c' + personC.id_Terreno" [ngClass]="'c'+ personC.id_tumba"> <a
+                (click)="guardarDatos(i,'c', personC.name,personC.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue"></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="c{{i+1}}" [ngClass]="'c'+ i">
-                <a (click)="guardarDatos(i,'c', person.name)"></a>
-              </div>
-            </ng-template>
           </div>
           <!--Fin Patio C-->
 
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
-            <div *ngIf=" i+1 == personD.id_tumba; else notShow">
-          
-              <div id="d{{i+1}}" [ngClass]="'d'+ i">
-                <a (click)="guardarDatos(i,'d', personD.name, personD.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-                </a>
-              </div>
-          
+            <div [id]="'d' + personD.id_Terreno" [ngClass]="'d'+ personD.id_tumba"> <a
+                (click)="guardarDatos(i,'d', personD.name, personD.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="d{{i+1}}" [ngClass]="'d'+ i">
-              </div>
-            </ng-template>
           </div>
           <!-- Fin Patio D-->
 
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
-            <div *ngIf=" i+1 == personE.id_tumba; else notShow">
-
-              <div id="e{{i+1}}" [ngClass]="'e'+ i">
-                <a (click)="guardarDatos(i,'e', personE.name, personE.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-                </a>
-              </div>
-
+            <div [id]="'e' + personE.id_Terreno" [ngClass]="'e'+ personE.id_tumba"> <a
+                (click)="guardarDatos(i,'e', personE.name, personE.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="e{{i+1}}" [ngClass]="'e'+ i">                
-              </div>
-            </ng-template>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
-            <div *ngIf=" i+1 == personF.id_tumba; else notShow">
-
-              <div id="f{{i+1}}" [ngClass]="'f'+ i">
-                <a (click)="guardarDatos(i,'f', personF.name, personF.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-                </a>
-              </div>
-
+            <div [id]="'f' + personF.id_Terreno" [ngClass]="'f'+ personF.id_tumba"> <a
+                (click)="guardarDatos(i,'f', personF.name, personF.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="f{{i+1}}" [ngClass]="'f'+ i">                
-              </div>
-            </ng-template>
           </div>
           <!-- fin patio F-->
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
-            <div *ngIf=" i+1 == personG.id_tumba; else notShow">
-
-              <div id="g{{i+1}}" [ngClass]="'g'+ i">
-                <a (click)="guardarDatos(i,'g', personG.name, personG.FD)">
-                  <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-                </a>
-              </div>
-
+            <div [id]="'g' + personG.id_Terreno" [ngClass]="'g'+ personG.id_tumba"> <a
+                (click)="guardarDatos(i,'g', personG.name, personG.FD)">
+                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
+              </a>
             </div>
-            <ng-template #notShow>
-              <div id="g{{i+1}}" [ngClass]="'g'+ i">                
-              </div>
-            </ng-template>
           </div>
           <!-- fin patio G-->
 
@@ -154,14 +101,14 @@
       <br>
       <table class="table">
         <thead class="thead-dark table-bordered">
-          
+
           <tr>
             <th scope="col">Nombre</th>
             <td> {{nombre()}}</td>
           </tr>
           <tr>
             <th scope="row"> Fecha Defunción</th>
-            <td>{{fd()}} </td>  
+            <td>{{fd()}} </td>
           </tr>
 
           <tr>
@@ -174,9 +121,9 @@
             <td>{{nTumba()}} </td>
           </tr>
         </thead>
-        
+
       </table>
-     <!-- <ul>
+      <!-- <ul>
         <li type="circle">Nombre: {{nombre()}}</li>
         <li type="circle">Fecha Defunción: {{fd()}}</li>
 
