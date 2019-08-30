@@ -110,11 +110,36 @@
       </div>
     </div>
     <div class="col-4">
-      <ul>
+      
+      <table class="table">
+        <thead class="thead-dark table-bordered">
+          
+          <tr>
+            <th scope="col">Nombre</th>
+            <td> {{nombre()}}</td>
+          </tr>
+          <tr>
+            <th scope="row"> Fecha Defunción</th>
+            <td>{{fd()}} </td>  
+          </tr>
+
+          <tr>
+            <th scope="row"> Patio</th>
+            <td>{{nTerreno()}} </td>
+          </tr>
+
+          <tr>
+            <th scope="row"> Número Tumba</th>
+            <td>{{nTumba()}} </td>
+          </tr>
+        </thead>
+        
+      </table>
+     <!-- <ul>
         <li type="circle">Nombre: {{nombre()}}</li>
         <li type="circle">Fecha Defunción: {{fd()}}</li>
 
-      </ul>
+      </ul>-->
     </div>
   </div>
 </div><br>

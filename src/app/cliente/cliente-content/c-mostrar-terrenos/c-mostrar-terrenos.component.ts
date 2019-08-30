@@ -586,4 +586,10 @@ export class CMostrarTerrenosComponent implements OnInit {
   fd(){
     return this.peopleA[this.id].FD
   }
+  nTerreno(){
+    return this.peopleA[this.id].id_terreno
+  }
+  nTumba(){
+    return this.peopleA[this.id].id_tumba
+  }
 }
