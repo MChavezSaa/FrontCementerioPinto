@@ -122,13 +122,6 @@ export class CMostrarTerrenosComponent implements OnInit {
       "id_tumba" : "16" ,
       "name": "lalal  Mueller",
       "FD": "26/6/2019"
-    },
-    {
-
-      "id_terreno ": "1" ,
-      "id_tumba" : "16" ,
-      "name": "lalal  Mueller",
-      "FD": "26/6/2019"
     }
     
   ];
@@ -240,6 +233,7 @@ export class CMostrarTerrenosComponent implements OnInit {
     }
 
   ];
+
   peopleC: any[] = [
     {
       "id_terreno ": "3",
@@ -569,6 +563,214 @@ export class CMostrarTerrenosComponent implements OnInit {
       "id_terreno ": "5" ,
       "id_tumba" : "14" ,
       "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    }
+    
+  ];
+
+  peopleF: any[] = [
+    {      
+      "id_terreno ": "6" ,
+      "id_tumba" : "1" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "2" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "3" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "6" ,
+      "id_tumba" : "4" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "6" ,
+      "id_tumba" : "5" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    }
+  ];
+    
+  peopleG: any[] = [
+    {      
+      "id_terreno ": "7" ,
+      "id_tumba" : "1" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "2" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "3" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "7" ,
+      "id_tumba" : "4" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "5" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "6" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "7" ,
+      "id_tumba" : "7" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "8" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "9" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "7" ,
+      "id_tumba" : "10" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "11" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "12" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {      
+      "id_terreno ": "7" ,
+      "id_tumba" : "13" ,
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "14" ,
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "15" ,
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "16" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "17" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    },     
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "18" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "19" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "20" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "21" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "22" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    }, 
+    {
+
+      "id_terreno ": "7" ,
+      "id_tumba" : "23" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+      "id_terreno ": "7" ,
+      "id_tumba" : "24" ,
+      "name": "maty",
+      "FD": "26/6/2019"
+    },
+    {
+      "id_terreno ": "7" ,
+      "id_tumba" : "25" ,
+      "name": "maty",
       "FD": "26/6/2019"
     }
     
