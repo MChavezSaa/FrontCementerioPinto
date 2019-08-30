@@ -307,6 +307,170 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   ];
 
+  peopleD: any[] = [
+    {
+      "id_terreno ": "4",
+      "id_tumba": "1",
+      "name": "Douglas  Pace",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "2",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "3",
+      "name": "lalal  Mueller",
+      "FD": "26/6/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "4",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "5",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "6",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "7",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "8",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "9",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "10",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "11",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "12",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "13",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "14",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "15",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "16",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "17",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "18",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "19",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "20",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "21",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "22",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    },
+    {
+
+      "id_terreno ": "4",
+      "id_tumba": "23",
+      "name": "Mcleod  Mueller",
+      "FD": "26/7/2019"
+    }
+     
+  ];
+
 
   peopleE: any[] = [
     {      
