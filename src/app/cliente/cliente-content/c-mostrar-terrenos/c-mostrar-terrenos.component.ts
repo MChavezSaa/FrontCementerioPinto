@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-c-mostrar-terrenos',
@@ -11,9 +13,10 @@ export class CMostrarTerrenosComponent implements OnInit {
   Letter: any;
   nombre2: any;
   Fd: any;
+  id_tumba: any;
 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -779,18 +782,30 @@ export class CMostrarTerrenosComponent implements OnInit {
 
   ];
 
-  guardarDatos(iD: number, letter: string, nombre1: string, fd2: string) {
+  guardarDatos(iD: number, letter: string, nombre1: string, fd2: string, idTumba: number) {
     //vaciar var
     this.id="";
     this.Letter="";
     this.nombre2="";
     this.Fd ="";
+    this.id_tumba="";
+
 
     //LLENAR VAR
     this.id = iD;
     this.Letter = letter;
     this.nombre2 = nombre1;
     this.Fd = fd2;
+    this.id_tumba=idTumba;
+
+    localStorage.setItem("ID",this.id);
+    localStorage.setItem("letter", this.Letter)
+    localStorage.setItem("Nombre",this.nombre2);
+    localStorage.setItem("FD",this.Fd);
+    localStorage.setItem("idTumba", this.id_tumba);
+
+    this.router.navigateByUrl('/inicio/MarkerEnfasis');
+    
   }
   nombre() {
     let nombre3: string;
