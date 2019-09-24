@@ -1,0 +1,62 @@
+<!-- este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
+
+<br>
+<div class="container">
+    <div class="card">
+        <div class="card-body">
+            <h5><b><i>Terrenos Ocupados</i></b></h5>
+            <div class="row" >
+                <div class="col-6" align="right">
+                        <button type="button" class="btn btn-outline-primary" (click)="LimpiarStorage()"
+                        [routerLink]="['/inicio/mostrarTerrenos/']">Volver</button>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="row">
+        <div class="col-8">
+            <div align="left">
+                <div class="container">
+                    <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
+                   <div class="{{idTumba()}}" >
+                        <i class="fas fa-map-marker-alt fa-2x" style="color: blue"></i>
+                      
+                   </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+            <legend>Detalle Terreno</legend>
+            <br>
+            <table class="table">
+                <thead class="thead-dark table-bordered">
+
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <td> {{nombre()}}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row"> Fecha Defunción</th>
+                        <td>{{fd()}} </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Patio</th>
+                        <td>{{nTerreno()}} </td>
+                    </tr>
+
+                    <tr>
+                        <th scope="row"> Número Tumba</th>
+                        <td>{{nTumba()}} </td>
+                    </tr>
+                </thead>
+
+            </table>
+        </div>
+    </div>
+</div><br>
+<!-- lala-->
