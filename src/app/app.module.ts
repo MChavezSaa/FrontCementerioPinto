@@ -35,6 +35,7 @@ import { AFuncionarioComponent } from './administracion/a-content/afuncionario/a
 import { AFormularioFuncionarioComponent } from './administracion/a-content/afuncionario/aformulario-funcionario/aformulario-funcionario.component';
 import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunto.component';
 import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
+import { EFormularioClientesComponent } from './empleado/empleado-content/e-clientes/e-formulario-clientes/e-formulario-clientes.component';
 
 
 const routes: Routes = [
@@ -99,6 +100,10 @@ const routes: Routes = [
       {
         path: "formularioDifuntos",
         component: EFormOccisoComponent
+      },
+      {
+        path: "formularioClientes",
+        component: EFormularioClientesComponent
       }
     ]
   },
@@ -190,7 +195,8 @@ const routes: Routes = [
     AFuncionarioComponent,
     AFormularioFuncionarioComponent,
     ADifuntoComponent,
-    AFomularioDifuntoComponent
+    AFomularioDifuntoComponent,
+    EFormularioClientesComponent
 
   ],
   imports: [

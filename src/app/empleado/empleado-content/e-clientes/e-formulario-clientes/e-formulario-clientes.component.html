@@ -1,0 +1,114 @@
+<div class="container">
+    <legend style="font-style: oblique"><b> Formulario Incripción de Clientes </b> </legend>
+    <hr style="color: black">
+    <div class="container">
+        <form>
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos Personales</h4>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Rut</label>
+                        <input type="text" class="form-control" id="rutCliente" placeholder="ej: 11111111-1">
+                    </div>
+                    <div class="col">
+                        <label>Nombres</label>
+                        <input type="text" class="form-control" id="nombresCliente"
+                            placeholder="Ingrese nombre Cliente">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Apellido Paterno</label>
+                        <input type="text" class="form-control" id="apellidoPCliente"
+                            placeholder="Ingrese Apellido Paterno">
+                    </div>
+                    <div class="col">
+                        <label>Apellido Materno</label>
+                        <input type="text" class="form-control" id="apellidoMCliente"
+                            placeholder="Ingrese Apellido Materno">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="exampleFormControlSelect1"> Género</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option value="${null}">Seleccione Género </option>
+                            <option>Femenino</option>
+                            <option>Masculino</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label>Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoCliente" 
+                        placeholder=" ej: 987654321 ">
+                    </div>
+                    <div class="col-6">
+                        <label>Dirección</label>
+                        <input type="text" class="form-control" id="direccionCliente" placeholder=" Ingrese una dirección">
+                    </div>
+                </div>
+            </div>
+
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos de Familiares</h4>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Rut</label>
+                        <input type="text" class="form-control" id="rutFam"
+                            placeholder="ej: 11111111-1">
+                    </div>
+                    <div class="col">
+                        <label>Nombre Familiar</label>
+                        <input type="text" class="form-control" id="nombreFam"
+                            placeholder="Ingrese el nombre del familiar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Apellido Paterno</label>
+                        <input type="text" class="form-control" id="apellidoPFam" placeholder="Ingrese el apellido Paterno">
+                    </div>
+                    <div class="col">
+                        <label>Apellido Materno</label>
+                        <input type="text" class="form-control" id="apellidoMFam" placeholder="Ingrese eel apellido Materno">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Teléfono</label>
+                        <input type="text" class="form-control" id="telefonoFam" placeholder=" ej: 987654321">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
+
+        </form>
+        <br>
+        <div style="text-align: center">
+            <button [routerLink]="['/personal-inicio/clientes']" type="submit" class="btn btn-danger"> Cancelar
+            </button>
+            &nbsp;&nbsp;
+            <button type="submit" class="btn btn-success"> Guardar </button>
+        </div>
+        <br>
+
+    </div>
+</div>
