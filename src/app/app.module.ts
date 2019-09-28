@@ -37,6 +37,8 @@ import { ATerrenosLibresComponent } from './administracion/a-content/aterrenos/a
 import { ATerrenosOcupadosComponent } from './administracion/a-content/aterrenos/aterrenos-ocupados/aterrenos-ocupados.component';
 import { ATerrenosReservadosComponent } from './administracion/a-content/aterrenos/aterrenos-reservados/aterrenos-reservados.component';
 import { AMarkerEnfasisComponent } from './administracion/a-content/aterrenos/amarker-enfasis/amarker-enfasis.component';
+import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunto.component';
+import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
 
 
 const routes: Routes = [
@@ -87,7 +89,7 @@ const routes: Routes = [
         component: ETerrenosComponent
       },
       {
-        path: "occisos",
+        path: "difuntos",
         component: EOccisosComponent
       },
       {
@@ -99,7 +101,7 @@ const routes: Routes = [
         component: EReducccionComponent
       },
       {
-        path: "formularioOccisos",
+        path: "formularioDifuntos",
         component: EFormOccisoComponent
       }
     ]
@@ -128,8 +130,8 @@ const routes: Routes = [
         component: ETerrenosComponent
       },
       {
-        path: "Aoccisos",
-        component: EOccisosComponent
+        path: "ADifuntos",
+        component: ADifuntoComponent
       },
       {
         path: "AmapaTerrenos",
@@ -140,8 +142,8 @@ const routes: Routes = [
         component: EReducccionComponent
       },
       {
-        path: "AformularioOccisos",
-        component: EFormOccisoComponent
+        path: "AformularioDifuntos",
+        component: AFomularioDifuntoComponent
       },
       {
         path: 'ATerrenosLibres',
@@ -198,7 +200,9 @@ const routes: Routes = [
     ATerrenosLibresComponent,
     ATerrenosOcupadosComponent,
     ATerrenosReservadosComponent,
-    AMarkerEnfasisComponent
+    AMarkerEnfasisComponent,
+    ADifuntoComponent,
+    AFomularioDifuntoComponent
 
   ],
   imports: [
