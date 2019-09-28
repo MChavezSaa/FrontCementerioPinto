@@ -1,4 +1,15 @@
 <div class="container">
+    <nav aria-label="breadcrumb">
+        <!--MIGAS DE PAN-->
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a style="color:#1d87f8" data-toggle="modal"
+                    data-target="#exampleModal">Difuntos</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Formulario Difuntos</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
     <legend style="font-style: oblique"><b> Formulario Incripción de Difuntos</b> </legend>
     <hr style="color: black">
     <div class="container">
@@ -137,5 +148,39 @@
         </div>
         <br>
 
+    </div>
+</div>
+
+
+<!--
+     
+-->
+
+<!--modal-->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body; text-justify">
+                <div class="card" style="width: 100%;">
+                    <div class="card-body">
+                        Si continuas los valores del formulario se perderan.<br>
+                        No se guardará nada que no se haya guardado previamente.<br>
+                        <p style="color: red"><i><b>¿Estas seguro de querer volver a la pagina anterior?</b></i></p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" [routerLink]="['/administracion-inicio/ADifuntos']"
+                    data-dismiss="modal">Continuar</button>
+            </div>
+        </div>
     </div>
 </div>
