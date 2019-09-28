@@ -40,6 +40,7 @@ import { AMarkerEnfasisComponent } from './administracion/a-content/aterrenos/am
 import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunto.component';
 import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
 import { EFormularioClientesComponent } from './empleado/empleado-content/e-clientes/e-formulario-clientes/e-formulario-clientes.component';
+import { CReglamentoClientesComponent } from './cliente/cliente-content/creglamento-clientes/creglamento-clientes.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,10 @@ const routes: Routes = [
       {
         path: 'MarkerEnfasis',
         component: ClienteEnfasisTerrenoComponent
+      },
+      {
+        path:'Reglamento',
+        component:CReglamentoClientesComponent
       }
     ]
   },
@@ -208,7 +213,8 @@ const routes: Routes = [
     AMarkerEnfasisComponent,
     ADifuntoComponent,
     AFomularioDifuntoComponent,
-    EFormularioClientesComponent
+    EFormularioClientesComponent,
+    CReglamentoClientesComponent
 
   ],
   imports: [
