@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmpleadoHeaderComponent implements OnInit {
 
+
+  mostrarSidebar:boolean=true;
   constructor() { }
 
   ngOnInit() {
   }
+  ocultarSidebar(){
+    if(this.mostrarSidebar==true){
+      this.mostrarSidebar=false;
+    }else{
+      this.mostrarSidebar=true;
+    }
+  }
+
 
 }
