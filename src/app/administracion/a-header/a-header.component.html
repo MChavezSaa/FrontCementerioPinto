@@ -9,23 +9,23 @@
     <ul class="list-unstyled components">
       <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> <span>Inicio</span> </a></li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="funcionarios"><i class="fas fa-user-alt colorFig"></i> Funcionarios</a>
+        <a class="nav-link" routerLink="Afuncionarios"><i class="fas fa-user-alt colorFig"></i> Funcionarios</a>
     </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="reduccion"><i class="fab fa-pagelines"></i> Reducción</a>
+        <a class="nav-link" routerLink="Areduccion"><i class="fab fa-pagelines"></i> Reducción</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="mapaTerrenos"><i class="fas fa-map colorFig"></i> Mapa de Terrenos</a>
+        <a class="nav-link" routerLink="AmapaTerrenos"><i class="fas fa-map colorFig"></i> Mapa de Terrenos</a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" routerLink="occisos"> <i class="fas fa-cross  colorFig"></i>Difuntos</a>
+        <a class="nav-link" routerLink="Aoccisos"> <i class="fas fa-cross  colorFig"></i>Difuntos</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" routerLink="clientes"> <i class="fas fa-user-friends  colorFig"></i>Clientes</a>
+        <a class="nav-link" routerLink="Aclientes"> <i class="fas fa-user-friends  colorFig"></i>Clientes</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/personal"><span class="fas fa-sign-in-alt"></span> Cerrar Sesión</a>
+        <a class="nav-link" (click)="login()"><span class="fas fa-sign-in-alt"></span> Cerrar Sesión</a>
       </li>
 
     </ul>

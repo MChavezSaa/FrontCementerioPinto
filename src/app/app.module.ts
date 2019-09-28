@@ -106,6 +106,46 @@ const routes: Routes = [
         path: "",
         component: AContentComponent
       },
+      {
+        path:"Afuncionarios",
+        component:AFuncionarioComponent
+      },
+      {
+        path: "Aclientes",
+        component: EClientesComponent
+      },
+      {
+        path: "Aterrenos",
+        component: ETerrenosComponent
+      },
+      {
+        path: "Aoccisos",
+        component: EOccisosComponent
+      },
+      {
+        path: "AmapaTerrenos",
+        component: EVerMapaTerrenoComponent
+      },
+      {
+        path: "Areduccion",
+        component: EReducccionComponent
+      },
+      {
+        path: "AformularioOccisos",
+        component: EFormOccisoComponent
+      },
+      {
+        path: 'mostrarTerrenos',
+        component: CMostrarTerrenosComponent
+      },
+      {
+        path: 'mostrarTerrenosLibres',
+        component: CTerrenosLibresComponent
+      },
+      {
+        path: 'MarkerEnfasis',
+        component: ClienteEnfasisTerrenoComponent
+      }
 
     ]
   },
