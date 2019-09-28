@@ -27,6 +27,7 @@ import { AContentComponent } from './administracion/a-content/a-content.componen
 import { AHeaderComponent } from './administracion/a-header/a-header.component';
 import { AFooterComponent } from './administracion/a-footer/a-footer.component';
 import { CTerrenosLibresComponent } from './cliente/cliente-content/c-terrenos-libres/c-terrenos-libres.component';
+import { CReglamentoComponent } from './cliente/cliente-content/c-reglamento/c-reglamento.component';
 import { ClienteEnfasisTerrenoComponent } from './cliente/cliente-content/cliente-enfasis-terreno/cliente-enfasis-terreno.component';
 
 
@@ -129,6 +130,7 @@ const routes: Routes = [
     AHeaderComponent,
     AFooterComponent,
     CTerrenosLibresComponent,
+    CReglamentoComponent,
     ClienteEnfasisTerrenoComponent
 
   ],
