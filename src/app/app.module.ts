@@ -32,6 +32,7 @@ import { ClienteEnfasisTerrenoComponent } from './cliente/cliente-content/client
 import { EFormOccisoComponent } from './empleado/empleado-content/e-occisos/e-form-occiso/e-form-occiso.component';
 
 import { AFuncionarioComponent } from './administracion/a-content/afuncionario/afuncionario.component';
+import { AFormularioFuncionarioComponent } from './administracion/a-content/afuncionario/aformulario-funcionario/aformulario-funcionario.component';
 
 
 const routes: Routes = [
@@ -111,6 +112,10 @@ const routes: Routes = [
         component:AFuncionarioComponent
       },
       {
+        path:"AFormularioFuncionario",
+        component: AFormularioFuncionarioComponent
+      },
+      {
         path: "Aclientes",
         component: EClientesComponent
       },
@@ -180,7 +185,8 @@ const routes: Routes = [
     CReglamentoComponent,
     ClienteEnfasisTerrenoComponent,
     EFormOccisoComponent,
-    AFuncionarioComponent
+    AFuncionarioComponent,
+    AFormularioFuncionarioComponent
 
   ],
   imports: [
