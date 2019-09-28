@@ -1,0 +1,118 @@
+<div class="container">
+    <form>
+        <legend>Datos Personales</legend>
+        <hr>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Rut</label>
+                    <input type="number" class="form-control" id="rutDifunto" placeholder="Ingrese un rut 11111111-1">
+                </div>
+                <div class="col">
+                    <label>Nombres</label>
+                    <input type="text" class="form-control" id="nombresDifunto" placeholder="Ingrese nombre difunto">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Apellido Paterno</label>
+                    <input type="text" class="form-control" id="apellidoPDifunto"
+                        placeholder="Ingrese Apellido Paterno">
+                </div>
+                <div class="col">
+                    <label>Apellido Materno</label>
+                    <input type="text" class="form-control" id="apellidoMDifunto"
+                        placeholder="Ingrese Apellido Materno">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="exampleFormControlSelect1">Seleccione Género</label>
+                    <select class="form-control" id="exampleFormControlSelect1">
+                        <option>Femenino</option>
+                        <option>Masculino</option>
+                        <option>Otro</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label for="fechaNacimientoDifunto">Fecha Nacimiento</label>
+                    <input class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
+                        th:errorclass="'form-control alert-danger'">
+                </div>
+            </div>
+        </div>
+        <legend>Datos Defunción</legend>
+        <hr>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label for="fechaNacimientoDifunto">Fecha Defunción</label>
+                    <input class="form-control" type="date" th:field="*{fechaDefuncionDifunto}"
+                        th:errorclass="'form-control alert-danger'">
+                </div>
+                <div class="col">
+                    <label for="fechaNacimientoDifunto">Fecha Entierro</label>
+                    <input class="form-control" type="date" th:field="*{fechaEntierroDifunto}"
+                        th:errorclass="'form-control alert-danger'">
+                </div>
+                <div class="col">
+                    <label for="fechaNacimientoDifunto">Fecha Incripción</label>
+                    <input class="form-control" type="date" th:field="*{fechaInscripcionDifunto}"
+                        th:errorclass="'form-control alert-danger'">
+                </div>
+            </div>
+        </div>
+
+        <legend>Datos Parentesco</legend>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Nombre del Padre</label>
+                    <input type="text" class="form-control" id="padreDifunto" placeholder="Ingrese el nombre del Padre">
+                </div>
+                <div class="col">
+                    <label>Nombre de la Madre</label>
+                    <input type="text" class="form-control" id="madreDifunto"
+                        placeholder="Ingrese el nombre de la Madre">
+                </div>
+            </div>
+        </div>
+        <legend>Documentacion a presentar</legend>
+        <div class="form-group">
+            <div class="row">
+                <div class="col">
+                    <label>Seleccione Sacramentos</label>
+                    <br>
+                    <input type="checkbox" name="sacramento1" value="1" checked> Bautismo
+                    <br>
+                    <input type="checkbox" name="sacramento2" value="2" checked> Eucaristía
+                    <br>
+                    <input type="checkbox" name="sacramento3" value="3" checked> Confirmación
+                    <br>
+                    <input type="checkbox" name="sacramento4" value="4" checked> Matrimonio
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="exampleFormControlFile1">Cargue fotocopia Carnet</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    </div>
+                    <label>Seleccione Documentos presentados</label>
+                    <br>
+                    <input type="checkbox" name="documento1" value="1"> Certificado Defunción
+                    <br>
+                    <input type="checkbox" name="documento2" value="2" checked> Fotocopia Carnet ambos lados
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </form>
+</div>
