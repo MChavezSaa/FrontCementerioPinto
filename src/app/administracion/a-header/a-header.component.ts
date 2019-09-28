@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-a-header',
@@ -8,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class AHeaderComponent implements OnInit {
   mostrarSidebar:boolean=true;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -19,4 +20,8 @@ export class AHeaderComponent implements OnInit {
       this.mostrarSidebar=true;
     }
   }
+  login(): void {
+    this.router.navigateByUrl('/personal');
+  }
+
 }
