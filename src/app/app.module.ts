@@ -39,6 +39,7 @@ import { ATerrenosReservadosComponent } from './administracion/a-content/aterren
 import { AMarkerEnfasisComponent } from './administracion/a-content/aterrenos/amarker-enfasis/amarker-enfasis.component';
 import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunto.component';
 import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
+import { EFormularioClientesComponent } from './empleado/empleado-content/e-clientes/e-formulario-clientes/e-formulario-clientes.component';
 
 
 const routes: Routes = [
@@ -103,6 +104,10 @@ const routes: Routes = [
       {
         path: "formularioDifuntos",
         component: EFormOccisoComponent
+      },
+      {
+        path: "formularioClientes",
+        component: EFormularioClientesComponent
       }
     ]
   },
@@ -202,7 +207,8 @@ const routes: Routes = [
     ATerrenosReservadosComponent,
     AMarkerEnfasisComponent,
     ADifuntoComponent,
-    AFomularioDifuntoComponent
+    AFomularioDifuntoComponent,
+    EFormularioClientesComponent
 
   ],
   imports: [
