@@ -1,3 +1,4 @@
+
 .jumbotron {
 
     min-height: 100vh !important;
@@ -15,3 +16,11 @@ p{
 .colorFig{
     color: white;
 }
+.card { background-color: rgba(245, 245, 245, 0.4); }
+.card-header, .card-footer { opacity: 1}
+hr, .hrcolor {
+    height: 1px;
+    border: 0;
+    color: #666;
+    background-color: white;
+ }
