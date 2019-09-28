@@ -33,6 +33,10 @@ import { EFormOccisoComponent } from './empleado/empleado-content/e-occisos/e-fo
 
 import { AFuncionarioComponent } from './administracion/a-content/afuncionario/afuncionario.component';
 import { AFormularioFuncionarioComponent } from './administracion/a-content/afuncionario/aformulario-funcionario/aformulario-funcionario.component';
+import { ATerrenosLibresComponent } from './administracion/a-content/aterrenos/aterrenos-libres/aterrenos-libres.component';
+import { ATerrenosOcupadosComponent } from './administracion/a-content/aterrenos/aterrenos-ocupados/aterrenos-ocupados.component';
+import { ATerrenosReservadosComponent } from './administracion/a-content/aterrenos/aterrenos-reservados/aterrenos-reservados.component';
+import { AMarkerEnfasisComponent } from './administracion/a-content/aterrenos/amarker-enfasis/amarker-enfasis.component';
 
 
 const routes: Routes = [
@@ -140,16 +144,20 @@ const routes: Routes = [
         component: EFormOccisoComponent
       },
       {
-        path: 'mostrarTerrenos',
-        component: CMostrarTerrenosComponent
+        path: 'ATerrenosLibres',
+        component: ATerrenosLibresComponent
       },
       {
-        path: 'mostrarTerrenosLibres',
-        component: CTerrenosLibresComponent
+        path: 'ATerrenosOcupados',
+        component: ATerrenosOcupadosComponent
       },
       {
-        path: 'MarkerEnfasis',
-        component: ClienteEnfasisTerrenoComponent
+        path: 'ATerrenosReservados',
+        component: ATerrenosReservadosComponent
+      },
+      {
+        path: 'AMarkerEnfasis',
+        component: AMarkerEnfasisComponent
       }
 
     ]
@@ -186,7 +194,11 @@ const routes: Routes = [
     ClienteEnfasisTerrenoComponent,
     EFormOccisoComponent,
     AFuncionarioComponent,
-    AFormularioFuncionarioComponent
+    AFormularioFuncionarioComponent,
+    ATerrenosLibresComponent,
+    ATerrenosOcupadosComponent,
+    ATerrenosReservadosComponent,
+    AMarkerEnfasisComponent
 
   ],
   imports: [
