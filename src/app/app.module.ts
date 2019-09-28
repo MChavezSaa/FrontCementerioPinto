@@ -30,8 +30,7 @@ import { CTerrenosLibresComponent } from './cliente/cliente-content/c-terrenos-l
 import { CReglamentoComponent } from './cliente/cliente-content/c-reglamento/c-reglamento.component';
 import { ClienteEnfasisTerrenoComponent } from './cliente/cliente-content/cliente-enfasis-terreno/cliente-enfasis-terreno.component';
 import { EFormOccisoComponent } from './empleado/empleado-content/e-occisos/e-form-occiso/e-form-occiso.component';
-import { FormularioFuncionarioComponent } from './administracion/a-content/formulario-funcionario/formulario-funcionario.component';
-import { FuncionarioComponent } from './administracion/a-content/funcionario/funcionario.component';
+
 import { AFuncionarioComponent } from './administracion/a-content/afuncionario/afuncionario.component';
 
 
@@ -141,8 +140,6 @@ const routes: Routes = [
     CReglamentoComponent,
     ClienteEnfasisTerrenoComponent,
     EFormOccisoComponent,
-    FormularioFuncionarioComponent,
-    FuncionarioComponent,
     AFuncionarioComponent
 
   ],
