@@ -33,6 +33,8 @@ import { EFormOccisoComponent } from './empleado/empleado-content/e-occisos/e-fo
 
 import { AFuncionarioComponent } from './administracion/a-content/afuncionario/afuncionario.component';
 import { AFormularioFuncionarioComponent } from './administracion/a-content/afuncionario/aformulario-funcionario/aformulario-funcionario.component';
+import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunto.component';
+import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
 
 
 const routes: Routes = [
@@ -83,7 +85,7 @@ const routes: Routes = [
         component: ETerrenosComponent
       },
       {
-        path: "occisos",
+        path: "difuntos",
         component: EOccisosComponent
       },
       {
@@ -95,7 +97,7 @@ const routes: Routes = [
         component: EReducccionComponent
       },
       {
-        path: "formularioOccisos",
+        path: "formularioDifuntos",
         component: EFormOccisoComponent
       }
     ]
@@ -124,8 +126,8 @@ const routes: Routes = [
         component: ETerrenosComponent
       },
       {
-        path: "Aoccisos",
-        component: EOccisosComponent
+        path: "ADifuntos",
+        component: ADifuntoComponent
       },
       {
         path: "AmapaTerrenos",
@@ -136,8 +138,8 @@ const routes: Routes = [
         component: EReducccionComponent
       },
       {
-        path: "AformularioOccisos",
-        component: EFormOccisoComponent
+        path: "AformularioDifuntos",
+        component: AFomularioDifuntoComponent
       },
       {
         path: 'mostrarTerrenos',
@@ -186,7 +188,9 @@ const routes: Routes = [
     ClienteEnfasisTerrenoComponent,
     EFormOccisoComponent,
     AFuncionarioComponent,
-    AFormularioFuncionarioComponent
+    AFormularioFuncionarioComponent,
+    ADifuntoComponent,
+    AFomularioDifuntoComponent
 
   ],
   imports: [
