@@ -29,6 +29,7 @@ import { AFooterComponent } from './administracion/a-footer/a-footer.component';
 import { CTerrenosLibresComponent } from './cliente/cliente-content/c-terrenos-libres/c-terrenos-libres.component';
 import { CReglamentoComponent } from './cliente/cliente-content/c-reglamento/c-reglamento.component';
 import { ClienteEnfasisTerrenoComponent } from './cliente/cliente-content/cliente-enfasis-terreno/cliente-enfasis-terreno.component';
+import { EFormOccisoComponent } from './empleado/empleado-content/e-occisos/e-form-occiso/e-form-occiso.component';
 
 
 const routes: Routes = [
@@ -89,6 +90,10 @@ const routes: Routes = [
       {
         path: "reduccion",
         component: EReducccionComponent
+      },
+      {
+        path: "formularioOccisos",
+        component: EFormOccisoComponent
       }
     ]
   },
@@ -131,7 +136,8 @@ const routes: Routes = [
     AFooterComponent,
     CTerrenosLibresComponent,
     CReglamentoComponent,
-    ClienteEnfasisTerrenoComponent
+    ClienteEnfasisTerrenoComponent,
+    EFormOccisoComponent
 
   ],
   imports: [
