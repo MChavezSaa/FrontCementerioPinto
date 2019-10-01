@@ -16,7 +16,7 @@ p{
 .colorFig{
     color: white;
 }
-.card { background-color: rgba(245, 245, 245, 0.4); }
+.card { background-color: rgba(0, 0, 0, 0.4); }
 .card-header, .card-footer { opacity: 1}
 hr, .hrcolor {
     height: 1px;
