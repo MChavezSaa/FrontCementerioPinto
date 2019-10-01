@@ -52,6 +52,30 @@
                             th:errorclass="'form-control alert-danger'">
                     </div>
                 </div>
+                <br>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <label>Seleccione Sacramentos</label>
+                            <br>
+                            <input type="checkbox" name="sacramento1" value="1" checked> Bautismo
+                            <br>
+                            <input type="checkbox" name="sacramento2" value="2" checked> Eucaristía
+                        </div>
+                        <div class="col">
+                            <br>
+                            <input type="checkbox" name="sacramento3" value="3" checked> Confirmación
+                            <br>
+                            <input type="checkbox" name="sacramento4" value="4" checked> Matrimonio
+                        </div>
+                        <div class="col-6">
+
+                        </div>
+                    </div>
+                </div>
+                
+               
             </div>
             <div class="separacion"style="text-align: center">
                 <h4> &nbsp; Datos de Defunción</h4>
@@ -94,28 +118,42 @@
                     </div>
                 </div>
             </div>
+
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Subir Documentos</h4>
+            </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Cargue fotocopia Carnet</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                            
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Certificado Defunción</label>
+                                <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+                        
+                        </div>
+
+                    </div>
+                </div>
+
+
+            
+
+
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Documentación a Presentar</h4>
             </div>
 
             <div class="form-group">
                 <div class="row">
+                    
                     <div class="col">
-                        <label>Seleccione Sacramentos</label>
-                        <br>
-                        <input type="checkbox" name="sacramento1" value="1" checked> Bautismo
-                        <br>
-                        <input type="checkbox" name="sacramento2" value="2" checked> Eucaristía
-                        <br>
-                        <input type="checkbox" name="sacramento3" value="3" checked> Confirmación
-                        <br>
-                        <input type="checkbox" name="sacramento4" value="4" checked> Matrimonio
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleFormControlFile1">Cargue fotocopia Carnet</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
                         <label>Seleccione Documentos presentados</label>
                         <br>
                         <input type="checkbox" name="documento1" value="1"> Certificado Defunción
