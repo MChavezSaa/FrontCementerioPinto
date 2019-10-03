@@ -41,6 +41,8 @@ import { ADifuntoComponent } from './administracion/a-content/a-difunto/a-difunt
 import { AFomularioDifuntoComponent } from './administracion/a-content/a-difunto/a-fomulario-difunto/a-fomulario-difunto.component';
 import { EFormularioClientesComponent } from './empleado/empleado-content/e-clientes/e-formulario-clientes/e-formulario-clientes.component';
 import { CReglamentoClientesComponent } from './cliente/cliente-content/creglamento-clientes/creglamento-clientes.component';
+import { EVentaDerechoComponent } from './empleado/empleado-content/e-venta-derecho/e-venta-derecho.component';
+import { EFormularioVentaComponent } from './empleado/empleado-content/e-venta-derecho/e-formulario-venta/e-formulario-venta.component';
 
 
 const routes: Routes = [
@@ -113,6 +115,14 @@ const routes: Routes = [
       {
         path: "formularioClientes",
         component: EFormularioClientesComponent
+      },
+      {
+        path: "VentaDerecho",
+        component: EVentaDerechoComponent
+      },
+      {
+        path: "formularioVenta",
+        component: EFormularioVentaComponent
       }
     ]
   },
@@ -214,8 +224,9 @@ const routes: Routes = [
     ADifuntoComponent,
     AFomularioDifuntoComponent,
     EFormularioClientesComponent,
-    CReglamentoClientesComponent
-
+    CReglamentoClientesComponent,
+    EVentaDerechoComponent,
+    EFormularioVentaComponent
   ],
   imports: [
     BrowserModule,
