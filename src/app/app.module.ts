@@ -44,7 +44,6 @@ import { CReglamentoClientesComponent } from './cliente/cliente-content/creglame
 import { EVentaDerechoComponent } from './empleado/empleado-content/e-venta-derecho/e-venta-derecho.component';
 import { EFormularioVentaComponent } from './empleado/empleado-content/e-venta-derecho/e-formulario-venta/e-formulario-venta.component';
 
-
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
   {
