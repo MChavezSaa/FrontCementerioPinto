@@ -118,10 +118,11 @@ a:focus{
     background: rgb(48, 47, 47);
 }
 
+
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: rgb(82, 82, 82)
+    background: #343a40;
 }
 a[data-toggle="collapse"] {
     position: relative;
@@ -151,8 +152,6 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-
-
 
 
 @media(maz-width:768px){
