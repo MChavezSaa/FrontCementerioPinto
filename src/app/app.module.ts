@@ -43,6 +43,15 @@ import { EFormularioClientesComponent } from './empleado/empleado-content/e-clie
 import { CReglamentoClientesComponent } from './cliente/cliente-content/creglamento-clientes/creglamento-clientes.component';
 import { EVentaDerechoComponent } from './empleado/empleado-content/e-venta-derecho/e-venta-derecho.component';
 import { EFormularioVentaComponent } from './empleado/empleado-content/e-venta-derecho/e-formulario-venta/e-formulario-venta.component';
+import { AGestionCementerioComponent } from './administracion/a-content/agestion-cementerio/agestion-cementerio.component';
+import { ACementerioComponent } from './administracion/a-content/agestion-cementerio/a-cementerio/a-cementerio.component';
+import { ATerrenoComponent } from './administracion/a-content/agestion-cementerio/a-terreno/a-terreno.component';
+import { APatioComponent } from './administracion/a-content/agestion-cementerio/a-patio/a-patio.component';
+import { ATumbaComponent } from './administracion/a-content/agestion-cementerio/a-tumba/a-tumba.component';
+import { AFormularioCementerioComponent } from './administracion/a-content/agestion-cementerio/a-cementerio/a-formulario-cementerio/a-formulario-cementerio.component';
+import { AFormularioPatioComponent } from './administracion/a-content/agestion-cementerio/a-patio/a-formulario-patio/a-formulario-patio.component';
+import { AFormularioTerrenoComponent } from './administracion/a-content/agestion-cementerio/a-terreno/a-formulario-terreno/a-formulario-terreno.component';
+import { AFormularioTumbaComponent } from './administracion/a-content/agestion-cementerio/a-tumba/a-formulario-tumba/a-formulario-tumba.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -179,6 +188,38 @@ const routes: Routes = [
       {
         path: 'AMarkerEnfasis',
         component: AMarkerEnfasisComponent
+      },
+      {
+        path: 'ACementerio',
+        component: ACementerioComponent
+      },
+      {
+        path: 'AFormularioCementerio',
+        component: AFormularioCementerioComponent
+      },
+      {
+        path: 'APatio',
+        component: APatioComponent
+      },
+      {
+        path: 'AFormularioPatio',
+        component: AFormularioPatioComponent
+      },
+      {
+        path: 'AGTerreno',
+        component: ATerrenoComponent
+      },
+      {
+        path: 'AGFormularioTerreno',
+        component: AFormularioTerrenoComponent
+      },
+      {
+        path: 'ATumba',
+        component: ATumbaComponent
+      },
+      {
+        path: 'AFormularioTumba',
+        component: AFormularioTumbaComponent
       }
 
     ]
@@ -225,7 +266,16 @@ const routes: Routes = [
     EFormularioClientesComponent,
     CReglamentoClientesComponent,
     EVentaDerechoComponent,
-    EFormularioVentaComponent
+    EFormularioVentaComponent,
+    AGestionCementerioComponent,
+    ACementerioComponent,
+    ATerrenoComponent,
+    APatioComponent,
+    ATumbaComponent,
+    AFormularioCementerioComponent,
+    AFormularioPatioComponent,
+    AFormularioTerrenoComponent,
+    AFormularioTumbaComponent
   ],
   imports: [
     BrowserModule,
