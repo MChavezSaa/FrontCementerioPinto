@@ -174,9 +174,17 @@ export class BackendServiceService {
     );
   }
 
-  updateTipoTumba(id: number, tipoTumba: TipoTumba) {
-    return this.http.put(this.urlEndPoint + 'updateTipoTumba/' + id, tipoTumba);
+  updateTipoTumba(tipoTumba:TipoTumba, id:number):Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}+updateTipoTumba/${id}`,tipoTumba,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el tipo de tumba', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
+
 
 
   /*TUMBA*/ /*NO TIENE DELETE*/
@@ -199,7 +207,15 @@ export class BackendServiceService {
     );
   }
 
-  updateTumba(id: number, tumba: Tumba) {
-    return this.http.put(this.urlEndPoint + 'updateTumba/' + id, tumba);
+  updateTumba(tumba:Tumba, id:number):Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}+updateTumba/${id}`,tumba,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editarla tumba', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
+
 }
