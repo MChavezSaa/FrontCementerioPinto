@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Cliente } from '../empleado/empleado-content/e-clientes/cliente';
-import { Cementerio } from '../Entidades/Cementerio';
 import { map, catchError } from 'rxjs/operators';
-
 import { Funcionario } from '../Entidades/Funcionario';
 import { Terreno } from '../Entidades/Terreno';
 import { Patio } from '../Entidades/Patio';
@@ -46,10 +44,16 @@ export class BackendServiceService {
       );
     }
   
-
-  deleteCliente(id: number) {
-    return this.http.delete(this.urlEndPoint + 'deleteCliente/' + id);
+  deleteCliente(id:number):Observable<Cliente>{
+    return this.http.delete<Cliente>(`${this.urlEndPoint}+"deleteCliente/"+${id}`,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el cliente', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
+
 
 
   /* FUNCIONARIO  */
@@ -71,13 +75,25 @@ export class BackendServiceService {
     );
   }
 
-
-  deleteFuncionario(id: number) {
-    return this.http.delete(this.urlEndPoint + 'deleteFuncionario/' + id);
+  deleteFuncionario(id:number):Observable<Funcionario>{
+    return this.http.delete<Funcionario>(`${this.urlEndPoint}+"deleteFuncionario/"+${id}`,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Funcionario', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
 
-  updateFuncionario(id: number, funcionario: Funcionario) {
-    return this.http.put(this.urlEndPoint + 'updateFuncionario/' + id, funcionario);
+  updateFuncionario(funcionario:Funcionario, id:number):Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}+updateFuncionario/${id}`,funcionario,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el funcionario', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
 
   /*TERRENO*/  /**no existe update en terreno */
@@ -98,10 +114,15 @@ export class BackendServiceService {
     );
   }
 
-  deleteTerreno(id: number) {
-    return this.http.delete(this.urlEndPoint + 'deleteTerreno/' + id);
+  deleteTerreno(id:number):Observable<Terreno>{
+    return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"+${id}`,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Terreno', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
-
 
   /*PATIO*/  /**no existe update en patio */
 
@@ -123,9 +144,16 @@ export class BackendServiceService {
   }
   
 
-  deletePatio(id: number) {
-    return this.http.delete(this.urlEndPoint + 'deletePatio/' + id);
+  deletePatio(id:number):Observable<Patio>{
+    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"+${id}`,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Patio', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
   }
+
 
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
