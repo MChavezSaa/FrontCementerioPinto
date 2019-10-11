@@ -9,6 +9,7 @@ import { Patio } from '../Entidades/Patio';
 import { TipoTumba } from '../Entidades/TipoTumba';
 import { Tumba } from '../Entidades/Tumba';
 import Swal from 'sweetalert2';
+import { Cementerio } from '../Entidades/Cementerio';
 
 
 
@@ -217,5 +218,37 @@ export class BackendServiceService {
       })
     );
   }
+
+  /*CEMENTERIO */
+
+  getCementerio():Observable<Cementerio[]>{
+    return this.http.get(this.urlEndPoint + "listCementerios").pipe(
+      map((response)=>response as Cementerio[])
+    )
+  }
+
+
+  saveCementerio(cementerio:Cementerio):Observable<Cementerio>{  
+    return this.http.post(this.urlEndPoint+"saveCementerio",cementerio,{headers:this.httpHeaders}).pipe(
+      map((response:any) => response.cementerio as Cementerio),
+      catchError(e=>{
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  updateCementerio(cementerio:Cementerio, id:number):Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}+updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el cementerio', e.error.mensaje,'error');
+        return throwError(e);
+      })
+    );
+  }
+
 
 }
