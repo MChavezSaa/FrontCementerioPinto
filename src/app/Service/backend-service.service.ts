@@ -10,6 +10,7 @@ import { TipoTumba } from '../Entidades/TipoTumba';
 import { Tumba } from '../Entidades/Tumba';
 import Swal from 'sweetalert2';
 import { Cementerio } from '../Entidades/Cementerio';
+import { Derecho } from '../Entidades/Derecho';
 
 
 
@@ -249,6 +250,37 @@ export class BackendServiceService {
       })
     );
   }
+
+/*Derecho */
+
+getDerecho():Observable<Derecho[]>{
+  return this.http.get(this.urlEndPoint + "listDerechos").pipe(
+    map((response)=>response as Derecho[])
+  )
+}
+
+
+saveDerecho(derecho:Derecho):Observable<Derecho>{  
+  return this.http.post(this.urlEndPoint+"saveCementerio",derecho,{headers:this.httpHeaders}).pipe(
+    map((response:any) => response.derecho as Derecho),
+    catchError(e=>{
+      console.error(e.error.mensaje);
+      Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
+      return throwError(e);
+    })
+  );
+}
+/*
+updateDerecho(cementerio:Cementerio, id:number):Observable<any>{
+  return this.http.put<any>(`${this.urlEndPoint}+updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
+    catchError(e=>{
+
+      console.error(e.error.mensaje);
+      Swal.fire('Error al editar el cementerio', e.error.mensaje,'error');
+      return throwError(e);
+    })
+  );
+}*/
 
 
 }
