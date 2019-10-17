@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Terreno } from 'src/app/Entidades/Terreno';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-a-formulario-patio',
@@ -7,9 +12,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AFormularioPatioComponent implements OnInit {
 
-  constructor() { }
+  terrenoList:Terreno[] = [];
+  formPatio:FormGroup;
+
+
+  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+    private router: Router) {
+    this.formPatio = this.formBuilder.group({
+      capacidad_Patio: ['', [Validators.required]],
+      nombre_Patio: ['', [Validators.required]],
+      estado_Patio: ['', [Validators.required]],
+      terreno: ['', [Validators.required]]
+    });
+  }
 
   ngOnInit() {
+    this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
+  }
+
+
+  public createPatio(): void {
+    this.service.savePatio(this.formPatio.value)
+      .subscribe(
+        patio => {
+          //ver como tomar valor de nombre para funcion swal
+          Swal.fire('Nuevo Patio', `Patio ${patio} creado con Exito`, 'success');
+          this.router.navigate(['/administracion-inicio/ACementerio']);
+        },
+        err => {
+          console.log(err)
+        }
+      );
   }
 
 }
