@@ -106,7 +106,8 @@ export class BackendServiceService {
   }
 
   saveTerreno(terreno:Terreno):Observable<Terreno>{  
-    return this.http.post(this.urlEndPoint+"saveTerreno",terreno,{headers:this.httpHeaders}).pipe(
+    terreno.estado_Terreno = true;
+    return this.http.post(this.urlEndPoint+"saveTerrenos",terreno,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.terreno as Terreno),
       catchError(e=>{
         console.error(e.error.mensaje);

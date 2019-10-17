@@ -32,14 +32,15 @@ export class AFormularioTerrenoComponent implements OnInit {
   }
 
   public create():void{
-    this.service.saveCementerio(this.formTerreno.value)
+    console.log(this.formTerreno.value);
+    this.service.saveTerreno(this.formTerreno.value)
       .subscribe(
       terreno => {   
         //ver como tomar valor de nombre para funcion swal
         Swal.fire('Nuevo Terreno', `Terreno ${terreno} creado con Exito`, 'success');    
         this.router.navigate(['/administracion-inicio/ACementerio']);  
       },
-      err=>{
+      err => {
         console.log(err)
       }
     );
