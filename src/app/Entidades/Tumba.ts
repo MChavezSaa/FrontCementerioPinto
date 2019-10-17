@@ -3,9 +3,8 @@ import { Funcionario } from './Funcionario';
 import { Patio } from './Patio';
 import { TipoTumba } from './TipoTumba';
 
-export interface Tumba {
-    id_Tumba: number;
-    tipo_Tumba: number;
+export interface Tumba {    
+    numero_Tumba: number;
     valor_Tumba: number;
     estado_Disponible: Boolean;
     estado_Tumba: number;
