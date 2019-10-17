@@ -32,6 +32,7 @@ export class AFormularioTerrenoComponent implements OnInit {
   }
 
   public create():void{
+    console.log(this.formTerreno.value);
     this.service.saveTerreno(this.formTerreno.value)
       .subscribe(
       terreno => {   
