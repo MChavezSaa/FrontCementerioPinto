@@ -32,9 +32,8 @@
                         <label for="exampleFormControlSelect1">Cementerio</label>
                         <select class="form-control" id="exampleFormControlSelect1">
                             <option value="${null}">Seleccione Cementerio </option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                            <option *ngFor="let c of cementerioList" [ngValue]="c">{{c.nombre_Cementerio}}</option>
+                         
                         </select>
                     </div>
 
@@ -43,14 +42,12 @@
                     </div>
                 </div>
             </div>
-
-
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/AGTerreno']" type="submit" class="btn btn-danger">
+                    Cancelar </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
         </form>
-        <div style="text-align: center">
-            <button [routerLink]="['/administracion-inicio/AGTerreno']" type="submit" class="btn btn-danger">
-                Cancelar </button>
-            &nbsp;&nbsp;
-            <button type="submit" class="btn btn-success"> Guardar </button>
-        </div>
     </div>
 </div>
