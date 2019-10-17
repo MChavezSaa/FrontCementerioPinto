@@ -21,7 +21,6 @@ export class AFormularioPatioComponent implements OnInit {
     this.formPatio = this.formBuilder.group({
       capacidad_Patio: ['', [Validators.required]],
       nombre_Patio: ['', [Validators.required]],
-      estado_Patio: ['', [Validators.required]],
       terreno: ['', [Validators.required]]
     });
   }
@@ -37,7 +36,7 @@ export class AFormularioPatioComponent implements OnInit {
         patio => {
           //ver como tomar valor de nombre para funcion swal
           Swal.fire('Nuevo Patio', `Patio ${patio} creado con Exito`, 'success');
-          this.router.navigate(['/administracion-inicio/ACementerio']);
+          this.router.navigate(['/administracion-inicio/APatio']);
         },
         err => {
           console.log(err)

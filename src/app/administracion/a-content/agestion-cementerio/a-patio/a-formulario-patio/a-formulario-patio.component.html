@@ -10,12 +10,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="nombrePatio"
+                        <input formControlName="nombre_Patio" type="text" class="form-control" id="nombrePatio"
                             placeholder="Ingrese un nombre para el patio">
                     </div>
                     <div class="col">
                         <label>Capacidad Patio</label>
-                        <input type="number" class="form-control" id="capacidadPatio"
+                        <input formControlName="capacidad_Patio" type="number" class="form-control" id="capacidadPatio"
                             placeholder="Ingrese la capacidad del patio">
                     </div>
                     <div class="col-2">
@@ -30,11 +30,10 @@
 
                     <div class="col">
                         <label for="exampleFormControlSelect1">Terreno</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option value="${null}">Seleccione Terreno </option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select formControlName="terreno" class="form-control" id="exampleFormControlSelect1">
+                            <option selected="true" disabled="disabled">Seleccione Terreno </option>
+                            <option *ngFor="let c of terrenoList" [ngValue]="c">{{c.nombre_Terreno}}</option>
+                            
                         </select>
                     </div>
                     

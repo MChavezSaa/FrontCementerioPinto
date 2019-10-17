@@ -2,7 +2,7 @@
     <legend>Formulario para Tipo Tumba</legend>
     <hr style="color: black">
     <div class="container">
-        <form>
+        <form [formGroup]="formTipoTumba" (ngSubmit)="createTipoTumba()" novalidate>
             <div class="separacion">
                 <h4> &nbsp; Datos principales</h4>
             </div>
@@ -10,12 +10,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Nombre</label>
-                        <input type="text" class="form-control" id="nombreTipoTumba"
+                        <input formControlName="nombre_tipo_tumba" type="text" class="form-control" id="nombreTipoTumba"
                             placeholder="Ingrese un nombre para el tipo de tumba">
                     </div>
                     <div class="col">
                         <label>Capacidad Tumba</label>
-                        <input type="number" class="form-control" id="capacidadTipoTumba"
+                        <input formControlName="capacidad_tipo_tumba" type="number" class="form-control" id="capacidadTipoTumba"
                             placeholder="Ingrese la capacidad del tipo tumba">
                     </div>
                     <div class="col-2">
@@ -25,14 +25,15 @@
             </div>
             <div class="form-group">
             </div>
-            
+           
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/ATumba']" type="submit" class="btn btn-danger">
+                    Cancelar </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
 
         </form>
-        <div style="text-align: center">
-            <button [routerLink]="['/administracion-inicio/AGTerreno']" type="submit" class="btn btn-danger">
-                Cancelar </button>
-            &nbsp;&nbsp;
-            <button type="submit" class="btn btn-success"> Guardar </button>
-        </div>
+        
     </div>
 </div>
