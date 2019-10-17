@@ -2,7 +2,7 @@
     <legend>Formulario inscripción Funcionarios</legend>
     <hr style="color: black">
     <div class="container">
-        <form>
+        <form [formGroup]="formFuncionario" (ngSubmit)="create()" novalidate>
             <div class="separacion">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -10,12 +10,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut</label>
-                        <input type="text" class="form-control" id="rutFuncionario"
+                        <input formControlName="rut_Funcionario" type="text" class="form-control" id="rut_Funcionario"
                             placeholder="Ingrese un rut 11111111-1">
                     </div>
                     <div class="col">
                         <label>Nombres</label>
-                        <input type="text" class="form-control" id="nombresFuncionario"
+                        <input formControlName="nombres_Funcionario" type="text" class="form-control" id="nombres_Funcionario"
                             placeholder="Ingrese ambos nombres del Funcionario">
                     </div>
                 </div>
@@ -26,12 +26,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input type="text" class="form-control" id="apellidoPFuncionario"
+                        <input formControlName="apellidoP_Funcionario" type="text" class="form-control" id="apellidoP_Funcionario"
                             placeholder="Ingrese Apellido Paterno">
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input type="text" class="form-control" id="apellidoMFuncionario"
+                        <input formControlName="apellidoM_Funcionario" type="text" class="form-control" id="apellidoM_Funcionario"
                             placeholder="Ingrese Apellido Materno">
                     </div>
                 </div>
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1">Género</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select formControlName="genero_Funcionario"class="form-control" id="genero_Funcionario">
                             <option value="${null}">Seleccione Género </option>
                             <option>Masculino</option>
                             <option>Femenino</option>
@@ -50,7 +50,7 @@
 
                     <div class="col">
                         <label for="exampleFormControlSelect1">Cargo</label>
-                        <select class="form-control" id="exampleFormControlSelect2">
+                        <select formControlName="cargo_Funcionario" class="form-control" id="cargo_Funcionario">
                             <option value="${null}">Seleccione Cargo </option>
                             <option>Párroco</option>
                             <option>Secretaria</option>
@@ -61,12 +61,12 @@
 
                 </div>
             </div>
-
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/Afuncionarios']" type="submit" class="btn btn-danger"> Cancelar </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
         </form>
-    <div style="text-align: center">
-        <button [routerLink]="['/administracion-inicio/Afuncionarios']" type="submit" class="btn btn-danger"> Cancelar </button>
-        &nbsp;&nbsp;
-        <button type="submit" class="btn btn-success"> Guardar </button>
-    </div>
+  
     </div>
 </div>

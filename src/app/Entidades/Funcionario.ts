@@ -5,5 +5,6 @@ export interface Funcionario {
     apellidoP_Funcionario: string;
     apellidoM_Funcionario: string;
     cargo_Funcionario: string;
+    genero_Funcionario:string;
     estado_funcionario: boolean;
 }

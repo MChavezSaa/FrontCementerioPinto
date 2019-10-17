@@ -33,11 +33,6 @@ export class AFormularioCementerioComponent implements OnInit {
   }
 
 
-  private cementerio: Cementerio;
-  public llenarCementerio(){
-    
-  }
-
   public create():void{
     this.service.saveCementerio(this.formCementerio.value)
       .subscribe(
