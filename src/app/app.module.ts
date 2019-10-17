@@ -155,7 +155,11 @@ const routes: Routes = [
       },
       {
         path: "Aclientes",
-        component: EClientesComponent
+        component: AClienteComponent
+      },
+      {
+        path: "AFormCliente",
+        component: AformClienteComponent
       },
       {
         path: "Aterrenos",
