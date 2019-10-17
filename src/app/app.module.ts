@@ -53,6 +53,7 @@ import { AFormularioPatioComponent } from './administracion/a-content/agestion-c
 import { AFormularioTerrenoComponent } from './administracion/a-content/agestion-cementerio/a-terreno/a-formulario-terreno/a-formulario-terreno.component';
 import { AFormularioTumbaComponent } from './administracion/a-content/agestion-cementerio/a-tumba/a-formulario-tumba/a-formulario-tumba.component';
 import { AVentaComponent } from './administracion/a-content/a-venta/a-venta.component';
+import { FormularioVentaComponent } from './administracion/a-content/a-venta/formulario-venta/formulario-venta.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -225,6 +226,10 @@ const routes: Routes = [
       {
         path:'AVentas',
         component: AVentaComponent
+      },
+      {
+        path:'formularioVenta',
+        component:FormularioVentaComponent
       }
 
     ]
@@ -281,7 +286,8 @@ const routes: Routes = [
     AFormularioPatioComponent,
     AFormularioTerrenoComponent,
     AFormularioTumbaComponent,
-    AVentaComponent
+    AVentaComponent,
+    FormularioVentaComponent
   ],
   imports: [
     BrowserModule,
