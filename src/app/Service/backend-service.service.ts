@@ -161,7 +161,7 @@ export class BackendServiceService {
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba():Observable<TipoTumba[]>{
-    return this.http.get(this.urlEndPoint + "listTipoTumbas").pipe(
+    return this.http.get(this.urlEndPoint + "listTipotumbas").pipe(
       map((response)=>response as TipoTumba[])
     )
   }
