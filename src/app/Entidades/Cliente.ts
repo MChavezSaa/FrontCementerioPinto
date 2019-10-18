@@ -5,7 +5,7 @@ export interface Cliente{
     nombres_Cliente: string;
     apellidoP_Cliente: string;
     apellidoM_Cliente: string;
-    genero_Cliente: number;
+    genero_Cliente: string;
     telefono_Cliente: number;
     direccion_Cliente: string;
     rut_Familiar: string;
