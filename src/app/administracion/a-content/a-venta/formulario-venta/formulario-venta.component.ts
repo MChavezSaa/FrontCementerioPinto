@@ -60,7 +60,7 @@ export class FormularioVentaComponent implements OnInit {
 
   public createVenta():void{
     //guardamos primer form 
-    this.service.saveFuncionario(this.formTumba.value)
+    this.service.saveTumba(this.formTumba.value)
       .subscribe();
     //guardamos segundo form y mostramos alert de success
     this.service.saveDerecho(this.formDerecho.value).subscribe(
