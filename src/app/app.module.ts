@@ -238,6 +238,14 @@ const routes: Routes = [
       {
         path:'formularioVenta',
         component:FormularioVentaComponent
+      },
+      {
+        path: 'formularioVenta2',
+        component: FormularioVenta2Component
+      },
+      {
+        path: 'formularioVenta3',
+        component: FormularioVenta3Component
       }
 
     ]

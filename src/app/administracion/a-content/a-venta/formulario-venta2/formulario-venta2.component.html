@@ -1,1 +1,87 @@
-<p>formulario-venta2 works!</p>
+<div class="container">
+    <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
+    <hr style="color: black">
+    <div class="container">
+        <form [formGroup]="formVenta" (ngSubmit)="createVenta()" novalidate>
+                       
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos de Pago</h4>
+            </div>
+            &nbsp;
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1"> Medio de Pago</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                            <option value="${null}">Seleccione medio de pago </option>
+                            <option> Efectivo</option>
+                            <option> Debito</option>
+                            <option> Credito</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label> Valor Terreno</label>
+                        <input type="number" class="form-control" id="valorDerecho"
+                            placeholder="Ingrese el valor del derecho">
+                    </div>
+
+                    <div class="col">
+                        <label> Pago inicial</label>
+                        <input type="number" class="form-control" id="valorPagoInicial"
+                            placeholder="Ingrese el valor del pago inicial">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label> Número de Cuotas</label>
+                        <input type="number" class="form-control" id="nroCuotas" placeholder="Ingrese número de cuotas">
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <label style="color: white"> _____________</label>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-info "> Calcular </button>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label> Valor Cuota</label>
+                        <input type="number" class="form-control" id="nroCuotas"
+                            placeholder="Ingrese el valor de cada cuotas">
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label> Dia para fecha de pago</label>
+                        <input type="text" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
+                    </div>
+
+
+                </div>
+            </div>
+            <div style="text-align: center">
+               <!-- <button [routerLink]="['/administracion-inicio/formularioVenta']" type="submit" class="btn btn-danger"> Atras
+                </button>-->
+                &nbsp;&nbsp;
+                <button [routerLink]="['/administracion-inicio/formularioVenta3']" type="submit"
+                    class="btn btn-success"> Siguiente </button>
+            </div>
+            <br>
+
+
+
+        </form>
+        <br>
+
+
+    </div>
+</div>

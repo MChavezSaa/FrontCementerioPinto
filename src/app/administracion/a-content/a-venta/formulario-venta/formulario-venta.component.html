@@ -23,14 +23,14 @@
                         <input class="form-control" type="date">
                     </div>
 
-                    <div class="col">
+                  <!--  <div class="col">
                         <label> Cementerio</label>
                         <select formControlName="cementerio" class="form-control" id="cementerio1">
                             <option value="" selected disabled>Seleccione Cementerio </option>
                             <option *ngFor="let c of cementerioList" [ngValue]="c">{{c.nombre_Cementerio}}</option>
                         
                         </select>
-                    </div>
+                    </div>-->
                    
 
                 </div>
@@ -114,28 +114,6 @@
                 </div>
             </div>
 
-            <div class="separacion" style="text-align: center">
-                <h4> &nbsp; Datos Cliente</h4>
-            </div>
-            &nbsp;
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-4">
-                        <label> Rut Cliente</label>
-                        <input type="number" class="form-control" id="rutCliente" 
-                        placeholder="Ingrese rut Cliente">
-                    </div>
-                    <div class="col-2">
-                            <div class="row">
-                                <label style="color: white"> _____________</label>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-info "> Buscar </button>
-                            </div>
-                    </div>
-                </div>
-            </div>
 
 
             <div class="separacion" style="text-align: center">
@@ -203,7 +181,7 @@
                 <button [routerLink]="['/administracion-inicio/AVentas']" type="submit" class="btn btn-danger"> Cancelar
                 </button>
                 &nbsp;&nbsp;
-                <button type="submit" class="btn btn-success"> Guardar </button>
+                <button [routerLink]="['/administracion-inicio/formularioVenta2']" type="submit" class="btn btn-success"> Siguiente </button>
             </div>
             <br>
 
