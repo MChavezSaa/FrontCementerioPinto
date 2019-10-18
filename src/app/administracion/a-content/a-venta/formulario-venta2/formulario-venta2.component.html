@@ -2,7 +2,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formVenta" (ngSubmit)="createVenta()" novalidate>
+        <form [formGroup]="formDerecho" (ngSubmit)="createVenta()" novalidate>
                        
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos de Pago</h4>
@@ -13,22 +13,22 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Medio de Pago</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select formControlName="medio_Pago" class="form-control" id="exampleFormControlSelect1">
                             <option value="${null}">Seleccione medio de pago </option>
                             <option> Efectivo</option>
                             <option> Debito</option>
                             <option> Credito</option>
                         </select>
                     </div>
-                    <div class="col">
+                  <!--  <div class="col">
                         <label> Valor Terreno</label>
                         <input type="number" class="form-control" id="valorDerecho"
                             placeholder="Ingrese el valor del derecho">
-                    </div>
+                    </div>-->
 
                     <div class="col">
                         <label> Pago inicial</label>
-                        <input type="number" class="form-control" id="valorPagoInicial"
+                        <input formControlName="pago_Incial" type="number" class="form-control" id="valorPagoInicial"
                             placeholder="Ingrese el valor del pago inicial">
                     </div>
 

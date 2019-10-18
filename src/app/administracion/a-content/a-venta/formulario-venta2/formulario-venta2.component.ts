@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-formulario-venta2',
@@ -6,10 +9,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario-venta2.component.css']
 })
 export class FormularioVenta2Component implements OnInit {
+  formDerecho: FormGroup;
 
-  constructor() { }
+  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+    private router:Router) { 
+    this.formDerecho = this.formBuilder.group({
+      fecha_Inscripcion_Derecho:['', [Validators.required]] ,
+       fecha_Pago_Derecho:['', [Validators.required]] ,
+       valor_Cuota_Derecho:['', [Validators.required]] ,
+       numero_Cuotas_Derecho:['', [Validators.required]] ,
+       medio_Pago:['', [Validators.required]] ,
+       pago_Inicial:['', [Validators.required]] 
+       //cliente....
+    });
+   }
 
   ngOnInit() {
   }
 
+  public createDerecho():void{
+    //guardamos primer form 
+    this.service.saveDerecho(this.formDerecho.value)
+      .subscribe();
+    //guardamos segundo form y mostramos alert de success
+   // this.service.saveDerecho(this.formDerecho.value).subscribe(
+     //  derecho => {   
+        //ver como tomar valor de nombre para funcion swal
+       // Swal.fire('Nueva', `Venta ${derecho} creada con Exito`, 'success');    
+       // this.router.navigate(['/administracion-inicio/']);  
+     // },
+     // err=>{
+       // console.log(err)
+     // }
+    //);
+  }
 }

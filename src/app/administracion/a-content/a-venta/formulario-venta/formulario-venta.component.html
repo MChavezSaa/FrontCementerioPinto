@@ -2,7 +2,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formVenta" (ngSubmit)="createVenta()" novalidate>
+        <form [formGroup]="formTumba" (ngSubmit)="createVenta()" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Compra</h4>
             </div>
@@ -12,9 +12,9 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre de Funcionario</label>
-                        <select formControlName="nombres_Funcionario" class="form-control" id="funcionario">
+                        <select formControlName="funcionario" class="form-control" id="funcionario">
                             <option value="" selected disabled>Seleccione nombre funcionario </option>
-                            <option *ngFor="let c of funcionarioList" [ngValue]="c">{{c.nombres_Funcionario}}</option>
+                            <option *ngFor="let f of funcionarioList" [ngValue]="f">{{f.nombres_Funcionario}}</option>
                     
                         </select>
                     </div>
@@ -45,7 +45,7 @@
                         <label> Tipo de Tumba</label>
                         <select formControlName="tipo_Tumba" class="form-control" id="tipoTumba">
                             <option value="" selected disabled>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
+                            <option *ngFor="let t of tipoTumbaList" [ngValue]="t">{{t.nombre_tipo_tumba}}</option>
                         
                         </select>
                     </div>
@@ -59,13 +59,13 @@
                     </div>
                     <div class="col-3">
                         <label> Ancho</label>
-                        <input type="number" class="form-control" id="anchoTumba" 
+                        <input formControlName="ancho" type="number" class="form-control" id="anchoTumba" 
                         placeholder="Ancho cargado">
                     </div>
                     
                     <div class="col-3">
                         <label> Largo</label>
-                        <input type="number" class="form-control" id="largoTumba" 
+                        <input formControlName="largo" type="number" class="form-control" id="largoTumba" 
                         placeholder="Largo cargado">
                     </div>
 
@@ -75,7 +75,7 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre de Patio</label>
-                        <select formControlName="nombre_Patio" class="form-control" id="patio">
+                        <select formControlName="patio" class="form-control" id="patio">
                             <option value="" selected disabled>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
                         
@@ -84,25 +84,13 @@
                     
                     <div class="col">
                         <label> Número de Tumba</label>
-                        <select formControlName="numero_tumba" class="form-control" id="tumba">
-                            <option value="" selected disabled>Seleccione numero de Tumba </option>
-                            <!--<option *ngFor="let c of tumbaList" [ngValue]="c">{{c.numero_Tumba}}</option>-->
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                        </select>
+                        <input formControlName="numero_Tumba" type="number" class="form-control" id="numero_Tumba" 
+                        placeholder="12">
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
                     <div class="col">
                         <label> Orientación</label>
-                        <select formControlName="orientacion_tumba" class="form-control" id="tumba">
+                        <select formControlName="orientacion_Tumba" class="form-control" id="orientacion_Tumba">
                             <option value="" selected disabled>Seleccione la orientación </option>
                             <option>Este - Oeste</option>
                             <option>Oeste - Este</option>
@@ -110,73 +98,18 @@
                             <option>Sur - Norte</option>
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
+                        
                     </div>
-                </div>
-            </div>
-
-
-
-            <div class="separacion" style="text-align: center">
-                <h4> &nbsp; Datos de Pago</h4>
-            </div>
-            &nbsp;
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label for="exampleFormControlSelect1"> Medio de Pago</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option value="${null}">Seleccione medio de pago </option>
-                            <option> Efectivo</option>
-                            <option> Debito</option>
-                            <option> Credito</option>
-                        </select>
-                    </div>
-                    <div class="col">
+                    <div class="col" aling="left">
                         <label> Valor Terreno</label>
-                        <input type="number" class="form-control" id="valorDerecho" placeholder="Ingrese el valor del derecho">
+                        <input formControlName="valor_Tumba" type="number" class="form-control" id="valor_Tumba" placeholder="Ingrese el valor del terreno">
                     </div>
-                    
-                    <div class="col">
-                        <label> Pago inicial</label>
-                        <input type="number" class="form-control" id="valorPagoInicial" placeholder="Ingrese el valor del pago inicial">
-                    </div>
-
                 </div>
+                
             </div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-4">
-                        <label> Número de Cuotas</label>
-                        <input type="number" class="form-control" id="nroCuotas" placeholder="Ingrese número de cuotas">
-                    </div>
-                    <div class="col-2">
-                        <div class="row">
-                            <label style="color: white"> _____________</label>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-info "> Calcular </button>
-                        </div>
-                    </div>
-                    
-                    <div class="col-6">
-                        <label> Valor Cuota</label>
-                        <input type="number" class="form-control" id="nroCuotas" placeholder="Ingrese el valor de cada cuotas">
-                    </div>
-            
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-4">
-                        <label> Dia para fecha de pago</label>
-                        <input type="text" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
-                    </div>
 
 
-                </div>
-            </div>
             <div style="text-align: center">
                 <button [routerLink]="['/administracion-inicio/AVentas']" type="submit" class="btn btn-danger"> Cancelar
                 </button>
