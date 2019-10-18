@@ -42,8 +42,8 @@ export class AformClienteComponent implements OnInit {
       .subscribe(
       cliente => {   
         //ver como tomar valor de nombre para funcion swal
-        Swal.fire('Nuevo Funcionario', `Funcionario ${cliente} creado con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/clientes']);  
+        Swal.fire('Nuevo Cliente', `Cliente ${cliente} creado con Exito`, 'success');    
+        this.router.navigate(['/administracion-inicio/Aclientes']);  
       },
       err=>{
         console.log(err)
