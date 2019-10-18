@@ -35,7 +35,7 @@ export class FormularioVentaComponent implements OnInit {
         ancho: ['', [Validators.required]] ,
         funcionario:['', [Validators.required]] 
         //cliente....  
-  
+  //lala
     }); 
     this.formDerecho = this.formBuilder.group({
       fecha_Inscripcion_Derecho:['', [Validators.required]] ,
