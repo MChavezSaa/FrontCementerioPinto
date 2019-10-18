@@ -1,1 +1,116 @@
-<p>aform-cliente works!</p>
+<div class="container">
+    <legend style="font-style: oblique"><b> Formulario Incripción de Clientes </b> </legend>
+    <hr style="color: black">
+    <div class="container">
+        <form [formGroup]="formCliente" (ngSubmit)="createCliente()" novalidate>
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos Personales</h4>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Rut</label>
+                        <input formControlName="rut_Cliente" type="text" class="form-control" id="rutCliente" placeholder="ej: 11111111-1">
+                    </div>
+                    <div class="col">
+                        <label>Nombres</label>
+                        <input formControlName="nombres_Cliente" type="text" class="form-control" id="nombresCliente"
+                            placeholder="Ingrese nombre Cliente">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Apellido Paterno</label>
+                        <input formControlName="apellidoP_Cliente" type="text" class="form-control" id="apellidoPCliente"
+                            placeholder="Ingrese Apellido Paterno">
+                    </div>
+                    <div class="col">
+                        <label>Apellido Materno</label>
+                        <input formControlName="apellidoM_Cliente" type="text" class="form-control" id="apellidoMCliente"
+                            placeholder="Ingrese Apellido Materno">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-3">
+                        <label for="exampleFormControlSelect1"> Género</label>
+                        <select formControlName="genero_Cliente" class="form-control" id="exampleFormControlSelect1">
+                            <option value="${null}">Seleccione Género </option>
+                            <option>Femenino</option>
+                            <option>Masculino</option>
+                            <option>Otro</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <label>Teléfono</label>
+                        <input formControlName="telefono_Cliente" type="text" class="form-control" id="telefonoCliente" placeholder=" ej: 987654321 ">
+                    </div>
+                    <div class="col-6">
+                        <label>Dirección</label>
+                        <input formControlName="direccion_Cliente" type="text" class="form-control" id="direccionCliente"
+                            placeholder=" Ingrese una dirección">
+                    </div>
+                </div>
+            </div>
+
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos de Familiares</h4>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Rut</label>
+                        <input formControlName="rut_Familiar" type="text" class="form-control" id="rutFam" placeholder="ej: 11111111-1">
+                    </div>
+                    <div class="col">
+                        <label>Nombre Familiar</label>
+                        <input formControlName="nombres_Familiar" type="text" class="form-control" id="nombreFam"
+                            placeholder="Ingrese el nombre del familiar">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Apellido Paterno</label>
+                        <input formControlName="apellidoP_Familiar" type="text" class="form-control" id="apellidoPFam"
+                            placeholder="Ingrese el apellido Paterno">
+                    </div>
+                    <div class="col">
+                        <label>Apellido Materno</label>
+                        <input formControlName="apellidoM_Familiar" type="text" class="form-control" id="apellidoMFam"
+                            placeholder="Ingrese el apellido Materno">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Teléfono</label>
+                        <input formControlName="telefono_Familiar" type="text" class="form-control" id="telefonoFam" placeholder=" ej: 987654321">
+                    </div>
+                    <div class="col">
+                    </div>
+                </div>
+            </div>
+
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/Aclientes']" type="submit" class="btn btn-danger"> Cancelar
+                </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
+        </form>
+        <br>
+        
+        <br>
+
+    </div>
+</div>

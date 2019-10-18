@@ -31,7 +31,7 @@
                     <div class="col">
                         <label for="exampleFormControlSelect1">Terreno</label>
                         <select formControlName="terreno" class="form-control" id="exampleFormControlSelect1">
-                            <option selected="true" disabled="disabled">Seleccione Terreno </option>
+                            <option value="" selected disabled>Seleccione Terreno </option>
                             <option *ngFor="let c of terrenoList" [ngValue]="c">{{c.nombre_Terreno}}</option>
                             
                         </select>

@@ -11,14 +11,19 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label> Nombre Cementerio</label>
-                        <input type="text" class="form-control" id="nombreCementerio"
-                            placeholder="Ingrese el nombre del Cementerio">
-                    </div>
-                    <div class="col">
                         <label for="fechaNacimientoDifunto"> Fecha Ingreso de venta</label>
                         <input class="form-control" type="date">
                     </div>
+
+                    <div class="col">
+                        <label> Cementerio</label>
+                        <select formControlName="cementerio" class="form-control" id="cementerio">
+                            <option value="" selected disabled>Seleccione Cementerio </option>
+                            <option *ngFor="let c of cementerioList" [ngValue]="c">{{c.nombre_Cementerio}}</option>
+                        
+                        </select>
+                    </div>
+                   
 
                 </div>
             </div>
@@ -29,13 +34,11 @@
                 <div class="row">
 
                     <div class="col-4">
-                        <label for="exampleFormControlSelect1"> Tipo Tumba</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option value="${null}">Seleccione un tipo tumba </option>
-                            <option> Simple</option>
-                            <option> Doble</option>
-                            <option> Nicho</option>
-                            <option> Mausoleo</option>
+                        <label> Tipo de Tumba</label>
+                        <select formControlName="tipo_Tumba" class="form-control" id="tipoTumba">
+                            <option value="" selected disabled>Seleccione tipo de tumba </option>
+                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
+                        
                         </select>
                     </div>
                     <div class="col-2">
@@ -43,7 +46,7 @@
                             <label style="color: white"> _____________</label>
                         </div>
                         <div class="row">
-                            <button type="button" class="btn btn-info "> Guardar </button>
+                            <button type="button" class="btn btn-info "> Cargar </button>
                         </div>
                     </div>
                     <div class="col-3">
@@ -63,13 +66,31 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label> Número de Tumba</label>
-                        <input type="number" class="form-control" id="numeroTumba" placeholder="Ingrese número de Tumba">
+                        <label> Nombre de Patio</label>
+                        <select formControlName="nombre_Patio" class="form-control" id="patio">
+                            <option value="" selected disabled>Seleccione Patio </option>
+                            <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
+                        
+                        </select>
                     </div>
                     
                     <div class="col">
-                        <label> Número de Patio</label>
-                        <input type="number" class="form-control" id="numeroPatio" placeholder="Ingrese número de Patio">
+                        <label> Número de Tumba</label>
+                        <select formControlName="numero_tumba" class="form-control" id="tumba">
+                            <option value="" selected disabled>Seleccione numero de Tumba </option>
+                            <!--<option *ngFor="let c of tumbaList" [ngValue]="c">{{c.numero_Tumba}}</option>-->
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                        </select>
+                        <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
             
             
@@ -196,19 +217,19 @@
 
                 </div>
             </div>
-            
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/AVentas']" type="submit" class="btn btn-danger"> Cancelar
+                </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
+            <br>
 
 
 
         </form>
         <br>
-        <div style="text-align: center">
-            <button [routerLink]="['/administracion-inicio/Aclientes']" type="submit" class="btn btn-danger"> Cancelar
-            </button>
-            &nbsp;&nbsp;
-            <button type="submit" class="btn btn-success"> Guardar </button>
-        </div>
-        <br>
+       
 
     </div>
 </div>
