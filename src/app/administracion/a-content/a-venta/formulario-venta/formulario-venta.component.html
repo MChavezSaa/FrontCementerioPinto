@@ -2,7 +2,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formVenta" (ngSubmit)="create()" novalidate>
+        <form [formGroup]="formVenta" (ngSubmit)="createVenta()" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Compra</h4>
             </div>
@@ -10,6 +10,14 @@
 
             <div class="form-group">
                 <div class="row">
+                    <div class="col">
+                        <label> Nombre de Funcionario</label>
+                        <select formControlName="nombres_Funcionario" class="form-control" id="funcionario">
+                            <option value="" selected disabled>Seleccione nombre funcionario </option>
+                            <option *ngFor="let c of funcionarioList" [ngValue]="c">{{c.nombres_Funcionario}}</option>
+                    
+                        </select>
+                    </div>
                     <div class="col">
                         <label for="fechaNacimientoDifunto"> Fecha Ingreso de venta</label>
                         <input class="form-control" type="date">
@@ -92,8 +100,17 @@
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
-            
-            
+                    <div class="col">
+                        <label> Orientación</label>
+                        <select formControlName="orientacion_tumba" class="form-control" id="tumba">
+                            <option value="" selected disabled>Seleccione la orientación </option>
+                            <option>Este - Oeste</option>
+                            <option>Oeste - Este</option>
+                            <option>Norte - Sur</option>
+                            <option>Sur - Norte</option>
+                        </select>
+                        <!-- Agregar validacion con numeros solo con estado cero -->
+                    </div>
                 </div>
             </div>
 
@@ -120,41 +137,6 @@
                 </div>
             </div>
 
-            <div class="form-group">
-                <div class="row">
-                    <div class="col">
-                        <label> Nombres Cliente</label>
-                        <input type="text" class="form-control" id="nombreCliente" 
-                        placeholder="Nombres cargados">
-                    </div>
-                    <div class="col">
-                        <label> Apellido Paterno</label>
-                        <input type="text" class="form-control" id="apellidoPCliente"
-                            placeholder="Apellido Paterno cargado">
-                    </div>
-                    <div class="col">
-                        <label> Apellido Materno</label>
-                        <input type="text" class="form-control" id="apellidoMCliente"
-                            placeholder="Apellido Materno cargado">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="row">
-                    <div class="col-4">
-                        <label>Teléfono</label>
-                        <input type="text" class="form-control" id="telefonoCliente" 
-                        placeholder=" Teléfono cargado ">
-                    </div>
-                    <div class="col-8">
-                        <label>Dirección</label>
-                        <input type="text" class="form-control" id="direccionCliente" 
-                        placeholder=" Dirección cargada">
-                    </div>
-
-                </div>
-            </div>
 
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos de Pago</h4>
