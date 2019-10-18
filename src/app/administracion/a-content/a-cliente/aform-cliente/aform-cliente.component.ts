@@ -37,7 +37,7 @@ export class AformClienteComponent implements OnInit {
   ngOnInit() {
   }
 
-  public create():void{
+  public createCliente():void{
     this.service.saveCliente(this.formCliente.value)
       .subscribe(
       cliente => {   
