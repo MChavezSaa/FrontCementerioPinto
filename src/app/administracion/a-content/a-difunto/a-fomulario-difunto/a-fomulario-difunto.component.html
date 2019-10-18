@@ -13,7 +13,7 @@
     <legend style="font-style: oblique"><b> Formulario Incripción de Difuntos</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form>
+        <form [formGroup]="formDifunto" (ngSubmit)="createDifunto()" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -21,11 +21,11 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut</label>
-                        <input type="text" class="form-control" id="rutDifunto" placeholder="Ingrese un rut 11111111-1">
+                        <input formControlName="rut_Difunto" type="text" class="form-control" id="rutDifunto" placeholder="Ingrese un rut 11111111-1">
                     </div>
                     <div class="col">
                         <label>Nombres</label>
-                        <input type="text" class="form-control" id="nombresDifunto"
+                        <input formControlName="nombres_Difunto" type="text" class="form-control" id="nombresDifunto"
                             placeholder="Ingrese nombre difunto">
                     </div>
                 </div>
@@ -36,12 +36,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input type="text" class="form-control" id="apellidoPDifunto"
+                        <input formControlName="apellidoP_Difunto" type="text" class="form-control" id="apellidoPDifunto"
                             placeholder="Ingrese Apellido Paterno">
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input type="text" class="form-control" id="apellidoMDifunto"
+                        <input formControlName="apellidoM_Difunto" type="text" class="form-control" id="apellidoMDifunto"
                             placeholder="Ingrese Apellido Materno">
                     </div>
                 </div>
@@ -50,8 +50,8 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1">Género</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option value="${null}">Seleccione Género </option>
+                        <select formControlName="genero_Difunto" class="form-control" id="exampleFormControlSelect1">
+                            <option value="" selected disabled >Seleccione Género </option>
                             <option>Femenino</option>
                             <option>Masculino</option>
                             <option>Otro</option>
@@ -59,7 +59,7 @@
                     </div>
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Nacimiento</label>
-                        <input class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
+                        <input formControlName="fecha_Nacimiento_Difunto" class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
                             th:errorclass="'form-control alert-danger'">
                     </div>
                 </div>
@@ -71,17 +71,17 @@
                 <div class="row">
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Defunción</label>
-                        <input class="form-control" type="date" th:field="*{fechaDefuncionDifunto}"
+                        <input formControlName="fecha_Defuncion" class="form-control" type="date" th:field="*{fechaDefuncionDifunto}"
                             th:errorclass="'form-control alert-danger'">
                     </div>
                     <div class="col">
-                        <label for="fechaNacimientoDifunto">Fecha Entierro</label>
-                        <input class="form-control" type="date" th:field="*{fechaEntierroDifunto}"
+                        <label for="fechaEntierroDifunto">Fecha Entierro</label>
+                        <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" th:field="*{fechaEntierroDifunto}"
                             th:errorclass="'form-control alert-danger'">
                     </div>
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Incripción</label>
-                        <input class="form-control" type="date" th:field="*{fechaInscripcionDifunto}"
+                        <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" th:field="*{fechaInscripcionDifunto}"
                             th:errorclass="'form-control alert-danger'">
                     </div>
                 </div>
@@ -95,12 +95,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Nombre del Padre</label>
-                        <input type="text" class="form-control" id="padreDifunto"
+                        <input formControlName="nombreC_Padre" type="text" class="form-control" id="padreDifunto"
                             placeholder="Ingrese el nombre del Padre">
                     </div>
                     <div class="col">
                         <label>Nombre de la Madre</label>
-                        <input type="text" class="form-control" id="madreDifunto"
+                        <input formControlName="nombreC_Madre" type="text" class="form-control" id="madreDifunto"
                             placeholder="Ingrese el nombre de la Madre">
                     </div>
                 </div>
@@ -136,17 +136,16 @@
                 </div>
             </div>
 
-
-
+            <div style="text-align: center">
+                <button [routerLink]="['/administracion-inicio/ADifuntos']" type="submit" class="btn btn-danger"> Cancelar
+                </button>
+                &nbsp;&nbsp;
+                <button type="submit" class="btn btn-success"> Guardar </button>
+            </div>
 
         </form>
         <br>
-        <div style="text-align: center">
-            <button [routerLink]="['/administracion-inicio/ADifuntos']" type="submit" class="btn btn-danger"> Cancelar
-            </button>
-            &nbsp;&nbsp;
-            <button type="submit" class="btn btn-success"> Guardar </button>
-        </div>
+        
         <br>
 
     </div>

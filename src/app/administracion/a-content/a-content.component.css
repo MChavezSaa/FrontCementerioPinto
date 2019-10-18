@@ -1,0 +1,26 @@
+
+.jumbotron {
+
+    min-height: 100vh !important;
+    background-image:linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('../../../assets/img/iglesia.jpg');
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color:#ffffff;
+}
+p{
+    font-weight: bold;
+}
+
+.colorFig{
+    color: white;
+}
+.card { background-color: rgba(0, 0, 0, 0.4); }
+.card-header, .card-footer { opacity: 1}
+hr, .hrcolor {
+    height: 1px;
+    border: 0;
+    color: #666;
+    background-color: white;
+ }
