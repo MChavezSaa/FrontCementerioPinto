@@ -2,7 +2,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formDerecho" (ngSubmit)="createVenta()" novalidate>
+        <form [formGroup]="formDerecho">
                        
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos de Pago</h4>
@@ -28,7 +28,7 @@
 
                     <div class="col">
                         <label> Pago inicial</label>
-                        <input formControlName="pago_Incial" type="number" class="form-control" id="valorPagoInicial"
+                        <input formControlName="pago_Inicial" type="number" class="form-control" id="valorPagoInicial"
                             placeholder="Ingrese el valor del pago inicial">
                     </div>
 
@@ -62,7 +62,7 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Dia para fecha de pago</label>
-                        <input type="text" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
+                        <input type="date" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
                     </div>
 
 
@@ -72,7 +72,7 @@
                <!-- <button [routerLink]="['/administracion-inicio/formularioVenta']" type="submit" class="btn btn-danger"> Atras
                 </button>-->
                 &nbsp;&nbsp;
-                <button [routerLink]="['/administracion-inicio/formularioVenta3']" type="submit"
+                <button [routerLink]="['/administracion-inicio/formularioVenta3']" (click)="guardarStorage()"
                     class="btn btn-success"> Siguiente </button>
             </div>
             <br>

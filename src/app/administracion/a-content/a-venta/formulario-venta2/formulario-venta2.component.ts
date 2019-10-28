@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Router } from '@angular/router';
+import { Derecho } from 'src/app/Entidades/Derecho';
 
 @Component({
   selector: 'app-formulario-venta2',
@@ -25,6 +26,12 @@ export class FormularioVenta2Component implements OnInit {
    }
 
   ngOnInit() {
+  }
+  derechoStorage :Derecho[];
+  guardarStorage(){
+    this.derechoStorage = this.formDerecho.value;
+    console.log(this.derechoStorage);
+    localStorage.setItem("derecho",JSON.stringify(this.derechoStorage));
   }
 
   public createDerecho():void{

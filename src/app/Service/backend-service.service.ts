@@ -199,16 +199,17 @@ export class BackendServiceService {
   }
 
 
-  saveTumba(tumba:Tumba):Observable<Tumba>{  
-    return this.http.post(this.urlEndPoint+"saveTipoTumba",tumba,{headers:this.httpHeaders}).pipe(
+  saveTumba(tumba1:Tumba):Observable<Tumba>{  
+    return this.http.post(this.urlEndPoint+"saveTumbas",tumba1,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.tumba as Tumba),
       catchError(e=>{
-        console.error(e.error.mensaje);
+        console.error("error: "+e.error.mensaje);
         Swal.fire('Error al crear la tumba', e.error.mensaje,'error');
         return throwError(e);
       })
     );
   }
+
 
   updateTumba(tumba:Tumba, id:number):Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`,tumba,{headers:this.httpHeaders}).pipe(

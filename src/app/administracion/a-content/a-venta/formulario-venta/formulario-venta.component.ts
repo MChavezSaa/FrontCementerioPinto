@@ -24,21 +24,28 @@ export class FormularioVentaComponent implements OnInit {
 
 
   formTumba: FormGroup;
+  tumbaStorage :Tumba[];
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
       this.formTumba = this.formBuilder.group({
-        rut_Funcionario: ['', [Validators.required]] ,        
         numero_Tumba: ['', [Validators.required]] ,        
         valor_Tumba: ['', [Validators.required]] ,        
-        orientacion_Tumba: ['', [Validators.required]] ,        
+        orientacion_Tumba: ['', [Validators.required]] ,
         largo: ['', [Validators.required]] ,        
         ancho: ['', [Validators.required]] ,
         funcionario:['', [Validators.required]],
         patio:['', [Validators.required]],
-        tipo_Tumba:['', [Validators.required]] 
+        tipo_Tumba:['', [Validators.required]] ,
+
         //cliente....  
     }); 
+  }
+
+  guardarStorage(){
+    this.tumbaStorage = this.formTumba.value;
+    console.log(this.tumbaStorage);
+    localStorage.setItem("tumba",JSON.stringify(this.tumbaStorage));
   }
 
   ngOnInit() {
