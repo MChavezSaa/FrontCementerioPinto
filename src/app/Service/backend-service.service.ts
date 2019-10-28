@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Cliente } from '../empleado/empleado-content/e-clientes/cliente';
+import { Cliente } from '../Entidades/Cliente';
 import { map, catchError } from 'rxjs/operators';
 import { Funcionario } from '../Entidades/Funcionario';
 import { Terreno } from '../Entidades/Terreno';

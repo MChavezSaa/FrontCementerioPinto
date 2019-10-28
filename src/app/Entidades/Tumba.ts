@@ -1,4 +1,4 @@
-import { Cliente } from '../empleado/empleado-content/e-clientes/cliente';
+import { Cliente } from './Cliente';
 import { Funcionario } from './Funcionario';
 import { Patio } from './Patio';
 import { TipoTumba } from './TipoTumba';

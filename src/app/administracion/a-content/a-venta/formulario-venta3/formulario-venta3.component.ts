@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Cliente } from 'src/app/empleado/empleado-content/e-clientes/cliente';
+import { Cliente } from 'src/app/Entidades/Cliente';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { Derecho } from 'src/app/Entidades/Derecho';
+import swal from 'sweetalert2';
 
 @Component({
   selector: 'app-formulario-venta3',
@@ -47,8 +48,20 @@ export class FormularioVenta3Component implements OnInit {
      this.derecho.cliente = this.formClientes.value;*/
 
 
-    this.service.saveTumba(this.tumbaArmada).subscribe(value => console.log("insertadoTumba "+value));
+    //this.service.saveTumba(this.tumbaArmada).subscribe(value => console.log("insertadoTumba "+value));
      //this.service.saveDerecho(this.derecho);
+
+     this.service.saveTumba(this.formClientes.value)
+      .subscribe(
+      cliente => {   
+        //ver como tomar valor de nombre para funcion swal
+        swal.fire('Nuevo lal', `lal ${cliente} creado con Exito`, 'success');    
+        //this.router.navigate(['/administracion-inicio/Aclientes']);  
+      },
+      err=>{
+        console.log(err)
+      }
+    );
 
   }
 
