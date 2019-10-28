@@ -4,15 +4,16 @@ import { Patio } from './Patio';
 import { TipoTumba } from './TipoTumba';
 
 export interface Tumba {    
+    id_Tumba: number;
     numero_Tumba: number;
     valor_Tumba: number;
-    estado_Disponible: Boolean;
-    estado_Tumba: number;
+    //estado_Disponible: Boolean;
     orientacion_Tumba: number;
     largo: number;
     ancho: number;
-    cliente: Cliente;
     funcionario: Funcionario;
     patio: Patio;
-    tipotumba: TipoTumba;
+    tipo_Tumba: TipoTumba;
+    cliente: Cliente;
+    estado_Tumba: number;    
 }
