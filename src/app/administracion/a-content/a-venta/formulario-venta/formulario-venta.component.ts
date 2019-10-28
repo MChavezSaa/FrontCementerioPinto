@@ -71,7 +71,7 @@ export class FormularioVentaComponent implements OnInit {
     
     this.pagoDerecho.fechaPago_Derecho
     this.pagoDerecho.valorCuota_Derecho
-    this.pagoDerecho.Derecho
+    this.pagoDerecho.derecho
     this.service.saveContrato(this.formContrato.value).subscribe(
       contrato => {   
        //ver como tomar valor de nombre para funcion swal
