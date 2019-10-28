@@ -9,4 +9,5 @@ export interface Derecho{
     numero_Cuotas_Derecho: number;
     estadoDerecho: boolean;
     cliente: Cliente;
+    medioPago: String;
 }

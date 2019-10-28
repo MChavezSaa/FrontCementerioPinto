@@ -14,7 +14,7 @@
                         <label> Nombre Funcionario</label>
                         <select formControlName="funcionario" class="form-control" id="funcionario">
                             <option value="" selected disabled>Seleccione Funcionario</option>
-                            <option *ngFor="let f of funcionarioList" [ngValue]="f">{{f.nombres_funcionarios}}</option>
+                            <option *ngFor="let f of funcionarioList" [ngValue]="f">{{f.nombres_Funcionario}}</option>
                     
                         </select>
                     </div>
@@ -22,54 +22,29 @@
                         <label for="fecha_Inscripcion_Derecho"> Fecha Ingreso de venta</label>
                         <input formControlName ="fecha_Inscripcion_Derecho" class="form-control" type="date">
                     </div>
+                </div>
+            </div>
 
-                  <!--  <div class="col">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
                         <label> Cementerio</label>
                         <select formControlName="cementerio" class="form-control" id="cementerio1">
                             <option value="" selected disabled>Seleccione Cementerio </option>
                             <option *ngFor="let c of cementerioList" [ngValue]="c">{{c.nombre_Cementerio}}</option>
-                        
-                        </select>
-                    </div>-->
-                   
-
-                </div>
-            </div>
-
-
-
-            <div class="form-group">
-                <div class="row">
-
-                    <div class="col-4">
-                        <label> Tipo de Tumba</label>
-                        <select formControlName="tipo_Tumba" class="form-control" id="tipoTumba">
-                            <option value="" selected disabled>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
-                        
+                
                         </select>
                     </div>
-                    <div class="col-2">
-                        <div class="row">
-                            <label style="color: white"> _____________</label>
-                        </div>
-                        <div class="row">
-                            <button type="button" class="btn btn-info "> Cargar </button>
-                        </div>
+                    <div class="col">
+                        <label> Terreno</label>
+                        <select formControlName="terreno" class="form-control" id="terreno1">
+                            <option value="" selected disabled>Seleccione Terreno </option>
+                            <option *ngFor="let ter of terrenoList" [ngValue]="ter">{{ter.nombre_Terreno}}</option>
+                
+                        </select>
                     </div>
-                    <div class="col-3">
-                        <label> Ancho</label>
-                        <input formControlName="ancho" type="number" class="form-control" id="anchoTumba" 
-                        placeholder="Ancho cargado">
-                    </div>
-                    
-                    <div class="col-3">
-                        <label> Largo</label>
-                        <input formControlName="largo" type="number" class="form-control" id="largoTumba" 
-                        placeholder="Largo cargado">
-                    </div>
-
                 </div>
+
             </div>
             <div class="form-group">
                 <div class="row">
@@ -78,19 +53,34 @@
                         <select formControlName="patio" class="form-control" id="patio">
                             <option value="" selected disabled>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
+                    
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label> Tipo de Tumba</label>
+                        <select formControlName="tipo_Tumba" class="form-control" id="tipoTumba">
+                            <option value="" selected disabled>Seleccione tipo de tumba </option>
+                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
                         
                         </select>
                     </div>
-                    
+
                     <div class="col">
                         <label> Número de Tumba</label>
                         <select formControlName="tumba" class="form-control" id="tumba">
                             <option value="" selected disabled>Seleccione numero de Tumba </option>
                             <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.numero_Tumba}}</option>
-                            
+                    
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                                        
+                   
             
             
                 </div>
@@ -103,7 +93,7 @@
 
             <div class="form-group">
                 <div class="row">                 
-                    <div class="col">
+                    <div class="col-6">
                         <label> Rut Cliente</label>
                         <select formControlName="cliente" class="form-control" id="cliente1">
                             <option value="" selected disabled>Seleccione cliente </option>
@@ -168,7 +158,7 @@
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Medio de Pago</label>
                         <select formControlName ="medioPago" class="form-control" id="exampleFormControlSelect1">
-                            <option value="${null}">Seleccione medio de pago </option>
+                            <option value="" selected disabled>Seleccione medio de pago </option>
                             <option> Efectivo</option>
                             <option> Debito</option>
                             <option> Credito</option>
