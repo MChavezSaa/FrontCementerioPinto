@@ -1,4 +1,4 @@
-import { Cliente } from '../empleado/empleado-content/e-clientes/cliente';
+import { Cliente } from './Cliente';
 
 export interface Derecho{
     id_Derecho: number;

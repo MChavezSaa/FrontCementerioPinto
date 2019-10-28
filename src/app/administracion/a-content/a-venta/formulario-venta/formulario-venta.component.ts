@@ -7,6 +7,8 @@ import { TipoTumba } from 'src/app/Entidades/TipoTumba';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { Patio } from 'src/app/Entidades/Patio';
 import Swal from 'sweetalert2';
+import { Cliente } from 'src/app/Entidades/Cliente';
+import { pagoDerecho } from 'src/app/Entidades/pagoDerecho';
 
 
 @Component({
@@ -19,34 +21,33 @@ export class FormularioVentaComponent implements OnInit {
   tipoTumbaList:TipoTumba[] = [];
   tumbaList: Tumba[] = [];
   patioList: Patio[] =[];
+  clienteList: Cliente[] =[];
 
 
-  formTumba: FormGroup;
+  pagoDerecho :pagoDerecho;
+
+  formContrato: FormGroup;
   formDerecho: FormGroup;
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
-      this.formTumba = this.formBuilder.group({
-        rut_Funcionario: ['', [Validators.required]] ,        
-        numero_Tumba: ['', [Validators.required]] ,        
-        valor_Tumba: ['', [Validators.required]] ,        
-        orientacion_Tumba: ['', [Validators.required]] ,        
-        largo: ['', [Validators.required]] ,        
-        ancho: ['', [Validators.required]] ,
-        funcionario:['', [Validators.required]] 
-        //cliente....  
+      this.formContrato = this.formBuilder.group({
+        fecha_Inscripcion_Derecho:['', [Validators.required]] ,
+        cementerio:['', [Validators.required]],
+        tipo_Tumba:['', [Validators.required]],
+        ancho:['', [Validators.required]],
+        largo:['', [Validators.required]],
+        patio:['', [Validators.required]],
+        tumba:['', [Validators.required]],
+        cliente:['', [Validators.required]],
+        medioPago:['', [Validators.required]],
+        valorTerreno:['', [Validators.required]],
+        pagoInicial:['', [Validators.required]],
+        nCuotas:['', [Validators.required]],
+        vCuotas:['', [Validators.required]]
+        
   //lala
     }); 
-    this.formDerecho = this.formBuilder.group({
-      fecha_Inscripcion_Derecho:['', [Validators.required]] ,
-       fecha_Pago_Derecho:['', [Validators.required]] ,
-       valor_Cuota_Derecho:['', [Validators.required]] ,
-       numero_Cuotas_Derecho:['', [Validators.required]] ,
-       medio_Pago:['', [Validators.required]] ,
-       pago_Inicial:['', [Validators.required]] 
-       //cliente....
-    });
-
     }
 
   ngOnInit() {
@@ -54,24 +55,33 @@ export class FormularioVentaComponent implements OnInit {
     this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
     this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
     this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
-
+    this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
 
   }
 
   public createVenta():void{
-    //guardamos primer form 
-    this.service.saveFuncionario(this.formTumba.value)
-      .subscribe();
-    //guardamos segundo form y mostramos alert de success
-    this.service.saveDerecho(this.formDerecho.value).subscribe(
-       derecho => {   
-        //ver como tomar valor de nombre para funcion swal
-        Swal.fire('Nueva', `Venta ${derecho} creada con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/']);  
-      },
-      err=>{
-        console.log(err)
-      }
-    );
+    
+    this.pagoDerecho.fechaPago_Derecho
+    this.pagoDerecho.valorCuota_Derecho
+    this.pagoDerecho.Derecho
+    this.service.saveContrato(this.formContrato.value).subscribe(
+      contrato => {   
+       //ver como tomar valor de nombre para funcion swal
+       Swal.fire('Nuevo', `Contrato ${contrato} creado con Exito`, 'success');    
+       //this.router.navigate(['/administracion-inicio/']);  
+     },
+     err=>{
+       console.log(err)
+     }
+   );
   }
 }
+
+
+/*
+ this.service.saveTumba(this.formTumba.value)
+      .subscribe();
+    //guardamos segundo form y mostramos alert de success
+    
+
+*/
