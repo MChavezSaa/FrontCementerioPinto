@@ -2,7 +2,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formVenta" (ngSubmit)="create()" novalidate>
+        <form [formGroup]="formContrato" (ngSubmit)="create()" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Compra</h4>
             </div>
@@ -11,8 +11,8 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="fechaNacimientoDifunto"> Fecha Ingreso de venta</label>
-                        <input class="form-control" type="date">
+                        <label for="fecha_Inscripcion_Derecho"> Fecha Ingreso de venta</label>
+                        <input formControlName ="fecha_Inscripcion_Derecho" class="form-control" type="date">
                     </div>
 
                     <div class="col">
@@ -51,13 +51,13 @@
                     </div>
                     <div class="col-3">
                         <label> Ancho</label>
-                        <input type="number" class="form-control" id="anchoTumba" 
+                        <input formControlName="ancho" type="number" class="form-control" id="anchoTumba" 
                         placeholder="Ancho cargado">
                     </div>
                     
                     <div class="col-3">
                         <label> Largo</label>
-                        <input type="number" class="form-control" id="largoTumba" 
+                        <input formControlName="largo" type="number" class="form-control" id="largoTumba" 
                         placeholder="Largo cargado">
                     </div>
 
@@ -67,7 +67,7 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre de Patio</label>
-                        <select formControlName="nombre_Patio" class="form-control" id="patio">
+                        <select formControlName="patio" class="form-control" id="patio">
                             <option value="" selected disabled>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
                         
@@ -76,19 +76,10 @@
                     
                     <div class="col">
                         <label> Número de Tumba</label>
-                        <select formControlName="numero_tumba" class="form-control" id="tumba">
+                        <select formControlName="tumba" class="form-control" id="tumba">
                             <option value="" selected disabled>Seleccione numero de Tumba </option>
-                            <!--<option *ngFor="let c of tumbaList" [ngValue]="c">{{c.numero_Tumba}}</option>-->
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
+                            <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.numero_Tumba}}</option>
+                            
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
@@ -103,11 +94,14 @@
             &nbsp;
 
             <div class="form-group">
-                <div class="row">
-                    <div class="col-4">
+                <div class="row">                 
+                    <div class="col">
                         <label> Rut Cliente</label>
-                        <input type="number" class="form-control" id="rutCliente" 
-                        placeholder="Ingrese rut Cliente">
+                        <select formControlName="cliente" class="form-control" id="cliente1">
+                            <option value="" selected disabled>Seleccione cliente </option>
+                            <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
+                         
+                        </select>
                     </div>
                     <div class="col-2">
                             <div class="row">
@@ -119,7 +113,7 @@
                     </div>
                 </div>
             </div>
-
+<!--
             <div class="form-group">
                 <div class="row">
                     <div class="col">
@@ -154,7 +148,7 @@
                     </div>
 
                 </div>
-            </div>
+            </div>-->
 
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos de Pago</h4>
@@ -165,7 +159,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Medio de Pago</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
+                        <select formControlName ="medioPago" class="form-control" id="exampleFormControlSelect1">
                             <option value="${null}">Seleccione medio de pago </option>
                             <option> Efectivo</option>
                             <option> Debito</option>
@@ -174,12 +168,12 @@
                     </div>
                     <div class="col">
                         <label> Valor Terreno</label>
-                        <input type="number" class="form-control" id="valorDerecho" placeholder="Ingrese el valor del derecho">
+                        <input formControlName ="valorTerreno" type="number" class="form-control" id="valorDerecho" placeholder="Ingrese el valor del derecho">
                     </div>
                     
                     <div class="col">
                         <label> Pago inicial</label>
-                        <input type="number" class="form-control" id="valorPagoInicial" placeholder="Ingrese el valor del pago inicial">
+                        <input formControlName ="pagoInicial" type="number" class="form-control" id="valorPagoInicial" placeholder="Ingrese el valor del pago inicial">
                     </div>
 
                 </div>
@@ -189,7 +183,7 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Número de Cuotas</label>
-                        <input type="number" class="form-control" id="nroCuotas" placeholder="Ingrese número de cuotas">
+                        <input formControlName ="nCuotas" type="number" class="form-control" id="nroCuotas" placeholder="Ingrese número de cuotas">
                     </div>
                     <div class="col-2">
                         <div class="row">
@@ -202,7 +196,7 @@
                     
                     <div class="col-6">
                         <label> Valor Cuota</label>
-                        <input type="number" class="form-control" id="nroCuotas" placeholder="Ingrese el valor de cada cuotas">
+                        <input formControlName ="vCuotas" type="number" class="form-control" id="nroCuotas" placeholder="Ingrese el valor de cada cuotas">
                     </div>
             
                 </div>
@@ -211,7 +205,7 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Dia para fecha de pago</label>
-                        <input type="text" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
+                        <input formControlName ="diaPago" type="date" class="form-control" id="fechaPago" placeholder="Ingrese el dia de pago">
                     </div>
 
 

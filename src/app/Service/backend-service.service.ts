@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
-import { Cliente } from '../empleado/empleado-content/e-clientes/cliente';
+import { Cliente } from '../Entidades/Cliente';
 import { map, catchError } from 'rxjs/operators';
 import { Funcionario } from '../Entidades/Funcionario';
 import { Terreno } from '../Entidades/Terreno';
@@ -11,6 +11,7 @@ import { Tumba } from '../Entidades/Tumba';
 import Swal from 'sweetalert2';
 import { Cementerio } from '../Entidades/Cementerio';
 import { Derecho } from '../Entidades/Derecho';
+import { Contrato } from '../Entidades/Contrato';
 
 
 
@@ -55,7 +56,17 @@ export class BackendServiceService {
       })
     );
   }
-
+/*CONTRATO*/
+saveContrato(contrato:Contrato):Observable<Contrato>{  
+  return this.http.post(this.urlEndPoint+"saveContrato",contrato,{headers:this.httpHeaders}).pipe(
+    map((response:any) => response.contrato as Contrato),
+    catchError(e=>{
+      console.error(e.error.mensaje);
+      Swal.fire('Error al crear el Contrato', e.error.mensaje,'error');
+      return throwError(e);
+    })
+  );
+}
 
 
   /* FUNCIONARIO  */
