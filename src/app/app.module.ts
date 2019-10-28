@@ -56,8 +56,6 @@ import { AVentaComponent } from './administracion/a-content/a-venta/a-venta.comp
 import { FormularioVentaComponent } from './administracion/a-content/a-venta/formulario-venta/formulario-venta.component';
 import { AClienteComponent } from './administracion/a-content/a-cliente/a-cliente.component';
 import { AformClienteComponent } from './administracion/a-content/a-cliente/aform-cliente/aform-cliente.component';
-import { FormularioVenta2Component } from './administracion/a-content/a-venta/formulario-venta2/formulario-venta2.component';
-import { FormularioVenta3Component } from './administracion/a-content/a-venta/formulario-venta3/formulario-venta3.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -238,14 +236,6 @@ const routes: Routes = [
       {
         path:'formularioVenta',
         component:FormularioVentaComponent
-      },
-      {
-        path: 'formularioVenta2',
-        component: FormularioVenta2Component
-      },
-      {
-        path: 'formularioVenta3',
-        component: FormularioVenta3Component
       }
 
     ]
@@ -305,9 +295,7 @@ const routes: Routes = [
     AVentaComponent,
     FormularioVentaComponent,
     AClienteComponent,
-    AformClienteComponent,
-    FormularioVenta2Component,
-    FormularioVenta3Component
+    AformClienteComponent
   ],
   imports: [
     BrowserModule,
