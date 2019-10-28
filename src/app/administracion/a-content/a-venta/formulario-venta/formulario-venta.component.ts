@@ -9,6 +9,7 @@ import { Patio } from 'src/app/Entidades/Patio';
 import Swal from 'sweetalert2';
 import { Cliente } from 'src/app/Entidades/Cliente';
 import { pagoDerecho } from 'src/app/Entidades/pagoDerecho';
+import { Funcionario } from 'src/app/Entidades/Funcionario';
 
 
 @Component({
@@ -22,6 +23,7 @@ export class FormularioVentaComponent implements OnInit {
   tumbaList: Tumba[] = [];
   patioList: Patio[] =[];
   clienteList: Cliente[] =[];
+  funcionarioList: Funcionario[]= [];
 
 
   pagoDerecho :pagoDerecho;
@@ -32,6 +34,7 @@ export class FormularioVentaComponent implements OnInit {
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
       this.formContrato = this.formBuilder.group({
+        funcionario: ['', [Validators.required]],
         fecha_Inscripcion_Derecho:['', [Validators.required]] ,
         cementerio:['', [Validators.required]],
         tipo_Tumba:['', [Validators.required]],
@@ -56,6 +59,7 @@ export class FormularioVentaComponent implements OnInit {
     this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
     this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
     this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
+    this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
 
   }
 

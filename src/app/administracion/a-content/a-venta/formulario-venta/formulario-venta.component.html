@@ -11,6 +11,14 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
+                        <label> Nombre Funcionario</label>
+                        <select formControlName="funcionario" class="form-control" id="funcionario">
+                            <option value="" selected disabled>Seleccione Funcionario</option>
+                            <option *ngFor="let f of funcionarioList" [ngValue]="f">{{f.nombres_funcionarios}}</option>
+                    
+                        </select>
+                    </div>
+                    <div class="col">
                         <label for="fecha_Inscripcion_Derecho"> Fecha Ingreso de venta</label>
                         <input formControlName ="fecha_Inscripcion_Derecho" class="form-control" type="date">
                     </div>
