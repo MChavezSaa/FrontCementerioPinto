@@ -22,119 +22,150 @@ import { Usuario } from '../Entidades/usuario';
 export class BackendServiceService {
 
 
-  private  _usuario : Usuario;
+  private _usuario: Usuario;
   private _token: string;
 
   private urlEndPoint: string = 'http://localhost:8080/';
-  
-  private httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
+
+  private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  
-  login(usuario:Usuario):Observable<any>{
-    const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
 
-    const credenciales  = btoa('angularapp'+':'+'12345');
-
-    const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
-        'Authorization':'Basic '+credenciales});
-
-    let params = new URLSearchParams();
-    params.set('grant_type', 'password');
-    params.set('username', usuario.username);
-    params.set('password', usuario.password);
-    console.log(params.toString());
-    return this.http.post<any>(urlEndPoint2,params.toString(), {headers: httpHeaders});
+  public get usuario(): Usuario {
+    if (this._usuario != null) {
+      return this._usuario;
+    } else if (this._usuario == null && sessionStorage.getItem('usuario') != null) {
+      this._usuario = JSON.parse(sessionStorage.getItem('usuario')) as Usuario;
+      return this._usuario;
+    }
+    return new Usuario();
   }
 
-  guardarUsuario(accessToken: string): void{
-    this._usuario = new Usuario();
-    let payload = this.obtenerDatosToken(accessToken);
-        
-    this._usuario.username = payload.username;
-    this._usuario.password = payload.password;
-    this._usuario.roles = payload.authorities;
-    sessionStorage.setItem('usuario',JSON.stringify(this._usuario));
-
-  }
-  guardarToken(accessToken: string): void{
-    this._token = accessToken;
-    sessionStorage.setItem('token', accessToken);
-  }
-  obtenerDatosToken(accessToken: string): any{
-    if(accessToken != null){
-       return JSON.parse(atob(accessToken.split(".")[1]));      
+  public get token(): string {
+    if (this._token != null) {
+      return this._token;
+    } else if (this._token == null && sessionStorage.getItem('tokenn') != null) {
+      this._token = sessionStorage.getItem('token');
+      return this._token;
     }
     return null;
   }
 
 
-  private isNoAutorizado(e): boolean{
-    if(e.status==401 || e.status==402){
-      this.router.navigate(['/personal'])
-      return true; 
+
+  login(usuario: Usuario): Observable<any> {
+    const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
+
+    const credenciales = btoa('angularapp' + ':' + '12345');
+
+    const httpHeaders = new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Authorization': 'Basic ' + credenciales
+    });
+
+    let params = new URLSearchParams();
+    params.set('grant_type', 'password');
+    params.set('username', usuario.username);
+    params.set('password', usuario.password);
+    //console.log(params.toString());
+    return this.http.post<any>(urlEndPoint2, params.toString(), { headers: httpHeaders });
+  }
+
+  isAuthenticated(): boolean{
+    let payload = this.obtenerDatosToken(this.token);
+    if(payload!= null && payload.user_name && payload.user_name.length>0){
+      return true;
     }
     return false;
   }
 
-/*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
-  getClientes():Observable<Cliente[]>{
-    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes").pipe(   
+  guardarUsuario(accessToken: string): void {
+    this._usuario = new Usuario();
+    let payload = this.obtenerDatosToken(accessToken);
+
+    this._usuario.username = payload.user_name;
+    this._usuario.roles = payload.authorities;
+    sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
+
+  }
+  guardarToken(accessToken: string): void {
+    this._token = accessToken;
+    sessionStorage.setItem('token', accessToken);
+  }
+  obtenerDatosToken(accessToken: string): any {
+    if (accessToken != null) { 
+      return JSON.parse(atob(accessToken.split(".")[1]));
+    }
+    return null;
+  }
+
+
+  private isNoAutorizado(e): boolean {
+    if (e.status == 401 || e.status == 402) {
+      this.router.navigate(['/personal'])
+      return true;
+    }
+    return false;
+  }
+
+  /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
+  getClientes(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
-        return throwError(e); 
+        return throwError(e);
       })
     );
   }
 
-  saveCliente(cliente:Cliente):Observable<Cliente >{  
-      return this.http.post(this.urlEndPoint+"saveCliente",cliente,{headers:this.httpHeaders}).pipe(
-        map((response:any) => response.cliente as Cliente),
-        catchError(e=>{
+  saveCliente(cliente: Cliente): Observable<Cliente> {
+    return this.http.post(this.urlEndPoint + "saveCliente", cliente, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.cliente as Cliente),
+      catchError(e => {
 
-          if(this.isNoAutorizado(e)){
-            return throwError(e);
-          }
-          console.error(e.error.mensaje);
-          Swal.fire('Error al crear el cliente', e.error.mensaje,'error');
-          return throwError(e);
-        })
-      );
-    }
-  
-  deleteCliente(id:number):Observable<Cliente>{
-    return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al eliminar el cliente', e.error.mensaje,'error');
+        Swal.fire('Error al crear el cliente', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
-/*CONTRATO*/
-saveContrato(contrato:Contrato):Observable<Contrato>{  
-  return this.http.post(this.urlEndPoint+"saveContrato",contrato,{headers:this.httpHeaders}).pipe(
-    map((response:any) => response.contrato as Contrato),
-    catchError(e=>{
-      if (this.isNoAutorizado(e)) {
+
+  deleteCliente(id: number): Observable<Cliente> {
+    return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el cliente', e.error.mensaje, 'error');
         return throwError(e);
-      }
-      console.error(e.error.mensaje);
-      Swal.fire('Error al crear el Contrato', e.error.mensaje,'error');
-      return throwError(e);
-    })
-  );
-}
+      })
+    );
+  }
+  /*CONTRATO*/
+  saveContrato(contrato: Contrato): Observable<Contrato> {
+    return this.http.post(this.urlEndPoint + "saveContrato", contrato, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.contrato as Contrato),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el Contrato', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
 
 
   /* FUNCIONARIO  */
- 
-  getFuncionarios():Observable<Funcionario[]>{
+
+  getFuncionarios(): Observable<Funcionario[]> {
     return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -143,48 +174,48 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     );
   }
 
-  saveFuncionario(funcionario:Funcionario):Observable<Funcionario>{  
-    return this.http.post(this.urlEndPoint+"saveFuncionario",funcionario,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.funcionario as Funcionario),
-      catchError(e=>{
+  saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
+    return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.funcionario as Funcionario),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al crear el funcionario', e.error.mensaje,'error');
+        Swal.fire('Error al crear el funcionario', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
-  deleteFuncionario(id:number):Observable<Funcionario>{
-    return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+  deleteFuncionario(id: number): Observable<Funcionario> {
+    return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al eliminar el Funcionario', e.error.mensaje,'error');
+        Swal.fire('Error al eliminar el Funcionario', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
-  updateFuncionario(funcionario:Funcionario, id:number):Observable<any>{
-    return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`,funcionario,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+  updateFuncionario(funcionario: Funcionario, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`, funcionario, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar el funcionario', e.error.mensaje,'error');
+        Swal.fire('Error al editar el funcionario', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
   /*TERRENO*/  /**no existe update en terreno */
-  getTerreno():Observable<Terreno[]>{
+  getTerreno(): Observable<Terreno[]> {
     return this.http.get<Terreno[]>(this.urlEndPoint + "listTerrenos").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -193,29 +224,29 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     );
   }
 
-  saveTerreno(terreno:Terreno):Observable<Terreno>{  
+  saveTerreno(terreno: Terreno): Observable<Terreno> {
     terreno.estado_Terreno = true;
-    return this.http.post(this.urlEndPoint+"saveTerrenos",terreno,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.terreno as Terreno),
-      catchError(e=>{
+    return this.http.post(this.urlEndPoint + "saveTerrenos", terreno, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.terreno as Terreno),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al crear el terreno', e.error.mensaje,'error');
+        Swal.fire('Error al crear el terreno', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
-  deleteTerreno(id:number):Observable<Terreno>{
-    return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+  deleteTerreno(id: number): Observable<Terreno> {
+    return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al eliminar el Terreno', e.error.mensaje,'error');
+        Swal.fire('Error al eliminar el Terreno', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -223,7 +254,7 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 
   /*PATIO*/  /**no existe update en patio */
 
-  getPatio():Observable<Patio[]>{
+  getPatio(): Observable<Patio[]> {
     return this.http.get<Patio[]>(this.urlEndPoint + "listPatios").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -232,29 +263,29 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     );
   }
 
-  savePatio(patio:Patio):Observable<Patio>{  
-    return this.http.post(this.urlEndPoint+"savePatio",patio,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.patio as Patio),
-      catchError(e=>{
+  savePatio(patio: Patio): Observable<Patio> {
+    return this.http.post(this.urlEndPoint + "savePatio", patio, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.patio as Patio),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al crear el patio', e.error.mensaje,'error');
+        Swal.fire('Error al crear el patio', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
-  
 
-  deletePatio(id:number):Observable<Patio>{
-    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+
+  deletePatio(id: number): Observable<Patio> {
+    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al eliminar el Patio', e.error.mensaje,'error');
+        Swal.fire('Error al eliminar el Patio', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -263,7 +294,7 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
-  getTipoTumba():Observable<TipoTumba[]>{
+  getTipoTumba(): Observable<TipoTumba[]> {
     return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -272,28 +303,28 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     );
   }
 
-  saveTipoTumba(tipoTumba:TipoTumba):Observable<TipoTumba>{  
-    return this.http.post(this.urlEndPoint+"saveTipoTumba",tipoTumba,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.tipoTumba as TipoTumba),
-      catchError(e=>{
+  saveTipoTumba(tipoTumba: TipoTumba): Observable<TipoTumba> {
+    return this.http.post(this.urlEndPoint + "saveTipoTumba", tipoTumba, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.tipoTumba as TipoTumba),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al crear el tipo de tumba', e.error.mensaje,'error');
+        Swal.fire('Error al crear el tipo de tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
-  updateTipoTumba(tipoTumba:TipoTumba, id:number):Observable<any>{
-    return this.http.put<any>(`${this.urlEndPoint}updateTipoTumba/${id}`,tipoTumba,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+  updateTipoTumba(tipoTumba: TipoTumba, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateTipoTumba/${id}`, tipoTumba, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar el tipo de tumba', e.error.mensaje,'error');
+        Swal.fire('Error al editar el tipo de tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -303,7 +334,7 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 
   /*TUMBA*/ /*NO TIENE DELETE*/
 
-  getTumba():Observable<Tumba[]>{
+  getTumba(): Observable<Tumba[]> {
     return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -313,28 +344,28 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   }
 
 
-  saveTumba(tumba:Tumba):Observable<Tumba>{  
-    return this.http.post(this.urlEndPoint+"saveTipoTumba",tumba,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.tumba as Tumba),
-      catchError(e=>{
+  saveTumba(tumba: Tumba): Observable<Tumba> {
+    return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.tumba as Tumba),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al crear la tumba', e.error.mensaje,'error');
+        Swal.fire('Error al crear la tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
   }
 
-  updateTumba(tumba:Tumba, id:number):Observable<any>{
-    return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`,tumba,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+  updateTumba(tumba: Tumba, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`, tumba, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editarla tumba', e.error.mensaje,'error');
+        Swal.fire('Error al editarla tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -342,79 +373,79 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 
   /*CEMENTERIO */
 
-  getCementerio():Observable<Cementerio[]>{
+  getCementerio(): Observable<Cementerio[]> {
     return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios").pipe(
-       catchError(e => {
-         this.isNoAutorizado(e);
-         return throwError(e);
-       })
-    );
-  }
-
-
-  saveCementerio(cementerio:Cementerio):Observable<Cementerio>{  
-    return this.http.post(this.urlEndPoint+"saveCementerio",cementerio,{headers:this.httpHeaders}).pipe(
-      map((response:any) => response.cementerio as Cementerio),
-      catchError(e=>{
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-        console.error(e.error.mensaje);
-        Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
+      catchError(e => {
+        this.isNoAutorizado(e);
         return throwError(e);
       })
     );
   }
 
-  updateCementerio(cementerio:Cementerio, id:number):Observable<any>{
-    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
-      catchError(e=>{
+
+  saveCementerio(cementerio: Cementerio): Observable<Cementerio> {
+    return this.http.post(this.urlEndPoint + "saveCementerio", cementerio, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.cementerio as Cementerio),
+      catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el cementerio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  updateCementerio(cementerio: Cementerio, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`, cementerio, { headers: this.httpHeaders }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el cementerio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  /*Derecho */
+
+  getDerecho(): Observable<Derecho[]> {
+    return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
+
+  saveDerecho(derecho: Derecho): Observable<Derecho> {
+    return this.http.post(this.urlEndPoint + "saveCementerio", derecho, { headers: this.httpHeaders }).pipe(
+      map((response: any) => response.derecho as Derecho),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el cementerio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  /*
+  updateDerecho(cementerio:Cementerio, id:number):Observable<any>{
+    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
+      catchError(e=>{
+  
         console.error(e.error.mensaje);
         Swal.fire('Error al editar el cementerio', e.error.mensaje,'error');
         return throwError(e);
       })
     );
-  }
-
-/*Derecho */
-
-getDerecho():Observable<Derecho[]>{
-  return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos").pipe(
-     catchError(e => {
-       this.isNoAutorizado(e);
-       return throwError(e);
-     })
-  );
-}
-
-
-saveDerecho(derecho:Derecho):Observable<Derecho>{  
-  return this.http.post(this.urlEndPoint+"saveCementerio",derecho,{headers:this.httpHeaders}).pipe(
-    map((response:any) => response.derecho as Derecho),
-    catchError(e=>{
-      if (this.isNoAutorizado(e)) {
-        return throwError(e);
-      }
-      console.error(e.error.mensaje);
-      Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
-      return throwError(e);
-    })
-  );
-}
-/*
-updateDerecho(cementerio:Cementerio, id:number):Observable<any>{
-  return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
-    catchError(e=>{
-
-      console.error(e.error.mensaje);
-      Swal.fire('Error al editar el cementerio', e.error.mensaje,'error');
-      return throwError(e);
-    })
-  );
-}*/
+  }*/
 
 
 }

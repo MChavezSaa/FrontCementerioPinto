@@ -19,24 +19,36 @@ export class ELoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    if(this.service.isAuthenticated()){
+      Swal.fire('Inicio de sesión correctamente', `Bienvenido nuevamente ${this.service.usuario.username}`, 'info');
+      this.router.navigate(['/administracion-inicio'])
+    }
   }
 
   login(): void{
     console.log(this.usuario);
+
     if(this.usuario.username == null || this.usuario.password == null){      
       Swal.fire('Error al ingresar', 'Verifica usuario y contraseña.', 'error');
       return;
     }
+      
     this.service.login(this.usuario).subscribe(response => {
       console.log(response);      
-      let payload = JSON.parse(atob(response.access_token.split(".")[1]));
+      
+      //let payload = JSON.parse(atob(response.access_token.split(".")[1]));
 
       this.service.guardarUsuario(response.access_token);
       this.service.guardarToken(response.access_token);
-
-        this.router.navigate(['/administracion-inicio']);
-        Swal.fire('Inicio de sesión correctamente', `Bienvenido ${payload.user_name}`, 'success');
-    });
+      this.router.navigate(['/administracion-inicio']);
+      let usuario = this.service.usuario;
+      Swal.fire('Inicio de sesión correctamente', `Bienvenido ${usuario.username}`, 'success');
+    }, err => {
+      if(err.status == 400){
+        Swal.fire('Error credenciales incorrectas', 'Verifica usuario y contraseña.', 'error');
+      }
+    }
+    );
   }
 
 }
