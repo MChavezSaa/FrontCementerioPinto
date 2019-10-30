@@ -12,8 +12,7 @@ import Swal from 'sweetalert2';
 import { Cementerio } from '../Entidades/Cementerio';
 import { Derecho } from '../Entidades/Derecho';
 import { Contrato } from '../Entidades/Contrato';
-
-
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -25,21 +24,36 @@ export class BackendServiceService {
   private httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
   
-
-  getClientes():Observable<Cliente[]>{
-    return this.http.get(this.urlEndPoint + "listClientes").pipe(
-      map((response)=>response as Cliente[])
-    )
+  private isNoAutorizado(e): boolean{
+    if(e.status==401 || e.status==402){
+      this.router.navigate(['/personal'])
+      return true; 
+    }
+    return false;
   }
 
-  saveCliente(cliente:Cliente):Observable<Cliente>{  
+
+  getClientes():Observable<Cliente[]>{
+    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes").pipe(   
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e); 
+      })
+    );
+  }
+
+  saveCliente(cliente:Cliente):Observable<Cliente >{  
       return this.http.post(this.urlEndPoint+"saveCliente",cliente,{headers:this.httpHeaders}).pipe(
         map((response:any) => response.cliente as Cliente),
         catchError(e=>{
+
+          if(this.isNoAutorizado(e)){
+            return throwError(e);
+          }
           console.error(e.error.mensaje);
           Swal.fire('Error al crear el cliente', e.error.mensaje,'error');
           return throwError(e);
@@ -50,6 +64,9 @@ export class BackendServiceService {
   deleteCliente(id:number):Observable<Cliente>{
     return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al eliminar el cliente', e.error.mensaje,'error');
         return throwError(e);
@@ -61,6 +78,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   return this.http.post(this.urlEndPoint+"saveContrato",contrato,{headers:this.httpHeaders}).pipe(
     map((response:any) => response.contrato as Contrato),
     catchError(e=>{
+      if (this.isNoAutorizado(e)) {
+        return throwError(e);
+      }
       console.error(e.error.mensaje);
       Swal.fire('Error al crear el Contrato', e.error.mensaje,'error');
       return throwError(e);
@@ -72,15 +92,21 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   /* FUNCIONARIO  */
  
   getFuncionarios():Observable<Funcionario[]>{
-    return this.http.get(this.urlEndPoint + "listFuncionarios").pipe(
-      map((response)=>response as Funcionario[])
-    )
+    return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
   }
 
   saveFuncionario(funcionario:Funcionario):Observable<Funcionario>{  
     return this.http.post(this.urlEndPoint+"saveFuncionario",funcionario,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.funcionario as Funcionario),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear el funcionario', e.error.mensaje,'error');
         return throwError(e);
@@ -91,6 +117,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   deleteFuncionario(id:number):Observable<Funcionario>{
     return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al eliminar el Funcionario', e.error.mensaje,'error');
         return throwError(e);
@@ -101,7 +130,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   updateFuncionario(funcionario:Funcionario, id:number):Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`,funcionario,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
-
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al editar el funcionario', e.error.mensaje,'error');
         return throwError(e);
@@ -111,9 +142,12 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 
   /*TERRENO*/  /**no existe update en terreno */
   getTerreno():Observable<Terreno[]>{
-    return this.http.get(this.urlEndPoint + "listTerrenos").pipe(
-      map((response)=>response as Terreno[])
-    )
+    return this.http.get<Terreno[]>(this.urlEndPoint + "listTerrenos").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
   }
 
   saveTerreno(terreno:Terreno):Observable<Terreno>{  
@@ -121,6 +155,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     return this.http.post(this.urlEndPoint+"saveTerrenos",terreno,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.terreno as Terreno),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear el terreno', e.error.mensaje,'error');
         return throwError(e);
@@ -131,6 +168,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   deleteTerreno(id:number):Observable<Terreno>{
     return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al eliminar el Terreno', e.error.mensaje,'error');
         return throwError(e);
@@ -141,15 +181,21 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   /*PATIO*/  /**no existe update en patio */
 
   getPatio():Observable<Patio[]>{
-    return this.http.get(this.urlEndPoint + "listPatios").pipe(
-      map((response)=>response as Patio[])
-    )
+    return this.http.get<Patio[]>(this.urlEndPoint + "listPatios").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
   }
 
   savePatio(patio:Patio):Observable<Patio>{  
     return this.http.post(this.urlEndPoint+"savePatio",patio,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.patio as Patio),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear el patio', e.error.mensaje,'error');
         return throwError(e);
@@ -161,6 +207,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   deletePatio(id:number):Observable<Patio>{
     return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al eliminar el Patio', e.error.mensaje,'error');
         return throwError(e);
@@ -172,15 +221,21 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba():Observable<TipoTumba[]>{
-    return this.http.get(this.urlEndPoint + "listTipotumbas").pipe(
-      map((response)=>response as TipoTumba[])
-    )
+    return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
   }
 
   saveTipoTumba(tipoTumba:TipoTumba):Observable<TipoTumba>{  
     return this.http.post(this.urlEndPoint+"saveTipoTumba",tipoTumba,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.tipoTumba as TipoTumba),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear el tipo de tumba', e.error.mensaje,'error');
         return throwError(e);
@@ -191,7 +246,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   updateTipoTumba(tipoTumba:TipoTumba, id:number):Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}updateTipoTumba/${id}`,tipoTumba,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
-
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al editar el tipo de tumba', e.error.mensaje,'error');
         return throwError(e);
@@ -204,9 +261,12 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba():Observable<Tumba[]>{
-    return this.http.get(this.urlEndPoint + "listTumbas").pipe(
-      map((response)=>response as Tumba[])
-    )
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas").pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
   }
 
 
@@ -214,6 +274,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     return this.http.post(this.urlEndPoint+"saveTipoTumba",tumba,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.tumba as Tumba),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear la tumba', e.error.mensaje,'error');
         return throwError(e);
@@ -224,7 +287,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   updateTumba(tumba:Tumba, id:number):Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`,tumba,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
-
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al editarla tumba', e.error.mensaje,'error');
         return throwError(e);
@@ -235,9 +300,12 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   /*CEMENTERIO */
 
   getCementerio():Observable<Cementerio[]>{
-    return this.http.get(this.urlEndPoint + "listCementerios").pipe(
-      map((response)=>response as Cementerio[])
-    )
+    return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios").pipe(
+       catchError(e => {
+         this.isNoAutorizado(e);
+         return throwError(e);
+       })
+    );
   }
 
 
@@ -245,6 +313,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
     return this.http.post(this.urlEndPoint+"saveCementerio",cementerio,{headers:this.httpHeaders}).pipe(
       map((response:any) => response.cementerio as Cementerio),
       catchError(e=>{
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
         return throwError(e);
@@ -255,7 +326,9 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
   updateCementerio(cementerio:Cementerio, id:number):Observable<any>{
     return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`,cementerio,{headers:this.httpHeaders}).pipe(
       catchError(e=>{
-
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
         console.error(e.error.mensaje);
         Swal.fire('Error al editar el cementerio', e.error.mensaje,'error');
         return throwError(e);
@@ -266,9 +339,12 @@ saveContrato(contrato:Contrato):Observable<Contrato>{
 /*Derecho */
 
 getDerecho():Observable<Derecho[]>{
-  return this.http.get(this.urlEndPoint + "listDerechos").pipe(
-    map((response)=>response as Derecho[])
-  )
+  return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos").pipe(
+     catchError(e => {
+       this.isNoAutorizado(e);
+       return throwError(e);
+     })
+  );
 }
 
 
@@ -276,6 +352,9 @@ saveDerecho(derecho:Derecho):Observable<Derecho>{
   return this.http.post(this.urlEndPoint+"saveCementerio",derecho,{headers:this.httpHeaders}).pipe(
     map((response:any) => response.derecho as Derecho),
     catchError(e=>{
+      if (this.isNoAutorizado(e)) {
+        return throwError(e);
+      }
       console.error(e.error.mensaje);
       Swal.fire('Error al crear el cementerio', e.error.mensaje,'error');
       return throwError(e);
