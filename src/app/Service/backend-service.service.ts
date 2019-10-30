@@ -13,6 +13,7 @@ import { Cementerio } from '../Entidades/Cementerio';
 import { Derecho } from '../Entidades/Derecho';
 import { Contrato } from '../Entidades/Contrato';
 import { Router } from '@angular/router';
+import { Usuario } from '../Entidades/usuario';
 
 
 @Injectable({
@@ -20,14 +21,56 @@ import { Router } from '@angular/router';
 })
 export class BackendServiceService {
 
+
+  private  _usuario : Usuario;
+  private _token: string;
+
   private urlEndPoint: string = 'http://localhost:8080/';
+  
   private httpHeaders=new HttpHeaders({'Content-Type':'application/json'})
 
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
   
+  login(usuario:Usuario):Observable<any>{
+    const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
+
+    const credenciales  = btoa('angularapp'+':'+'12345');
+
+    const httpHeaders = new HttpHeaders({'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization':'Basic '+credenciales});
+
+    let params = new URLSearchParams();
+    params.set('grant_type', 'password');
+    params.set('username', usuario.username);
+    params.set('password', usuario.password);
+    console.log(params.toString());
+    return this.http.post<any>(urlEndPoint2,params.toString(), {headers: httpHeaders});
+  }
+
+  guardarUsuario(accessToken: string): void{
+    this._usuario = new Usuario();
+    let payload = this.obtenerDatosToken(accessToken);
+        
+    this._usuario.username = payload.username;
+    this._usuario.password = payload.password;
+    this._usuario.roles = payload.authorities;
+    sessionStorage.setItem('usuario',JSON.stringify(this._usuario));
+
+  }
+  guardarToken(accessToken: string): void{
+    this._token = accessToken;
+    sessionStorage.setItem('token', accessToken);
+  }
+  obtenerDatosToken(accessToken: string): any{
+    if(accessToken != null){
+       return JSON.parse(atob(accessToken.split(".")[1]));      
+    }
+    return null;
+  }
+
+
   private isNoAutorizado(e): boolean{
     if(e.status==401 || e.status==402){
       this.router.navigate(['/personal'])
@@ -36,7 +79,7 @@ export class BackendServiceService {
     return false;
   }
 
-
+/*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
   getClientes():Observable<Cliente[]>{
     return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes").pipe(   
       catchError(e => {
