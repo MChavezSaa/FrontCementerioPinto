@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-a-header',
@@ -9,7 +11,7 @@ import { Router } from '@angular/router';
 export class AHeaderComponent implements OnInit {
   mostrarSidebar:boolean=true;
 
-  constructor(private router: Router) { }
+  constructor(private service:  BackendServiceService,private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,8 +22,12 @@ export class AHeaderComponent implements OnInit {
       this.mostrarSidebar=true;
     }
   }
-  login(): void {
-    this.router.navigateByUrl('/personal');
+  logout(): void {
+    let username = this.service.usuario.username;
+    this.service.logout();
+    this.router.navigateByUrl('/');
+    Swal.fire('Cerrado de sesión satisfactorio', `Hasta pronto ${username}!`, 'success');
+
   }
 
 }

@@ -32,6 +32,13 @@ export class BackendServiceService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  private agregarAuthorizationHeader(){
+    let token = this.token;
+    if(token != null){
+      return this.httpHeaders.append('Authorization', 'Bearer '+token);
+    }
+    return this.httpHeaders;
+  }
 
   public get usuario(): Usuario {
     if (this._usuario != null) {
@@ -53,7 +60,11 @@ export class BackendServiceService {
     return null;
   }
 
-
+  logout():void{
+    this._token= null;
+    this._usuario= null;
+    sessionStorage.clear();
+  }
 
   login(usuario: Usuario): Observable<any> {
     const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
@@ -112,7 +123,7 @@ export class BackendServiceService {
 
   /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
   getClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes").pipe(
+    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -121,7 +132,7 @@ export class BackendServiceService {
   }
 
   saveCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post(this.urlEndPoint + "saveCliente", cliente, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveCliente", cliente, {headers: this.agregarAuthorizationHeader()}).pipe(
       map((response: any) => response.cliente as Cliente),
       catchError(e => {
 
@@ -136,7 +147,7 @@ export class BackendServiceService {
   }
 
   deleteCliente(id: number): Observable<Cliente> {
-    return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`, { headers: this.httpHeaders }).pipe(
+    return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -149,7 +160,7 @@ export class BackendServiceService {
   }
   /*CONTRATO*/
   saveContrato(contrato: Contrato): Observable<Contrato> {
-    return this.http.post(this.urlEndPoint + "saveContrato", contrato, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveContrato", contrato, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.contrato as Contrato),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -166,7 +177,7 @@ export class BackendServiceService {
   /* FUNCIONARIO  */
 
   getFuncionarios(): Observable<Funcionario[]> {
-    return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios").pipe(
+    return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -175,7 +186,7 @@ export class BackendServiceService {
   }
 
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
-    return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.funcionario as Funcionario),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -189,7 +200,7 @@ export class BackendServiceService {
   }
 
   deleteFuncionario(id: number): Observable<Funcionario> {
-    return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`, { headers: this.httpHeaders }).pipe(
+    return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -202,7 +213,7 @@ export class BackendServiceService {
   }
 
   updateFuncionario(funcionario: Funcionario, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`, funcionario, { headers: this.httpHeaders }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`, funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -226,7 +237,7 @@ export class BackendServiceService {
 
   saveTerreno(terreno: Terreno): Observable<Terreno> {
     terreno.estado_Terreno = true;
-    return this.http.post(this.urlEndPoint + "saveTerrenos", terreno, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveTerrenos", terreno, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.terreno as Terreno),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -240,7 +251,7 @@ export class BackendServiceService {
   }
 
   deleteTerreno(id: number): Observable<Terreno> {
-    return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`, { headers: this.httpHeaders }).pipe(
+    return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -255,7 +266,7 @@ export class BackendServiceService {
   /*PATIO*/  /**no existe update en patio */
 
   getPatio(): Observable<Patio[]> {
-    return this.http.get<Patio[]>(this.urlEndPoint + "listPatios").pipe(
+    return this.http.get<Patio[]>(this.urlEndPoint + "listPatios", {headers:this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -264,7 +275,7 @@ export class BackendServiceService {
   }
 
   savePatio(patio: Patio): Observable<Patio> {
-    return this.http.post(this.urlEndPoint + "savePatio", patio, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "savePatio", patio, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.patio as Patio),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -279,7 +290,7 @@ export class BackendServiceService {
 
 
   deletePatio(id: number): Observable<Patio> {
-    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`, { headers: this.httpHeaders }).pipe(
+    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -295,7 +306,7 @@ export class BackendServiceService {
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba(): Observable<TipoTumba[]> {
-    return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas").pipe(
+    return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas", {headers:this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -304,7 +315,7 @@ export class BackendServiceService {
   }
 
   saveTipoTumba(tipoTumba: TipoTumba): Observable<TipoTumba> {
-    return this.http.post(this.urlEndPoint + "saveTipoTumba", tipoTumba, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveTipoTumba", tipoTumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.tipoTumba as TipoTumba),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -318,7 +329,7 @@ export class BackendServiceService {
   }
 
   updateTipoTumba(tipoTumba: TipoTumba, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateTipoTumba/${id}`, tipoTumba, { headers: this.httpHeaders }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}updateTipoTumba/${id}`, tipoTumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -335,7 +346,7 @@ export class BackendServiceService {
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {
-    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas").pipe(
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -345,7 +356,7 @@ export class BackendServiceService {
 
 
   saveTumba(tumba: Tumba): Observable<Tumba> {
-    return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.tumba as Tumba),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -359,7 +370,7 @@ export class BackendServiceService {
   }
 
   updateTumba(tumba: Tumba, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`, tumba, { headers: this.httpHeaders }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -374,7 +385,7 @@ export class BackendServiceService {
   /*CEMENTERIO */
 
   getCementerio(): Observable<Cementerio[]> {
-    return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios").pipe(
+    return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -384,7 +395,7 @@ export class BackendServiceService {
 
 
   saveCementerio(cementerio: Cementerio): Observable<Cementerio> {
-    return this.http.post(this.urlEndPoint + "saveCementerio", cementerio, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveCementerio", cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.cementerio as Cementerio),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -398,7 +409,7 @@ export class BackendServiceService {
   }
 
   updateCementerio(cementerio: Cementerio, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`, cementerio, { headers: this.httpHeaders }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`, cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -413,7 +424,7 @@ export class BackendServiceService {
   /*Derecho */
 
   getDerecho(): Observable<Derecho[]> {
-    return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos").pipe(
+    return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -423,7 +434,7 @@ export class BackendServiceService {
 
 
   saveDerecho(derecho: Derecho): Observable<Derecho> {
-    return this.http.post(this.urlEndPoint + "saveCementerio", derecho, { headers: this.httpHeaders }).pipe(
+    return this.http.post(this.urlEndPoint + "saveCementerio", derecho, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.derecho as Derecho),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
