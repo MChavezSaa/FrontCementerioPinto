@@ -9,7 +9,7 @@
     <ul class="list-unstyled components">
       <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> <span>Inicio</span> </a></li>
             
-      <li class="active ">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="active ">
         <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i class="fas fa-church"></i>Gestión Cementerio</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
           <li>
@@ -27,22 +27,22 @@
         </ul>
       </li>
 
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="Afuncionarios"><i class="fas fa-user-alt colorFig"></i> Funcionarios</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="Aclientes"> <i class="fas fa-user-friends  colorFig"></i>Clientes</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="ADifuntos"> <i class="fas fa-cross  colorFig"></i>Difuntos</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="ATerrenosLibres"><i class="fas fa-map colorFig"></i> Mapa de Terrenos</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="Areduccion"><i class="fab fa-pagelines"></i> Reducción</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="AVentas"><i class="fas fa-handshake"></i> Realizar Venta</a>
       </li>
       <li class="nav-item">

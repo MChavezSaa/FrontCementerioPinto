@@ -60,6 +60,13 @@ export class BackendServiceService {
     return null;
   }
 
+  hasRole(role :string):boolean{
+    if(this.usuario.roles.includes(role)){
+      return true;
+    }
+    return false;
+  }
+
   logout():void{
     this._token= null;
     this._usuario= null;
@@ -115,6 +122,9 @@ export class BackendServiceService {
 
   private isNoAutorizado(e): boolean {
     if (e.status == 401 || e.status == 402) {
+      if(this.isAuthenticated()){
+        this.logout();
+      }
       this.router.navigate(['/personal'])
       return true;
     }
