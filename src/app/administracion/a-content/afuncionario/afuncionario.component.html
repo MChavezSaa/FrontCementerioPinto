@@ -24,47 +24,104 @@
     </div>
     <!--FIN SECCION PARA FILTRAR-->
 
-    <div class="card mb-3">
-        <div class="card-header text-center">
-            Listado de Funcionarios
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
+                aria-controls="nav-home" aria-selected="true">Funcionarios Activos</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
+                aria-controls="nav-profile" aria-selected="false">Funcionarios Inactivos</a>
         </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <!--INICIO LISTADO DE TABLA -->
-                <table class="table table-hover" style="text-align: center">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Rut Funcionario</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Cargo</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let fun of funcionarioList2">
-                            <td>{{fun.rut_Funcionario}}</td>
-                            <td>{{fun.nombres_Funcionario}}</td>
-                            <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
-                            <td>{{fun.cargo_Funcionario}}</td>
-                            <td>
-                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosFuncionario"><i class="fas fa-eye"></i>
-                                </button>
-                                &nbsp;
-                                <button type="button" name="editar"
-                                    [routerLink]="['/personal-inicio/clientes-form',fun.id]" class="btn btn-warning"><i
-                                        class="fas fa-pencil-alt"></i></button>
-                                &nbsp;
-                                <button type="button" name="eliminar" class="btn btn-danger"><i
-                                        class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    Listado de Funcionarios
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA //    *ngIf="funcionarioList2.estado_funcionario==1"  -->
+                        <table class="table table-hover" style="text-align: center"  >
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Rut Funcionario</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let fun of funcionarioList2"  >
+                                    <td>{{fun.rut_Funcionario}}</td>
+                                    <td>{{fun.nombres_Funcionario}}</td>
+                                    <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
+                                    <td>{{fun.cargo_Funcionario}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#datosFuncionario"><i class="fas fa-eye"></i>
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
+                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                        &nbsp;
+                                        <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    Listado de Funcionarios
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA ///    *ngIf="funcionarioList2.estado_funcionario==false" -->
+                        <table class="table table-hover" style="text-align: center"  >
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Rut Funcionario</th>
+                                    <th scope="col">Nombres</th>
+                                    <th scope="col">Apellidos</th>
+                                    <th scope="col">Cargo</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let fun of funcionarioList2">
+                                    <td>{{fun.rut_Funcionario}}</td>
+                                    <td>{{fun.nombres_Funcionario}}</td>
+                                    <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
+                                    <td>{{fun.cargo_Funcionario}}</td>
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                            data-target="#datosFuncionario"><i class="fas fa-eye"></i>
+                                        </button>
+                                        &nbsp;
+                                        <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
+                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                        &nbsp;
+                                        <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+
+    
 
 </div>
 
@@ -82,7 +139,7 @@
 
             <!-- Modal body -->
             <div class="modal-body">
-                 <label *ngFor="let funm of funcionarioList2">
+                 <label *ngFor="let funm of funcionarioList2" >
                     <b>Rut:</b> {{funm.rut_Funcionario}} <br>
                     <b>Nombre:</b> {{funm.nombres_Funcionario}} <br>
                     <b>Apellidos:</b> {{funm.apellidoP_Funcionario}} {{funm.apellidoM_Funcionario}} <br>
