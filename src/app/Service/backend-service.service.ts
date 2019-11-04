@@ -53,7 +53,7 @@ export class BackendServiceService {
   public get token(): string {
     if (this._token != null) {
       return this._token;
-    } else if (this._token == null && sessionStorage.getItem('tokenn') != null) {
+    } else if (this._token == null && sessionStorage.getItem('token') != null) {
       this._token = sessionStorage.getItem('token');
       return this._token;
     }
