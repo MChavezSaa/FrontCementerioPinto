@@ -45,7 +45,7 @@
                         <tr *ngFor="let ter of terrenoList2">
                             <td>{{ter.nombre_Terreno}}</td>
                             <td>{{ter.capacidad_Terreno}}</td>
-                            <td>{{ter.cementerio}}</td>
+                            <td>{{ter.cementerio.nombre_Cementerio}}</td>
                             <td>{{ter.estado_Terreno}}</td>
                             <td><button type="button" name="editar"
                                     [routerLink]="['/personal-inicio/clientes-form',ter.id]" class="btn btn-warning"><i

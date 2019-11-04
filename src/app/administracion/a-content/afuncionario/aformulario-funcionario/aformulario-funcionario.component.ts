@@ -40,7 +40,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
       funcionario => {   
         //ver como tomar valor de nombre para funcion swal
         Swal.fire('Nuevo Funcionario', `Funcionario ${funcionario} creado con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/']);  
+          this.router.navigate(['/administracion-inicio/Afuncionarios']);  
       },
       err=>{
         console.log(err)
