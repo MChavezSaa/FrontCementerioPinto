@@ -51,7 +51,12 @@
                                                         <td>{{cli.apellidoP_Cliente}} {{cli.apellidoM_Cliente}}</td>
                                                         <td>{{cli.telefono_Cliente}}</td>
                                                         <td>{{cli.direccion_Cliente}}</td>
-                                                        <td><button type="button" name="editar"
+                                                        <td>
+                                                                <button type="button" class="btn btn-primary" data-toggle="modal" 
+                                                                data-target="#datosCliente"><i class="fas fa-eye"></i>
+                                                                </button>
+                                                                &nbsp;
+                                                                <button type="button" name="editar"
                                                                         [routerLink]="['/personal-inicio/clientes-form',cli.id]"
                                                                         class="btn btn-warning"><i
                                                                                 class="fas fa-pencil-alt"></i></button>
@@ -69,3 +74,50 @@
         </div>
 
 </div>
+
+<!-- MODAL DE DATOS-->
+        <!-- The Modal -->
+        <div class="modal" id="datosCliente">
+                <div class="modal-dialog">
+                        <div class="modal-content">
+        
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                        <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver Cliente</b></h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+        
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                        <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Cliente</b></h4>
+                                        <hr>
+                                        <label *ngFor="let clim of clienteList2">
+                                                <b>Rut:</b> {{clim.rut_Cliente}} <br>
+                                                <b>Nombre:</b> {{clim.nombres_Cliente}} <br>
+                                                <b>Apellidos:</b> {{clim.apellidoP_Cliente}} {{clim.apellidoM_Cliente}} <br>
+                                                <b>Género:</b> {{clim.genero_Cliente}} <br>
+                                                <b>Teléfono:</b> {{clim.telefono_Cliente}} <br>
+                                                <b>Dirección:</b> {{clim.direccion_Cliente}} <br>
+                                                <b>Género:</b> {{clim.genero_Cliente}} <br>
+                                                <br>
+                                        </label>
+                                        <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Familiar</b></h4>
+                                        <hr>
+                                        <label *ngFor="let clim of clienteList2">
+                                                <b>Rut:</b> {{clim.rut_Familiar}} <br>
+                                                <b>Nombre:</b> {{clim.nombres_Familiar}} <br>
+                                                <b>Apellidos:</b> {{clim.apellidoP_Familiar}} {{clim.apellidoM_Familiar}} <br>
+                                                <b>Teléfono:</b> {{clim.telefono_Familiar}} <br>
+                                        
+                                        </label>
+                                </div>
+        
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                                </div>
+        
+                        </div>
+                </div>
+        </div>
+<!-- FIN MODAL DE DATOS-->

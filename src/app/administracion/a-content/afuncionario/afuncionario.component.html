@@ -38,8 +38,6 @@
                             <th scope="col">Nombres</th>
                             <th scope="col">Apellidos</th>
                             <th scope="col">Cargo</th>
-                            <th scope="col">Género</th>
-                            <th scope="col">Estado</th>
                             <th scope="col">Acciones</th>
                         </tr>
                     </thead>
@@ -49,9 +47,11 @@
                             <td>{{fun.nombres_Funcionario}}</td>
                             <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
                             <td>{{fun.cargo_Funcionario}}</td>
-                            <td>{{fun.genero_Funcionario}}</td>
-                            <td>{{fun.estado_funcionario}}</td>
-                            <td><button type="button" name="editar"
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosFuncionario"><i class="fas fa-eye"></i>
+                                </button>
+                                &nbsp;
+                                <button type="button" name="editar"
                                     [routerLink]="['/personal-inicio/clientes-form',fun.id]" class="btn btn-warning"><i
                                         class="fas fa-pencil-alt"></i></button>
                                 &nbsp;
@@ -67,3 +67,37 @@
     </div>
 
 </div>
+
+<!-- MODAL DE DATOS-->
+<!-- The Modal -->
+<div class="modal" id="datosFuncionario">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver Funcionario</b></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                 <label *ngFor="let funm of funcionarioList2">
+                    <b>Rut:</b> {{funm.rut_Funcionario}} <br>
+                    <b>Nombre:</b> {{funm.nombres_Funcionario}} <br>
+                    <b>Apellidos:</b> {{funm.apellidoP_Funcionario}} {{funm.apellidoM_Funcionario}} <br>
+                    <b>Cargo:</b> {{funm.cargo_Funcionario}}  <br>
+                    <b>Género:</b> {{funm.genero_Funcionario}} <br>
+                    <br>
+                </label>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- FIN MODAL DE DATOS-->
