@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cementerio } from 'src/app/Entidades/Cementerio';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
 
 @Component({
   selector: 'app-a-cementerio',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ACementerioComponent implements OnInit {
 
-  constructor() { }
+  cementerioList2:Cementerio[] = [];
+  
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList2 = cementerioList1);
   }
 
 }

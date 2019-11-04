@@ -1,2 +1,65 @@
-<p>a-patio works!</p>
-<a [routerLink]="['/administracion-inicio/AFormularioPatio']"><input type="button" class="btn btn-info" value="Ir al formulario"></a>
+<div class="container">
+
+    <nav aria-label="breadcrumb">
+        <!--MIGAS DE PAN-->
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Patios</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
+    <div class="row my-3">
+        <!--SECCION PARA FILTRAR-->
+        <div class="col-2 my-auto">
+            Filtrar por nombre:
+        </div>
+        <div class="col-4 my-auto">
+            <input type="text" [(ngModel)]="listFilter">
+        </div>
+        <div class="col-6 text-right">
+            <button type="button" class="btn btn-info"
+                [routerLink]="['/administracion-inicio/AFormularioPatio']">Formulario Ingreso</button>
+        </div>
+    </div>
+    <!--FIN SECCION PARA FILTRAR-->
+
+    <div class="card mb-3">
+        <div class="card-header text-center">
+            Listado de Patios
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <!--INICIO LISTADO DE TABLA -->
+                <table class="table table-hover" style="text-align: center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Nombre Patio</th>
+                            <th scope="col">Capacidad </th>
+                            <th scope="col">Terreno</th>
+                            <th scope="col">Estado</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let pat of patioList2">
+                            <td>{{pat.nombre_Patio}}</td>
+                            <td>{{pat.capacidad_Patio}}</td>
+                            <td>{{pat.terreno}}</td>
+                            <td>{{pat.estado_Patio}}</td>
+                            <td><button type="button" name="editar"
+                                    [routerLink]="['/personal-inicio/clientes-form',pat.id]" class="btn btn-warning"><i
+                                        class="fas fa-pencil-alt"></i></button>
+                                &nbsp;
+                                <button type="button" name="eliminar" class="btn btn-danger"><i
+                                        class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>

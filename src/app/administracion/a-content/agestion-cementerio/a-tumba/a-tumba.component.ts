@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TipoTumba } from 'src/app/Entidades/TipoTumba';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
 
 @Component({
   selector: 'app-a-tumba',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ATumbaComponent implements OnInit {
 
-  constructor() { }
+  tipotumbaList2: TipoTumba[] = [];
+  
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getTipoTumba().subscribe(tipotumbaList1 => this.tipotumbaList2 = tipotumbaList1);
   }
 
 }

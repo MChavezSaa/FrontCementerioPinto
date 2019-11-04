@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { Terreno } from 'src/app/Entidades/Terreno';
 
 @Component({
   selector: 'app-a-terreno',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ATerrenoComponent implements OnInit {
 
-  constructor() { }
+  terrenoList2: Terreno[] = [];
+
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList2 = terrenoList1);
   }
 
 }

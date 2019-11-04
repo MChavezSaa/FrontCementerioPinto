@@ -38,7 +38,7 @@ export class AFormularioTerrenoComponent implements OnInit {
       terreno => {   
         //ver como tomar valor de nombre para funcion swal
         Swal.fire('Nuevo Terreno', `Terreno ${terreno} creado con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/ACementerio']);  
+          this.router.navigate(['/administracion-inicio/AGTerreno']);  
       },
       err => {
         console.log(err)
