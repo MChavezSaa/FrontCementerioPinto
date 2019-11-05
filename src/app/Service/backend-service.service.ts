@@ -195,6 +195,10 @@ export class BackendServiceService {
     );
   }
 
+  getFuncionariosPorID(id: number): Observable<Funcionario>{
+    return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/"+ id, {headers: this.agregarAuthorizationHeader()});
+  }
+
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.funcionario as Funcionario),
