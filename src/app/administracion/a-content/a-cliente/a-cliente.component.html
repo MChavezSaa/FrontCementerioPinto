@@ -26,52 +26,115 @@
         </div>
         <!--FIN SECCION PARA FILTRAR-->
 
-        <div class="card mb-3">
-                <div class="card-header text-center">
-                        Listado de Clientes
+        <!-- Seccion Activos/ Inactivos-->
+        <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
+                                aria-controls="nav-activo" aria-selected="true">Clientes Activos</a>
+                        <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-inactivo" role="tab"
+                                aria-controls="nav-inactivo" aria-selected="false">Clientes Inactivos</a>
                 </div>
-                <div class="card-body">
-                        <div class="table-responsive">
-                                <!--INICIO LISTADO DE TABLA -->
-                                <table class="table table-hover" style="text-align: center">
-                                        <thead class="thead-dark">
-                                                <tr>
-                                                        <th scope="col">Rut Cliente</th>
-                                                        <th scope="col">Nombres</th>
-                                                        <th scope="col">Apellidos</th>
-                                                        <th scope="col">Teléfono</th>
-                                                        <th scope="col">Dirección</th>
-                                                        <th scope="col">Acciones</th>
-                                                </tr>
-                                        </thead>
-                                        <tbody>
-                                                <tr *ngFor="let cli of clienteList2">
-                                                        <td>{{cli.rut_Cliente}}</td>
-                                                        <td>{{cli.nombres_Cliente}}</td>
-                                                        <td>{{cli.apellidoP_Cliente}} {{cli.apellidoM_Cliente}}</td>
-                                                        <td>{{cli.telefono_Cliente}}</td>
-                                                        <td>{{cli.direccion_Cliente}}</td>
-                                                        <td>
-                                                                <button type="button" class="btn btn-primary" data-toggle="modal" 
-                                                                data-target="#datosCliente"><i class="fas fa-eye"></i>
-                                                                </button>
-                                                                &nbsp;
-                                                                <button type="button" name="editar"
-                                                                        [routerLink]="['/personal-inicio/clientes-form',cli.id]"
-                                                                        class="btn btn-warning"><i
-                                                                                class="fas fa-pencil-alt"></i></button>
-                                                                &nbsp;
-                                                                <button type="button" name="eliminar"
-                                                                        class="btn btn-danger"><i
-                                                                                class="fas fa-trash-alt"></i>
-                                                                </button>
-                                                        </td>
-                                                </tr>
-                                        </tbody>
-                                </table>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-activo" role="tabpanel" aria-labelledby="nav-activo-tab">
+                        <div class="card mb-3">
+                                <div class="card-header text-center">
+                                        Listado de Clientes
+                                </div>
+                                <div class="card-body">
+                                        <div class="table-responsive">
+                                                <!--INICIO LISTADO DE TABLA -->
+                                                <table class="table table-hover" style="text-align: center">
+                                                        <thead class="thead-dark">
+                                                                <tr>
+                                                                        <th scope="col">Rut Cliente</th>
+                                                                        <th scope="col">Nombres</th>
+                                                                        <th scope="col">Apellidos</th>
+                                                                        <th scope="col">Teléfono</th>
+                                                                        <th scope="col">Dirección</th>
+                                                                        <th scope="col">Acciones</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr *ngFor="let cli of clienteList2">
+                                                                        <td>{{cli.rut_Cliente}}</td>
+                                                                        <td>{{cli.nombres_Cliente}}</td>
+                                                                        <td>{{cli.apellidoP_Cliente}} {{cli.apellidoM_Cliente}}</td>
+                                                                        <td>{{cli.telefono_Cliente}}</td>
+                                                                        <td>{{cli.direccion_Cliente}}</td>
+                                                                        <td>
+                                                                                <button type="button" class="btn btn-primary"
+                                                                                        data-toggle="modal" data-target="#datosCliente"><i
+                                                                                                class="fas fa-eye"></i>
+                                                                                </button>
+                                                                                &nbsp;
+                                                                                <button type="button" name="editar"
+                                                                                        [routerLink]="['/personal-inicio/clientes-form',cli.id]"
+                                                                                        class="btn btn-warning"><i
+                                                                                                class="fas fa-pencil-alt"></i></button>
+                                                                                &nbsp;
+                                                                                <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                                                                class="fas fa-trash-alt"></i>
+                                                                                </button>
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                </div>
+                        </div>
+                </div>
+                <div class="tab-pane fade" id="nav-inactivo" role="tabpanel" aria-labelledby="nav-inactivo-tab">
+                        <div class="card mb-3">
+                                <div class="card-header text-center">
+                                        Listado de Clientes
+                                </div>
+                                <div class="card-body">
+                                        <div class="table-responsive">
+                                                <!--INICIO LISTADO DE TABLA -->
+                                                <table class="table table-hover" style="text-align: center">
+                                                        <thead class="thead-dark">
+                                                                <tr>
+                                                                        <th scope="col">Rut Cliente</th>
+                                                                        <th scope="col">Nombres</th>
+                                                                        <th scope="col">Apellidos</th>
+                                                                        <th scope="col">Teléfono</th>
+                                                                        <th scope="col">Dirección</th>
+                                                                        <th scope="col">Acciones</th>
+                                                                </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                                <tr *ngFor="let cli of clienteList2">
+                                                                        <td>{{cli.rut_Cliente}}</td>
+                                                                        <td>{{cli.nombres_Cliente}}</td>
+                                                                        <td>{{cli.apellidoP_Cliente}} {{cli.apellidoM_Cliente}}</td>
+                                                                        <td>{{cli.telefono_Cliente}}</td>
+                                                                        <td>{{cli.direccion_Cliente}}</td>
+                                                                        <td>
+                                                                                <button type="button" class="btn btn-primary"
+                                                                                        data-toggle="modal" data-target="#datosCliente"><i
+                                                                                                class="fas fa-eye"></i>
+                                                                                </button>
+                                                                                &nbsp;
+                                                                                <button type="button" name="editar"
+                                                                                        [routerLink]="['/personal-inicio/clientes-form',cli.id]"
+                                                                                        class="btn btn-warning"><i
+                                                                                                class="fas fa-pencil-alt"></i></button>
+                                                                                &nbsp;
+                                                                                <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                                                                class="fas fa-trash-alt"></i>
+                                                                                </button>
+                                                                        </td>
+                                                                </tr>
+                                                        </tbody>
+                                                </table>
+                                        </div>
+                                </div>
                         </div>
                 </div>
         </div>
+        <!-- Fin Seccion Activos/ Inactivos-->
+
 
 </div>
 
