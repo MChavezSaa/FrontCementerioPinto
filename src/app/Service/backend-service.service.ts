@@ -132,6 +132,11 @@ export class BackendServiceService {
   }
 
   /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
+
+  getClientePorID(id: number): Observable<Cliente> {
+    return this.http.get<Cliente>(this.urlEndPoint + "findCliente/" + id, { headers: this.agregarAuthorizationHeader() });
+  }
+
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {

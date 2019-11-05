@@ -1,5 +1,15 @@
 <div class="container">
-    <legend>Formulario para Tipo Tumba</legend>
+    <!--MIGAS DE PAN-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/ATumba']" href="#">Tipo de Tumbas</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Formulario Tipo de Tumbas</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+    <legend>Formulario de Tipo de Tumba</legend>
     <hr style="color: black">
     <div class="container">
         <form [formGroup]="formTipoTumba" (ngSubmit)="createTipoTumba()" novalidate>
