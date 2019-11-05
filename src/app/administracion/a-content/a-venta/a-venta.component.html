@@ -1,2 +1,127 @@
-<p>a-venta works!</p>
-<a [routerLink]="['/administracion-inicio/formularioVenta']"><button type="button" class="btn btn-info">Ir Ventas</button></a>
+<div class="container">
+
+    <nav aria-label="breadcrumb">
+        <!--MIGAS DE PAN-->
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Ventas</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
+    <div class="row my-3">
+        <!--SECCION PARA FILTRAR-->
+        <div class="col-2 my-auto">
+            Filtrar por nombre:
+        </div>
+        <div class="col-4 my-auto">
+            <input type="text" [(ngModel)]="listFilter">
+        </div>
+        <div class="col-6 text-right">
+            <button type="button" class="btn btn-info" [routerLink]="['/administracion-inicio/formularioVenta']">Formulario
+                Ingreso</button>
+        </div>
+    </div>
+    <!--FIN SECCION PARA FILTRAR-->
+
+    <div class="card mb-3">
+        <div class="card-header text-center">
+            Listado de Ventas
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <!--INICIO LISTADO DE TABLA -->
+                <table class="table table-hover" style="text-align: center">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">Fecha Inscripción</th>
+                            <th scope="col">Número de Contrato</th>
+                            <th scope="col">Cliente</th>
+                            <th scope="col">Tipo de tumba</th>
+                            <th scope="col">Número de Tumba</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let ven of contratoList2">
+                            <td>{{ven.derecho.fecha_Inscripcion_Derecho}}</td>
+                            <td>{{ven.id_contrato}}</td>
+                            <td>{{ven.cliente.nombres_Cliente}}{{ven.cliente.apellidoP_Cliente}}</td>
+                            <td>{{ven.tipoTumba.nombre_tipo_tumba}}</td>
+                            <td>{{ven.tumba.numero_Tumba}}</td>
+                            <td>
+                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                    data-target="#datosCliente"><i class="fas fa-eye"></i>
+                                </button>
+                                &nbsp;
+                                <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',cli.id]"
+                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                &nbsp;
+                                <button type="button" name="eliminar" class="btn btn-danger"><i
+                                        class="fas fa-trash-alt"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- MODAL DE DATOS-->
+<!-- The Modal -->
+<div class="modal" id="datosCliente">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver Venta</b></h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <hr>
+                <label style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></label>
+                <label *ngFor="let ven of contratoList2">
+                    <b> Nombre Cliente:</b> {{ven.cliente.nombres_Cliente}}<br>
+                    <b>Apellidos Cliente:</b> {{ven.cliente.apellidoP_Cliente}} {{ven.cliente.apellidoM_Cliente}}<br>
+                    <b>Teléfono Cliente:</b> {{ven.cliente.telefono_Cliente}} <br>
+                    <b>Dirección Cliente:</b> {{ven.cliente.direccion_Cliente}} <br>
+                </label>
+                <hr>
+                <label style="font-family: 'Times New Roman', Times, serif;"><b>Datos de Compra</b></label>
+                <label *ngFor="let ven of contratoList2">
+                    <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br>
+                    <b>Cementerio:</b> {{ven.cementerio.nombre_Cementerio}} <br>
+                    <b>Terreno:</b> {{ven.terreno.nombre_Terreno}} <br>
+                    <b>Patio:</b> {{ven.patio.nombre_Patio}} <br>
+                    <b>Tipo de Tumba:</b> {{ven.tipoTumba.nombre_tipo_tumba}} <br>
+                    <b>Número de Tumba:</b> {{ven.tumba.numero_Tumba}} <br>
+                </label>
+                <hr>
+                <label style="font-family: 'Times New Roman', Times, serif;"> <b>Datos de Pago</b> </label>
+                <label *ngFor="let ven of contratoList2">
+                    <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>
+                    <b>Valor Tumba:</b> {{ven.tumba.valor_Tumba}} <br>
+                    <b>Pago Inicial:</b> <!--{{ven.derecho.pagoInicial}}--> <br>
+                    <b>Número de Cuotas:</b> {{ven.derecho.numero_Cuotas_Derecho}} <br>
+                    <b>Valor de Cuotas:</b> {{ven.derecho.valor_Cuota_Derecho}} <br>
+                    <b>Fecha de Pago:</b> {{ven.derecho.fecha_Pago_Derecho}} <br>
+                </label>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- FIN MODAL DE DATOS -->
