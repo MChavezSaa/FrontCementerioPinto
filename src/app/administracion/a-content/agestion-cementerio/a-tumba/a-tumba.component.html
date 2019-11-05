@@ -24,40 +24,85 @@
     </div>
     <!--FIN SECCION PARA FILTRAR-->
 
-    <div class="card mb-3">
-        <div class="card-header text-center">
-            Listado de Tipos de tumbas
-        </div>
-        <div class="card-body">
-            <div class="table-responsive">
-                <!--INICIO LISTADO DE TABLA -->
-                <table class="table table-hover" style="text-align: center">
-                    <thead class="thead-dark">
-                        <tr>
-                            <th scope="col">Nombre Tipo de Tumba</th>
-                            <th scope="col">Capacidad </th>
-                            <th scope="col">Estado</th>
-                            <th scope="col">Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let ttb of tipotumbaList2">
-                            <td>{{ttb.nombre_tipo_tumba}}</td>
-                            <td>{{ttb.capacidad_tipo_tumba}}</td>
-                            <td>{{ttb.estado_tipo_tumba}}</td>
-                            <td><button type="button" name="editar"
-                                    [routerLink]="['/personal-inicio/clientes-form',ttb.id]" class="btn btn-warning"><i
-                                        class="fas fa-pencil-alt"></i></button>
-                                &nbsp;
-                                <button type="button" name="eliminar" class="btn btn-danger"><i
-                                        class="fas fa-trash-alt"></i>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
+            <!-- Seccion Activos/ Inactivos-->
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
+                        aria-controls="nav-activo" aria-selected="true">Tipos de Tumba Activos</a>
+                    <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-inactivo" role="tab"
+                        aria-controls="nav-inactivo" aria-selected="false">Tipos de Tumba Inactivos</a>
+                </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-activo" role="tabpanel" aria-labelledby="nav-activo-tab">
+                <div class="card mb-3">
+                    <div class="card-header text-center">
+                        Listado de Tipos de tumbas
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <!--INICIO LISTADO DE TABLA -->
+                            <table class="table table-hover" style="text-align: center">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th scope="col">Nombre Tipo de Tumba</th>
+                                        <th scope="col">Capacidad </th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let ttb of tipotumbaList2">
+                                        <td>{{ttb.nombre_tipo_tumba}}</td>
+                                        <td>{{ttb.capacidad_tipo_tumba}}</td>
+                                        <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                    class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                <div class="tab-pane fade" id="nav-inactivo" role="tabpanel" aria-labelledby="nav-inactivo-tab">
+                    <div class="card mb-3">
+                        <div class="card-header text-center">
+                            Listado de Tipos de tumbas
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <!--INICIO LISTADO DE TABLA -->
+                                <table class="table table-hover" style="text-align: center">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Nombre Tipo de Tumba</th>
+                                            <th scope="col">Capacidad </th>
+                                            <th scope="col">Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let ttb of tipotumbaList2">
+                                            <td>{{ttb.nombre_tipo_tumba}}</td>
+                                            <td>{{ttb.capacidad_tipo_tumba}}</td>
+                                            <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
+                                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                                &nbsp;
+                                                <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                        class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
+            <!-- Fin Seccion Activos/ Inactivos-->
 
 </div>

@@ -24,23 +24,24 @@
     </div>
     <!--FIN SECCION PARA FILTRAR-->
 
+    <!-- Seccion Activos/ Inactivos-->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab"
-                aria-controls="nav-home" aria-selected="true">Funcionarios Activos</a>
-            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab"
-                aria-controls="nav-profile" aria-selected="false">Funcionarios Inactivos</a>
+            <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
+                aria-controls="nav-activo" aria-selected="true">Funcionarios Activos</a>
+            <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-inactivo" role="tab"
+                aria-controls="nav-inactivo" aria-selected="false">Funcionarios Inactivos</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+        <div class="tab-pane fade show active" id="nav-activo" role="tabpanel" aria-labelledby="nav-activo-tab">
             <div class="card mb-3">
                 <div class="card-header text-center">
                     Listado de Funcionarios
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA //    *ngIf="funcionarioList2.estado_funcionario==1"  -->
+                        <!--INICIO LISTADO DE TABLA //    *ngIf="funcionarioList2.estado_funcionario==1" *ngIf="funcionarioList2.estado_funcionario==1" -->
                         <table class="table table-hover" style="text-align: center"  >
                             <thead class="thead-dark">
                                 <tr>
@@ -51,7 +52,7 @@
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody >
                                 <tr *ngFor="let fun of funcionarioList2"  >
                                     <td>{{fun.rut_Funcionario}}</td>
                                     <td>{{fun.nombres_Funcionario}}</td>
@@ -76,7 +77,7 @@
                 </div>
             </div>
         </div>
-        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+        <div class="tab-pane fade" id="nav-inactivo" role="tabpanel" aria-labelledby="nav-inactivo-tab">
             <div class="card mb-3">
                 <div class="card-header text-center">
                     Listado de Funcionarios
@@ -120,6 +121,7 @@
             </div>
         </div>
     </div>
+    <!-- Fin Seccion Activos/ Inactivos-->
 
     
 
