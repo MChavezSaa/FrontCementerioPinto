@@ -188,6 +188,21 @@ export class BackendServiceService {
     );
   }
 
+  saveContrato3(contratoString: string): Observable<string> {
+    return this.http.post(this.urlEndPoint + "saveContratoPorString", contratoString, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.contrato as string),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el Contrato', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+
   getContrato(): Observable<Contrato[]> {
     return this.http.get<Contrato[]>(this.urlEndPoint + "listContrato", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {

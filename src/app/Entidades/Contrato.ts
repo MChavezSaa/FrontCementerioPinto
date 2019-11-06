@@ -8,7 +8,7 @@ import { Cliente } from './Cliente';
 import { Funcionario } from './Funcionario';
 import { pagoDerecho } from './pagoDerecho';
 
-export interface Contrato{
+export class Contrato{
     id_contrato: number;
     fecha_Ingreso_Venta: Date;
     medio_Pago:string;
