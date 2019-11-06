@@ -3,7 +3,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/ACementerio']" href="#">Cementerios</a>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioCementerio']" href="#" (click)="cancelarCementerio()">Cementerios</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Cementerios</li>
         </ol>
@@ -56,7 +56,7 @@
             </div>
             
             <div style="text-align: center">
-                <button (click)="cancelar()" class="btn btn-danger"  >
+                <button (click)="cancelarCementerio()" class="btn btn-danger"  >
                     Cancelar </button>
                 &nbsp;&nbsp;
                 <button (click)="create()" type="submit" class="btn btn-success"> Guardar </button>
