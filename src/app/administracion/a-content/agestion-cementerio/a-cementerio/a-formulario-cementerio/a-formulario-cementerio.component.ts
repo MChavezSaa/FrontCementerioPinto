@@ -47,4 +47,28 @@ export class AFormularioCementerioComponent implements OnInit {
     );
   }
 
+  /*public cancelar(){
+    Swal.fire('Salir del Formulario', '¿Estas seguro que deseas salir del formulario de ingreso?', 'warning', true, "btn-danger",'Salir', false);
+    this.router.navigate(['/administracion-inicio/ACementerio']); 
+  }*/
+
+  public cancelar(){
+    Swal.fire({
+      title: 'Salir del formulario',
+      type: 'warning',
+      text: '¿Estas seguro que deseas salir del formulario de ingreso?',
+      
+      confirmButtonText: 'Yes ',
+      cancelButtonText: 'No',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+      }
+    })
+  }
+  
 }
+
+

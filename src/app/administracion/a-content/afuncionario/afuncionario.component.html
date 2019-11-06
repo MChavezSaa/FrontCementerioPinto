@@ -53,24 +53,25 @@
                                 </tr>
                             </thead>
                             <tbody >
-                                <tr *ngFor="let fun of funcionarioList2"  >
-                                    <td>{{fun.rut_Funcionario}}</td>
-                                    <td>{{fun.nombres_Funcionario}}</td>
-                                    <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
-                                    <td>{{fun.cargo_Funcionario}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#datosFuncionario" (click)="cargarDatosModal(fun.id_funcionario)"><i class="fas fa-eye"></i>
-                                        </button>
-                                        &nbsp;
-                                        <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
-                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                        &nbsp;
-                                        <button type="button" name="eliminar" class="btn btn-danger"><i
-                                                class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <ng-container *ngFor="let fun of funcionarioList2">
+                                    <tr *ngIf="fun.estado_funcionario==true">
+                                        <td>{{fun.rut_Funcionario}}</td>
+                                        <td>{{fun.nombres_Funcionario}}</td>
+                                        <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
+                                        <td>{{fun.cargo_Funcionario}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosFuncionario"><i
+                                                    class="fas fa-eye"></i>
+                                            </button>
+                                            &nbsp;
+                                            <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form']"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
                             </tbody>
                         </table>
                     </div>
@@ -96,24 +97,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let fun of funcionarioList2">
-                                    <td>{{fun.rut_Funcionario}}</td>
-                                    <td>{{fun.nombres_Funcionario}}</td>
-                                    <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
-                                    <td>{{fun.cargo_Funcionario}}</td>
-                                    <td>
-                                        <button type="button" class="btn btn-primary" data-toggle="modal"
-                                            data-target="#datosFuncionario" ><i class="fas fa-eye"></i>
-                                        </button>
-                                        &nbsp;
-                                        <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
-                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                        &nbsp;
-                                        <button type="button" name="eliminar" class="btn btn-danger"><i
-                                                class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
-                                </tr>
+                                <ng-container *ngFor="let fun of funcionarioList2">
+                                    <tr *ngIf="fun.estado_funcionario==false">
+                                        <td>{{fun.rut_Funcionario}}</td>
+                                        <td>{{fun.nombres_Funcionario}}</td>
+                                        <td>{{fun.apellidoP_Funcionario}} {{fun.apellidoM_Funcionario}}</td>
+                                        <td>{{fun.cargo_Funcionario}}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosFuncionario"><i
+                                                    class="fas fa-eye"></i>
+                                            </button>
+                                            &nbsp;
+                                            <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                                
+                                
                             </tbody>
                         </table>
                     </div>
@@ -146,7 +150,7 @@
                     <b>Nombre:</b> {{cargarNombre()}} <br>
                     <b>Apellidos:</b> {{cargarApellidos()}} <br>
                     <b>Cargo:</b> {{cargarCargo()}}  <br>
-                    <b>Género:</b> {{cargarGenero()}} <br>
+                    <b>Género:</b> {{cargarGenero}} <br>
                     <br>
                 </label>
             </div>

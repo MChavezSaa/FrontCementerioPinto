@@ -52,18 +52,19 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr *ngFor="let ter of terrenoList2">
-                                        <td>{{ter.nombre_Terreno}}</td>
-                                        <td>{{ter.capacidad_Terreno}}</td>
-                                        <td>{{ter.cementerio.nombre_Cementerio}}</td>
-                                        <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ter.id]"
-                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                            &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-danger"><i
-                                                    class="fas fa-trash-alt"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
+                                    <ng-container *ngFor="let ter of terrenoList2">
+                                        <tr *ngIf="ter.estado_Terreno==true" >
+                                            <td>{{ter.nombre_Terreno}}</td>
+                                            <td>{{ter.capacidad_Terreno}}</td>
+                                            <td>{{ter.cementerio.nombre_Cementerio}}</td>
+                                            <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ter.id_terreno]"
+                                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                                &nbsp;
+                                                <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    </ng-container>
                                 </tbody>
                             </table>
                         </div>
@@ -88,18 +89,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr *ngFor="let ter of terrenoList2">
-                                            <td>{{ter.nombre_Terreno}}</td>
-                                            <td>{{ter.capacidad_Terreno}}</td>
-                                            <td>{{ter.cementerio.nombre_Cementerio}}</td>
-                                            <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ter.id]"
-                                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                                &nbsp;
-                                                <button type="button" name="eliminar" class="btn btn-danger"><i
-                                                        class="fas fa-trash-alt"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                        <ng-container *ngFor="let ter of terrenoList2">
+                                            <tr *ngIf="ter.estado_Terreno==false">
+                                                <td>{{ter.nombre_Terreno}}</td>
+                                                <td>{{ter.capacidad_Terreno}}</td>
+                                                <td>{{ter.cementerio.nombre_Cementerio}}</td>
+                                                <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ter.id_terreno]"
+                                                        class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                                    &nbsp;
+                                                    <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </ng-container>
                                     </tbody>
                                 </table>
                             </div>
