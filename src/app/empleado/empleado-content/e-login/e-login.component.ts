@@ -40,18 +40,7 @@ export class ELoginComponent implements OnInit {
 
       this.service.guardarUsuario(response.access_token);
       this.service.guardarToken(response.access_token);
-      /*if(this.usuario.roles == 'ROLE_ADMIN'){
-
-      }
-
-      if(this.usuario.roles == 'ROLE_CLIENT'){
-
-      }
-      
-      if(this.usuario.roles == 'ROLE_CONSEJO'){
-
-      }*/
-      
+        
       this.router.navigate(['/administracion-inicio']);
       let usuario = this.service.usuario;
       Swal.fire('Inicio de sesión correctamente', `Bienvenido ${usuario.username}`, 'success');

@@ -10,13 +10,18 @@ import { pagoDerecho } from './pagoDerecho';
 
 export interface Contrato{
     id_contrato: number;
+    fecha_Ingreso_Venta: Date;
+    medio_Pago:string;
+    valor_Terreno: number;
+    pagoInicial:number;
+    nCuotas: number;
+    VCuotas: number;
+    fecha_Pago: Date;
     cementerio: Cementerio;
     terreno: Terreno;
     patio: Patio;
     tumba: Tumba;
     tipoTumba: TipoTumba;
-    derecho: Derecho;
     cliente: Cliente;
-    pagoDerecho:pagoDerecho;
     funcionario:Funcionario;
 }

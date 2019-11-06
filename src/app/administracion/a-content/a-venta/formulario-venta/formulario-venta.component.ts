@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵConsole } from '@angular/core';
 import { Cementerio } from 'src/app/Entidades/Cementerio';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -31,28 +31,27 @@ export class FormularioVentaComponent implements OnInit {
   pagoDerecho :pagoDerecho;
 
   formContrato: FormGroup;
-  formDerecho: FormGroup;
+  
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
       this.formContrato = this.formBuilder.group({
         funcionario: ['', [Validators.required]],
-        fecha_Inscripcion_Derecho:['', [Validators.required]] ,
-        terreno: ['', [Validators.required]],
+        fecha_Ingreso_Venta:['', [Validators.required]] ,
         cementerio:['', [Validators.required]],
-        tipo_Tumba:['', [Validators.required]],
-        ancho:['', [Validators.required]],
-        largo:['', [Validators.required]],
+        terreno: ['', [Validators.required]],
         patio:['', [Validators.required]],
+        tipo_Tumba:['', [Validators.required]],
         tumba:['', [Validators.required]],
+       
         cliente:['', [Validators.required]],
         medioPago:['', [Validators.required]],
         valorTerreno:['', [Validators.required]],
         pagoInicial:['', [Validators.required]],
         nCuotas:['', [Validators.required]],
         vCuotas:['', [Validators.required]],
+        diaPago:['', [Validators.required]]
         
-  //lala
     }); 
     }
 
@@ -67,29 +66,24 @@ export class FormularioVentaComponent implements OnInit {
     
   }
 
-  public createVenta():void{
-    
-    this.pagoDerecho.fechaPago_Derecho
-    this.pagoDerecho.valorCuota_Derecho
-    this.pagoDerecho.derecho
+  
+  
+   saveContrato2(){
     this.service.saveContrato(this.formContrato.value).subscribe(
       contrato => {   
-       //ver como tomar valor de nombre para funcion swal
-       Swal.fire('Nuevo', `Contrato ${contrato} creado con Exito`, 'success');    
-       //this.router.navigate(['/administracion-inicio/']);  
-     },
-     err=>{
-       console.log(err)
-     }
-   );
+        //ver como tomar valor de nombre para funcion swal
+        console.log(this.formContrato)
+        Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');    
+        //this.router.navigate(['/administracion-inicio/Aclientes']);  
+      },
+      err=>{
+        console.log(err)
+      } 
+    );
+
   }
+
+
+
 }
 
-
-/*
- this.service.saveTumba(this.formTumba.value)
-      .subscribe();
-    //guardamos segundo form y mostramos alert de success
-    
-
-*/
