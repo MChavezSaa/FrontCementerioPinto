@@ -11,6 +11,7 @@ import { Cliente } from 'src/app/Entidades/Cliente';
 import { pagoDerecho } from 'src/app/Entidades/pagoDerecho';
 import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { Terreno } from 'src/app/Entidades/Terreno';
+import { Contrato } from '../../../../Entidades/Contrato';
 
 
 @Component({
@@ -30,12 +31,13 @@ export class FormularioVentaComponent implements OnInit {
 
   pagoDerecho :pagoDerecho;
 
-  formContrato: FormGroup;
+ // formContrato: FormGroup;
+  private contrato2 :Contrato = new Contrato();
   
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
-      this.formContrato = this.formBuilder.group({
+    /*  this.formContrato = this.formBuilder.group({
         funcionario: ['', [Validators.required]],
         fecha_Ingreso_Venta:['', [Validators.required]] ,
         cementerio:['', [Validators.required]],
@@ -52,7 +54,7 @@ export class FormularioVentaComponent implements OnInit {
         vCuotas:['', [Validators.required]],
         diaPago:['', [Validators.required]]
         
-    }); 
+    }); */
     }
 
   ngOnInit() {
@@ -69,10 +71,10 @@ export class FormularioVentaComponent implements OnInit {
   
   
    saveContrato2(){
-    this.service.saveContrato(this.formContrato.value).subscribe(
+    this.service.saveContrato(this.contrato2).subscribe(
       contrato => {   
         //ver como tomar valor de nombre para funcion swal
-        console.log(this.formContrato)
+        console.log(this.contrato2)
         Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');    
         //this.router.navigate(['/administracion-inicio/Aclientes']);  
       },
