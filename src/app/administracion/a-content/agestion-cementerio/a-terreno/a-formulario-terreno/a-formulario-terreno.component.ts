@@ -31,7 +31,7 @@ export class AFormularioTerrenoComponent implements OnInit {
     this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
   }
 
-  public create():void{
+  public createTerreno():void{
     console.log(this.formTerreno.value);
     this.service.saveTerreno(this.formTerreno.value)
       .subscribe(
@@ -44,6 +44,23 @@ export class AFormularioTerrenoComponent implements OnInit {
         console.log(err)
       }
     );
+  }
+
+  public cancelarTerreno() {
+    Swal.fire({
+      title: 'Salir del formulario',
+      type: 'warning',
+      text: '¿Está seguro que desea salir del formulario de Ingreso de Terrenos?',
+
+      confirmButtonText: 'Yes ',
+      cancelButtonText: 'No',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/administracion-inicio/AGTerreno']);
+      }
+    })
   }
 
 }

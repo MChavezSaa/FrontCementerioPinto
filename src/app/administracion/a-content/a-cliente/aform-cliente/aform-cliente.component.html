@@ -4,7 +4,7 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/Aclientes']" href="#">Clientes</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormCliente']" href="#" (click)="cancelarCliente()">Clientes</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Clientes</li>
         </ol>
     </nav>
@@ -13,7 +13,7 @@
     <legend style="font-style: oblique"><b> Formulario Incripción de Clientes </b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formCliente" (ngSubmit)="createCliente()" novalidate>
+        <form [formGroup]="formCliente" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -113,10 +113,10 @@
             </div>
 
             <div style="text-align: center">
-                <button [routerLink]="['/administracion-inicio/Aclientes']" type="submit" class="btn btn-danger"> Cancelar
+                <button (click)="cancelarCliente()" type="submit" class="btn btn-danger"> Cancelar
                 </button>
                 &nbsp;&nbsp;
-                <button type="submit" class="btn btn-success"> Guardar </button>
+                <button (click)="createCliente()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
         </form>
         <br>

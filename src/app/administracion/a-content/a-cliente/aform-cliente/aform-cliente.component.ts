@@ -50,4 +50,22 @@ export class AformClienteComponent implements OnInit {
       }
     );
   }
+  
+  public cancelarCliente() {
+    Swal.fire({
+      title: 'Salir del formulario',
+      type: 'warning',
+      text: '¿Está seguro que desea salir del formulario de Ingreso de Clientes?',
+
+      confirmButtonText: 'Yes ',
+      cancelButtonText: 'No',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/administracion-inicio/Aclientes']);
+      }
+    })
+  }
+  
 }

@@ -37,8 +37,8 @@ export class AFormularioCementerioComponent implements OnInit {
     this.service.saveCementerio(this.formCementerio.value)
       .subscribe(
       cementerio => {   
-        //ver como tomar valor de nombre para funcion swal
-        Swal.fire('Nuevo cementerio', `Cementerio ${document.getElementById("nombre_Cementerio")} creado con Exito`, 'success');    
+        //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
+          Swal.fire('Nuevo cementerio', `Cementerio ${document.getElementById("nombre_Cementerio")} creado con Exito`, 'success');    
         this.router.navigate(['/administracion-inicio/ACementerio']);  
       },
       err=>{
@@ -47,16 +47,12 @@ export class AFormularioCementerioComponent implements OnInit {
     );
   }
 
-  /*public cancelar(){
-    Swal.fire('Salir del Formulario', '¿Estas seguro que deseas salir del formulario de ingreso?', 'warning', true, "btn-danger",'Salir', false);
-    this.router.navigate(['/administracion-inicio/ACementerio']); 
-  }*/
 
-  public cancelar(){
+  public cancelarCementerio(){
     Swal.fire({
       title: 'Salir del formulario',
       type: 'warning',
-      text: '¿Estas seguro que deseas salir del formulario de ingreso?',
+      text: '¿Está seguro que desea salir del formulario de Ingreso de Cementerio?',
       
       confirmButtonText: 'Yes ',
       cancelButtonText: 'No',

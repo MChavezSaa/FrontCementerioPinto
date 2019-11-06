@@ -34,7 +34,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
   }
 
 
-  public create():void{
+  public createFuncionario():void{
     this.service.saveFuncionario(this.formFuncionario.value)
       .subscribe(
       funcionario => {   
@@ -46,5 +46,22 @@ export class AFormularioFuncionarioComponent implements OnInit {
         console.log(err)
       }
     );
+  }
+
+  public cancelarFuncionario() {
+    Swal.fire({
+      title: 'Salir del formulario',
+      type: 'warning',
+      text: '¿Está seguro que desea salir del formulario de Ingreso de Funcionarios?',
+
+      confirmButtonText: 'Yes ',
+      cancelButtonText: 'No',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/administracion-inicio/Afuncionarios']);
+      }
+    })
   }
 }
