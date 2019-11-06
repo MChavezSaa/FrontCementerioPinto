@@ -95,7 +95,7 @@ export class FormularioVentaComponent implements OnInit {
       showCloseButton: true
     }).then((result) => {
       if (result.value) {
-        this.router.navigate(['/administracion-inicio/Afuncionarios']);
+        this.router.navigate(['/administracion-inicio/AVentas']);
       }
     })
   }
