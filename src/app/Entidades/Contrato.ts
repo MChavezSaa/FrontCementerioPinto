@@ -14,7 +14,7 @@ export class Contrato{
     medio_Pago:string;
     valor_Terreno: number;
     pagoInicial:number;
-    nCuotas: number;
+    n_Cuotas: number;
     VCuotas: number;
     fecha_Pago: Date;
     cementerio: Cementerio;

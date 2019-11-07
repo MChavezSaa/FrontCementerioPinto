@@ -204,7 +204,7 @@ export class BackendServiceService {
 
 
   getContrato(): Observable<Contrato[]> {
-    return this.http.get<Contrato[]>(this.urlEndPoint + "listContrato", { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.get<Contrato[]>(this.urlEndPoint + "listContratos", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);

@@ -45,9 +45,9 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let ven of contratoList2">
-                            <td>{{ven.derecho.fecha_Inscripcion_Derecho}}</td>
+                            <td>{{ven.fecha_Ingreso_Venta}}</td>
                             <td>{{ven.id_contrato}}</td>
-                            <td>{{ven.cliente.nombres_Cliente}}{{ven.cliente.apellidoP_Cliente}}</td>
+                            <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                             <td>{{ven.tipoTumba.nombre_tipo_tumba}}</td>
                             <td>{{ven.tumba.numero_Tumba}}</td>
                             <td>
@@ -55,8 +55,8 @@
                                     data-target="#datosCliente"><i class="fas fa-eye"></i>
                                 </button>
                                 &nbsp;
-                                <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',cli.id]"
-                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form']"
+                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button><!--,cli.id_cliente-->
                                 &nbsp;
                                 <button type="button" name="eliminar" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i>
