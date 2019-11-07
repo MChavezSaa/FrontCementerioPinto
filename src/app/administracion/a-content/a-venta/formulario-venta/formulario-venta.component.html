@@ -1,5 +1,8 @@
+<!--
+ <label for="" class="col-sm-6"> funcionarioList</label> &nbsp;
+                        
 
-
+-->
 
 <div class="container">
 
@@ -7,7 +10,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AVentas']" href="#">Ventas</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/formularioVenta']"
+                    (click)="cancelarVenta()" href="#">Ventas</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Ventas</li>
         </ol>
     </nav>
@@ -16,7 +20,7 @@
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formContrato" (ngSubmit)="saveContrato2()" novalidate>
+        <form novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Compra</h4>
             </div>
@@ -26,15 +30,15 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre Funcionario</label>
-                        <select formControlName="funcionario" class="form-control" id="funcionario">
+                        <select id="func" name="funcionario" class="form-control" [(ngModel)]="contrato2.funcionario">
                             <option value="" selected disabled>Seleccione Funcionario</option>
-                            <option *ngFor="let f of funcionarioList" [ngValue]="f">{{f.nombres_Funcionario}}</option>
-                    
+                            <option *ngFor="let c of funcionarioList" [ngValue]="c">{{c.nombres_Funcionario}}</option>
                         </select>
                     </div>
                     <div class="col">
                         <label for="fecha_Ingreso_Venta"> Fecha Ingreso de venta</label>
-                        <input formControlName ="fecha_Ingreso_Venta" id="fecha_Ingreso_Venta" class="form-control" type="date">
+                        <input id="fecha_Ingreso_Venta" class="form-control" type="date" name="fecha_Ingreso_Venta"
+                            [(ngModel)]="contrato2.fecha_Ingreso_Venta">
                     </div>
                 </div>
             </div>
@@ -43,18 +47,18 @@
                 <div class="row">
                     <div class="col">
                         <label> Cementerio</label>
-                        <select formControlName="cementerio" class="form-control" id="cementerio1">
-                            <option value="" selected disabled>Seleccione Cementerio </option>
-                            <option *ngFor="let c of cementerioList" [ngValue]="c">{{c.nombre_Cementerio}}</option>
-                
+                        <select id="cen" name="cementerio" class="form-control" [(ngModel)]="contrato2.cementerio">
+                            <option value="" selected disabled>Seleccione Cementerio</option>
+                            <option *ngFor="let cem of cementerioList" [ngValue]="cem">{{cem.nombre_Cementerio}}
+                            </option>
                         </select>
                     </div>
                     <div class="col">
                         <label> Terreno</label>
-                        <select formControlName="terreno" class="form-control" id="terreno1">
+                        <select class="form-control" id="terr" name="terreno" [(ngModel)]="contrato2.terreno">
                             <option value="" selected disabled>Seleccione Terreno </option>
                             <option *ngFor="let ter of terrenoList" [ngValue]="ter">{{ter.nombre_Terreno}}</option>
-                
+
                         </select>
                     </div>
                 </div>
@@ -64,28 +68,28 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre de Patio</label>
-                        <select formControlName="patio" class="form-control" id="patio">
+                        <select class="form-control" id="pat" name="patio" [(ngModel)]="contrato2.patio">
                             <option value="" selected disabled>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
-                    
+
                         </select>
                     </div>
 
                     <div class="col">
                         <label> Tipo de Tumba</label>
-                        <select formControlName="tipo_Tumba" class="form-control" id="tipoTumba">
+                        <select class="form-control" id="tipoTumb" name="tipoTumba" [(ngModel)]="contrato2.tipoTumba">
                             <option value="" selected disabled>Seleccione tipo de tumba </option>
                             <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
-                        
+
                         </select>
                     </div>
 
                     <div class="col">
                         <label> Número de Tumba</label>
-                        <select formControlName="tumba" class="form-control" id="tumba">
+                        <select class="form-control" id="tumb" name="tumba" [(ngModel)]="contrato2.tumba">
                             <option value="" selected disabled>Seleccione numero de Tumba </option>
                             <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.numero_Tumba}}</option>
-                    
+
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
@@ -93,10 +97,10 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                                        
-                   
-            
-            
+
+
+
+
                 </div>
             </div>
 
@@ -106,22 +110,22 @@
             &nbsp;
 
             <div class="form-group">
-                <div class="row">                 
+                <div class="row">
                     <div class="col-6">
                         <label> Rut Cliente</label>
-                        <select formControlName="cliente" class="form-control" id="cliente1">
+                        <select class="form-control" id="cliente1" name="cliente" [(ngModel)]="contrato2.cliente">
                             <option value="" selected disabled>Seleccione cliente </option>
                             <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
-                         
+
                         </select>
                     </div>
                     <div class="col-2">
-                            <div class="row">
-                                <label style="color: white"> _____________</label>
-                            </div>
-                            <div class="row">
-                                <button type="button" class="btn btn-info "> Buscar </button>
-                            </div>
+                        <div class="row">
+                            <label style="color: white"> _____________</label>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-info "> Buscar </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -135,22 +139,25 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Medio de Pago</label>
-                        <select formControlName ="medioPago" class="form-control" id="medioPago">
+                        <select class="form-control" id="medioPago" name="medio_Pago"
+                            [(ngModel)]="contrato2.medio_Pago">
                             <option value="" selected disabled>Seleccione medio de pago </option>
                             <option> Efectivo</option>
                             <option> Debito</option>
-                            <option> Credito</option>
+                            <option> Crédito</option>
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
                     <div class="col">
                         <label> Valor Terreno</label>
-                        <input formControlName ="valorTerreno" type="number" class="form-control" id="valorDerecho" placeholder="Ingrese el valor del derecho">
+                        <input type="number" class="form-control" id="valorDerecho" name="valor_Terreno"
+                            placeholder="Ingrese el valor del derecho" [(ngModel)]="contrato2.valor_Terreno">
                     </div>
-                    
+
                     <div class="col">
                         <label> Pago inicial</label>
-                        <input formControlName ="pagoInicial" type="number" class="form-control" id="valorPagoInicial" placeholder="Ingrese el valor del pago inicial">
+                        <input type="number" class="form-control" id="valorPagoInicial" name="pagoInicial"
+                            placeholder="Ingrese el valor del pago inicial" [(ngModel)]="contrato2.pagoInicial">
                     </div>
 
                 </div>
@@ -160,39 +167,47 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Número de Cuotas</label>
-                        <input formControlName ="nCuotas" type="number" class="form-control" id="nroCuotas" placeholder="Ingrese número de cuotas">
+                        <input type="number" class="form-control" id="nroCuotas" name="nCuotas"
+                            placeholder="Ingrese número de cuotas" [(ngModel)]="contrato2.n_Cuotas">
                     </div>
                     <div class="col-2">
                         <div class="row">
                             <label style="color: white"> _____________</label>
                         </div>
                         <div class="row">
-                            <button type="button" class="btn btn-info "> Calcular </button>
+                            <button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
+                            </button>
                         </div>
                     </div>
-                    
+
                     <div class="col-6">
-                        <label> Valor Cuota</label>
-                        <input formControlName ="vCuotas" type="number" class="form-control" id="vCuotas" placeholder="Ingrese el valor de cada cuotas">
+                        <label> Valor Cuota:</label>
+                        <div>
+                            <h1>{{show?'': returnCuota()}}</h1>
+                        </div>
+
+
                     </div>
-            
+
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col-4">
                         <label> Dia para fecha de pago</label>
-                        <input formControlName ="diaPago" type="date" class="form-control" id="fechaPago" data-format="yyyy-MM-dd" data-template="D MMM YYYY"  placeholder="Ingrese el dia de pago">
+                        <input type="date" class="form-control" id="fechaPago" name="fecha_Pago"
+                            data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
+                            [(ngModel)]="contrato2.fecha_Pago">
                     </div>
 
 
                 </div>
             </div>
             <div style="text-align: center">
-                <button [routerLink]="['/administracion-inicio/AVentas']" type="submit" class="btn btn-danger"> Cancelar
+                <button (click)="cancelarVenta()" class="btn btn-danger"> Cancelar
                 </button>
                 &nbsp;&nbsp;
-                <button  type="submit" class="btn btn-success"> Guardar </button>
+                <button (click)="saveContrato2()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
             <br>
 
@@ -200,7 +215,7 @@
 
         </form>
         <br>
-       
+
 
     </div>
 </div>

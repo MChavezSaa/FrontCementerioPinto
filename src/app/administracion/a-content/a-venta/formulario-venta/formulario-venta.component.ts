@@ -28,7 +28,8 @@ export class FormularioVentaComponent implements OnInit {
   funcionarioList: Funcionario[]= [];
   terrenoList: Terreno[]=[];
 
-
+  Show :Boolean = true;
+  valorCuota: number =0;
   pagoDerecho :pagoDerecho;
 
  // formContrato: FormGroup;
@@ -68,8 +69,19 @@ export class FormularioVentaComponent implements OnInit {
     
   }
 
+  calcularValorCuota(){
+   var nroCuotas = this.contrato2.n_Cuotas
+   var valTerr = this.contrato2.valor_Terreno
+   var pie = this.contrato2.pagoInicial
+   var resto = valTerr -pie;
+   var valCuotas = resto/nroCuotas;
+   this.contrato2.VCuotas = valCuotas;
+   this.valorCuota = valCuotas;
+  }
   
-  
+  returnCuota(){
+    return this.valorCuota;
+  }
    saveContrato2(){
     this.service.saveContrato(this.contrato2).subscribe(
       contrato => {   
