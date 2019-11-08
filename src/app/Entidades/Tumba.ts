@@ -15,5 +15,5 @@ export interface Tumba {
     patio: Patio;
     tipo_Tumba: TipoTumba;
     cliente: Cliente;
-    estado_Tumba: number;    
+    estado_Tumba: boolean;    
 }

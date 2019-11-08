@@ -395,6 +395,14 @@ export class BackendServiceService {
       })
     );
   }
+getfreeTumbs() : Observable<Tumba[]> {
+     return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
 
 
   saveTumba(tumba: Tumba): Observable<Tumba> {

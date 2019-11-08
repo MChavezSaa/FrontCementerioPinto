@@ -10,11 +10,11 @@
           <button [disabled]="true" type="button" class="btn btn-outline-primary"
             [routerLink]="['/administracion-inicio/ATerrenosLibres/']">Libres</button>
         </div>
-        <div class="col-sm">
+        <div class="col-sm" *ngIf="service.hasRole('ROLE_ADMIN')">
           <button type="button" class="btn btn-outline-primary"
           [routerLink]="['/administracion-inicio/ATerrenosOcupados/']">Ocupados</button>
         </div>
-        <div class="col-sm">
+        <div class="col-sm" *ngIf="service.hasRole('ROLE_ADMIN')">
           <button type="button" class="btn btn-outline-primary"
           [routerLink]="['/administracion-inicio/ATerrenosReservados/']">Reservado</button>
         </div>
@@ -91,4 +91,7 @@
     </div>   
   </div>
 </div><br>
+
+<button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
+</button>
 <!-- lala-->
