@@ -18,6 +18,9 @@ export class AFuncionarioComponent implements OnInit {
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList2 = funcionarioList1);
   }
 
+  buscarFuncionario(){
+    //this.service.getFuncionarios().subscribe
+  }
 
   cargarDatosModal(id: number){
     this.service.getFuncionariosPorID(id).subscribe(funcionarioBuscado => this.funcionarioDetail = funcionarioBuscado);

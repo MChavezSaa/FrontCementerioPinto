@@ -7,21 +7,28 @@
             <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
         </ol>
     </nav>
+    <hr>
+    <br>
     <!--FIN MIGAS DE PAN-->
 
-    <div class="row my-3">
-        <!--SECCION PARA FILTRAR-->
-        <div class="col-2 my-auto">
-            Filtrar por nombre:
-        </div>
-        <div class="col-4 my-auto">
-            <input type="text" [(ngModel)]="listFilter">
-        </div>
-        <div class="col-6 text-right">
-            <button type="button" class="btn btn-info"
-                [routerLink]="['/administracion-inicio/AFormularioFuncionario']">Formulario Ingreso</button>
+    <div class="container">
+        <div class="row ">
+            <!--SECCION PARA FILTRAR-->
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="Ingrese un nombre a buscar">
+            </div>
+            <div class="col-2 ">
+                <button class="btn btn-outline-primary" type="button" (click)="buscarFuncionario()" > Buscar</button>
+            </div>
+        
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-info"
+                    [routerLink]="['/administracion-inicio/AFormularioFuncionario']">Formulario de Ingreso</button>
+            </div>
         </div>
     </div>
+    <br>
+    
     <!--FIN SECCION PARA FILTRAR-->
 
     <!-- Seccion Activos/ Inactivos-->
@@ -108,7 +115,7 @@
                                                     class="fas fa-eye"></i>
                                             </button>
                                             &nbsp;
-                                            <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id]"
+                                            <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',fun.id_funcionario]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
                                             <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
