@@ -27,8 +27,28 @@ export class ATerrenosLibresComponent implements OnInit {
   calcularValorCuota(){
     console.log('lala')    
     console.log(this.TumbasLibresList)
-    
+    this.llenarListas();
     //return this.TodasLastumbasList;
+  }
+
+  peopleA: Tumba[] =[];
+  peopleB: Tumba[] =[];
+  peopleC: Tumba[] =[];
+  llenarListas(){
+    for(let i=0 ; i<this.TumbasLibresList.length; i++ ){
+      if(this.TumbasLibresList[i].patio.id_Patio==1){
+        this.peopleA.push(this.TumbasLibresList[i]);
+      }else{
+        if(this.TumbasLibresList[i].patio.id_Patio==2){
+          this.peopleB.push(this.TumbasLibresList[i]);
+        }else{
+          if(this.TumbasLibresList[i].patio.id_Patio==3){
+            this.peopleC.push(this.TumbasLibresList[i]);
+
+          }
+        }
+      }
+    }
   }
 }
 /*
