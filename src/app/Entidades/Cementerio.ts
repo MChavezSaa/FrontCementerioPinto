@@ -1,4 +1,4 @@
-export interface Cementerio {
+export class Cementerio {
     id_Cementerio: number;
     capacidad_Terrenos: number;
     nombre_Cementerio: string;

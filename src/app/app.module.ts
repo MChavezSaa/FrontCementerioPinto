@@ -207,6 +207,10 @@ const routes: Routes = [
         component: AFormularioCementerioComponent
       },
       {
+        path:'AFormularioCementerio/:id',
+        component: AFormularioCementerioComponent
+      },
+      {
         path: 'APatio',
         component: APatioComponent
       },

@@ -3,7 +3,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioCementerio']" href="#" (click)="cancelarCementerio()">Cementerios</a>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioCementerio']" href="#"
+                    (click)="cancelarCementerio()">Cementerios</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Cementerios</li>
         </ol>
@@ -12,22 +13,25 @@
     <legend>Formulario inscripción Cementerio Nuevo</legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formCementerio"  novalidate> <!--(ngSubmit)="create()"-->
+        <form [formGroup]="formCementerio" novalidate>
+            <!--(ngSubmit)="create()"-->
             <div class="separacion">
                 <h4> &nbsp; Datos principales</h4>
             </div>
             <div class="form-group">
                 <div class="row">
-                   
+
                     <div class="col">
                         <label>Nombre</label>
-                        <input formControlName="nombre_Cementerio" type="text" class="form-control" id="nombre_Cementerio"
+                        <input [(ngModel)]="cementerioParams.nombre_Cementerio" formControlName="nombre_Cementerio"
+                            type="text" class="form-control" id="nombre_Cementerio"
                             placeholder="Ingrese un nombre para el cementerio">
                     </div>
                     <div class="col">
                         <label>Dirección</label>
-                        <input formControlName="direccion_Cementerio" type="text" class="form-control" id="direccionCementerio"
-                            placeholder="Ingrese una dirección para el cementerio">
+                        <input formControlName="direccion_Cementerio"
+                            [(ngModel)]="cementerioParams.direccion_Cementerio" type="text" class="form-control"
+                            id="direccionCementerio" placeholder="Ingrese una dirección para el cementerio">
                     </div>
                     <div class="col-2">
                         <label></label>
@@ -38,15 +42,17 @@
             </div>
             <div class="form-group">
                 <div class="row">
-                   
+
                     <div class="col">
                         <label>Teléfono</label>
-                        <input formControlName="telefono_Cementerio" type="number" class="form-control" id="telefonoCementerio"
+                        <input formControlName="telefono_Cementerio" [(ngModel)]="cementerioParams.telefono_Cementerio"
+                            type="number" class="form-control" id="telefonoCementerio"
                             placeholder="Ingrese un número de teléfono">
                     </div>
                     <div class="col">
                         <label>Capacidad Cementerio</label>
-                        <input formControlName="capacidad_Terrenos" type="number" class="form-control" id="capacidadCementerio"
+                        <input formControlName="capacidad_Terrenos" [(ngModel)]="cementerioParams.capacidad_Terrenos"
+                            type="number" class="form-control" id="capacidadCementerio"
                             placeholder="Ingrese la capacidad del cementerio">
                     </div>
                     <div class="col-2">
@@ -54,14 +60,33 @@
                     </div>
                 </div>
             </div>
-            
-            <div style="text-align: center">
+
+            <div class="form-group row">
+                <div class="col">
+                        <button (click)="cancelarCementerio()" class="btn btn-danger"  >
+                                Cancelar </button>
+                </div>
+                <div class="col" >
+                    <button type="submit" [disabled]="!formCementerio.valid" (click)='create()' class="btn btn-primary"
+                        *ngIf="!cementerioParams.id_Cementerio else elseBlock">Guardar</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+                    </ng-template>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+<!--
+      <div style="text-align: center">
                 <button (click)="cancelarCementerio()" class="btn btn-danger"  >
                     Cancelar </button>
                 &nbsp;&nbsp;
-                <button (click)="create()" type="submit" class="btn btn-success"> Guardar </button>
+                <button (click)="create()" type="submit" class="btn btn-success" *ngIf="!cementerioParams.id else elseBlock"> Guardar </button>
+                <ng-template #elseBlock>
+                    <button class="btn btn-primary" role="button" (click)='update()' >Editar</button>
+                  </ng-template>
             </div>
-        </form>
-        
-    </div>
-</div>
+-->

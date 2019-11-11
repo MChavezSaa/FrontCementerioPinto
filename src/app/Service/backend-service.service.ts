@@ -443,6 +443,23 @@ getfreeTumbs() : Observable<Tumba[]> {
     );
   }
 
+  getCementerioID(id: number):Observable<Cementerio>{      
+    
+    return this.http.get<Cementerio>(`${this.urlEndPoint}Cementerio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e=>{
+
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje,'error');
+        return throwError(e);
+      })  
+      
+    );
+  }
 
   saveCementerio(cementerio: Cementerio): Observable<Cementerio> {
     return this.http.post(this.urlEndPoint + "saveCementerio", cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
@@ -459,7 +476,7 @@ getfreeTumbs() : Observable<Tumba[]> {
   }
 
   updateCementerio(cementerio: Cementerio, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`, cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}update/${id}`, cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
