@@ -154,6 +154,11 @@ const routes: Routes = [
         component: AFormularioFuncionarioComponent
       },
       {
+        path: 'AFormularioFuncionario/:id',
+        component: AFormularioFuncionarioComponent
+      }
+,
+      {
         path: "Aclientes",
         component: AClienteComponent
       },

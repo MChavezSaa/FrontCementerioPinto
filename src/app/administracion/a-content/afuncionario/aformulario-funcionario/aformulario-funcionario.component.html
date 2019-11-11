@@ -13,7 +13,7 @@
     <legend>Formulario inscripción Funcionarios</legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formFuncionario" novalidate > <!---->
+        <form [formGroup]="formFuncionario" novalidate >
             <div class="separacion">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -21,12 +21,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut</label>
-                        <input formControlName="rut_Funcionario" type="text" class="form-control" id="rut_Funcionario"
+                        <input formControlName="rut_Funcionario" [(ngModel)]="funcionarioParams.rut_Funcionario" type="text" class="form-control" id="rut_Funcionario"
                             placeholder="Ingrese un rut 11111111-1">
                     </div>
                     <div class="col">
                         <label>Nombres</label>
-                        <input formControlName="nombres_Funcionario" type="text" class="form-control" id="nombres_Funcionario"
+                        <input formControlName="nombres_Funcionario" [(ngModel)]="funcionarioParams.nombres_Funcionario" type="text" class="form-control" id="nombres_Funcionario"
                             placeholder="Ingrese ambos nombres del Funcionario">
                     </div>
                 </div>
@@ -37,12 +37,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_Funcionario" type="text" class="form-control" id="apellidoP_Funcionario"
+                        <input formControlName="apellidoP_Funcionario" [(ngModel)]="funcionarioParams.apellidoP_Funcionario" type="text" class="form-control" id="apellidoP_Funcionario"
                             placeholder="Ingrese Apellido Paterno">
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_Funcionario" type="text" class="form-control" id="apellidoM_Funcionario"
+                        <input formControlName="apellidoM_Funcionario" [(ngModel)]="funcionarioParams.apellidoM_Funcionario" type="text" class="form-control" id="apellidoM_Funcionario"
                             placeholder="Ingrese Apellido Materno">
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1">Género</label>
-                        <select formControlName="genero_Funcionario"class="form-control" id="genero_Funcionario">
+                        <select formControlName="genero_Funcionario" [(ngModel)]="funcionarioParams.genero_Funcionario" class="form-control" id="genero_Funcionario">
                             <option value="" selected disabled>Seleccione Género </option>
                             <option>Masculino</option>
                             <option>Femenino</option>
@@ -61,7 +61,7 @@
 
                     <div class="col">
                         <label for="exampleFormControlSelect1">Cargo</label>
-                        <select formControlName="cargo_Funcionario" class="form-control" id="cargo_Funcionario">
+                        <select formControlName="cargo_Funcionario" [(ngModel)]="funcionarioParams.cargo_Funcionario" class="form-control" id="cargo_Funcionario">
                             <option value="" selected disabled>Seleccione Cargo </option>
                             <option>Párroco</option>
                             <option>Secretaria</option>
@@ -72,11 +72,26 @@
 
                 </div>
             </div>
+
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <button (click)="cancelarFuncionario()" class="btn btn-danger"> Cancelar </button>
+                    &nbsp;&nbsp;
+                    <button type="submit" [disabled]="!formFuncionario.valid" (click)='createFuncionario()' class="btn btn-primary"
+                        *ngIf="!funcionarioParams.id_funcionario else elseBlock">Guardar</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+                    </ng-template>
+                </div>
+            </div>
+
+            <!--
             <div style="text-align: center">
                 <button (click)="cancelarFuncionario()" type="submit" class="btn btn-danger"> Cancelar </button>
                 &nbsp;&nbsp;
                 <button (click)="createFuncionario()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
+            -->
         </form>
   
     </div>

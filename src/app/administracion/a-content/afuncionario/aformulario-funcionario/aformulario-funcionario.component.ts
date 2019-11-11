@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute} from '@angular/router';
 import Swal from 'sweetalert2';
+import { Funcionario } from 'src/app/Entidades/Funcionario';
 
 
 @Component({
@@ -12,9 +13,10 @@ import Swal from 'sweetalert2';
 })
 export class AFormularioFuncionarioComponent implements OnInit {
   formFuncionario: FormGroup;
+  funcionarioParams: Funcionario;
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router:Router,
+    private router: Router, private activatedRoute: ActivatedRoute,
 
     ) {
 
@@ -31,6 +33,29 @@ export class AFormularioFuncionarioComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.cargarFuncionario();
+  }
+
+  public cargarFuncionario(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (id) {
+        this.service.getFuncionariosPorID(id).subscribe((fun) => this.funcionarioParams = fun)
+        console.log(this.funcionarioParams);
+      }
+    })
+  }
+
+  public update(): void {
+    this.service.updateFuncionario(this.formFuncionario.value, this.funcionarioParams.id_funcionario)
+      .subscribe(
+        json => {
+          this.router.navigate(['/administracion-inicio/Afuncionarios']);
+          Swal.fire('Funcionario Actualizado',' Actualizado con Exito', 'success');
+        },
+        err => {
+          console.log(err);
+        });
   }
 
 
