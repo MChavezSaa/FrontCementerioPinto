@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-afuncionario',
@@ -13,10 +14,48 @@ export class AFuncionarioComponent implements OnInit {
   funcionarioDetail : Funcionario;
   funcionarioDetail2 : Funcionario[];
   rut:string ;
+
+  funcionariosFiltered: Funcionario[];
+  funcionarios: Funcionario[];
+
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList2 = funcionarioList1);
+  }
+
+  deleteFuncionario(funcionarioE: Funcionario): void {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: 'Está seguro',
+      text: `¿Está seguro que desea eliminar el funcionario ${funcionarioE.nombres_Funcionario} ${funcionarioE.apellidoP_Funcionario} ${funcionarioE.apellidoM_Funcionario}  ?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.service.deleteFuncionario(funcionarioE.id_funcionario).subscribe(
+          response => {
+            this.funcionariosFiltered = this.funcionarios.filter(rev => rev !== funcionarioE)
+            swalWithBootstrapButtons.fire(
+              'Funcionario Eliminado!',
+              `Se ha eliminado con exito al funcionario ${funcionarioE.nombres_Funcionario} ${funcionarioE.apellidoP_Funcionario} ${funcionarioE.apellidoM_Funcionario}.`,
+              'success'
+            )
+          }
+        )
+
+      }
+    })
   }
 
   buscarFuncionario(rut_Funcionario: String){

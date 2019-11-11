@@ -75,7 +75,8 @@
                                             <button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioFuncionario/',fun.id_funcionario]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                            <button type="button" name="eliminar" class="btn btn-danger" (click)="deleteFuncionario(fun)"><i
+                                                    class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
                                     </tr>
@@ -119,7 +120,8 @@
                                             <button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioFuncionario/',fun.id_funcionario]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                            <button type="button" name="eliminar" class="btn btn-danger" (click)="deleteFuncionario(fun)"><i
+                                                class="fas fa-trash-alt"></i>
                                             </button>
                                         </td>
                                     </tr>

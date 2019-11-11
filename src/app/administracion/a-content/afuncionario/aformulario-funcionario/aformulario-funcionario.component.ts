@@ -64,7 +64,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
       .subscribe(
       funcionario => {   
         //ver como tomar valor de nombre para funcion swal
-        Swal.fire('Nuevo Funcionario', `Funcionario ${funcionario} creado con Exito`, 'success');    
+          Swal.fire('Nuevo Funcionario', `Funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario} ${funcionario.apellidoM_Funcionario} creado con Exito`, 'success');   
           this.router.navigate(['/administracion-inicio/Afuncionarios']);  
       },
       err=>{
