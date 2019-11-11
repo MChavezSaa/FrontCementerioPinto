@@ -52,6 +52,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
         json => {
           this.router.navigate(['/administracion-inicio/Afuncionarios']);
           Swal.fire('Funcionario Actualizado',' Actualizado con Exito', 'success');
+          this.funcionarioParams = null;
         },
         err => {
           console.log(err);
@@ -66,6 +67,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
         //ver como tomar valor de nombre para funcion swal
           Swal.fire('Nuevo Funcionario', `Funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario} ${funcionario.apellidoM_Funcionario} creado con Exito`, 'success');   
           this.router.navigate(['/administracion-inicio/Afuncionarios']);  
+          this.funcionarioParams = null;
       },
       err=>{
         console.log(err)

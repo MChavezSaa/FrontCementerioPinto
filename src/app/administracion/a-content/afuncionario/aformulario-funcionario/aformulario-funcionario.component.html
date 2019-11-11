@@ -80,7 +80,7 @@
                 </div>
                 <div class="col">
                     <button type="submit" [disabled]="!formFuncionario.valid" (click)='createFuncionario()' class="btn btn-primary"
-                        *ngIf="!funcionarioParams.id_Cementerio else elseBlock">Guardar</button>
+                        *ngIf="!funcionarioParams.id_funcionario else elseBlock">Guardar</button>
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
                     </ng-template>
