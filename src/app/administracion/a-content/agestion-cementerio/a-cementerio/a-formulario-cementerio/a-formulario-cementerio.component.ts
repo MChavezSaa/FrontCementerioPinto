@@ -78,7 +78,7 @@ export class AFormularioCementerioComponent implements OnInit {
       type: 'warning',
       text: '¿Está seguro que desea salir del formulario de Ingreso de Cementerio?',
       
-      confirmButtonText: 'Yes ',
+      confirmButtonText: 'Si ',
       cancelButtonText: 'No',
       showCancelButton: true,
       showCloseButton: true

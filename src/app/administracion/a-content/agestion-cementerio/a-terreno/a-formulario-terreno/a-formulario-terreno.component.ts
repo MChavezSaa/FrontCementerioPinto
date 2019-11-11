@@ -52,7 +52,7 @@ export class AFormularioTerrenoComponent implements OnInit {
       type: 'warning',
       text: '¿Está seguro que desea salir del formulario de Ingreso de Terrenos?',
 
-      confirmButtonText: 'Yes ',
+      confirmButtonText: 'Si ',
       cancelButtonText: 'No',
       showCancelButton: true,
       showCloseButton: true
