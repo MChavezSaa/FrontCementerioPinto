@@ -46,6 +46,7 @@ export class AFormularioPatioComponent implements OnInit {
       json=>{   
         this.router.navigate(['/administracion-inicio/APatio']);
         Swal.fire('Cemenerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');  
+        this.patioParams = null;
       },
       err=>{
         console.log(err);
@@ -59,6 +60,7 @@ export class AFormularioPatioComponent implements OnInit {
           //ver como tomar valor de nombre para funcion swal
           Swal.fire('Nuevo Patio', `Patio ${patio} creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/APatio']);
+          this.patioParams = null;
         },
         err => {
           console.log(err)
