@@ -1,6 +1,6 @@
 import { Cementerio } from './Cementerio';
 
-export interface Terreno {
+export class Terreno {
     id_terreno: number;
     capacidad_Terreno: number;
     cementerio: Cementerio;

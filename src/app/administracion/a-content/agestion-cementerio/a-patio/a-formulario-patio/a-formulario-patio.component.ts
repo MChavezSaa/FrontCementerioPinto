@@ -66,6 +66,7 @@ export class AFormularioPatioComponent implements OnInit {
       );
   }
   
+  
   public cancelarPatio() {
     Swal.fire({
       title: 'Salir del formulario',
