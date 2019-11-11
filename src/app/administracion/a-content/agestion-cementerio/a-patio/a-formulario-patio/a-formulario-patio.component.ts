@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Terreno } from 'src/app/Entidades/Terreno';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Patio } from 'src/app/Entidades/Patio';
 
 @Component({
   selector: 'app-a-formulario-patio',
@@ -14,10 +15,10 @@ export class AFormularioPatioComponent implements OnInit {
 
   terrenoList:Terreno[] = [];
   formPatio:FormGroup;
-
+  patioParams : Patio = new Patio();
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router) {
+    private router: Router, private activatedRoute:ActivatedRoute) {
     this.formPatio = this.formBuilder.group({
       capacidad_Patio: ['', [Validators.required]],
       nombre_Patio: ['', [Validators.required]],
@@ -26,9 +27,30 @@ export class AFormularioPatioComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cargarPatio();
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
   }
+  public cargarPatio():void{  
+    this.activatedRoute.params.subscribe(params=>{ 
+      let id = params['id'];
+      if(id){
+        this.service.getPatioxID(id).subscribe((patio)=>this.patioParams=patio) 
+        console.log(this.patioParams);
+      }
+    })
+  }
 
+  public update():void{
+    this.service.updatePatio(this.formPatio.value,this.patioParams.id_Patio)
+    .subscribe(
+      json=>{   
+        this.router.navigate(['/administracion-inicio/APatio']);
+        Swal.fire('Cemenerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');  
+      },
+      err=>{
+        console.log(err);
+      });
+  }
 
   public createPatio(): void {
     this.service.savePatio(this.formPatio.value)

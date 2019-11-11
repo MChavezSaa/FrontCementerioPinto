@@ -32,11 +32,11 @@ export class AFormularioCementerioComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.cargarVehiculo();
+    this.cargarCementerio();
   }
 
 
-  public cargarVehiculo():void{  
+  public cargarCementerio():void{  
     this.activatedRoute.params.subscribe(params=>{ 
       let id = params['id'];
       if(id){
@@ -45,15 +45,7 @@ export class AFormularioCementerioComponent implements OnInit {
       }
     })
   }
-  cargarCementerio():void{
-    this.activatedRoute.params.subscribe(params=>{ 
-      let id = params['id'];
-      if(id){
-        this.service.getCementerioID(id).subscribe((cem)=>this.cementerioParams=cem) 
-        console.log(this.cementerioParams);
-      }
-    })
-  }
+ 
   public create():void{
     this.service.saveCementerio(this.formCementerio.value)
       .subscribe(

@@ -1,6 +1,6 @@
 import { Terreno } from './Terreno';
 
-export interface Patio {
+export class Patio {
     id_Patio: number;
     capacidad_Patio: number;
     nombre_Patio: string;

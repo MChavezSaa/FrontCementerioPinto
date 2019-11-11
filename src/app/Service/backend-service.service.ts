@@ -315,7 +315,23 @@ export class BackendServiceService {
       })
     );
   }
+  getPatioxID(id: number):Observable<Patio>{      
+    
+    return this.http.get<Patio>(`${this.urlEndPoint}findPatio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e=>{
 
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje,'error');
+        return throwError(e);
+      })  
+      
+    );
+  }
   savePatio(patio: Patio): Observable<Patio> {
     return this.http.post(this.urlEndPoint + "savePatio", patio, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.patio as Patio),
@@ -344,7 +360,18 @@ export class BackendServiceService {
     );
   }
 
-
+  updatePatio(patio: Patio, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updatePatio/${id}`, patio, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el patio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba(): Observable<TipoTumba[]> {

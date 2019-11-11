@@ -219,6 +219,10 @@ const routes: Routes = [
         component: AFormularioPatioComponent
       },
       {
+        path:'AFormularioPatio/:id',
+        component: AFormularioPatioComponent
+      },
+      {
         path: 'AGTerreno',
         component: ATerrenoComponent
       },
