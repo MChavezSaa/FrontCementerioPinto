@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Cementerio } from 'src/app/Entidades/Cementerio';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2' ;
+import { Terreno } from 'src/app/Entidades/Terreno';
 
 
 @Component({
@@ -15,10 +16,10 @@ export class AFormularioTerrenoComponent implements OnInit {
   
   cementerioList:Cementerio[] = [];
   formTerreno: FormGroup;
-
+  terrenoParams :Terreno = new Terreno();
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router:Router) {
+    private router:Router, private activatedRoute:ActivatedRoute) {
       this.formTerreno = this.formBuilder.group({
         nombre_Terreno: ['', [Validators.required]] ,
         capacidad_Terreno: ['', [Validators.required]] ,
@@ -28,7 +29,31 @@ export class AFormularioTerrenoComponent implements OnInit {
     }
 
   ngOnInit() {
+    this.cargarTerreno();
+
     this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
+  }
+
+  public cargarTerreno():void{  
+    this.activatedRoute.params.subscribe(params=>{ 
+      let id = params['id'];
+      if(id){
+        this.service.getTerrenoxID(id).subscribe((patio)=>this.terrenoParams=patio) 
+        console.log(this.terrenoParams);
+      }
+    })
+  }
+
+  public update():void{
+    this.service.updateTerreno(this.formTerreno.value,this.terrenoParams.id_terreno)
+    .subscribe(
+      json=>{   
+        this.router.navigate(['/administracion-inicio/AGTerreno']);
+        Swal.fire('Terreno Actualizado', `Terreno ${json.nombre_Terreno} actualizado con exito`, 'success');  
+      },
+      err=>{
+        console.log(err);
+      });
   }
 
   public createTerreno():void{
@@ -52,7 +77,7 @@ export class AFormularioTerrenoComponent implements OnInit {
       type: 'warning',
       text: '¿Está seguro que desea salir del formulario de Ingreso de Terrenos?',
 
-      confirmButtonText: 'Yes ',
+      confirmButtonText: 'Si ',
       cancelButtonText: 'No',
       showCancelButton: true,
       showCloseButton: true

@@ -21,12 +21,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Nombre</label>
-                        <input formControlName="nombre_Patio" type="text" class="form-control" id="nombrePatio"
+                        <input formControlName="nombre_Patio" [(ngModel)]="patioParams.nombre_Patio"  type="text" class="form-control" id="nombrePatio"
                             placeholder="Ingrese un nombre para el patio">
                     </div>
                     <div class="col">
                         <label>Capacidad Patio</label>
-                        <input formControlName="capacidad_Patio" type="number" class="form-control" id="capacidadPatio"
+                        <input formControlName="capacidad_Patio"  [(ngModel)]="patioParams.capacidad_Patio" type="number" class="form-control" id="capacidadPatio"
                             placeholder="Ingrese la capacidad del patio">
                     </div>
                     <div class="col-2">
@@ -41,7 +41,7 @@
 
                     <div class="col">
                         <label for="exampleFormControlSelect1">Terreno</label>
-                        <select formControlName="terreno" class="form-control" id="exampleFormControlSelect1">
+                        <select formControlName="terreno" [(ngModel)]="patioParams.terreno" class="form-control" id="exampleFormControlSelect1">
                             <option value="" selected disabled>Seleccione Terreno </option>
                             <option *ngFor="let c of terrenoList" [ngValue]="c">{{c.nombre_Terreno}}</option>
                             
@@ -53,14 +53,22 @@
                     </div>
                 </div>
             </div>
-            <div style="text-align: center">
-                <button (click)="cancelarPatio()" class="btn btn-danger">
-                    Cancelar </button>
-                &nbsp;&nbsp;
-                <button (click)="createPatio()" type="submit" class="btn btn-success"> Guardar </button>
-            </div>
+            <div class="form-group row">
+                    <div class="col">
+                            <button (click)="cancelarPatio()" class="btn btn-danger"  >
+                                    Cancelar </button>
+                    </div>
+                    <div class="col" >
+                        <button type="submit" [disabled]="!formPatio.valid" (click)='createPatio()' class="btn btn-primary"
+                            *ngIf="!patioParams.id_Patio else elseBlock">Guardar</button>
+                        <ng-template #elseBlock>
+                            <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+                        </ng-template>
+                    </div>
+                </div>
 
         </form>
         
     </div>
 </div>
+

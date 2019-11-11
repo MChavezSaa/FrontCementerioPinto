@@ -8,7 +8,11 @@
     </div>
     <ul class="list-unstyled components">
       <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> <span>Inicio</span> </a></li>
-            
+     
+      <li *ngIf="service.hasRole('ROLE_CLIENT')" class="nav-item">
+        <a class="nav-link" routerLink="CCuotas"><i class="fas fa-user-alt colorFig"></i> Mis Cuotas</a>
+      </li>
+
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="active ">
         <a href="#homeSubmenu"  data-toggle="collapse" aria-expanded="false" class="dropdown-toggle" ><i class="fas fa-church"></i>Gestión Cementerio</a>
         <ul class="collapse list-unstyled" id="homeSubmenu">
@@ -36,7 +40,7 @@
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="ADifuntos"> <i class="fas fa-cross  colorFig"></i>Difuntos</a>
       </li>
-      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
+      <li class="nav-item">
         <a class="nav-link" routerLink="ATerrenosLibres"><i class="fas fa-map colorFig"></i> Mapa de Terrenos</a>
       </li>
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
@@ -45,7 +49,7 @@
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="AVentas"><i class="fas fa-handshake"></i> Realizar Venta</a>
       </li>
-      <li class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="Aclientes"> <i class="fas fa-chart-pie"></i>Reportes</a>
       </li>
       <li class="nav-item">

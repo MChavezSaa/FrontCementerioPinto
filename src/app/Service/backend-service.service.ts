@@ -280,7 +280,18 @@ export class BackendServiceService {
       })
     );
   }
-
+  updateTerreno(terreno: Terreno, id: number){
+    return this.http.put<any>(`${this.urlEndPoint}updateTerreno/${id}`, terreno, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el terreno', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   saveTerreno(terreno: Terreno): Observable<Terreno> {
     terreno.estado_Terreno = true;
     return this.http.post(this.urlEndPoint + "saveTerrenos", terreno, { headers: this.agregarAuthorizationHeader() }).pipe(
@@ -295,7 +306,23 @@ export class BackendServiceService {
       })
     );
   }
+  getTerrenoxID(id: number):Observable<Terreno>{      
+    
+    return this.http.get<Terreno>(`${this.urlEndPoint}findTerreno/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e=>{
 
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje,'error');
+        return throwError(e);
+      })  
+      
+    );
+  }
   deleteTerreno(id: number): Observable<Terreno> {
     return this.http.delete<Terreno>(`${this.urlEndPoint}+"deleteTerreno/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -319,7 +346,23 @@ export class BackendServiceService {
       })
     );
   }
+  getPatioxID(id: number):Observable<Patio>{      
+    
+    return this.http.get<Patio>(`${this.urlEndPoint}findPatio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e=>{
 
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje,'error');
+        return throwError(e);
+      })  
+      
+    );
+  }
   savePatio(patio: Patio): Observable<Patio> {
     return this.http.post(this.urlEndPoint + "savePatio", patio, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.patio as Patio),
@@ -348,7 +391,18 @@ export class BackendServiceService {
     );
   }
 
-
+  updatePatio(patio: Patio, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updatePatio/${id}`, patio, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el patio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba(): Observable<TipoTumba[]> {
@@ -399,6 +453,14 @@ export class BackendServiceService {
       })
     );
   }
+getfreeTumbs() : Observable<Tumba[]> {
+     return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
 
 
   saveTumba(tumba: Tumba): Observable<Tumba> {
@@ -439,6 +501,23 @@ export class BackendServiceService {
     );
   }
 
+  getCementerioID(id: number):Observable<Cementerio>{      
+    
+    return this.http.get<Cementerio>(`${this.urlEndPoint}Cementerio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e=>{
+
+        if(this.isNoAutorizado(e)){
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje,'error');
+        return throwError(e);
+      })  
+      
+    );
+  }
 
   saveCementerio(cementerio: Cementerio): Observable<Cementerio> {
     return this.http.post(this.urlEndPoint + "saveCementerio", cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
@@ -455,7 +534,7 @@ export class BackendServiceService {
   }
 
   updateCementerio(cementerio: Cementerio, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateCementerio/${id}`, cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.put<any>(`${this.urlEndPoint}update/${id}`, cementerio, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);

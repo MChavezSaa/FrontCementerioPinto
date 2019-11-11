@@ -56,6 +56,7 @@ import { AVentaComponent } from './administracion/a-content/a-venta/a-venta.comp
 import { FormularioVentaComponent } from './administracion/a-content/a-venta/formulario-venta/formulario-venta.component';
 import { AClienteComponent } from './administracion/a-content/a-cliente/a-cliente.component';
 import { AformClienteComponent } from './administracion/a-content/a-cliente/aform-cliente/aform-cliente.component';
+import { CCuotasComponent } from './administracion/a-content/c-cuotas/c-cuotas.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -211,6 +212,10 @@ const routes: Routes = [
         component: AFormularioCementerioComponent
       },
       {
+        path:'AFormularioCementerio/:id',
+        component: AFormularioCementerioComponent
+      },
+      {
         path: 'APatio',
         component: APatioComponent
       },
@@ -219,11 +224,19 @@ const routes: Routes = [
         component: AFormularioPatioComponent
       },
       {
+        path:'AFormularioPatio/:id',
+        component: AFormularioPatioComponent
+      },
+      {
         path: 'AGTerreno',
         component: ATerrenoComponent
       },
       {
         path: 'AGFormularioTerreno',
+        component: AFormularioTerrenoComponent
+      },
+      {
+        path:'AGFormularioTerreno/:id',
         component: AFormularioTerrenoComponent
       },
       {
@@ -241,6 +254,10 @@ const routes: Routes = [
       {
         path:'formularioVenta',
         component:FormularioVentaComponent
+      },
+      {
+        path:'CCuotas',
+        component: CCuotasComponent
       }
 
     ]
@@ -300,7 +317,8 @@ const routes: Routes = [
     AVentaComponent,
     FormularioVentaComponent,
     AClienteComponent,
-    AformClienteComponent
+    AformClienteComponent,
+    CCuotasComponent
   ],
   imports: [
     BrowserModule,

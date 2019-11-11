@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { Tumba } from 'src/app/Entidades/Tumba';
 
 @Component({
   selector: 'app-aterrenos-libres',
@@ -6,11 +8,50 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./aterrenos-libres.component.css']
 })
 export class ATerrenosLibresComponent implements OnInit {
+  TodasLastumbasList : Tumba[] =[];
+  TumbasLibresList : Tumba[] =[];
 
-  constructor() { }
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getfreeTumbs().subscribe(tumbaList1 => this.TumbasLibresList = tumbaList1);
+    
   }
+
+  llenarListaLibre(){
+    for (let i = 0; i < this.TodasLastumbasList.length ; i++) {
+      if(this.TodasLastumbasList[i].estado_Tumba== false)
+      this.TumbasLibresList.push(this.TodasLastumbasList[i]);
+    }
+  }
+  calcularValorCuota(){
+    console.log('lala')    
+    console.log(this.TumbasLibresList)
+    this.llenarListas();
+    //return this.TodasLastumbasList;
+  }
+
+  peopleA: Tumba[] =[];
+  peopleB: Tumba[] =[];
+  peopleC: Tumba[] =[];
+  llenarListas(){
+    for(let i=0 ; i<this.TumbasLibresList.length; i++ ){
+      if(this.TumbasLibresList[i].patio.id_Patio==1){
+        this.peopleA.push(this.TumbasLibresList[i]);
+      }else{
+        if(this.TumbasLibresList[i].patio.id_Patio==2){
+          this.peopleB.push(this.TumbasLibresList[i]);
+        }else{
+          if(this.TumbasLibresList[i].patio.id_Patio==3){
+            this.peopleC.push(this.TumbasLibresList[i]);
+
+          }
+        }
+      }
+    }
+  }
+}
+/*
 
   peopleA: any[] = [
     {
@@ -771,5 +812,4 @@ export class ATerrenosLibresComponent implements OnInit {
       "FD": "26/6/2019"
     }
 
-  ];
-}
+  ]; */

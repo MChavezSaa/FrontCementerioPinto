@@ -38,25 +38,7 @@ export class FormularioVentaComponent implements OnInit {
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router:Router) { 
-    /*  this.formContrato = this.formBuilder.group({
-        funcionario: ['', [Validators.required]],
-        fecha_Ingreso_Venta:['', [Validators.required]] ,
-        cementerio:['', [Validators.required]],
-        terreno: ['', [Validators.required]],
-        patio:['', [Validators.required]],
-        tipo_Tumba:['', [Validators.required]],
-        tumba:['', [Validators.required]],
-       
-        cliente:['', [Validators.required]],
-        medioPago:['', [Validators.required]],
-        valorTerreno:['', [Validators.required]],
-        pagoInicial:['', [Validators.required]],
-        nCuotas:['', [Validators.required]],
-        vCuotas:['', [Validators.required]],
-        diaPago:['', [Validators.required]]
-        
-    }); */
-    }
+     }
 
   ngOnInit() {
     this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
@@ -65,8 +47,7 @@ export class FormularioVentaComponent implements OnInit {
     this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
     this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
-    this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
-    
+    this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);    
   }
 
   calcularValorCuota(){
@@ -88,7 +69,7 @@ export class FormularioVentaComponent implements OnInit {
         //ver como tomar valor de nombre para funcion swal
         console.log(this.contrato2)
         Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');    
-        //this.router.navigate(['/administracion-inicio/Aclientes']);  
+        this.router.navigate(['/administracion-inicio/AVentas']);  
       },
       err=>{
         console.log(err)
