@@ -15,10 +15,11 @@
         <div class="row ">
             <!--SECCION PARA FILTRAR-->
             <div class="col-4">
-                <input type="text" class="form-control" placeholder="Ingrese un nombre a buscar">
+                <input type="text" [(ngModel)]="rut" class="form-control" placeholder="Ingrese un nombre a buscar">
+
             </div>
             <div class="col-2 ">
-                <button class="btn btn-outline-primary" type="button" (click)="buscarFuncionario()" > Buscar</button>
+                <button class="btn btn-outline-primary" type="button" (click)="buscarFuncionario(rut)" > Buscar</button>
             </div>
         
             <div class="col-6 text-right">

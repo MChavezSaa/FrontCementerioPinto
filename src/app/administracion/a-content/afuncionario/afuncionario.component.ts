@@ -11,15 +11,17 @@ export class AFuncionarioComponent implements OnInit {
 
   funcionarioList2: Funcionario[] = [];
   funcionarioDetail : Funcionario;
-
+  funcionarioDetail2 : Funcionario[];
+  rut:string ;
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList2 = funcionarioList1);
   }
 
-  buscarFuncionario(){
-    //this.service.getFuncionarios().subscribe
+  buscarFuncionario(rut_Funcionario: String){
+    this.service.getFuncionarioBuscar(rut_Funcionario).subscribe(funcionarioBuscado => this.funcionarioDetail2 = funcionarioBuscado);
+    console.log(this.funcionarioDetail2); 
   }
 
   cargarDatosModal(id: number){

@@ -14,6 +14,7 @@ import { Derecho } from '../Entidades/Derecho';
 import { Contrato } from '../Entidades/Contrato';
 import { Router } from '@angular/router';
 import { Usuario } from '../Entidades/usuario';
+import { identifierModuleUrl } from '@angular/compiler';
 
 
 @Injectable({
@@ -222,9 +223,12 @@ export class BackendServiceService {
       })
     );
   }
-
+  
   getFuncionariosPorID(id: number): Observable<Funcionario>{
     return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/"+ id, {headers: this.agregarAuthorizationHeader()});
+  }
+  getFuncionarioBuscar(rut_Funcionario: String): Observable<Funcionario[]>{
+    return this.http.get<Funcionario[]>(this.urlEndPoint + "findByRutFuncionario/" + rut_Funcionario, {headers: this.agregarAuthorizationHeader()});
   }
 
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
