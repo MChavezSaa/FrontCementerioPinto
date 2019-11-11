@@ -51,8 +51,9 @@ export class AFormularioCementerioComponent implements OnInit {
       .subscribe(
       cementerio => {   
         //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
-          Swal.fire('Nuevo cementerio', `Cementerio ${cementerio.nombre_Cementerio} creado con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/ACementerio']);  
+          Swal.fire('Nuevo cementerio', `Cementerio creado con Exito`, 'success');    
+        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        this.cementerioParams = null;
       },
       err=>{
         console.log(err)
@@ -65,7 +66,8 @@ export class AFormularioCementerioComponent implements OnInit {
     .subscribe(
       json=>{   
         this.router.navigate(['/administracion-inicio/ACementerio']);
-        Swal.fire('Cemenerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');  
+        Swal.fire('Cementerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');          
+        this.cementerioParams = null;
       },
       err=>{
         console.log(err);
