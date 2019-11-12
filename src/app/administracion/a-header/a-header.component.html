@@ -49,7 +49,7 @@
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="AVentas"><i class="fas fa-handshake"></i> Realizar Venta</a>
       </li>
-      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
+      <li *ngIf="service.hasRole('ROLE_EMPLEADO')" class="nav-item">
         <a class="nav-link" routerLink="Aclientes"> <i class="fas fa-chart-pie"></i>Reportes</a>
       </li>
       <li class="nav-item">
