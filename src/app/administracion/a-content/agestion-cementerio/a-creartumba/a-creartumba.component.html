@@ -27,7 +27,7 @@
     <!-- Seccion Disponibles/ Ocupados/ Reservados-->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-disponible-tab" data-toggle="tab" href="#nav-activo" role="tab"
+            <a class="nav-item nav-link active" id="nav-disponible-tab" data-toggle="tab" href="#nav-disponible" role="tab"
                 aria-controls="nav-disponible" aria-selected="true">Disponibles</a>
             <a class="nav-item nav-link" id="nav-ocupado-tab" data-toggle="tab" href="#nav-ocupado" role="tab"
                 aria-controls="nav-ocupado" aria-selected="false">Ocupados</a>
@@ -47,9 +47,9 @@
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
-                                  <!--  <th scope="col">Patio</th> -->
+                                    <th scope="col">Patio</th> 
                                     <th scope="col">Número</th>
-                                    <th scope="col">Tipo de Tumba </th>
+                                   <!-- <th scope="col">Tipo de Tumba </th> -->
                                     <th scope="col">Estado</th>
                                     <th scope="col">Orientación</th>
                                     <th scope="col">Largo</th>
@@ -59,10 +59,10 @@
                             </thead>
                             <tbody>
                                 <ng-container *ngFor="let tub of tumbaList2">
-                                    <tr > <!-- *ngIf="tub.estado_Tumba == 'Disponible' " -->
-                                       <!-- <td>{{tub.patio.nombre_Patio}} </td>-->
+                                    <tr *ngIf="tub.estado_Tumba == 'Disponible' " > <!--  -->
+                                        <td>{{tub.patio.nombre_Patio}} </td>
                                         <td>{{tub.numero_Tumba}}</td>
-                                        <td>{{tub.tipo_Tumba.nombre_tipo_tumba}}</td>
+                                    <!--  <td>{{tub.tipo_Tumba.nombre_tipo_tumba}}</td> -->
                                         <td>{{tub.estado_Tumba}}</td>
                                         <td>{{tub.orientacion_Tumba}}</td>
                                         <td>{{tub.largo}}</td>
