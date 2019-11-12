@@ -59,7 +59,7 @@ export class AFuncionarioComponent implements OnInit {
   }
 
   buscarFuncionario(rut_Funcionario: String){
-    this.service.getFuncionarioBuscar(rut_Funcionario).subscribe(funcionarioBuscado => this.funcionarioDetail2 = funcionarioBuscado);
+    this.service.getFuncionarioBuscar(rut_Funcionario).subscribe(funcionarioBuscado3 => this.funcionarioDetail2 = funcionarioBuscado3);
     console.log(this.funcionarioDetail2); 
   }
 
