@@ -13,7 +13,7 @@ import { Funcionario } from 'src/app/Entidades/Funcionario';
 })
 export class AFormularioFuncionarioComponent implements OnInit {
   formFuncionario: FormGroup;
-  funcionarioParams: Funcionario;
+  funcionarioParams: Funcionario= new Funcionario();
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute,
@@ -65,7 +65,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
       .subscribe(
       funcionario => {   
         //ver como tomar valor de nombre para funcion swal
-          Swal.fire('Nuevo Funcionario', `Funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario} ${funcionario.apellidoM_Funcionario} creado con Exito`, 'success');   
+          Swal.fire('Nuevo Funcionario', `Funcionario  creado con Exito`, 'success');   
           this.router.navigate(['/administracion-inicio/Afuncionarios']);  
           this.funcionarioParams = null;
       },

@@ -1,4 +1,4 @@
-export interface Funcionario {
+export class Funcionario {
     id_funcionario: number;
     rut_Funcionario: string;
     nombres_Funcionario: string;
