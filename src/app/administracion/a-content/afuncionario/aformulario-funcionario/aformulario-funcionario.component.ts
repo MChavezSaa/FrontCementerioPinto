@@ -13,7 +13,7 @@ import { Funcionario } from 'src/app/Entidades/Funcionario';
 })
 export class AFormularioFuncionarioComponent implements OnInit {
   formFuncionario: FormGroup;
-  funcionarioParams: Funcionario;
+  funcionarioParams: Funcionario = new Funcionario();
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute,

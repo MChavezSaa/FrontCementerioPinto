@@ -225,7 +225,19 @@ export class BackendServiceService {
   }
   
   getFuncionariosPorID(id: number): Observable<Funcionario>{
-    return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/"+ id, {headers: this.agregarAuthorizationHeader()});
+    return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/Afuncionarios']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
   getFuncionarioBuscar(rut_Funcionario: String): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(this.urlEndPoint + "findByRutFuncionario/" + rut_Funcionario, {headers: this.agregarAuthorizationHeader()});
