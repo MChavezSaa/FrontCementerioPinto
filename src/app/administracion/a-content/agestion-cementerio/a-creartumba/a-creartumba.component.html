@@ -1,0 +1,185 @@
+<div class="container">
+
+    <!--MIGAS DE PAN-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tumbas</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
+    <div class="row my-3">
+        <!--SECCION PARA FILTRAR-->
+        <div class="col-2 my-auto">
+            Filtrar por nombre:
+        </div>
+        <div class="col-4 my-auto">
+            <input type="text" > <!-- [(ngModel)]="listFilter"-->
+        </div>
+        <div class="col-6 text-right">
+            <button type="button" class="btn btn-info"
+                [routerLink]="['/administracion-inicio/AFormularioCreaTumba']">Formulario Ingreso</button>
+        </div>
+    </div>
+    <!--FIN SECCION PARA FILTRAR-->
+
+    <!-- Seccion Disponibles/ Ocupados/ Reservados-->
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-disponible-tab" data-toggle="tab" href="#nav-activo" role="tab"
+                aria-controls="nav-disponible" aria-selected="true">Disponibles</a>
+            <a class="nav-item nav-link" id="nav-ocupado-tab" data-toggle="tab" href="#nav-ocupado" role="tab"
+                aria-controls="nav-ocupado" aria-selected="false">Ocupados</a>
+            <a class="nav-item nav-link" id="nav-reservado-tab" data-toggle="tab" href="#nav-reservado" role="tab"
+                aria-controls="nav-reservado" aria-selected="false">Reservados</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-disponible" role="tabpanel" aria-labelledby="nav-disponible-tab">
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    <label> Tumbas Disponibles </label>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA -->
+                        <table class="table table-hover" style="text-align: center">
+                            <thead class="thead-dark">
+                                <tr>
+                                  <!--  <th scope="col">Patio</th> -->
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Tipo de Tumba </th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Orientación</th>
+                                    <th scope="col">Largo</th>
+                                    <th scope="col">Ancho</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let tub of tumbaList2">
+                                    <tr > <!-- *ngIf="tub.estado_Tumba == 'Disponible' " -->
+                                       <!-- <td>{{tub.patio.nombre_Patio}} </td>-->
+                                        <td>{{tub.numero_Tumba}}</td>
+                                        <td>{{tub.tipo_Tumba.nombre_tipo_tumba}}</td>
+                                        <td>{{tub.estado_Tumba}}</td>
+                                        <td>{{tub.orientacion_Tumba}}</td>
+                                        <td>{{tub.largo}}</td>
+                                        <td>{{tub.ancho}}</td>
+                                        <td><button type="button" name="editar"
+                                                [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_Tumba]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                    class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-ocupado" role="tabpanel" aria-labelledby="nav-ocupado-tab">
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    <label> Tumbas Disponibles </label>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA -->
+                        <table class="table table-hover" style="text-align: center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Patio</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Tipo de Tumba </th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Orientación</th>
+                                    <th scope="col">Largo</th>
+                                    <th scope="col">Ancho</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let tub of tumbaList2">
+                                    <tr *ngIf="tub.estado_Tumba == 'Ocupado' ">
+                                        <td>{{tub.patio.nombre_Patio}} </td>
+                                        <td>{{tub.numero_Tumba}}</td>
+                                        <td>{{tub.tipo_Tumba.nombre_tipo_tumba}}</td>
+                                        <td>{{tub.estado_Tumba}}</td>
+                                        <td>{{tub.orientacion_Tumba}}</td>
+                                        <td>{{tub.largo}}</td>
+                                        <td>{{tub.ancho}}</td>
+                                        <td><button type="button" name="editar"
+                                                [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_Tumba]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                    class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-reservado" role="tabpanel" aria-labelledby="nav-reservado-tab">
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    <label> Tumbas Disponibles </label>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA -->
+                        <table class="table table-hover" style="text-align: center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Patio</th>
+                                    <th scope="col">Número</th>
+                                    <th scope="col">Tipo de Tumba </th>
+                                    <th scope="col">Estado</th>
+                                    <th scope="col">Orientación</th>
+                                    <th scope="col">Largo</th>
+                                    <th scope="col">Ancho</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let tub of tumbaList2">
+                                    <tr *ngIf="tub.estado_Tumba == 'Reservado' ">
+                                        <td>{{tub.patio.nombre_Patio}} </td>
+                                        <td>{{tub.numero_Tumba}}</td>
+                                        <td>{{tub.tipo_Tumba.nombre_tipo_tumba}}</td>
+                                        <td>{{tub.estado_Tumba}}</td>
+                                        <td>{{tub.orientacion_Tumba}}</td>
+                                        <td>{{tub.largo}}</td>
+                                        <td>{{tub.ancho}}</td>
+                                        <td><button type="button" name="editar"
+                                                [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_Tumba]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                            &nbsp;
+                                            <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                    class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Seccion Disponibles/ Ocupados/ Reservados -->
+
+
+
+</div>

@@ -57,6 +57,8 @@ import { FormularioVentaComponent } from './administracion/a-content/a-venta/for
 import { AClienteComponent } from './administracion/a-content/a-cliente/a-cliente.component';
 import { AformClienteComponent } from './administracion/a-content/a-cliente/aform-cliente/aform-cliente.component';
 import { CCuotasComponent } from './administracion/a-content/c-cuotas/c-cuotas.component';
+import { ACreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-creartumba.component';
+import { AFormularioCreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-formulario-creartumba/a-formulario-creartumba.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -251,6 +253,22 @@ const routes: Routes = [
         component: AFormularioTumbaComponent
       },
       {
+        path: 'AGFormularioTumba/:id',
+        component: AFormularioTumbaComponent
+      },
+      {
+        path: 'ACreaTumba',
+        component: ACreartumbaComponent
+      },
+      {
+        path: 'AFormularioCreaTumba',
+        component: AFormularioCreartumbaComponent
+      },
+      {
+        path: 'AGFormularioCreaTumba/:id',
+        component: AFormularioCreartumbaComponent
+      },
+      {
         path:'AVentas',
         component: AVentaComponent
       },
@@ -321,7 +339,9 @@ const routes: Routes = [
     FormularioVentaComponent,
     AClienteComponent,
     AformClienteComponent,
-    CCuotasComponent
+    CCuotasComponent,
+    ACreartumbaComponent,
+    AFormularioCreartumbaComponent
   ],
   imports: [
     BrowserModule,
