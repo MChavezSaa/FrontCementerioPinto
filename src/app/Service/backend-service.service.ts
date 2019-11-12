@@ -147,6 +147,18 @@ export class BackendServiceService {
     );
   }
 
+  updateCliente(cliente: Cliente, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateCliente/${id}`, cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   saveCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post(this.urlEndPoint + "saveCliente", cliente, {headers: this.agregarAuthorizationHeader()}).pipe(
       map((response: any) => response.cliente as Cliente),
