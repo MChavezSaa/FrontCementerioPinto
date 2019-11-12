@@ -31,7 +31,7 @@ export class AFuncionarioComponent implements OnInit {
       .subscribe(
         json => {
           this.funcionarioList2 = this.funcionarioList2.filter(func => func!== fun)
-          this.router.navigate(['/administracion-inicio/Afuncionarios']);
+          this.ngOnInit();
           Swal.fire('Funcionario dado de alta',' Dado de alta con Exito', 'success');          
         },
         err => {
@@ -61,6 +61,7 @@ export class AFuncionarioComponent implements OnInit {
         this.service.deleteFuncionario(funcionario.id_funcionario).subscribe(
           response => {
             this.funcionarioList2 = this.funcionarioList2.filter(fun => fun!== funcionario)
+            this.ngOnInit();
             Swal.fire('Eliminado Satisfactorio', 
             `se elimino el funcionario con id ${funcionario.id_funcionario}`,
             'success');
