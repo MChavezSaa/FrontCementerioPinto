@@ -1,5 +1,5 @@
 
-export interface Cliente{
+export class Cliente{
     id_Cliente: number;
     rut_Cliente: string;
     nombres_Cliente: string;

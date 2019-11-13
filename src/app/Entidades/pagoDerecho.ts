@@ -1,6 +1,6 @@
 import { Derecho } from './Derecho';
 
-export interface pagoDerecho {
+export class pagoDerecho {
       id_PagosDerecho: number;
       fechaPago_Derecho:Date;      
       valorCuota_Derecho:number;      

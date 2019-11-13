@@ -1,6 +1,6 @@
 import { Cliente } from './Cliente';
 
-export interface Derecho{
+export class Derecho{
     id_Derecho: number;
     fecha_Inscripcion_Derecho: Date;
     fecha_Pago_Derecho: Date;

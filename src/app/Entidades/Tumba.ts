@@ -3,7 +3,7 @@ import { Funcionario } from './Funcionario';
 import { Patio } from './Patio';
 import { TipoTumba } from './TipoTumba';
 
-export interface Tumba {    
+export class Tumba {    
     id_Tumba: number;
     numero_Tumba: number;
     valor_Tumba: number;
