@@ -27,6 +27,7 @@ export class BackendServiceService {
   private _token: string;
 
   private urlEndPoint: string = 'http://localhost:8080/';
+  private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -264,7 +265,7 @@ export class BackendServiceService {
     );
   }
   deleteFuncionario(id: number): Observable<Funcionario> {
-    return this.http.delete<Funcionario>(`${this.urlEndPoint}"deleteFuncionario/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.delete<Funcionario>(`${this.urlEndPoint2}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -275,6 +276,20 @@ export class BackendServiceService {
       })
     );
   }
+
+  darAlta(funcionario: Funcionario, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}darAlta/${id}`, funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al dar de alta el funcionario', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
   updateFuncionario(funcionario: Funcionario, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`, funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {

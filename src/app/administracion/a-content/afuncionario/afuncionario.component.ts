@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-afuncionario',
@@ -11,20 +12,34 @@ import Swal from 'sweetalert2';
 export class AFuncionarioComponent implements OnInit {
 
   funcionarioList2: Funcionario[] = [];
-  funcionarioDetail : Funcionario;
-  funcionarioDetail2 : Funcionario[];
-  rut:string ;
+  funcionarioDetail: Funcionario;
+  funcionarioDetail2: Funcionario[];
+  rut: string;
 
   funcionariosFiltered: Funcionario[];
   funcionarios: Funcionario[];
 
-  constructor(private service: BackendServiceService) { }
+  constructor(private service: BackendServiceService, private router: Router, ) { }
 
   ngOnInit() {
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList2 = funcionarioList1);
   }
 
-  deleteFuncionario(funcionarioE: Funcionario): void {
+
+  public darAlta(fun: Funcionario): void {
+    this.service.darAlta(fun, fun.id_funcionario)
+      .subscribe(
+        json => {
+          this.funcionarioList2 = this.funcionarioList2.filter(func => func!== fun)
+          this.ngOnInit();
+          Swal.fire('Funcionario dado de alta',' Dado de alta con Exito', 'success');          
+        },
+        err => {
+          console.log(err);
+        });
+  }
+
+  delete(funcionario: Funcionario): void {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -34,8 +49,8 @@ export class AFuncionarioComponent implements OnInit {
     })
 
     swalWithBootstrapButtons.fire({
-      title: 'Está seguro',
-      text: `¿Está seguro que desea eliminar el funcionario ${funcionarioE.nombres_Funcionario} ${funcionarioE.apellidoP_Funcionario} ${funcionarioE.apellidoM_Funcionario}  ?`,
+      title: '¿Está seguro?',
+      text: `¿Está seguro que desea eliminar el funcionario con ID: ${funcionario.id_funcionario}?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, eliminar!',
@@ -43,44 +58,46 @@ export class AFuncionarioComponent implements OnInit {
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
-        this.service.deleteFuncionario(funcionarioE.id_funcionario).subscribe(
+        this.service.deleteFuncionario(funcionario.id_funcionario).subscribe(
           response => {
-            this.funcionariosFiltered = this.funcionarios.filter(rev => rev !== funcionarioE)
-            swalWithBootstrapButtons.fire(
-              'Funcionario Eliminado!',
-              `Se ha eliminado con exito al funcionario ${funcionarioE.nombres_Funcionario} ${funcionarioE.apellidoP_Funcionario} ${funcionarioE.apellidoM_Funcionario}.`,
-              'success'
-            )
+            this.funcionarioList2 = this.funcionarioList2.filter(fun => fun!== funcionario)
+            this.ngOnInit();
+            Swal.fire('Eliminado Satisfactorio', 
+            `se elimino el funcionario con id ${funcionario.id_funcionario}`,
+            'success');
           }
-        )
-
+        );
       }
     })
   }
 
-  buscarFuncionario(rut_Funcionario: String){
+  buscarFuncionario(rut_Funcionario: String) {
     this.service.getFuncionarioBuscar(rut_Funcionario).subscribe(funcionarioBuscado3 => this.funcionarioDetail2 = funcionarioBuscado3);
-    console.log(this.funcionarioDetail2); 
+    console.log(this.funcionarioDetail2);
   }
 
-  cargarDatosModal(id: number){
+  cargarDatosModal(id: number) {
     this.service.getFuncionariosPorID(id).subscribe(funcionarioBuscado => this.funcionarioDetail = funcionarioBuscado);
-    console.log(this.funcionarioDetail);  
+    console.log(this.funcionarioDetail);
   }
-  cargarRut(): string{
+  cargarRut(): string {
     return this.funcionarioDetail.rut_Funcionario;
   }
-  cargarNombre(): string{
+  cargarNombre(): string {
     return this.funcionarioDetail.nombres_Funcionario;
   }
-  cargarApellidos(): string{
-    return this.funcionarioDetail.apellidoP_Funcionario+" "+this.funcionarioDetail.apellidoM_Funcionario;
+  cargarApellidos(): string {
+    return this.funcionarioDetail.apellidoP_Funcionario + " " + this.funcionarioDetail.apellidoM_Funcionario;
   }
-  cargarCargo(): string{
+  cargarCargo(): string {
     return this.funcionarioDetail.cargo_Funcionario;
   }
-  cargarGenero(): string{
+  cargarGenero(): string {
     return this.funcionarioDetail.genero_Funcionario;
   }
 
 }
+
+
+
+
