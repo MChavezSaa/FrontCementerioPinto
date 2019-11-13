@@ -6,7 +6,7 @@
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AGFormularioTerreno']" href="#"
                     (click)="cancelarTerreno()">Terrenos</a>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Formulario Patios</li>
+            <li class="breadcrumb-item active" aria-current="page">Formulario Terrenos</li>
         </ol>
     </nav>
     <!--FIN MIGAS DE PAN-->
@@ -60,8 +60,9 @@
                         <button (click)="cancelarTerreno()" class="btn btn-danger">
                             Cancelar </button>
                     </div>
+                    <!-- [disabled]="!formTerreno.valid"-->
                     <div class="col">
-                        <button type="submit" [disabled]="!formTerreno.valid" (click)='createTerreno()' class="btn btn-primary"
+                        <button type="submit"  (click)='createTerreno()' class="btn btn-primary"
                             *ngIf="!terrenoParams.id_terreno else elseBlock">Guardar</button>
                         <ng-template #elseBlock>
                             <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>

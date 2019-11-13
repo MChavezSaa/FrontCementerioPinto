@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
-import { Patio } from 'src/app/Entidades/Patio';
 
 @Component({
   selector: 'app-a-creartumba',
@@ -11,11 +10,16 @@ import { Patio } from 'src/app/Entidades/Patio';
 export class ACreartumbaComponent implements OnInit {
 
   tumbasLibresList: Tumba[] = [];
+  tumbasOcupadoList: Tumba[] = [];
+  tumbasReservadoList: Tumba[] = [];
 
   constructor(private service: BackendServiceService) { }
-//aaj
+
   ngOnInit() {
     this.service.getfreeTumbs().subscribe(tumbaList => this.tumbasLibresList = tumbaList);
+    this.service.getOcupadoTumbs().subscribe(tumbaList2 => this.tumbasOcupadoList = tumbaList2);
+    this.service.getReservadoTumbs().subscribe(tumbaList3 => this.tumbasReservadoList = tumbaList3);
   }
+ 
 
 }

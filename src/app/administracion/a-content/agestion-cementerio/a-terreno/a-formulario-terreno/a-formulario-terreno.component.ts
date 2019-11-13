@@ -18,8 +18,11 @@ export class AFormularioTerrenoComponent implements OnInit {
   formTerreno: FormGroup;
   terrenoParams: Terreno = new Terreno();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute) {
+
     this.formTerreno = this.formBuilder.group({
       nombre_Terreno: ['', [Validators.required]],
       capacidad_Terreno: ['', [Validators.required]],
@@ -64,7 +67,7 @@ export class AFormularioTerrenoComponent implements OnInit {
       .subscribe(
         terreno => {
           //ver como tomar valor de nombre para funcion swal
-          Swal.fire('Nuevo Terreno', `Terreno ${terreno} creado con Exito`, 'success');
+          Swal.fire('Nuevo Terreno', `Terreno creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/AGTerreno']);
           this.terrenoParams = null;
         },

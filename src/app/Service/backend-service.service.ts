@@ -475,8 +475,23 @@ export class BackendServiceService {
       })
     );
   }
+  getOcupadoTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listOcupadoTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  getReservadoTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listReservadoTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
   getTumbaID(id: number): Observable<Tumba> {
-
     return this.http.get<Tumba>(`${this.urlEndPoint}findTumba/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
 
