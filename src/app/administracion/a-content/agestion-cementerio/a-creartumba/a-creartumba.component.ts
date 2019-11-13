@@ -10,12 +10,12 @@ import { Patio } from 'src/app/Entidades/Patio';
 })
 export class ACreartumbaComponent implements OnInit {
 
-  tumbaList2: Tumba[] = [];
+  tumbasLibresList: Tumba[] = [];
 
   constructor(private service: BackendServiceService) { }
-
+//aaj
   ngOnInit() {
-    this.service.getfreeTumbs().subscribe(tumbaList => this.tumbaList2 = tumbaList);
+    this.service.getfreeTumbs().subscribe(tumbaList => this.tumbasLibresList = tumbaList);
   }
 
 }
