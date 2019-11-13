@@ -53,7 +53,7 @@
                                 <tbody>
                                     <ng-container *ngFor="let ttb of tipotumbaList2">
                                     <tr *ngIf="ttb.estado_tipo_tumba==true" >
-                                        <td>{{ttb.nombre_tipo_tumba}}</td>
+                                        <td>{{ttb.nombretipo_tumba}}</td>
                                         <td>{{ttb.capacidad_tipo_tumba}}</td>
                                         <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
