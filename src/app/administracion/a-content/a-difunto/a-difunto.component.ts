@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Difunto } from 'src/app/Entidades/Difunto';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
 
 @Component({
   selector: 'app-a-difunto',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./a-difunto.component.css']
 })
 export class ADifuntoComponent implements OnInit {
-
-  constructor() { }
+  DifuntosList: Difunto[] = [];
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getDifuntos().subscribe(response => this.DifuntosList = response);
   }
 
 }

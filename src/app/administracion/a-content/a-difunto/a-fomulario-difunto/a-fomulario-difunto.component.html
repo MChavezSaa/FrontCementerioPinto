@@ -13,7 +13,7 @@
     <legend style="font-style: oblique"><b> Formulario Incripción de Difuntos</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formDifunto" (ngSubmit)="createDifunto()" novalidate>
+        <form [formGroup]="formDifunto" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -49,7 +49,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="exampleFormControlSelect1">Género</label>
+                        <label for="genero_Difunto">Género</label>
                         <select formControlName="genero_Difunto" class="form-control" id="exampleFormControlSelect1">
                             <option value="" selected disabled >Seleccione Género </option>
                             <option>Femenino</option>
@@ -58,7 +58,7 @@
                         </select>
                     </div>
                     <div class="col">
-                        <label for="fechaNacimientoDifunto">Fecha Nacimiento</label>
+                        <label for="fecha_Nacimiento_Difunto">Fecha Nacimiento</label>
                         <input formControlName="fecha_Nacimiento_Difunto" class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
                             th:errorclass="'form-control alert-danger'">
                     </div>
@@ -70,19 +70,19 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="fechaNacimientoDifunto">Fecha Defunción</label>
-                        <input formControlName="fecha_Defuncion" class="form-control" type="date" th:field="*{fechaDefuncionDifunto}"
-                            th:errorclass="'form-control alert-danger'">
+                        <label for="fecha_Defuncion">Fecha Defunción</label>
+                        <input formControlName="fecha_Defuncion" class="form-control" type="date" 
+                        data-format="yyyy-MM-dd" data-template="D MMM YYYY">
                     </div>
                     <div class="col">
                         <label for="fechaEntierroDifunto">Fecha Entierro</label>
-                        <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" th:field="*{fechaEntierroDifunto}"
-                            th:errorclass="'form-control alert-danger'">
+                        <input formControlName="fecha_Entierro" class="form-control" type="date" 
+                        data-format="yyyy-MM-dd" data-template="D MMM YYYY">
                     </div>
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Incripción</label>
-                        <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" th:field="*{fechaInscripcionDifunto}"
-                            th:errorclass="'form-control alert-danger'">
+                        <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" 
+                        data-format="yyyy-MM-dd" data-template="D MMM YYYY">
                     </div>
                 </div>
             </div>
@@ -114,24 +114,20 @@
                     <div class="col">
                         <label>Seleccione Sacramentos</label>
                         <br>
-                        <input type="checkbox" name="sacramento1" value="1" checked> Bautismo
+                        <input formControlName="sacramento1" type="checkbox" name="sacramento1" value="1" checked> Bautismo
                         <br>
-                        <input type="checkbox" name="sacramento2" value="2" checked> Eucaristía
+                        <input formControlName="sacramento2" type="checkbox" name="sacramento2" value="2" checked> Eucaristía
                         <br>
-                        <input type="checkbox" name="sacramento3" value="3" checked> Confirmación
+                        <input formControlName="sacramento3" type="checkbox" name="sacramento3" value="3" checked> Confirmación
                         <br>
-                        <input type="checkbox" name="sacramento4" value="4" checked> Matrimonio
+                        <input formControlName="sacramento4" type="checkbox" name="sacramento4" value="4" checked> Matrimonio
                     </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="exampleFormControlFile1">Cargue fotocopia Carnet</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-                        </div>
-                        <label>Seleccione Documentos presentados</label>
+                    <div class="col">                        
+                        <label>Seleccione Documentos presentados</label>                                           
                         <br>
-                        <input type="checkbox" name="documento1" value="1"> Certificado Defunción
+                        <input formControlName="certificado_Defuncion" type="checkbox" name="documento1" value="1" checked> Certificado Defunción                        
                         <br>
-                        <input type="checkbox" name="documento2" value="2" checked> Fotocopia Carnet ambos lados
+                        <input formControlName="fotocopia_Carnet" type="checkbox" name="documento3" value="2" checked> Fotocopia Carnet ambos lados
                     </div>
                 </div>
             </div>
@@ -140,7 +136,7 @@
                 <button [routerLink]="['/administracion-inicio/ADifuntos']" type="submit" class="btn btn-danger"> Cancelar
                 </button>
                 &nbsp;&nbsp;
-                <button type="submit" class="btn btn-success"> Guardar </button>
+                <button (click)="createDifunto()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
 
         </form>

@@ -15,6 +15,7 @@ import { Contrato } from '../Entidades/Contrato';
 import { Router } from '@angular/router';
 import { Usuario } from '../Entidades/usuario';
 import { identifierModuleUrl } from '@angular/compiler';
+import { Difunto } from '../Entidades/Difunto';
 
 
 @Injectable({
@@ -597,5 +598,45 @@ getfreeTumbs() : Observable<Tumba[]> {
     );
   }*/
 
+  /*DIFUNTOS */
+  getDifuntos(): Observable<Difunto[]> {
+    return this.http.get<Difunto[]>(this.urlEndPoint + "listDifuntos", {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  saveDifunto(difunto: Difunto): Observable<Difunto> {
+    return this.http.post(this.urlEndPoint + "saveDifunto", difunto, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.difunto as Difunto),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al registrar el difunto', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  subirFoto(archivo: File , id_Difunto): Observable<Difunto>{
+    
+    let formData = new FormData();
+    formData.append("archivo", archivo);
+    formData.append("id", id_Difunto);
+    return this.http.post(`${this.urlEndPoint}upload/`, formData).pipe(
+      map((response : any)=> response.difunto as Difunto ), 
+      catchError(e => {
+        this.isNoAutorizado(e);
+        Swal.fire('Error al crear el cementerio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  getDifuntoPorID(id: number): Observable<Difunto> {
+    return this.http.get<Difunto>(this.urlEndPoint + "findDifunto/" + id, { headers: this.agregarAuthorizationHeader() });
+  }
 
 }

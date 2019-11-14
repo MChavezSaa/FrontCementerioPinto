@@ -42,49 +42,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                 <tr>
-                  <th>00118</th>
-                  <th> Javier Elias</th>
-                  <th> Muñoz</th>
-                  <th> Zapata</th>
-                  <th> 03-05-2018</th>
-                  <th> 5</th>
-                  <th> 2</th>
-                  <th> <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button> </th>
-                  <th> <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> </th>
-                 </tr>
-                <tr>
-                  <th>00030</th>
-                  <th> Luisa Elena</th>
-                  <th> Ponce</th>
-                  <th> Lara</th>
-                  <th> 21-08-1999</th>
-                  <th> 3</th>
-                  <th> 1</th>
-                  <th> <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button> </th>
-                  <th> <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> </th>
-                </tr>
-                <tr>
-                  <th>00225</th>
-                  <th> José Manuel</th>
-                  <th> Jara</th>
-                  <th> Becerra</th>
-                  <th> 12-11-2011</th>
-                  <th> 6</th>
-                  <th> 3</th>
-                  <th> <button class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button> </th>
-                  <th> <button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> </th>
-                </tr>
-                  <!-- <tr *ngFor="let v of vehiculosFiltered">
-                    <th scope="row">{{v.patente}}</th>
-                    <td>{{v.tipo_vehiculo}}</td>
-                    <td>{{v.marca}}</td>
-                    <td>{{v.modelo}}</td>
-                    <td>{{v.nro_motor}}</td>
-                    <td>{{v.nro_chasis}}</td>               
+                  <tr *ngFor="let dif of DifuntosList">                    
+                    <td>{{dif.id_Difunto}}</td>   
+                    <td>{{dif.nombres_Difunto}}</td>
+                    <td>{{dif.apellidoP_Difunto}}</td>
+                    <td>{{dif.apellidoM_Difunto}}</td>
                     <td><button type="button" name="editar" [routerLink]="['/personal-inicio/vehiculos-form/',v.id]" class="btn btn-primary">editar</button></td>
                     <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(v)">eliminar</button></td>
-                  </tr>-->
+                  </tr>
                 </tbody>
             </table>
           </div><!--FIN TABLA REVISIONES-->  
