@@ -522,6 +522,21 @@ export class BackendServiceService {
 
     );
   }
+  getTumbasPorID(id: number): Observable<Tumba> {
+    return this.http.get<Tumba>(this.urlEndPoint + "findTumba/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACreaTumba']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   saveTumba(tumba: Tumba): Observable<Tumba> {
     return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.tumba as Tumba),
@@ -542,7 +557,7 @@ export class BackendServiceService {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editarla tumba', e.error.mensaje, 'error');
+        Swal.fire('Error al editar la tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );

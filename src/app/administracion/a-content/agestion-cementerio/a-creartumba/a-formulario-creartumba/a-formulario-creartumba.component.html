@@ -28,13 +28,13 @@
                     
                         </select>
                     </div>
-                    <div class="col">
+                   <!-- <div class="col">
                         <label> Tipo de Tumba</label>
                         <select class="form-control" id="tipo_Tumba" formControlName="tipo_Tumba" [(ngModel)]="creaTumbaParams.tipo_Tumba">
                             <option value="" selected disabled>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombre_tipo_tumba}}</option>
+                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombretipo_tumba}}</option>
                         </select>
-                    </div>
+                    </div>-->
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Estado de la tumba</label>
                         <select class="form-control" id="estadoTumba" formControlName="estado_Tumba" [(ngModel)]="creaTumbaParams.estado_Tumba">
@@ -79,7 +79,7 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" [disabled]="!formPatio.valid" (click)='createCreaTumba()' class="btn btn-primary"
+                    <button type="submit" [disabled]="!formCreaTumba.valid" (click)='createCreaTumba()' class="btn btn-primary"
                         *ngIf="!creaTumbaParams.id_Tumba else elseBlock">Guardar</button>
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='updateCreaTumba()'>Editar</button>

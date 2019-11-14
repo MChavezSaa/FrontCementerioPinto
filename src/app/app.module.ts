@@ -253,7 +253,7 @@ const routes: Routes = [
         component: AFormularioTumbaComponent
       },
       {
-        path: 'AGFormularioTumba/:id',
+        path: 'AFormularioTumba/:id',
         component: AFormularioTumbaComponent
       },
       {
@@ -265,7 +265,7 @@ const routes: Routes = [
         component: AFormularioCreartumbaComponent
       },
       {
-        path: 'AGFormularioCreaTumba/:id',
+        path: 'AFormularioCreaTumba/:id',
         component: AFormularioCreartumbaComponent
       },
       {

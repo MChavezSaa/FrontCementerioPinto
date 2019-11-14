@@ -42,7 +42,7 @@ export class AFormularioCreartumbaComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getTumbaID(id).subscribe((creaT) => this.creaTumbaParams = creaT)
+        this.service.getTumbasPorID(id).subscribe((creaT) => this.creaTumbaParams = creaT)
         console.log(this.creaTumbaParams);
       }
     })
