@@ -16,8 +16,8 @@ export class Difunto {
     sacramento3:boolean;
     sacramento4:boolean;
    
-    certificado_Defuncion: string;
-    fotocopia_Carnet: string;
+    certificado_Defuncion: boolean;
+    fotocopia_Carnet: boolean;
    
     estadoDifunto:boolean;
 }
