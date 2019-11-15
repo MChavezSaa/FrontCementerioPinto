@@ -28,12 +28,12 @@
     <div class="col-8">
       <div align="left">
         <div class="container">
-          <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
+          <img src="../assets/img/mapa3.jpg" alt="" width="120%" height="120%">
           <!--cambiar el ng for por el de la query -->
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
             <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">              
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>
+                <i class="fas fa-map-marker-alt fa-1x" style="color: red "></i>
             </div>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
