@@ -20,7 +20,7 @@ export class ATerrenosLibresComponent implements OnInit {
 
   llenarListaLibre(){
     for (let i = 0; i < this.TodasLastumbasList.length ; i++) {
-      if(this.TodasLastumbasList[i].estado_Tumba== false)
+      if(this.TodasLastumbasList[i].estado_Tumba== "Disponible")
       this.TumbasLibresList.push(this.TodasLastumbasList[i]);
     }
   }

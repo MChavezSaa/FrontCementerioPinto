@@ -18,10 +18,10 @@ export class AFormularioCementerioComponent implements OnInit {
   cementerioParams : Cementerio = new Cementerio();
 
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router:Router,private activatedRoute:ActivatedRoute
-
-    ) {
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router:Router,
+    private activatedRoute:ActivatedRoute) {
 
     this.formCementerio = this.formBuilder.group({
       nombre_Cementerio: ['', [Validators.required]] ,

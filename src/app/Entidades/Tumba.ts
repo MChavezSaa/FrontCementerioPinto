@@ -15,5 +15,5 @@ export class Tumba {
     patio: Patio;
     tipo_Tumba: TipoTumba;
     cliente: Cliente;
-    estado_Tumba: boolean;    
+    estado_Tumba: string;    
 }

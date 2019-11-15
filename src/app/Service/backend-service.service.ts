@@ -134,7 +134,7 @@ export class BackendServiceService {
     return false;
   }
 
-  /*CLIENTES*//*FALTA FUNCION UPDATE EN CLIENTE*/
+  /*CLIENTES*/
 
   getClientePorID(id: number): Observable<Cliente> {
     return this.http.get<Cliente>(this.urlEndPoint + "findCliente/" + id, { headers: this.agregarAuthorizationHeader() });
@@ -149,6 +149,18 @@ export class BackendServiceService {
     );
   }
 
+  updateCliente(cliente: Cliente, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateCliente/${id}`, cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   saveCliente(cliente: Cliente): Observable<Cliente> {
     return this.http.post(this.urlEndPoint + "saveCliente", cliente, {headers: this.agregarAuthorizationHeader()}).pipe(
       map((response: any) => response.cliente as Cliente),
@@ -190,7 +202,6 @@ export class BackendServiceService {
       })
     );
   }
-
   saveContrato3(contratoString: string): Observable<string> {
     return this.http.post(this.urlEndPoint + "saveContratoPorString", contratoString, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.contrato as string),
@@ -204,8 +215,6 @@ export class BackendServiceService {
       })
     );
   }
-
-
   getContrato(): Observable<Contrato[]> {
     return this.http.get<Contrato[]>(this.urlEndPoint + "listContratos", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -225,14 +234,24 @@ export class BackendServiceService {
       })
     );
   }
-  
   getFuncionariosPorID(id: number): Observable<Funcionario>{
-    return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/"+ id, {headers: this.agregarAuthorizationHeader()});
+    return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/Afuncionarios']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
   getFuncionarioBuscar(rut_Funcionario: String): Observable<Funcionario[]>{
     return this.http.get<Funcionario[]>(this.urlEndPoint + "findByRutFuncionario/" + rut_Funcionario, {headers: this.agregarAuthorizationHeader()});
   }
-
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.funcionario as Funcionario),
@@ -246,7 +265,6 @@ export class BackendServiceService {
       })
     );
   }
-
   deleteFuncionario(id: number): Observable<Funcionario> {
     return this.http.delete<Funcionario>(`${this.urlEndPoint2}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -370,7 +388,7 @@ export class BackendServiceService {
           return throwError(e);
         }
 
-        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        this.router.navigate(['/administracion-inicio/APatio']); 
         console.error(e.error.mensaje);
         Swal.fire('Error al editar', e.error.mensaje,'error');
         return throwError(e);
@@ -391,8 +409,6 @@ export class BackendServiceService {
       })
     );
   }
-
-
   deletePatio(id: number): Observable<Patio> {
     return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -405,7 +421,6 @@ export class BackendServiceService {
       })
     );
   }
-
   updatePatio(patio: Patio, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}updatePatio/${id}`, patio, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -468,7 +483,7 @@ export class BackendServiceService {
       })
     );
   }
-getfreeTumbs() : Observable<Tumba[]> {
+  getfreeTumbs() : Observable<Tumba[]> {
      return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
@@ -476,8 +491,53 @@ getfreeTumbs() : Observable<Tumba[]> {
       })
     );
   }
+  getOcupadoTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listOcupadoTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  getReservadoTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listReservadoTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  getTumbaID(id: number): Observable<Tumba> {
+    return this.http.get<Tumba>(`${this.urlEndPoint}findTumba/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
 
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
 
+        this.router.navigate(['/administracion-inicio/ACreaTumba']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+
+    );
+  }
+  getTumbasPorID(id: number): Observable<Tumba> {
+    return this.http.get<Tumba>(this.urlEndPoint + "findTumba/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+
+        this.router.navigate(['/administracion-inicio/ACreaTumba']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   saveTumba(tumba: Tumba): Observable<Tumba> {
     return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.tumba as Tumba),
@@ -491,7 +551,6 @@ getfreeTumbs() : Observable<Tumba[]> {
       })
     );
   }
-
   updateTumba(tumba: Tumba, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -499,7 +558,7 @@ getfreeTumbs() : Observable<Tumba[]> {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editarla tumba', e.error.mensaje, 'error');
+        Swal.fire('Error al editar la tumba', e.error.mensaje, 'error');
         return throwError(e);
       })
     );

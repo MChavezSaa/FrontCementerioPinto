@@ -59,6 +59,8 @@ import { AformClienteComponent } from './administracion/a-content/a-cliente/afor
 import { CCuotasComponent } from './administracion/a-content/c-cuotas/c-cuotas.component';
 import { ASepulturaComponent } from './administracion/a-content/asepultura/asepultura.component';
 import { AFormularioSepulturaComponent } from './administracion/a-content/asepultura/aformulario-sepultura/aformulario-sepultura.component';
+import { ACreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-creartumba.component';
+import { AFormularioCreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-formulario-creartumba/a-formulario-creartumba.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -159,14 +161,17 @@ const routes: Routes = [
       {
         path: 'AFormularioFuncionario/:id',
         component: AFormularioFuncionarioComponent
-      }
-,
+      },
       {
         path: "Aclientes",
         component: AClienteComponent
       },
       {
         path: "AFormCliente",
+        component: AformClienteComponent
+      },
+      {
+        path: 'AFormCliente/:id',
         component: AformClienteComponent
       },
       {
@@ -258,6 +263,18 @@ const routes: Routes = [
         component: AFormularioTumbaComponent
       },
       {
+        path: 'ACreaTumba',
+        component: ACreartumbaComponent
+      },
+      {
+        path: 'AFormularioCreaTumba',
+        component: AFormularioCreartumbaComponent
+      },
+      {
+        path: 'AFormularioCreaTumba/:id',
+        component: AFormularioCreartumbaComponent
+      },
+      {
         path:'AVentas',
         component: AVentaComponent
       },
@@ -341,8 +358,11 @@ const routes: Routes = [
     AClienteComponent,
     AformClienteComponent,
     CCuotasComponent,
+    ACreartumbaComponent,
+    AFormularioCreartumbaComponent,
     ASepulturaComponent,
     AFormularioSepulturaComponent
+    
   ],
   imports: [
     BrowserModule,

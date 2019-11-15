@@ -17,7 +17,7 @@ export class AFormularioTumbaComponent implements OnInit {
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router) {
     this.formTipoTumba = this.formBuilder.group({
-      nombre_tipo_tumba: ['', [Validators.required]],
+      nombretipo_tumba: ['', [Validators.required]],
       capacidad_tipo_tumba: ['', [Validators.required]]
     });
   }

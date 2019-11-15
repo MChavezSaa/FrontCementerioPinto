@@ -15,7 +15,7 @@
             Filtrar por nombre:
         </div>
         <div class="col-4 my-auto">
-            <input type="text" [(ngModel)]="listFilter">
+            <input type="text" > <!-- [(ngModel)]="listFilter"-->
         </div>
         <div class="col-6 text-right">
             <button type="button" class="btn btn-info"
@@ -91,7 +91,7 @@
                                         <tr *ngIf="ttb.estado_tipo_tumba==false">
                                             <td>{{ttb.nombretipo_tumba}}</td>
                                             <td>{{ttb.capacidad_tipo_tumba}}</td>
-                                            <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
+                                            <td><button type="button" name="editar" [routerLink]="['//administracion-inicio/AFormularioTumba',ttb.id_TipoTumba]"
                                                     class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                                 &nbsp;
                                                 <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>

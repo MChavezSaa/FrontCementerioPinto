@@ -1,0 +1,93 @@
+<div class="container">
+    <!--MIGAS DE PAN-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/ACreaTumba']" href="#"
+                    (click)="cancelarCreaTumba()">Tumbas</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Formulario Tumbas</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
+    <legend>Formulario de inscripción nueva Tumba </legend>
+    <hr style="color: black">
+    <div class="container">
+        <form [formGroup]="formCreaTumba" novalidate>
+            <div class="separacion">
+                <h4> &nbsp; Datos principales</h4>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1"> Número de Tumba</label>
+                        <select formControlName="numero_Tumba" [(ngModel)]="creaTumbaParams.numero_Tumba" class="form-control" id="exampleFormControlSelect1"  >
+                            <option value="" selected disabled>Seleccione número de Tumba </option>
+                            <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.patio.nombre_Patio}} - Número {{l.numero_Tumba}}</option>
+                    
+                        </select>
+                    </div>
+                   <!-- <div class="col">
+                        <label> Tipo de Tumba</label>
+                        <select class="form-control" id="tipo_Tumba" formControlName="tipo_Tumba" [(ngModel)]="creaTumbaParams.tipo_Tumba">
+                            <option value="" selected disabled>Seleccione tipo de tumba </option>
+                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombretipo_tumba}}</option>
+                        </select>
+                    </div>-->
+                    <div class="col">
+                        <label for="exampleFormControlSelect1"> Estado de la tumba</label>
+                        <select class="form-control" id="estadoTumba" formControlName="estado_Tumba" [(ngModel)]="creaTumbaParams.estado_Tumba">
+                            <option value="" selected disabled>Seleccione un estado </option>
+                            <option> Disponible</option>
+                            <option> Ocupado</option>
+                            <option> Reservado</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+            </div>
+            <div class="form-group">
+                <div class="row">
+
+                    <div class="col">
+                            <label for="exampleFormControlSelect1"> Orientación de la tumba</label>
+                            <select class="form-control" id="orientacion_Tumba" formControlName="orientacion_Tumba" [(ngModel)]="creaTumbaParams.orientacion_Tumba">
+                                <option value="" selected disabled>Seleccione una orientación</option>
+                                <option> Norte - Sur</option>
+                                <option> Sur - Norte</option>
+                                <option> Este - Oeste</option>
+                                <option> Oeste - Este</option>
+                            </select>  
+                    </div>
+                    <div class="col">
+                        <label> Largo Tumba</label>
+                        <input type="number" class="form-control" id="largo" formControlName="largo"
+                            placeholder="Ingrese el largo de la tumba" [(ngModel)]="creaTumbaParams.largo">
+                    </div>
+                    <div class="col">
+                        <label> Ancho Tumba</label>
+                        <input type="number" class="form-control" id="ancho"  formControlName="ancho"
+                            placeholder="Ingrese el ancho de la tumba" [(ngModel)]="creaTumbaParams.ancho">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group row">
+                <div class="col">
+                    <button (click)="cancelarCreaTumba()" class="btn btn-danger">
+                        Cancelar </button>
+                </div>
+                <div class="col">
+                    <button type="submit" [disabled]="!formCreaTumba.valid" (click)='createCreaTumba()' class="btn btn-primary"
+                        *ngIf="!creaTumbaParams.id_Tumba else elseBlock">Guardar</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)='updateCreaTumba()'>Editar</button>
+                    </ng-template>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+</div>
