@@ -49,13 +49,13 @@
                                         <th scope="col">Capacidad </th>
                                         <th scope="col">Acciones</th>
                                     </tr>
-                                </thead>
+                                </thead>                                
                                 <tbody>
                                     <ng-container *ngFor="let ttb of tipotumbaList2">
                                     <tr *ngIf="ttb.estado_tipo_tumba==true" >
-                                        <td>{{ttb.nombre_tipo_tumba}}</td>
+                                        <td>{{ttb.nombretipo_tumba}}</td>
                                         <td>{{ttb.capacidad_tipo_tumba}}</td>
-                                        <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
+                                        <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioTumba/',ttb.id_TipoTumba]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
                                             <button type="button" name="eliminar" class="btn btn-danger"><i
@@ -89,7 +89,7 @@
                                     <tbody>
                                     <ng-container *ngFor="let ttb of tipotumbaList2">
                                         <tr *ngIf="ttb.estado_tipo_tumba==false">
-                                            <td>{{ttb.nombre_tipo_tumba}}</td>
+                                            <td>{{ttb.nombretipo_tumba}}</td>
                                             <td>{{ttb.capacidad_tipo_tumba}}</td>
                                             <td><button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form',ttb.id]"
                                                     class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>

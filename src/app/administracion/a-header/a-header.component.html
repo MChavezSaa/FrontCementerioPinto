@@ -1,3 +1,4 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="wrapper">
 
   <nav id="sidebar" [ngClass]="{'mostrar-sidebar': !mostrarSidebar}">
@@ -49,8 +50,11 @@
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="AVentas"><i class="fas fa-handshake"></i> Realizar Venta</a>
       </li>
+      <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
+        <a class="nav-link" routerLink="ASepultura"><i class="material-icons" style="font-size:px">call_received</i> Realizar Sepultura</a>
+      </li>
       <li *ngIf="service.hasRole('ROLE_EMPLEADO')" class="nav-item">
-        <a class="nav-link" routerLink="Aclientes"> <i class="fas fa-chart-pie"></i>Reportes</a>
+        <a class="nav-link" routerLink="Aclientes"> Reportes</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()"><span class="fas fa-sign-in-alt"></span> Cerrar Sesión</a>
@@ -79,7 +83,7 @@
 
           <li class="nav-item">
 
-            <a [routerLink]="['perfil']" style="color:white">Perfil <i class="fas fa-user-alt"></i></a>
+            <a style="color:white">{{usuario.username}} <i class="fas fa-user-alt"></i></a><!--[routerLink]="['perfil']"-->
 
           </li>
         </ul>

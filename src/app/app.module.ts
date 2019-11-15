@@ -57,6 +57,8 @@ import { FormularioVentaComponent } from './administracion/a-content/a-venta/for
 import { AClienteComponent } from './administracion/a-content/a-cliente/a-cliente.component';
 import { AformClienteComponent } from './administracion/a-content/a-cliente/aform-cliente/aform-cliente.component';
 import { CCuotasComponent } from './administracion/a-content/c-cuotas/c-cuotas.component';
+import { ASepulturaComponent } from './administracion/a-content/asepultura/asepultura.component';
+import { AFormularioSepulturaComponent } from './administracion/a-content/asepultura/aformulario-sepultura/aformulario-sepultura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -188,6 +190,10 @@ const routes: Routes = [
         component: AFomularioDifuntoComponent
       },
       {
+        path: "AformularioDifuntos/:id",
+        component: AFomularioDifuntoComponent
+      },
+      {
         path: 'ATerrenosLibres',
         component: ATerrenosLibresComponent
       },
@@ -248,6 +254,10 @@ const routes: Routes = [
         component: AFormularioTumbaComponent
       },
       {
+        path: 'AFormularioTumba/:id',
+        component: AFormularioTumbaComponent
+      },
+      {
         path:'AVentas',
         component: AVentaComponent
       },
@@ -258,6 +268,18 @@ const routes: Routes = [
       {
         path:'CCuotas',
         component: CCuotasComponent
+      },
+      {
+        path: 'ASepultura',
+        component: ASepulturaComponent
+      },
+      {
+        path: 'AFormularioSepultura',
+        component: AFormularioSepulturaComponent
+      },
+      {
+        path:'AFormularioSepultura/:id',
+        component: AFormularioSepulturaComponent
       }
 
     ]
@@ -318,7 +340,9 @@ const routes: Routes = [
     FormularioVentaComponent,
     AClienteComponent,
     AformClienteComponent,
-    CCuotasComponent
+    CCuotasComponent,
+    ASepulturaComponent,
+    AFormularioSepulturaComponent
   ],
   imports: [
     BrowserModule,

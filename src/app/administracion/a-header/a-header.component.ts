@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import Swal from 'sweetalert2';
+import { Usuario } from 'src/app/Entidades/usuario';
 
 @Component({
   selector: 'app-a-header',
@@ -10,10 +11,11 @@ import Swal from 'sweetalert2';
 })
 export class AHeaderComponent implements OnInit {
   mostrarSidebar:boolean=true;
-
+  usuario : Usuario;
   constructor(private service:  BackendServiceService,private router: Router) { }
 
   ngOnInit() {
+    this.usuario = this.service.usuario;
   }
   ocultarSidebar(){
     if(this.mostrarSidebar==true){
