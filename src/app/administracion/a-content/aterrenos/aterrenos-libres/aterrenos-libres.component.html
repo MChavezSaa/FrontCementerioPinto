@@ -21,19 +21,20 @@
       </div>
     </div>
   </div>
-
+  <button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
+  </button>
   <br>
 
   <div class="row">
     <div class="col-8">
       <div align="left">
         <div class="container">
-          <img src="../assets/img/mapa3.jpg" alt="" width="90%" height="80%">
+          <img src="../assets/img/cementerio2.jpg" alt="" width="130%" height="130%">
           <!--cambiar el ng for por el de la query -->
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
             <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">              
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>
+                <b><i class="fas fa-map-marker-alt fa-1.9x" style="color: red "></i></b>
             </div>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
@@ -92,6 +93,5 @@
   </div>
 </div><br>
 
-<button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
-</button>
+
 <!-- lala-->
