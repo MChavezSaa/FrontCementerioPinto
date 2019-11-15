@@ -20,12 +20,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Nombre</label>
-                        <input formControlName="nombretipo_tumba" type="text" class="form-control" id="nombreTipoTumba"
+                        <input formControlName="nombretipo_tumba" [(ngModel)]="tipotumbaParams.nombretipo_tumba" type="text" class="form-control" id="nombreTipoTumba"
                             placeholder="Ingrese un nombre para el tipo de tumba">
                     </div>
                     <div class="col">
                         <label>Capacidad Tumba</label>
-                        <input formControlName="capacidad_tipo_tumba" type="number" class="form-control" id="capacidadTipoTumba"
+                        <input formControlName="capacidad_tipo_tumba" [(ngModel)]="tipotumbaParams.capacidad_tipo_tumba" type="number" class="form-control" id="capacidadTipoTumba"
                             placeholder="Ingrese la capacidad del tipo tumba">
                     </div>
                     <div class="col-2">
@@ -35,13 +35,26 @@
             </div>
             <div class="form-group">
             </div>
-           
+            <div class="form-group row">
+                <div class="col">
+                    <button (click)="cancelarTipoTumba()" class="btn btn-danger">
+                        Cancelar </button>
+                </div>
+                <div class="col">
+                    <button type="submit" [disabled]="!formTipoTumba.valid" (click)='createTipoTumba()' class="btn btn-primary"
+                        *ngIf="!tipotumbaParams.id_TipoTumba else elseBlock">Guardar</button>
+                    <ng-template #elseBlock>
+                        <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
+                    </ng-template>
+                </div>
+            </div>
+            <!--
             <div style="text-align: center">
                 <button (click)="cancelarTipoTumba()" type="submit" class="btn btn-danger">
                     Cancelar </button>
                 &nbsp;&nbsp;
                 <button (click)="createTipoTumba()" type="submit" class="btn btn-success"> Guardar </button>
-            </div>
+            </div>-->
 
         </form>
         
