@@ -18,8 +18,10 @@ export class AFormularioCreartumbaComponent implements OnInit {
   formCreaTumba: FormGroup;
   creaTumbaParams: Tumba = new Tumba();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute) 
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute) 
     { 
     this.formCreaTumba = this.formBuilder.group({
       numero_Tumba: ['', [Validators.required]],

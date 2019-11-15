@@ -9,20 +9,22 @@
     </nav>
     <!--FIN MIGAS DE PAN-->
 
-    <div class="row my-3">
-        <!--SECCION PARA FILTRAR-->
-        <div class="col-2 my-auto">
-            Filtrar por nombre:
-        </div>
-        <div class="col-4 my-auto">
-            <input type="text" [(ngModel)]="listFilter">
-        </div>
-        <div class="col-6 text-right">
-            <button type="button" class="btn btn-info"
-                [routerLink]="['/administracion-inicio/AGFormularioTerreno']">Formulario Ingreso</button>
+    <div class="container">
+        <div class="row ">
+            <!--SECCION PARA FILTRAR-->
+            <div class="col-4">
+                <input type="text"  class="form-control" placeholder="Ingrese un nombre a buscar">
+            </div>
+            <div class="col-2 ">
+                <button class="btn btn-outline-primary" type="button"> Buscar</button>
+            </div>
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-info"
+                    [routerLink]="['/administracion-inicio/AGFormularioTerreno']">Formulario de Ingreso</button>
+            </div>
         </div>
     </div>
-    <!--FIN SECCION PARA FILTRAR-->
+    <br>
 
         <!-- Seccion Activos/ Inactivos-->
         <nav>
@@ -60,7 +62,8 @@
                                             <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AGFormularioTerreno',ter.id_terreno]"
                                                     class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                                 &nbsp;
-                                                <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                                <button type="button" name="eliminar" class="btn btn-danger" (click)="delete(ter)">
+                                                    <i class="fas fa-trash-alt"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -97,7 +100,8 @@
                                                 <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AGFormularioTerreno/',ter.id_terreno]"
                                                         class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                                     &nbsp;
-                                                    <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                                    <button type="button" name="eliminar" class="btn btn-success" (click)="cambiaEstadoTerreno(ter)">
+                                                        <i class="fas fa-check-double"></i>
                                                     </button>
                                                 </td>
                                             </tr>

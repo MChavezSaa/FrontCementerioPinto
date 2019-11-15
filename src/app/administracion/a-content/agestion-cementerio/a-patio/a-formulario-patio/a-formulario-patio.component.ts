@@ -17,8 +17,10 @@ export class AFormularioPatioComponent implements OnInit {
   formPatio:FormGroup;
   patioParams : Patio = new Patio();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute:ActivatedRoute) {
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private activatedRoute:ActivatedRoute) {
     this.formPatio = this.formBuilder.group({
       capacidad_Patio: ['', [Validators.required]],
       nombre_Patio: ['', [Validators.required]],
@@ -45,7 +47,7 @@ export class AFormularioPatioComponent implements OnInit {
     .subscribe(
       json=>{   
         this.router.navigate(['/administracion-inicio/APatio']);
-        Swal.fire('Cemenerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');  
+        Swal.fire('Cementerio Actualizado', `Cementerio actualizado con exito`, 'success');  
         this.patioParams = null;
       },
       err=>{

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { TipoTumba } from 'src/app/Entidades/TipoTumba';
 
 @Component({
   selector: 'app-a-formulario-tumba',
@@ -12,10 +13,13 @@ import Swal from 'sweetalert2';
 export class AFormularioTumbaComponent implements OnInit {
 
   formTipoTumba: FormGroup;
+  tipotumbaParams : TipoTumba = new TipoTumba();
 
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router) {
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
     this.formTipoTumba = this.formBuilder.group({
       nombretipo_tumba: ['', [Validators.required]],
       capacidad_tipo_tumba: ['', [Validators.required]]
@@ -23,8 +27,30 @@ export class AFormularioTumbaComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.cargarTipoTumba();
   }
 
+  public cargarTipoTumba(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (id) {
+        this.service.getTipoTumbaPorID(id).subscribe((tipoTumba) => this.tipotumbaParams = tipoTumba)
+        console.log(this.tipotumbaParams);
+      }
+    })
+  }
+  public update(): void {
+    this.service.updateTipoTumba(this.formTipoTumba.value, this.tipotumbaParams.id_TipoTumba)
+      .subscribe(
+        json => {
+          this.router.navigate(['/administracion-inicio/ATumba']);
+          Swal.fire('Tipo de Tumba Actualizado', `Tipo de Tumba actualizado con exito`, 'success');
+          this.tipotumbaParams = null;
+        },
+        err => {
+          console.log(err);
+        });
+  }
   public createTipoTumba(): void {
     console.log(this.formTipoTumba);
     this.service.saveTipoTumba(this.formTipoTumba.value)
