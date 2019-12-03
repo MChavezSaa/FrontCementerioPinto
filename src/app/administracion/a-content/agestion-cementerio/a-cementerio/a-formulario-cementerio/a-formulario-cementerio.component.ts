@@ -66,7 +66,7 @@ export class AFormularioCementerioComponent implements OnInit {
     .subscribe(
       json=>{   
         this.router.navigate(['/administracion-inicio/ACementerio']);
-        Swal.fire('Cementerio Actualizado', `Cementerio ${json.nombre_Cementerio} actualizado con exito`, 'success');          
+        Swal.fire('Cementerio Actualizado', `Cementerio actualizado con exito`, 'success');          
         this.cementerioParams = null;
       },
       err=>{

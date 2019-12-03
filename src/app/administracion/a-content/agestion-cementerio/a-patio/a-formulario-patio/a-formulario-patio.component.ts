@@ -60,7 +60,7 @@ export class AFormularioPatioComponent implements OnInit {
       .subscribe(
         patio => {
           //ver como tomar valor de nombre para funcion swal
-          Swal.fire('Nuevo Patio', `Patio ${patio} creado con Exito`, 'success');
+          Swal.fire('Nuevo Patio', `Patio creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/APatio']);
           this.patioParams = null;
         },
