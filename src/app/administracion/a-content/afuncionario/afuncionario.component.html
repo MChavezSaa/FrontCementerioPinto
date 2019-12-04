@@ -14,11 +14,11 @@
     <div class="container">
         <div class="row ">
             <!--SECCION PARA FILTRAR-->
-            <div class="col-4">
-                <input type="text" [(ngModel)]="rut" class="form-control" placeholder="Ingrese un nombre a buscar">
+            <div class="col-2 my-auto">
+                Filtrar por nombre:
             </div>
-            <div class="col-2 ">
-                <button class="btn btn-outline-primary" type="button" (click)="buscarFuncionario(rut)" > Buscar</button>
+            <div class="col-4">
+                <input type="text" [(ngModel)]="searchText" placeholder="Nombre del funcionario">
             </div>
             <div class="col-6 text-right">
                 <button type="button" class="btn btn-info"
@@ -59,7 +59,7 @@
                                 </tr>
                             </thead>
                             <tbody >
-                                <ng-container *ngFor="let fun of funcionarioList2">
+                                <ng-container *ngFor="let fun of funcionarioList2 | filter: searchText">
                                     <tr *ngIf="fun.estado_funcionario==true">
                                         <td>{{fun.rut_Funcionario}}</td>
                                         <td>{{fun.nombres_Funcionario}}</td>
@@ -104,7 +104,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <ng-container *ngFor="let fun of funcionarioList2">
+                                <ng-container *ngFor="let fun of funcionarioList2 | filter: searchText">
                                     <tr *ngIf="fun.estado_funcionario==false">
                                         <td>{{fun.rut_Funcionario}}</td>
                                         <td>{{fun.nombres_Funcionario}}</td>

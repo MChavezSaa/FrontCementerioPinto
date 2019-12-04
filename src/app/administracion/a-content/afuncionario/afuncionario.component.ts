@@ -14,7 +14,7 @@ export class AFuncionarioComponent implements OnInit {
   funcionarioList2: Funcionario[] = [];
   funcionarioDetail: Funcionario;
   funcionarioDetail2: Funcionario[];
-  rut: string;
+  searchText: string;
 
   funcionariosFiltered: Funcionario[];
   funcionarios: Funcionario[];

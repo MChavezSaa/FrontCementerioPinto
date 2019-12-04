@@ -61,6 +61,7 @@ import { ASepulturaComponent } from './administracion/a-content/asepultura/asepu
 import { AFormularioSepulturaComponent } from './administracion/a-content/asepultura/aformulario-sepultura/aformulario-sepultura.component';
 import { ACreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-creartumba.component';
 import { AFormularioCreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-formulario-creartumba/a-formulario-creartumba.component';
+import { SearchNamePipe } from './pipes/search-name.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -361,8 +362,8 @@ const routes: Routes = [
     ACreartumbaComponent,
     AFormularioCreartumbaComponent,
     ASepulturaComponent,
-    AFormularioSepulturaComponent
-    
+    AFormularioSepulturaComponent, 
+    SearchNamePipe    
   ],
   imports: [
     BrowserModule,
