@@ -10,6 +10,7 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
 export class AVentaComponent implements OnInit {
 
   contratoList2: Contrato[] = [];
+  searchText2: string;
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
