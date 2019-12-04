@@ -63,6 +63,7 @@ import { ACreartumbaComponent } from './administracion/a-content/agestion-cement
 import { AFormularioCreartumbaComponent } from './administracion/a-content/agestion-cementerio/a-creartumba/a-formulario-creartumba/a-formulario-creartumba.component';
 import { SearchNamePipe } from './pipes/search-name.pipe';
 import { SearchVentaPipe } from './pipes/search-venta.pipe';
+import { SearchClientePipe } from './pipes/search-cliente.pipe';
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -365,7 +366,8 @@ const routes: Routes = [
     ASepulturaComponent,
     AFormularioSepulturaComponent, 
     SearchNamePipe, 
-    SearchVentaPipe    
+    SearchVentaPipe, 
+    SearchClientePipe    
   ],
   imports: [
     BrowserModule,

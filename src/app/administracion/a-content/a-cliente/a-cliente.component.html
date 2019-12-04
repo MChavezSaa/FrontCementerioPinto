@@ -15,8 +15,8 @@
                 <div class="col-2 my-auto">
                         Filtrar por nombre:
                 </div>
-                <div class="col-4 my-auto">
-                        <input type="text" [(ngModel)]="listFilter">
+                <div class="col-4">
+                        <input type="text" [(ngModel)]="searchText3" placeholder="Nombre del cliente">
                 </div>
                 <div class="col-6 text-right">
                         <button type="button" class="btn btn-info"
@@ -56,7 +56,8 @@
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <ng-container *ngFor="let cli of clienteList2">
+                                                                <ng-container
+                                                                        *ngFor="let cli of clienteList2 | filter3: searchText3">
                                                                         <tr *ngIf="cli.estadoCliente==true">
                                                                                 <td>{{cli.rut_Cliente}}</td>
                                                                                 <td>{{cli.nombres_Cliente}}</td>
@@ -113,7 +114,8 @@
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <ng-container *ngFor="let cli of clienteList2">
+                                                                <ng-container
+                                                                        *ngFor="let cli of clienteList2 | filter3: searchText3">
                                                                         <tr *ngIf="cli.estadoCliente==false">
                                                                                 <td>{{cli.rut_Cliente}}</td>
                                                                                 <td>{{cli.nombres_Cliente}}</td>
@@ -156,20 +158,19 @@
 
 </div>
 
-<!-- MODAL DE DATOS-->
-<!-- The Modal -->
-<div class="modal" id="datosCliente">
+
+        <div class="modal" id="datosCliente">
         <div class="modal-dialog">
                 <div class="modal-content">
 
-                        <!-- Modal Header -->
+                        
                         <div class="modal-header">
                                 <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver
                                                 Cliente</b></h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
-                        <!-- Modal body -->
+                        
                         <div class="modal-body">
                                 <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Cliente</b></h4>
                                 <hr>
@@ -193,7 +194,7 @@
                                 </label>
                         </div>
 
-                        <!-- Modal footer -->
+                        
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
@@ -201,4 +202,3 @@
                 </div>
         </div>
 </div>
-<!-- FIN MODAL DE DATOS-->

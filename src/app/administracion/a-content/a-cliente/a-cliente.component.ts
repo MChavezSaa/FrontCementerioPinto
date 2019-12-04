@@ -10,6 +10,7 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
 export class AClienteComponent implements OnInit {
   clienteList2: Cliente[] = [];
   clienteDetalle: Cliente;
+  searchText3: string;
 
   constructor(private service: BackendServiceService) { 
 
