@@ -30,6 +30,7 @@ export class BackendServiceService {
   private urlEndPoint: string = 'http://localhost:8080/';
   private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
   private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
+  private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -178,7 +179,7 @@ export class BackendServiceService {
   }
 
   deleteCliente(id: number): Observable<Cliente> {
-    return this.http.delete<Cliente>(`${this.urlEndPoint}"deleteCliente/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.delete<Cliente>(`${this.urlEndPoint4}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -189,6 +190,21 @@ export class BackendServiceService {
       })
     );
   }
+
+  darAltaCliente(cliente: Cliente, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}darAltaCliente/${id}`, cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al dar de alta el cliente', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+
   /*CONTRATO*/
   saveContrato(contrato: Contrato): Observable<Contrato> {
     return this.http.post(this.urlEndPoint + "saveContrato", contrato, { headers: this.agregarAuthorizationHeader() }).pipe(

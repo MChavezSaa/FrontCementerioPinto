@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente } from 'src/app/Entidades/Cliente';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-a-cliente',
@@ -20,6 +21,53 @@ export class AClienteComponent implements OnInit {
     this.service.getClientes().subscribe(clienteList1 => this.clienteList2 = clienteList1);
   }
 
+
+  
+  public darAltaCliente(cli: Cliente): void {
+    this.service.darAltaCliente(cli, cli.id_Cliente)
+      .subscribe(
+        json => {
+          this.clienteList2 = this.clienteList2.filter(clie => clie!== cli)
+          this.ngOnInit();
+          Swal.fire('Cliente dado de alta',' Dado de alta con Exito', 'success');          
+        },
+        err => {
+          console.log(err);
+        });
+  }
+
+
+  delete(cliente: Cliente): void {
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Está seguro?',
+      text: `¿Está seguro que desea eliminar el cliente con ID: ${cliente.id_Cliente}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.service.deleteCliente(cliente.id_Cliente).subscribe(
+          response => {
+            this.clienteList2 = this.clienteList2.filter(fun => fun!== cliente)
+            this.ngOnInit();
+            Swal.fire('Eliminado Satisfactorio', 
+            `se elimino el funcionario con id ${cliente.id_Cliente}`,
+            'success');
+          }
+        );
+      }
+    })
+  }
 
   cargarDatosModalCliente(id: number) {
     this.service.getClientePorID(id).subscribe(clienteBuscado => this.clienteDetalle = clienteBuscado);

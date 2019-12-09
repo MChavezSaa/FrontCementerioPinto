@@ -9,6 +9,8 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
 })
 export class ADifuntoComponent implements OnInit {
   DifuntosList: Difunto[] = [];
+  searchText4: string;
+  
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {

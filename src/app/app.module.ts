@@ -64,6 +64,9 @@ import { AFormularioCreartumbaComponent } from './administracion/a-content/agest
 import { SearchNamePipe } from './pipes/search-name.pipe';
 import { SearchVentaPipe } from './pipes/search-venta.pipe';
 import { SearchClientePipe } from './pipes/search-cliente.pipe';
+import { SearchDifuntoPipe } from './pipes/search-difunto.pipe';
+import {AuthGuard} from './guards/auth.guard';
+
 
 const routes: Routes = [
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },   //como pagina de inicio se debe dejar la vista para los clientes
@@ -151,155 +154,194 @@ const routes: Routes = [
     children: [
       {
         path: "",
-        component: AContentComponent
+        component: AContentComponent,
+        canActivate:[AuthGuard]
+
       },
       {
         path:"Afuncionarios",
-        component:AFuncionarioComponent
+        component:AFuncionarioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:"AFormularioFuncionario",
-        component: AFormularioFuncionarioComponent
+        component: AFormularioFuncionarioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioFuncionario/:id',
-        component: AFormularioFuncionarioComponent
+        component: AFormularioFuncionarioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "Aclientes",
-        component: AClienteComponent
+        component: AClienteComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "AFormCliente",
-        component: AformClienteComponent
+        component: AformClienteComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormCliente/:id',
-        component: AformClienteComponent
+        component: AformClienteComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "Aterrenos",
-        component: ETerrenosComponent
+        component: ETerrenosComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "ADifuntos",
-        component: ADifuntoComponent
+        component: ADifuntoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "AmapaTerrenos",
-        component: EVerMapaTerrenoComponent
+        component: EVerMapaTerrenoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "Areduccion",
-        component: EReducccionComponent
+        component: EReducccionComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "AformularioDifuntos",
-        component: AFomularioDifuntoComponent
+        component: AFomularioDifuntoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: "AformularioDifuntos/:id",
-        component: AFomularioDifuntoComponent
+        component: AFomularioDifuntoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ATerrenosLibres',
-        component: ATerrenosLibresComponent
+        component: ATerrenosLibresComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ATerrenosOcupados',
-        component: ATerrenosOcupadosComponent
+        component: ATerrenosOcupadosComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ATerrenosReservados',
-        component: ATerrenosReservadosComponent
+        component: ATerrenosReservadosComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AMarkerEnfasis',
-        component: AMarkerEnfasisComponent
+        component: AMarkerEnfasisComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ACementerio',
-        component: ACementerioComponent
+        component: ACementerioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioCementerio',
-        component: AFormularioCementerioComponent
+        component: AFormularioCementerioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'AFormularioCementerio/:id',
-        component: AFormularioCementerioComponent
+        component: AFormularioCementerioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'APatio',
-        component: APatioComponent
+        component: APatioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioPatio',
-        component: AFormularioPatioComponent
+        component: AFormularioPatioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'AFormularioPatio/:id',
-        component: AFormularioPatioComponent
+        component: AFormularioPatioComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AGTerreno',
-        component: ATerrenoComponent
+        component: ATerrenoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AGFormularioTerreno',
-        component: AFormularioTerrenoComponent
+        component: AFormularioTerrenoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'AGFormularioTerreno/:id',
-        component: AFormularioTerrenoComponent
+        component: AFormularioTerrenoComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ATumba',
-        component: ATumbaComponent
+        component: ATumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioTumba',
-        component: AFormularioTumbaComponent
+        component: AFormularioTumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioTumba/:id',
-        component: AFormularioTumbaComponent
+        component: AFormularioTumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ACreaTumba',
-        component: ACreartumbaComponent
+        component: ACreartumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioCreaTumba',
-        component: AFormularioCreartumbaComponent
+        component: AFormularioCreartumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioCreaTumba/:id',
-        component: AFormularioCreartumbaComponent
+        component: AFormularioCreartumbaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'AVentas',
-        component: AVentaComponent
+        component: AVentaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'formularioVenta',
-        component:FormularioVentaComponent
+        component:FormularioVentaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'CCuotas',
-        component: CCuotasComponent
+        component: CCuotasComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'ASepultura',
-        component: ASepulturaComponent
+        component: ASepulturaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path: 'AFormularioSepultura',
-        component: AFormularioSepulturaComponent
+        component: AFormularioSepulturaComponent,
+        canActivate:[AuthGuard]
       },
       {
         path:'AFormularioSepultura/:id',
-        component: AFormularioSepulturaComponent
+        component: AFormularioSepulturaComponent,
+        canActivate:[AuthGuard]
       }
 
     ]
@@ -367,7 +409,8 @@ const routes: Routes = [
     AFormularioSepulturaComponent, 
     SearchNamePipe, 
     SearchVentaPipe, 
-    SearchClientePipe    
+    SearchClientePipe, 
+    SearchDifuntoPipe    
   ],
   imports: [
     BrowserModule,

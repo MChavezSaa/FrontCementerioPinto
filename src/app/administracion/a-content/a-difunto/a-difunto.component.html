@@ -13,12 +13,14 @@
         <div class="col-2 my-auto">
           Filtrar por nombre:
         </div>
-        <div class="col-4 my-auto">
-          <input type="text" [(ngModel)]="listFilter">
-        </div>
+        <div class="col-4">
+          <input type="text" [(ngModel)]="searchText4" placeholder="Nombre del difunto">
+  </div>
+       
         <div class="col-6 text-right">
-            <button type="button" class="btn btn-outline-info" [routerLink]="['/administracion-inicio/AformularioDifuntos']">Ir a formulario Difuntos</button>
-        </div>
+          <button type="button" class="btn btn-info"
+          [routerLink]="['/administracion-inicio/AformularioDifuntos']">Formulario de Ingreso</button>
+  </div>
       </div><!--FIN SECCION PARA FILTRAR-->
   
       <div class="card mb-3"><!--CARD CONTENEDORA DE LA TABLA-->
@@ -36,19 +38,21 @@
                     <th scope="col">Apellido Materno</th>
                     <th scope="col">Fecha Defunción</th>
                     <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
+                    <th scope="col">Reducción</th>
+                    <th scope="col">Traslado</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let dif of DifuntosList">                    
+                  <tr *ngFor="let dif of DifuntosList | filter4: searchText4" >                    
                     <td>{{dif.id_Difunto}}</td>   
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>
                     <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
 
-                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary">editar</button></td>
-                    <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(v)">eliminar</button></td>
+                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
+                    <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(v)"><i class="fab fa-pagelines"></i></button></td>
+                    <td><button type="button" name="traslado" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
                   </tr>
                 </tbody>
             </table>

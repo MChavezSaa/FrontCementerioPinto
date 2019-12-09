@@ -82,7 +82,8 @@
                                                                                         &nbsp;
                                                                                         <button type="button"
                                                                                                 name="eliminar"
-                                                                                                class="btn btn-danger"><i
+                                                                                                class="btn btn-danger"
+                                                                                                (click)="delete(cli)"><i
                                                                                                         class="fas fa-trash-alt"></i>
                                                                                         </button>
                                                                                 </td>
@@ -138,10 +139,8 @@
                                                                                                 class="btn btn-warning"><i
                                                                                                         class="fas fa-pencil-alt"></i></button>
                                                                                         &nbsp;
-                                                                                        <button type="button"
-                                                                                                name="eliminar"
-                                                                                                class="btn btn-danger"><i
-                                                                                                        class="fas fa-trash-alt"></i>
+                                                                                        <button type="button" name="eliminar" class="btn btn-success" (click)="darAltaCliente(cli)">
+                                                                                                <i class="fas fa-check-double"></i>
                                                                                         </button>
                                                                                 </td>
                                                                         </tr>
