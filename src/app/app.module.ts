@@ -66,6 +66,8 @@ import { SearchVentaPipe } from './pipes/search-venta.pipe';
 import { SearchClientePipe } from './pipes/search-cliente.pipe';
 import { SearchDifuntoPipe } from './pipes/search-difunto.pipe';
 import {AuthGuard} from './guards/auth.guard';
+import { ATrasladoComponent } from './administracion/a-content/a-traslado/a-traslado.component';
+import { AformTrasladoComponent } from './administracion/a-content/a-traslado/aform-traslado/aform-traslado.component';
 
 
 const routes: Routes = [
@@ -410,7 +412,7 @@ const routes: Routes = [
     SearchNamePipe, 
     SearchVentaPipe, 
     SearchClientePipe, 
-    SearchDifuntoPipe    
+    SearchDifuntoPipe, ATrasladoComponent, AformTrasladoComponent    
   ],
   imports: [
     BrowserModule,
