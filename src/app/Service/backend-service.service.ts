@@ -141,7 +141,6 @@ export class BackendServiceService {
   getClientePorID(id: number): Observable<Cliente> {
     return this.http.get<Cliente>(this.urlEndPoint + "findCliente/" + id, { headers: this.agregarAuthorizationHeader() });
   }
-
   getClientes(): Observable<Cliente[]> {
     return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {
@@ -150,7 +149,6 @@ export class BackendServiceService {
       })
     );
   }
-
   updateCliente(cliente: Cliente, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}updateCliente/${id}`, cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -177,7 +175,6 @@ export class BackendServiceService {
       })
     );
   }
-
   deleteCliente(id: number): Observable<Cliente> {
     return this.http.delete<Cliente>(`${this.urlEndPoint4}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -190,7 +187,6 @@ export class BackendServiceService {
       })
     );
   }
-
   darAltaCliente(cliente: Cliente, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}darAltaCliente/${id}`, cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -294,7 +290,6 @@ export class BackendServiceService {
       })
     );
   }
-
   darAlta(funcionario: Funcionario, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}darAlta/${id}`, funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -307,7 +302,6 @@ export class BackendServiceService {
       })
     );
   }
-
   updateFuncionario(funcionario: Funcionario, id: number): Observable<any> {
     return this.http.put<any>(`${this.urlEndPoint}updateFuncionario/${id}`, funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
@@ -322,6 +316,7 @@ export class BackendServiceService {
   }
 
   /*TERRENO*/  /**no existe update en terreno */
+
   getTerreno(): Observable<Terreno[]> {
     return this.http.get<Terreno[]>(this.urlEndPoint + "listTerrenos").pipe(
       catchError(e => {
@@ -474,6 +469,7 @@ export class BackendServiceService {
       })
     );
   }
+
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba(): Observable<TipoTumba[]> {
@@ -524,7 +520,6 @@ export class BackendServiceService {
       })
     );
   }
-
 
   /*TUMBA*/ /*NO TIENE DELETE*/
 
@@ -690,6 +685,7 @@ export class BackendServiceService {
   }*/
 
   /*DIFUNTOS */
+
   getDifuntos(): Observable<Difunto[]> {
     return this.http.get<Difunto[]>(this.urlEndPoint + "listDifuntos", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {

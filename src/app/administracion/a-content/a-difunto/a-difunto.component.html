@@ -52,8 +52,8 @@
 
                     <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
                     <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(v)"><i class="fab fa-pagelines"></i></button></td>
-                    <td><button type="button" name="traslado" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
-                  </tr>
+                    <td><button type="button" name="traslado" [routerLink]="['/administracion-inicio/AFormularioTraslado']" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
+                  </tr> <!-- [routerLink]="['/administracion-inicio/AFormularioTraslado/',dif.id_Difunto]"-->
                 </tbody>
             </table>
           </div><!--FIN TABLA REVISIONES-->  

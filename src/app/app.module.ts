@@ -344,6 +344,16 @@ const routes: Routes = [
         path:'AFormularioSepultura/:id',
         component: AFormularioSepulturaComponent,
         canActivate:[AuthGuard]
+      },
+      {
+        path: 'AFormularioTraslado/:id',
+        component: AformTrasladoComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'AFormularioTraslado',
+        component: AformTrasladoComponent,
+        canActivate: [AuthGuard]
       }
 
     ]
