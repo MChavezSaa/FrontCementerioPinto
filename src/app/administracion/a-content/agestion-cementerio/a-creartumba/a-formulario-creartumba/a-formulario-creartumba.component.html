@@ -80,7 +80,7 @@
                 </div>
                 <div class="col">
                     <button type="submit" [disabled]="!formCreaTumba.valid" (click)='createCreaTumba()' class="btn btn-primary"
-                        *ngIf="!creaTumbaParams.id_Tumba else elseBlock">Guardar</button>
+                    *ngIf="!creaTumbaParams.id_Tumba else elseBlock">Guardar</button>
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='updateCreaTumba()'>Editar</button>
                     </ng-template>
