@@ -16,6 +16,7 @@ import { Router } from '@angular/router';
 import { Usuario } from '../Entidades/usuario';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Difunto } from '../Entidades/Difunto';
+import { Traslado } from '../Entidades/Traslado';
 
 
 @Injectable({
@@ -135,6 +136,21 @@ export class BackendServiceService {
     }
     return false;
   }
+/*TRASLADO */
+
+saveTraslado(traslado: Traslado): Observable<Traslado> {
+  return this.http.post(this.urlEndPoint + "saveTraslado", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+    map((response: any) => response.traslado as Traslado),
+    catchError(e => {
+      if (this.isNoAutorizado(e)) {
+        return throwError(e);
+      }
+      console.error(e.error.mensaje);
+      Swal.fire('Error al crear el traslado', e.error.mensaje, 'error');
+      return throwError(e);
+    })
+  );
+}
 
   /*CLIENTES*/
 
@@ -258,6 +274,20 @@ export class BackendServiceService {
         this.router.navigate(['/administracion-inicio/Afuncionarios']);
         console.error(e.error.mensaje);
         Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  getFuncionariosPorRut(rut: string): Observable<Funcionario>{
+    return this.http.get<Funcionario>(this.urlEndPoint + "findByRutFuncionario/" + rut, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        //this.router.navigate(['/administracion-inicio/Afuncionarios']);
+        //console.error(e.error.mensaje);
+        //Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -446,7 +476,7 @@ export class BackendServiceService {
     );
   }
   deletePatio(id: number): Observable<Patio> {
-    return this.http.delete<Patio>(`${this.urlEndPoint}+"deletePatio/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.delete<Patio>(`${this.urlEndPoint}"deletePatio/"${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -724,6 +754,19 @@ export class BackendServiceService {
   }
   getDifuntoPorID(id: number): Observable<Difunto> {
     return this.http.get<Difunto>(this.urlEndPoint + "findDifunto/" + id, { headers: this.agregarAuthorizationHeader() });
+  }
+ 
+  reduccionDifunto(id: number): Observable<Difunto> {
+    return this.http.delete<Difunto>(this.urlEndPoint+ "DeleteDifunto/"+id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al reduccir el Difunto', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
   }
 
 }

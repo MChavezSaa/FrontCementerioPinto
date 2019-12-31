@@ -354,6 +354,11 @@ const routes: Routes = [
         path: 'AFormularioTraslado',
         component: AformTrasladoComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'AFormularioTraslado/:id',
+        component: AformTrasladoComponent,
+        canActivate: [AuthGuard]
       }
 
     ]

@@ -61,7 +61,7 @@ export class AClienteComponent implements OnInit {
             this.clienteList2 = this.clienteList2.filter(fun => fun!== cliente)
             this.ngOnInit();
             Swal.fire('Eliminado Satisfactorio', 
-            `se elimino el funcionario con id ${cliente.id_Cliente}`,
+            `se elimino el cliente con id ${cliente.id_Cliente}`,
             'success');
           }
         );

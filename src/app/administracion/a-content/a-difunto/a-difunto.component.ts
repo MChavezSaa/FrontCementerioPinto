@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Difunto } from 'src/app/Entidades/Difunto';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-a-difunto',
@@ -11,10 +15,47 @@ export class ADifuntoComponent implements OnInit {
   DifuntosList: Difunto[] = [];
   searchText4: string;
   
-  constructor(private service: BackendServiceService) { }
+  constructor(private router : Router,private service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getDifuntos().subscribe(response => this.DifuntosList = response);
   }
+  guardarID(id: number){
+    localStorage.setItem("ID", id+"");
+    this.router.navigate(['/administracion-inicio/AFormularioTraslado/']);
+  }
+
+  delete(difunto: Difunto){
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: 'btn btn-success',
+        cancelButton: 'btn btn-danger'
+      },
+      buttonsStyling: false,
+    })
+
+    swalWithBootstrapButtons.fire({
+      title: '¿Está seguro?',
+      text: `¿Está seguro que desea reduccir el difunto con ID: ${difunto.id_Difunto}?`,
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, eliminar!',
+      cancelButtonText: 'No, cancelar!',
+      reverseButtons: true
+    }).then((result) => {
+      if (result.value) {
+        this.service.reduccionDifunto(difunto.id_Difunto).subscribe(
+          response => {
+           // this.difuntoList2 = this.difuntoList2.filter(fun => fun!== difunto)
+            this.ngOnInit();
+            Swal.fire('Reduccion Satisfactoria', 
+            `se redujo el difunto con id ${difunto.id_Difunto}`,
+            'success');
+          }
+        );
+      }
+    })
+  }
+
 
 }

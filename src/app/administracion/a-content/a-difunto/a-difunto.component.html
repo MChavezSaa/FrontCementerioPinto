@@ -1,63 +1,169 @@
-<div class="container"><!--CONTENEDOR PRINCIPAL-->
+<div class="container">
+  <!--CONTENEDOR PRINCIPAL-->
 
-    <nav aria-label="breadcrumb"><!--MIGAS DE PAN-->
-      <ol class="breadcrumb bg-white pl-0">
-        <li class="breadcrumb-item"><a  [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-        <li class="breadcrumb-item active" aria-current="page">Difuntos</li>
-      </ol>
-    </nav><!--FIN MIGAS DE PAN-->
-  
-      <h1>Difuntos</h1>
-  
-      <div class="row my-3"><!--SECCION PARA FILTRAR-->
-        <div class="col-2 my-auto">
-          Filtrar por nombre:
-        </div>
-        <div class="col-4">
-          <input type="text" [(ngModel)]="searchText4" placeholder="Nombre del difunto">
+  <nav aria-label="breadcrumb">
+    <!--MIGAS DE PAN-->
+    <ol class="breadcrumb bg-white pl-0">
+      <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Difuntos</li>
+    </ol>
+  </nav>
+  <!--FIN MIGAS DE PAN-->
+
+  <h1>Difuntos</h1>
+
+  <div class="row my-3">
+    <!--SECCION PARA FILTRAR-->
+    <div class="col-2 my-auto">
+      Filtrar por nombre:
+    </div>
+    <div class="col-4">
+      <input type="text" [(ngModel)]="searchText4" placeholder="Nombre del difunto">
+    </div>
+
+    <div class="col-6 text-right">
+      <button type="button" class="btn btn-info"
+        [routerLink]="['/administracion-inicio/AformularioDifuntos']">Formulario de Ingreso</button>
+    </div>
   </div>
-       
-        <div class="col-6 text-right">
-          <button type="button" class="btn btn-info"
-          [routerLink]="['/administracion-inicio/AformularioDifuntos']">Formulario de Ingreso</button>
-  </div>
-      </div><!--FIN SECCION PARA FILTRAR-->
-  
-      <div class="card mb-3"><!--CARD CONTENEDORA DE LA TABLA-->
+  <!--FIN SECCION PARA FILTRAR-->
+
+  <!-- Seccion Activos/ Inactivos-->
+  <nav>
+    <div class="nav nav-tabs" id="nav-tab" role="tablist">
+      <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
+        aria-controls="nav-activo" aria-selected="true">Difuntos Activos</a>
+      <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-reduccion" role="tab"
+        aria-controls="nav-inactivo" aria-selected="false"> Reducciones</a>
+        <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-traslado" role="tab"
+        aria-controls="nav-inactivo" aria-selected="false"> Traslados</a>
+    </div>
+  </nav>
+  <div class="tab-content" id="nav-tabContent">
+    <div class="tab-pane fade show active" id="nav-activo" role="tabpanel" aria-labelledby="nav-activo-tab">
+      <div class="card mb-3">
         <div class="card-header text-center">
-          Lista de difuntos
+          Listado de Difuntos
         </div>
         <div class="card-body">
-          <div class="table-responsive"><!--INICIO TABLA REVISIONES-->
+          <div class="table-responsive">
+            <!--INICIO LISTADO DE TABLA -->
             <table class="table table-hover" style="text-align: center">
-                <thead class="thead-dark">
-                  <tr>
-                    <th scope="col">Id Occiso</th>
-                    <th scope="col">Nombres</th>
-                    <th scope="col">Apellido Paterno</th>
-                    <th scope="col">Apellido Materno</th>
-                    <th scope="col">Fecha Defunción</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Reducción</th>
-                    <th scope="col">Traslado</th>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Id Occiso</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>
+                  <th scope="col">Fecha Defunción</th>
+                  <th scope="col">Editar</th>
+                  <th scope="col">Reducción</th>
+                  <th scope="col">Traslado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
+                  
+                    <tr *ngIf="dif.estadoDifunto== 'Activo'" >                    
+                      <td>{{dif.id_Difunto}}</td>   
+                      <td>{{dif.nombres_Difunto}}</td>
+                      <td>{{dif.apellidoP_Difunto}}</td>
+                      <td>{{dif.apellidoM_Difunto}}</td>
+                      <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+  
+                      <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
+                      <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(dif)"><i class="fab fa-pagelines"></i></button></td>
+                      <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioTraslado/',dif.id_Difunto]" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
+                      
                   </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let dif of DifuntosList | filter4: searchText4" >                    
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="tab-pane fade" id="nav-reduccion" role="tabpanel" aria-labelledby="nav-inactivo-tab">
+      <div class="card mb-3">
+        <div class="card-header text-center">
+          Listado de Reducciones
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <!--INICIO LISTADO DE TABLA -->
+            <table class="table table-hover" style="text-align: center">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Id Occiso</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>
+                  <th scope="col">Fecha Defunción</th>
+                  <th scope="col">Editar</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
+                  <tr *ngIf="dif.estadoDifunto== 'Reduccion'" >
                     <td>{{dif.id_Difunto}}</td>   
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>
                     <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
 
-                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
-                    <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(v)"><i class="fab fa-pagelines"></i></button></td>
-                    <td><button type="button" name="traslado" [routerLink]="['/administracion-inicio/AFormularioTraslado']" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
-                  </tr> <!-- [routerLink]="['/administracion-inicio/AFormularioTraslado/',dif.id_Difunto]"-->
-                </tbody>
+                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
+                  </tr>
+                </ng-container>
+              </tbody>
             </table>
-          </div><!--FIN TABLA REVISIONES-->  
+          </div>
         </div>
-      </div><!--FIN CARD CONTENEDORA DE TABLA-->
-    
-  </div> <!--FIN CONTENEDOR PRINCIPAL-->
+      </div>
+    </div>
+
+    <div class="tab-pane fade" id="nav-traslado" role="tabpanel" aria-labelledby="nav-inactivo-tab">
+      <div class="card mb-3">
+        <div class="card-header text-center">
+          Listado de traslados
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <!--INICIO LISTADO DE TABLA -->
+            <table class="table table-hover" style="text-align: center">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Id Occiso</th>
+                  <th scope="col">Nombres</th>
+                  <th scope="col">Apellido Paterno</th>
+                  <th scope="col">Apellido Materno</th>
+                  <th scope="col">Fecha Defunción</th>
+                  <th scope="col">Editar</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
+                  <tr *ngIf="dif.estadoDifunto== 'Traslado'" >
+                    <td>{{dif.id_Difunto}}</td>   
+                    <td>{{dif.nombres_Difunto}}</td>
+                    <td>{{dif.apellidoP_Difunto}}</td>
+                    <td>{{dif.apellidoM_Difunto}}</td>
+                    <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+
+                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
+                  </tr>
+                </ng-container>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Seccion Activos/ Inactivos-->
+
+
+</div>

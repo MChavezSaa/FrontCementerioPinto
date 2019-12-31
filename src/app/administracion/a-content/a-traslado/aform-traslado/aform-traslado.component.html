@@ -3,7 +3,8 @@
         <!--MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioTraslado']" href="#" (click)="cancelarTraslado()">Difuntos</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioTraslado']" href="#"
+                    (click)="cancelarTraslado()">Difuntos</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Traslados</li>
         </ol>
     </nav>
@@ -12,64 +13,73 @@
     <legend style="font-style: oblique"><b> Formulario de Traslados</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formTraslado" novalidate>
-            <div class="separacion" style="text-align: center">
-                <h4> &nbsp; Datos Difunto</h4>
+
+        <!--************************************************************************************************************************************-->
+        <div class="separacion" style="text-align: center">
+            <h4> &nbsp; Datos Difunto</h4>
+        </div>
+
+        <div class="container">
+            <br>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Rut</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.rut_Difunto" type="text"
+                            class="form-control" id="rut_Difunto" >
+                    </div>
+                    <div class="col">
+                        <label>Nombres</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.nombres_Difunto" type="text"
+                            class="form-control" id="nombresDifunto" placeholder="Ingrese nombre difunto">
+                    </div>
+                </div>
             </div>
 
-            <div class="container">
-                <br>
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <label>Rut</label>
-                            <input formControlName="rut_Difunto" type="text" class="form-control" id="rutDifunto"
-                                placeholder="Ingrese un rut 11111111-1">
-                        </div>
-                        <div class="col">
-                            <label>Nombres</label>
-                            <input formControlName="nombres_Difunto" type="text" class="form-control" id="nombresDifunto"
-                                placeholder="Ingrese nombre difunto">
-                        </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Apellido Paterno</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.apellidoP_Difunto" type="text"
+                            class="form-control" id="apellidoPDifunto" placeholder="Ingrese Apellido Paterno">
                     </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <label>Apellido Paterno</label>
-                            <input formControlName="apellidoP_Difunto" type="text" class="form-control" id="apellidoPDifunto"
-                                placeholder="Ingrese Apellido Paterno">
-                        </div>
-                        <div class="col">
-                            <label>Apellido Materno</label>
-                            <input formControlName="apellidoM_Difunto" type="text" class="form-control" id="apellidoMDifunto"
-                                placeholder="Ingrese Apellido Materno">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col">
-                            <label for="fecha_Defuncion">Fecha Defunción</label>
-                            <input formControlName="fecha_Defuncion" class="form-control" type="date" data-format="yyyy-MM-dd"
-                                data-template="D MMM YYYY">
-                        </div>
-                        <div class="col">
-                            <label for="fechaEntierroDifunto">Fecha Entierro</label>
-                            <input formControlName="fecha_Entierro" class="form-control" type="date" data-format="yyyy-MM-dd"
-                                data-template="D MMM YYYY">
-                        </div>
-                        <div class="col">
-                            <label for="fechaNacimientoDifunto">Fecha Incripción</label>
-                            <input formControlName="fecha_Inscripcion_Difunto" class="form-control" type="date" data-format="yyyy-MM-dd"
-                                data-template="D MMM YYYY">
-                        </div>
+                    <div class="col">
+                        <label>Apellido Materno</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.apellidoM_Difunto" type="text"
+                            class="form-control" id="apellidoMDifunto" placeholder="Ingrese Apellido Materno">
                     </div>
                 </div>
             </div>
-           
+
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="fecha_Defuncion">Fecha de Nacimiento</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.fecha_Nacimiento_Difunto"
+                            class="form-control" type="text" data-format="yyyy-MM-dd" data-template="D MMM YYYY">
+                    </div>
+                    <div class="col">
+                        <label for="fechaEntierroDifunto">Fecha Defuncion</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.fecha_Defuncion"
+                        class="form-control" type="text" data-format="yyyy-MM-dd"
+                            data-template="D MMM YYYY">
+                    </div>
+                    <div class="col">
+                        <label for="fechaNacimientoDifunto">Fecha Incripción</label>
+                        <input [disabled]="true" [(ngModel)]="difuntoTraslado.fecha_Inscripcion_Difunto"
+                        class="form-control" type="text" data-format="yyyy-MM-dd"
+                            data-template="D MMM YYYY">
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <!--************************************************************************************************************************************-->
+      <!--  <form [formGroup]="formTraslado" novalidate>-->
 
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos del Solicitante</h4>
@@ -80,13 +90,15 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Rut </label>
-                            <input formControlName="rut_Solicitante" type="text" class="form-control"
+                            <label>Rut </label><!--formControlName="rut_Solicitante"-->
+                            <input  [(ngModel)]="rut_Solicitante"
+                            type="text" class="form-control"
                                 placeholder="Ingrese el rut del solicitante">
                         </div>
                         <div class="col">
-                            <label>Nombre Completo</label>
-                            <input formControlName="nombreC_Solicitante" type="text" class="form-control"
+                            <label>Nombre Completo</label><!--formControlName="nombreC_Solicitante"-->
+                            <input [(ngModel)]="nombreC_Solicitante"
+                            type="text" class="form-control"
                                 placeholder="Ingrese el nombre del solicitante">
                         </div>
                     </div>
@@ -94,106 +106,86 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Domicilio</label>
-                            <input formControlName="direccion_Solicitante" type="text" class="form-control"
+                            <label>Domicilio</label><!--formControlName="direccion_Solicitante"-->
+                            <input  [(ngModel)]="direccion_Solicitante"
+                            type="text" class="form-control"
                                 placeholder="Ingrese el domicilio del solicitante">
                         </div>
                         <div class="col">
-                            <label for="fecha_Traslado">Fecha Traslado</label>
-                            <input formControlName="fecha_Traslado" class="form-control" type="date" data-format="yyyy-MM-dd"
-                                data-template="D MMM YYYY">
-                        </div>
+                            <label for="fecha_Traslado">Fecha Traslado</label><!--formControlName="fecha_Traslado"-->
+                            <input  [(ngModel)]="fecha_Traslado"
+                            class="form-control" type="date"
+                                data-format="yyyy-MM-dd" data-template="D MMM YYYY">
+                                
+                        </div>                        
                     </div>
                 </div>
+                
             </div>
-           
+
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos del Traslado</h4>
             </div>
 
-            
+
             <div class="container">
                 <br>
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="genero_Difunto">Cambio</label>
-                            <select formControlName="genero_Difunto" class="form-control" id="exampleFormControlSelect1">
+                            <label for="genero_Difunto">Cambio</label><!--formControlName="tipoDeCambio"-->
+                            <select  [(ngModel)]="tipoDeCambio2"
+                             class="form-control" id="exampleFormControlSelect1">
                                 <option value="" selected disabled>Seleccione tipo de cambio </option>
                                 <option>Interno</option>
                                 <option>Externo</option>
                             </select>
                         </div>
                         <div class="col">
-                            <label>Desde</label>
-                            <input formControlName="lugarviejo" type="text" class="form-control"
+                            <label>Desde</label><!--formControlName="lugarviejo"-->                        
+                            <input  [(ngModel)]="lugarviejo"
+                            type="text" class="form-control"
                                 placeholder="Ingrese ubicacion actual del difunto">
                         </div>
                         <div class="col">
-                            <label>Hacia</label>
-                            <input formControlName="lugarnuevo" type="text" class="form-control"
+                            <label>Hacia</label><!--formControlName="lugarnuevo"-->
+                            <input  [(ngModel)]="lugarnuevo"
+                            type="text" class="form-control"
                                 placeholder="Ingrese ubicacion nueva del difunto">
                         </div>
                     </div>
-                </div>
-
+                </div>                
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Observaciones</label>
-                            <textarea formControlName="observaciones" 
+                            <label>Observaciones</label><!--formControlName="observaciones"-->
+                            <textarea  [(ngModel)]="observaciones"
                             type="text" class="form-control"></textarea>
                         </div>
                     </div>
                 </div>
-                
+
                 <br>
             </div>
 
             <div class="form-group row">
                 <div class="col">
-                    <button (click)="cancelarTraslado()"  type="submit" class="btn btn-danger">
+                    <button (click)="cancelarTraslado()" type="submit" class="btn btn-danger">
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-success"> Guardar </button>
+                    <button type="submit"  (click)='createDifunto()' class="btn btn-primary"
+                    >Guardar</button>
+                   
                 </div>
             </div>
 
-        </form>
+        <!--</form>-->
         <br>
-
+  
         <br>
 
     </div>
 </div>
 
 
-<!--modal-->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirmación</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body; text-justify">
-                <div class="card" style="width: 100%;">
-                    <div class="card-body">
-                        Si continuas los valores del formulario se perderan.<br>
-                        No se guardará nada que no se haya guardado previamente.<br>
-                        <p style="color: red"><i><b>¿Estas seguro de querer volver a la pagina anterior?</b></i></p>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary" [routerLink]="['/administracion-inicio/ADifuntos']"
-                    data-dismiss="modal">Continuar</button>
-            </div>
-        </div>
-    </div>
-</div>
