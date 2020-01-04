@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 export class ACementerioComponent implements OnInit {
 
   cementerioList2:Cementerio[] = [];
+  searchText5: string;
     
   constructor(private service: BackendServiceService) { }
 
@@ -18,4 +19,5 @@ export class ACementerioComponent implements OnInit {
         this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList2 = cementerioList1);
   }
 
+ 
 }
