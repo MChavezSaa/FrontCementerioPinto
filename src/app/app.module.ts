@@ -430,7 +430,12 @@ const routes: Routes = [
     SearchNamePipe, 
     SearchVentaPipe, 
     SearchClientePipe, 
-    SearchDifuntoPipe, ATrasladoComponent, AformTrasladoComponent, SearchCementerioPipe, SearchTerrenoPipe, SearchPatioPipe    
+    SearchDifuntoPipe, 
+    ATrasladoComponent, 
+    AformTrasladoComponent, 
+    SearchCementerioPipe, 
+    SearchTerrenoPipe, 
+    SearchPatioPipe    
   ],
   imports: [
     BrowserModule,

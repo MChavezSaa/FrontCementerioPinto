@@ -79,7 +79,7 @@
 
 
         <!--************************************************************************************************************************************-->
-      <!--  <form [formGroup]="formTraslado" novalidate>-->
+        <form [formGroup]="formTraslado" novalidate>
 
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos del Solicitante</h4>
@@ -90,14 +90,14 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Rut </label><!--formControlName="rut_Solicitante"-->
-                            <input  [(ngModel)]="rut_Solicitante"
+                            <label>Rut </label><!--[(ngModel)]="rut_Solicitante"-->
+                            <input  formControlName="rut_Solicitante" 
                             type="text" class="form-control"
                                 placeholder="Ingrese el rut del solicitante">
                         </div>
                         <div class="col">
-                            <label>Nombre Completo</label><!--formControlName="nombreC_Solicitante"-->
-                            <input [(ngModel)]="nombreC_Solicitante"
+                            <label>Nombre Completo</label><!--[(ngModel)]="nombreC_Solicitante"-->
+                            <input  formControlName="nombreC_Solicitante"
                             type="text" class="form-control"
                                 placeholder="Ingrese el nombre del solicitante">
                         </div>
@@ -106,14 +106,14 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Domicilio</label><!--formControlName="direccion_Solicitante"-->
-                            <input  [(ngModel)]="direccion_Solicitante"
+                            <label>Domicilio</label><!--[(ngModel)]="direccion_Solicitante"-->
+                            <input formControlName="direccion_Solicitante"
                             type="text" class="form-control"
                                 placeholder="Ingrese el domicilio del solicitante">
                         </div>
                         <div class="col">
-                            <label for="fecha_Traslado">Fecha Traslado</label><!--formControlName="fecha_Traslado"-->
-                            <input  [(ngModel)]="fecha_Traslado"
+                            <label for="fecha_Traslado">Fecha Traslado</label><!-- [(ngModel)]="fecha_Traslado"-->
+                            <input formControlName="fecha_Traslado" 
                             class="form-control" type="date"
                                 data-format="yyyy-MM-dd" data-template="D MMM YYYY">
                                 
@@ -133,8 +133,8 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="genero_Difunto">Cambio</label><!--formControlName="tipoDeCambio"-->
-                            <select  [(ngModel)]="tipoDeCambio2"
+                            <label for="genero_Difunto">Cambio</label><!--[(ngModel)]="tipoDeCambio2"-->
+                            <select  formControlName="tipoDeCambio"
                              class="form-control" id="exampleFormControlSelect1">
                                 <option value="" selected disabled>Seleccione tipo de cambio </option>
                                 <option>Interno</option>
@@ -142,14 +142,14 @@
                             </select>
                         </div>
                         <div class="col">
-                            <label>Desde</label><!--formControlName="lugarviejo"-->                        
-                            <input  [(ngModel)]="lugarviejo"
+                            <label>Desde</label><!--[(ngModel)]="lugarviejo"-->                        
+                            <input  formControlName="lugarviejo"
                             type="text" class="form-control"
                                 placeholder="Ingrese ubicacion actual del difunto">
                         </div>
                         <div class="col">
-                            <label>Hacia</label><!--formControlName="lugarnuevo"-->
-                            <input  [(ngModel)]="lugarnuevo"
+                            <label>Hacia</label><!--[(ngModel)]="lugarnuevo"-->
+                            <input  formControlName="lugarnuevo"
                             type="text" class="form-control"
                                 placeholder="Ingrese ubicacion nueva del difunto">
                         </div>
@@ -158,8 +158,8 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Observaciones</label><!--formControlName="observaciones"-->
-                            <textarea  [(ngModel)]="observaciones"
+                            <label>Observaciones</label><!--[(ngModel)]="observaciones"-->
+                            <textarea  formControlName="observaciones" 
                             type="text" class="form-control"></textarea>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
                 </div>
             </div>
 
-        <!--</form>-->
+        </form>
         <br>
   
         <br>

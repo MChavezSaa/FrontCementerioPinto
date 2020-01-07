@@ -6,6 +6,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Difunto } from 'src/app/Entidades/Difunto';
 import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { Traslado } from 'src/app/Entidades/Traslado';
+import {traslado2} from 'src/app/Entidades/traslado2';
 
 @Component({
   selector: 'app-aform-traslado',
@@ -16,6 +17,9 @@ export class AformTrasladoComponent implements OnInit {
 
   formTraslado: FormGroup;
   difuntoTraslado: Difunto;
+
+
+  difuntoAux: Difunto;
   traslado: Traslado;
 
 
@@ -34,8 +38,8 @@ export class AformTrasladoComponent implements OnInit {
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute, ) {
 
-    /**
-     * this.formTraslado = this.formBuilder.group({
+    
+     this.formTraslado = this.formBuilder.group({
 
       rut_Solicitante: ['', [Validators.required]],
       nombreC_Solicitante: ['', [Validators.required]],
@@ -46,7 +50,7 @@ export class AformTrasladoComponent implements OnInit {
       lugarnuevo: ['', [Validators.required]],
       observaciones: ['', [Validators.required]],
     });
-     */
+     
   }
 
 
@@ -61,6 +65,7 @@ export class AformTrasladoComponent implements OnInit {
       let id = params['id'];
       if (id) {
         this.service.getDifuntoPorID(id).subscribe((fun) => this.difuntoTraslado = fun);
+        this.service.getDifuntoPorID(id).subscribe((fun1) => this.difuntoAux = fun1);        
       }
     })
   }
@@ -82,14 +87,12 @@ export class AformTrasladoComponent implements OnInit {
   }
 
   createDifunto() {
-    this.traslado.difunto = this.difuntoTraslado;
-    console.log("lalala");
-    console.log(this.traslado.difunto);
-    console.log(this.rut_Solicitante);
- 
-
-    /*
-       this.service.saveTraslado(this.traslado)
+    this.cargarDifunto();
+    let t2 = this.formTraslado.value;    
+    this.difuntoAux.estadoDifunto ="Traslado" ;
+   
+       this.service.saveTraslado(new Traslado(null, t2.nombreC_Solicitante, t2.rut_Solicitante, t2.direccion_Solicitante, 
+        t2.fecha_Traslado, t2.tipoDeCambio, t2.lugarviejo, t2.lugarnuevo , t2.observaciones, this.difuntoAux))
       .subscribe(
       cliente => {          
       
@@ -99,7 +102,7 @@ export class AformTrasladoComponent implements OnInit {
       err=>{
         console.log(err)
       }
-    ); */
+    );
   }
 
 }

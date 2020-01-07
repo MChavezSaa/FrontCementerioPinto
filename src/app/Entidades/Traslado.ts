@@ -1,5 +1,6 @@
 import { Funcionario } from './Funcionario';
 import { Difunto } from './Difunto';
+import { ObserveOnMessage } from 'rxjs/internal/operators/observeOn';
 
 export class Traslado {
 
@@ -11,7 +12,22 @@ export class Traslado {
     tipoDeCambio:string;//interno-externo
     lugarviejo:string;
     lugarnuevo:string;
-    observaciones:string;
+    observaciones:string;    
+    difunto: Difunto;   
     
-    difunto: Difunto;    
+    constructor(id: number, NCS: string, RC: string, DS: string, 
+        Ftraslado: Date, TC: string, LV: string, LN: string, Obs: string, dif: Difunto){
+        this.id_Traslado = id;
+        this.nombreC_Solicitante = NCS;
+        this.rut_Solicitante = RC;
+        this.direccion_Solicitante = DS;
+        this.fecha_Traslado=  Ftraslado;
+        this.tipoDeCambio = TC;
+        this.lugarviejo = LV;
+        this.lugarnuevo =LN;
+        this.observaciones = Obs;
+        this.difunto = dif;
+
+    }
 }
+

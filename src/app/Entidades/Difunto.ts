@@ -19,7 +19,7 @@ export class Difunto {
     certificado_Defuncion: boolean;
     fotocopia_Carnet: boolean;
    
-    estadoDifunto:boolean;
+    estadoDifunto:string;
 }
 
 
