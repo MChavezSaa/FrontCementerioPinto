@@ -9,20 +9,24 @@
     </nav>
     <!--FIN MIGAS DE PAN-->
 
-    <div class="row my-3">
-        <!--SECCION PARA FILTRAR-->
-        <div class="col-2 my-auto">
-            Filtrar por nombre:
-        </div>
-        <div class="col-4 my-auto">
-            <input type="text" > <!-- [(ngModel)]="listFilter"-->
-        </div>
-        <div class="col-6 text-right">
-            <button type="button" class="btn btn-info"
-                [routerLink]="['/administracion-inicio/AFormularioPatio']">Formulario Ingreso</button>
+    <div class="container">
+        <div class="row ">
+            <!--SECCION PARA FILTRAR-->
+            <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="searchText7"
+                    placeholder="Filtrar por Nombre de Patio" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-info"
+                    [routerLink]="['/administracion-inicio/AFormularioPatio']">Formulario de Ingreso</button>
+            </div>
         </div>
     </div>
-    <!--FIN SECCION PARA FILTRAR-->
+    <br>
 
     <!-- Seccion Activos/ Inactivos-->
     <nav>
@@ -52,7 +56,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <ng-container *ngFor="let pat of patioList2">
+                            <ng-container *ngFor="let pat of patioList2 | filter7: searchText7">
                                 <tr *ngIf="pat.estado_Patio==true">
                                     <td>{{pat.nombre_Patio}}</td>
                                     <td>{{pat.capacidad_Patio}}</td>
@@ -60,7 +64,8 @@
                                     <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioPatio/',pat.id_Patio]"
                                             class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                         &nbsp;
-                                        <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                        <button type="button" name="eliminar" class="btn btn-danger" (click)="delete(pat)">
+                                            <i class="fas fa-trash-alt"></i>
                                         </button>
                                     </td>
                                 </tr>
@@ -89,7 +94,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <ng-container *ngFor="let pat of patioList2">
+                                <ng-container *ngFor="let pat of patioList2 | filter7: searchText7">
                                     <tr *ngIf="pat.estado_Patio==false" >
                                         <td>{{pat.nombre_Patio}}</td>
                                         <td>{{pat.capacidad_Patio}}</td>
@@ -97,7 +102,8 @@
                                         <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioPatio',pat.id_Patio]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-danger"><i class="fas fa-trash-alt"></i>
+                                            <button type="button" name="eliminar" class="btn btn-success" (click)="cambiaEstadoPatio(pat)">
+                                                <i class="fas fa-check-double"></i>
                                             </button>
                                         </td>
                                     </tr>

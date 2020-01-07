@@ -32,6 +32,7 @@ export class BackendServiceService {
   private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
   private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
   private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
+  private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -483,6 +484,32 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
         }
         console.error(e.error.mensaje);
         Swal.fire('Error al eliminar el Patio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  deletePatio2(id: number): Observable<Patio> {
+    return this.http.delete<Patio>(`${this.urlEndPoint5}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Patio', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  cambiarEstadoPatio(patio: Patio, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}CambiaEstadoPatio/${id}`, patio, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al cambiar el estado del patio', e.error.mensaje, 'error');
         return throwError(e);
       })
     );

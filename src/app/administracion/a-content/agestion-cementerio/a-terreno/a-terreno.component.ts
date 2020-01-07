@@ -11,6 +11,7 @@ import Swal from 'sweetalert2';
 export class ATerrenoComponent implements OnInit {
 
   terrenoList2: Terreno[] = [];
+  searchText6: string;
 
   constructor(private service: BackendServiceService) { }
 
