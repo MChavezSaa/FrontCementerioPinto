@@ -16,8 +16,8 @@ export class AFuncionarioComponent implements OnInit {
   funcionarioDetail2: Funcionario[];
   searchText: string;
 
-  funcionariosFiltered: Funcionario[];
-  funcionarios: Funcionario[];
+ // funcionariosFiltered: Funcionario[];
+  //funcionarios: Funcionario[];
 
   constructor(private service: BackendServiceService, private router: Router, ) { }
 
@@ -71,14 +71,14 @@ export class AFuncionarioComponent implements OnInit {
     })
   }
 
-  buscarFuncionario(rut_Funcionario: String) {
+ /* buscarFuncionario(rut_Funcionario: String) {
     this.service.getFuncionarioBuscar(rut_Funcionario).subscribe(funcionarioBuscado3 => this.funcionarioDetail2 = funcionarioBuscado3);
     console.log(this.funcionarioDetail2);
   }
-
+*/
   cargarDatosModal(id: number) {
     this.service.getFuncionariosPorID(id).subscribe(funcionarioBuscado => this.funcionarioDetail = funcionarioBuscado);
-    console.log(this.funcionarioDetail);
+   //console.log(this.funcionarioDetail);
   }
   cargarRut(): string {
     return this.funcionarioDetail.rut_Funcionario;
