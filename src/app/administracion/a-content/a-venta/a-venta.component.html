@@ -20,7 +20,7 @@
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
                 </div>
                 <input type="text" class="form-control" [(ngModel)]="searchText2"
-                    placeholder="Filtrar por nombre del Funcionario" aria-describedby="basic-addon1">
+                    placeholder="Filtrar por nombre del cliente" aria-describedby="basic-addon1">
             </div>
             <div class="col-2"></div>
             <div class="col-6 text-right">
@@ -94,30 +94,29 @@
 
 
             <div class="modal-body">
-                <hr>
-                <label style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></label>
+                <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></legend>
                 <label *ngFor="let ven of contratoList2">
-                    <b> Nombre Cliente:</b> {{ven.cliente.nombres_Cliente}}<br>
-                    <b>Apellidos Cliente:</b> {{ven.cliente.apellidoP_Cliente}} {{ven.cliente.apellidoM_Cliente}}<br>
-                    <b>Teléfono Cliente:</b> {{ven.cliente.telefono_Cliente}} <br>
-                    <b>Dirección Cliente:</b> {{ven.cliente.direccion_Cliente}} <br>
+                    <b> Nombre:</b> {{ven.cliente.nombres_Cliente}}<br>
+                    <b>Apellidos:</b> {{ven.cliente.apellidoP_Cliente}} {{ven.cliente.apellidoM_Cliente}}<br>
+                    <b>Teléfono:</b> {{ven.cliente.telefono_Cliente}} <br>
+                    <b>Dirección:</b> {{ven.cliente.direccion_Cliente}} <br>
                 </label>
                 <hr>
-                <label style="font-family: 'Times New Roman', Times, serif;"><b>Datos de Compra</b></label>
+                <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos de a Compra</b></legend>
                 <label *ngFor="let ven of contratoList2">
-                    <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br>
+                   <!-- <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
                     <b>Cementerio:</b> {{ven.cementerio.nombre_Cementerio}} <br>
-                    <b>Terreno:</b> {{ven.terreno.nombre_Terreno}} <br>
+                    <b>Nombre del Terreno:</b> {{ven.terreno.nombre_Terreno}} <br>
                     <b>Patio:</b> {{ven.patio.nombre_Patio}} <br>
                     <b>Tipo de Tumba:</b> {{ven.tipoTumba.nombretipo_tumba}} <br>
                     <b>Número de Tumba:</b> {{ven.tumba.numero_Tumba}} <br>
                 </label>
-                <hr>
-                <label style="font-family: 'Times New Roman', Times, serif;"> <b>Datos de Pago</b> </label>
+            <hr>
+            <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>
                 <label *ngFor="let ven of contratoList2">
-                    <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>
-                    <b>Valor Tumba:</b> {{ven.tumba.valor_Tumba}} <br>
-                    <b>Pago Inicial:</b> {{ven.derecho.pagoInicial}} <br>
+                  <!--  <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
+                    <b>Valor total Derecho:</b> {{ven.valor_Terreno}} <br>
+                    <b>Pago Inicial:</b> {{ven.pagoInicial}} <br>
                     <b>Número de Cuotas:</b> {{ven.derecho.numero_Cuotas_Derecho}} <br>
                     <b>Valor de Cuotas:</b> {{ven.derecho.valor_Cuota_Derecho}} <br>
                     <b>Fecha de Pago:</b> {{ven.derecho.fecha_Pago_Derecho}} <br>
