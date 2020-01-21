@@ -14,7 +14,10 @@ export class ATerrenosLibresComponent implements OnInit {
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
-    this.service.getfreeTumbs().subscribe(tumbaList1 => this.TumbasLibresList = tumbaList1);
+    this.service.getfreeTumbs().subscribe(tumbaList1 => {
+      this.TumbasLibresList = tumbaList1 
+      this.llenarListas() 
+    });
     
   }
 
@@ -23,12 +26,6 @@ export class ATerrenosLibresComponent implements OnInit {
       if(this.TodasLastumbasList[i].estado_Tumba== "Disponible")
       this.TumbasLibresList.push(this.TodasLastumbasList[i]);
     }
-  }
-  calcularValorCuota(){
-    console.log('lala')    
-    console.log(this.TumbasLibresList)
-    this.llenarListas();
-    //return this.TodasLastumbasList;
   }
 
   peopleA: Tumba[] =[];
