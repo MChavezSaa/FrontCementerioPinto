@@ -17,6 +17,7 @@ import { Usuario } from '../Entidades/usuario';
 import { identifierModuleUrl } from '@angular/compiler';
 import { Difunto } from '../Entidades/Difunto';
 import { Traslado } from '../Entidades/Traslado';
+import { ContratoDos } from '../Entidades/ContratoDos';
 
 
 @Injectable({
@@ -254,6 +255,30 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
     );
   }
 
+  /* CONTRATO 2 */
+
+  getContrato2(): Observable<ContratoDos[]> {
+    return this.http.get<ContratoDos[]>(this.urlEndPoint + "listContratoV2", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
+  getContrato2ID(id: number): Observable<ContratoDos> {
+    return this.http.get<ContratoDos>(`${this.urlEndPoint}findcontratoV2/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        this.router.navigate(['/administracion-inicio/AVentas']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   /* FUNCIONARIO  */
 
   getFuncionarios(): Observable<Funcionario[]> {
