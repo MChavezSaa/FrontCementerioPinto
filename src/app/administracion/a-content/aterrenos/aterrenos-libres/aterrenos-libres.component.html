@@ -56,7 +56,7 @@
 
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
-            <div [id]="'d' + personD.id_Terreno" [ngClass]="'d'+ personD.id_tumba"> 
+            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba"> 
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">         
             </div>
           </div>
@@ -64,14 +64,14 @@
 
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
-            <div [id]="'e' + personE.id_Terreno" [ngClass]="'e'+ personE.id_tumba"> 
+            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba"> 
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">            
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
-            <div [id]="'f' + personF.id_Terreno" [ngClass]="'f'+ personF.id_tumba"> 
+            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba"> 
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
               
             </div>
@@ -79,7 +79,7 @@
           <!-- fin patio F-->
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
-            <div [id]="'g' + personG.id_Terreno" [ngClass]="'g'+ personG.id_tumba"> 
+            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba"> 
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">           
             </div>
           </div>

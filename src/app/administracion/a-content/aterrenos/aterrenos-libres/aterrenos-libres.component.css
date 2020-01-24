@@ -2541,171 +2541,685 @@
 
  /*Patio D */
 
- .d1{
+.d1{
     position: absolute;
-     top: 51.5%;
-     left: 51%;
-     font-size: 12px;
-     font-weight: bold;
- }
+    top: 270px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.d2{
+    position: absolute;   
+    top: 270px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
 
- .d2{
+}
+.d3{
     position: absolute;
-     top: 51.5%;
-     left: 54.5%;
-     font-size: 12px;
-     font-weight: bold;
- }
-
- .d3{
+    top: 270px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.d4{
     position: absolute;
-     top: 51.5%;
-     left: 59%;
-     font-size: 12px;
-     font-weight: bold;
- }
-
- .d4{
+    top: 270px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+}
+.d5{
     position: absolute;
-     top: 51.5%;
-     left: 63%;
-     font-size: 12px;
-     font-weight: bold;
- }
- .d5{
-    position: absolute;
-     top: 48%;
-     left: 69%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 270px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d6{
     position: absolute;
-     top: 53%;
-     left: 69%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 270px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d7{
     position: absolute;
-     top: 48%;
-     left: 78%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 270px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d8{
     position: absolute;
-     top: 53%;
-     left: 78%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 270px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
  }
-
  .d9{
     position: absolute;
-     top: 58.5%;
-     left: 51%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d10{
     position: absolute;
-     top: 59%;
-     left: 54.5%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d11{
     position: absolute;
-     top: 62%;
-     left: 58%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d12{
     position: absolute;
-     top: 59%;
-     left: 61%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d13{
     position: absolute;
-     top: 59%;
-     left: 66%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d14{
     position: absolute;
-     top: 59%;
-     left: 70.5%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d15{
     position: absolute;
-     top: 59%;
-     left: 76%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d16{
     position: absolute;
-     top: 59%;
-     left: 80.5%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 279px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
  }
- .d17{
+
+  .d17{
     position: absolute;
-     top: 64%;
-     left: 51%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d18{
     position: absolute;
-     top: 64%;
-     left: 55%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d19{
     position: absolute;
-     top: 64%;
-     left: 62%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
  }
-.d20{
+ .d20{
     position: absolute;
-     top: 64%;
-     left: 66%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d21{
     position: absolute;
-     top: 64%;
-     left: 70.5%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d22{
     position: absolute;
-     top: 64%;
-     left: 76%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
  }
  .d23{
     position: absolute;
-     top: 64%;
-     left: 80.5%;
-     font-size: 12px;
-     font-weight: bold;
+    top: 288px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
  }
+ .d24{
+    position: absolute;
+    top: 288px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+
+ .d25{
+    position: absolute;
+    top: 297px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d26{
+    position: absolute;
+    top: 297px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d27{
+    position: absolute;
+    top: 297px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d28{
+    position: absolute;
+    top: 297px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d29{
+    position: absolute;
+    top: 297px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d30{
+    position: absolute;
+    top: 297px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d31{
+    position: absolute;
+    top: 297px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d32{
+    position: absolute;
+    top: 297px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d33{
+    position: absolute;
+    top: 305px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d34{
+    position: absolute;
+    top: 305px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d35{
+    position: absolute;
+    top: 305px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d36{
+    position: absolute;
+    top: 305px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d37{
+    position: absolute;
+    top: 305px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d38{
+    position: absolute;
+    top: 305px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d39{
+    position: absolute;
+    top: 305px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d40{
+    position: absolute;
+    top: 305px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d41{
+    position: absolute;
+    top: 314px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d42{
+    position: absolute;
+    top: 314px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d43{
+    position: absolute;
+    top: 314px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d44{
+    position: absolute;
+    top: 314px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d45{
+    position: absolute;
+    top: 314px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d46{
+    position: absolute;
+    top: 314px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d47{
+    position: absolute;
+    top: 314px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d48{
+    position: absolute;
+    top: 314px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d49{
+    position: absolute;
+    top: 323px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d50{
+    position: absolute;
+    top: 323px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d51{
+    position: absolute;
+    top: 323px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d52{
+    position: absolute;
+    top: 323px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d53{
+    position: absolute;
+    top: 323px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d54{
+    position: absolute;
+    top: 323px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d55{
+    position: absolute;
+    top: 323px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d56{
+    position: absolute;
+    top: 323px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d57{
+    position: absolute;
+    top: 332px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d58{
+    position: absolute;
+    top: 332px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d59{
+    position: absolute;
+    top: 332px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d60{
+    position: absolute;
+    top: 332px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d61{
+    position: absolute;
+    top: 332px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d62{
+    position: absolute;
+    top: 332px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d63{
+    position: absolute;
+    top: 332px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d64{
+    position: absolute;
+    top: 332px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d65{
+    position: absolute;
+    top: 341px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d66{
+    position: absolute;
+    top: 341px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d67{
+    position: absolute;
+    top: 341px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d68{
+    position: absolute;
+    top: 341px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d69{
+    position: absolute;
+    top: 341px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d70{
+    position: absolute;
+    top: 341px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d71{
+    position: absolute;
+    top: 341px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d72{
+    position: absolute;
+    top: 341px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d73{
+    position: absolute;
+    top: 349px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d74{
+    position: absolute;
+    top: 349px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d75{
+    position: absolute;
+    top: 349px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d76{
+    position: absolute;
+    top: 349px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d77{
+    position: absolute;
+    top: 349px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d78{
+    position: absolute;
+    top: 349px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d79{
+    position: absolute;
+    top: 349px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d80{
+    position: absolute;
+    top: 349px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d81{
+    position: absolute;
+    top: 358px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d82{
+    position: absolute;
+    top: 358px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d83{
+    position: absolute;
+    top: 358px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d84{
+    position: absolute;
+    top: 358px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d85{
+    position: absolute;
+    top: 358px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d86{
+    position: absolute;
+    top: 358px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d87{
+    position: absolute;
+    top: 358px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d88{
+    position: absolute;
+    top: 358px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d89{
+    position: absolute;
+    top: 367px;
+    left: 309px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d90{
+    position: absolute;
+    top: 367px;
+    left: 324px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d91{
+    position: absolute;
+    top: 367px;
+    left: 346px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d92{
+    position: absolute;
+    top: 367px;
+    left: 361px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d93{
+    position: absolute;
+    top: 367px;
+    left: 383px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d94{
+    position: absolute;
+    top: 367px;
+    left: 398px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d95{
+    position: absolute;
+    top: 367px;
+    left: 420px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .d96{
+    position: absolute;
+    top: 367px;
+    left: 435px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+
+
+
+ 
 
 /*PATIO E*/
 
