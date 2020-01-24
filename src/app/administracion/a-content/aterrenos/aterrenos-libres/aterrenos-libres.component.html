@@ -21,20 +21,20 @@
       </div>
     </div>
   </div>
-  <button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
-  </button>
+  
   <br>
 
   <div class="row">
     <div class="col-8">
       <div align="left">
-        <div class="container">
-          <img src="../assets/img/cementerio2.jpg" alt="" width="130%" height="130%">
+        <div class="container" align="center">
+          <img src="../assets/img/cementerio2.jpg" alt="" width="150%" height="150%">
           <!--cambiar el ng for por el de la query -->
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
             <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">              
-                <b><i class="fas fa-map-marker-alt fa-1.9x" style="color: red "></i></b>
+                <!--<b><i class="fas fa-map-marker-alt fa-1.9x" style="color: red "></i></b>-->
+                <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
@@ -42,7 +42,7 @@
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
             <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">              
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
               
             </div>
           </div>
@@ -51,7 +51,7 @@
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
             <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba"> 
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black"></i>              
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">          
             </div>
           </div>
           <!--Fin Patio C-->
@@ -59,7 +59,7 @@
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
             <div [id]="'d' + personD.id_Terreno" [ngClass]="'d'+ personD.id_tumba"> 
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>              
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">         
             </div>
           </div>
           <!-- Fin Patio D-->
@@ -67,14 +67,14 @@
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
             <div [id]="'e' + personE.id_Terreno" [ngClass]="'e'+ personE.id_tumba"> 
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>              
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">            
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
             <div [id]="'f' + personF.id_Terreno" [ngClass]="'f'+ personF.id_tumba"> 
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
               
             </div>
           </div>
@@ -82,7 +82,7 @@
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
             <div [id]="'g' + personG.id_Terreno" [ngClass]="'g'+ personG.id_tumba"> 
-                <i class="fas fa-map-marker-alt fa-2x" style="color: black "></i>              
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">           
             </div>
           </div>
           <!-- fin patio G-->
