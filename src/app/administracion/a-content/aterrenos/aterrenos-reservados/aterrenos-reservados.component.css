@@ -1,0 +1,786 @@
+.contenedor{
+    width: 552px;
+    height:848px ;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+ /*PATIO A*/
+.a1{
+    position: absolute;
+    top: 10%;
+    left: 37.5%;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.a2{
+    position: absolute;   
+    top: 9%;
+    left: 44%;
+    font-size: 12px;
+    font-weight: bold;
+
+}
+.a3{
+    position: absolute;
+    top: 9%;
+    left: 52%;
+    font-size: 12px;
+    font-weight: bold;
+}
+.a4{
+   position: absolute;
+    top: 21%;
+    left: 28%;
+    font-size: 12px;
+    font-weight: bold;
+}
+.a5{
+    position: absolute;
+    top: 20%;
+    left: 37%;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ .a6{
+    position: absolute;
+     top: 20%;
+     left: 44%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a7{
+    position: absolute;
+     top: 20%;
+     left: 51.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a8{
+    position: absolute;
+     top: 30%;
+     left: 18%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a9{
+    position: absolute;
+     top: 30%;
+     left: 28%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a10{
+    position: absolute;
+     top: 30%;
+     left: 37%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a11{
+    position: absolute;
+    top: 30%;
+         left: 44%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a12{
+    position: absolute;
+    top: 30%;
+         left: 52%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a13{
+    position: absolute;
+    top: 40%;
+    left: 18%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a14{
+    position: absolute;
+    top: 40%;     
+    left: 28%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a15{
+    position: absolute;
+    top: 40%;     
+    left: 37%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .a16{
+    position: absolute;
+    top: 40%;     
+    left: 44%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ /* Patio B*/
+ .b1{
+    position: absolute;
+     top: 52%;
+     left: 14%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b2{
+    position: absolute;
+     top: 52%;
+     left: 20%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b3{
+    position: absolute;
+     top: 52%;
+     left: 27%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b4{
+    position: absolute;
+     top: 59%;
+     left: 13%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b5{
+    position: absolute;
+     top: 57%;
+     left: 16.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b6{
+    position: absolute;
+     top: 59%;
+     left: 21.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b7{
+    position: absolute;
+     top: 61%;
+     left: 18%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b8{
+    position: absolute;
+     top: 57%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b9{
+    position: absolute;
+     top: 61%;
+     left: 27%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b10{
+    position: absolute;
+     top: 60%;
+     left: 30.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b11{
+    position: absolute;
+     top: 67%;
+     left: 15%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b12{
+    position: absolute;
+     top: 67%;
+     left: 18%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b13{
+    position: absolute;
+     top: 67%;
+     left: 21.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b14{
+    position: absolute;
+     top: 67%;
+     left: 26%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .b15{
+    position: absolute;
+     top: 67%;
+     left: 31%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+  /* Patio C*/
+  .c1{
+    position: absolute;
+     top: 52%;
+     left: 33%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c2{
+    position: absolute;
+     top: 52%;
+     left: 39.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c3{
+    position: absolute;
+     top: 52%;
+     left: 45.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c4{
+    position: absolute;
+     top: 60%;
+     left: 34.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c5{
+    position: absolute;
+     top: 60%;
+     left: 40%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c6{
+    position: absolute;
+     top: 57.5%;
+     left: 45.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+.c7{
+    position: absolute;
+     top: 62.5%;
+     left: 45.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c8{
+    position: absolute;
+     top: 67%;
+     left: 36%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .c9{
+    position: absolute;
+     top: 67%;
+     left: 40.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+  .c10{
+    position: absolute;
+     top: 68%;
+     left: 45%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ /*Patio D */
+
+ .d1{
+    position: absolute;
+     top: 51.5%;
+     left: 51%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ .d2{
+    position: absolute;
+     top: 51.5%;
+     left: 54.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ .d3{
+    position: absolute;
+     top: 51.5%;
+     left: 59%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ .d4{
+    position: absolute;
+     top: 51.5%;
+     left: 63%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d5{
+    position: absolute;
+     top: 48%;
+     left: 69%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d6{
+    position: absolute;
+     top: 53%;
+     left: 69%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d7{
+    position: absolute;
+     top: 48%;
+     left: 78%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d8{
+    position: absolute;
+     top: 53%;
+     left: 78%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ .d9{
+    position: absolute;
+     top: 58.5%;
+     left: 51%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d10{
+    position: absolute;
+     top: 59%;
+     left: 54.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d11{
+    position: absolute;
+     top: 62%;
+     left: 58%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d12{
+    position: absolute;
+     top: 59%;
+     left: 61%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d13{
+    position: absolute;
+     top: 59%;
+     left: 66%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d14{
+    position: absolute;
+     top: 59%;
+     left: 70.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d15{
+    position: absolute;
+     top: 59%;
+     left: 76%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d16{
+    position: absolute;
+     top: 59%;
+     left: 80.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d17{
+    position: absolute;
+     top: 64%;
+     left: 51%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d18{
+    position: absolute;
+     top: 64%;
+     left: 55%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d19{
+    position: absolute;
+     top: 64%;
+     left: 62%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+.d20{
+    position: absolute;
+     top: 64%;
+     left: 66%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d21{
+    position: absolute;
+     top: 64%;
+     left: 70.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d22{
+    position: absolute;
+     top: 64%;
+     left: 76%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .d23{
+    position: absolute;
+     top: 64%;
+     left: 80.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+/*PATIO E*/
+
+.e1{
+    position: absolute;
+     top: 75.5%;
+     left: 16.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e2{
+    position: absolute;
+     top: 74%;
+     left: 20.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e3{
+    position: absolute;
+     top: 74%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e4{
+    position: absolute;
+     top: 75%;
+     left: 30.7%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e5{
+    position: absolute;
+     top: 75%;
+     left: 33.7%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e6{
+    position: absolute;
+     top: 78%;
+     left: 20.8%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e7{
+    position: absolute;
+     top: 80%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e8{
+    position: absolute;
+     top: 82%;
+     left: 30.6%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e9{
+    position: absolute;
+     top: 80.5%;
+     left: 34.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e10{
+    position: absolute;
+     top: 67%;
+     left: 31%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e11{
+    position: absolute;
+     top: 83%;
+     left: 17.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e12{
+    position: absolute;
+     top: 84%;
+     left: 21.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e13{
+    position: absolute;
+     top: 85%;
+     left: 25.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .e14{
+    position: absolute;
+     top: 84.5%;
+     left: 35.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ /* PATIO F*/
+
+.f1{
+    position: absolute;
+     top: 75%;
+     left: 37%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f2{
+    position: absolute;
+     top: 75%;
+     left: 40.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f3{
+    position: absolute;
+     top: 75%;
+     left: 45%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f4{
+    position: absolute;
+     top: 82.5%;
+     left: 39%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .f5{
+    position: absolute;
+     top: 82.5%;
+     left: 45%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+  /* PATIO G*/
+
+.g1{
+    position: absolute;
+     top: 73.5%;
+     left: 52%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g2{
+    position: absolute;
+     top: 71%;
+     left: 56%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g3{
+    position: absolute;
+    top: 72%;
+     left: 60%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g4{
+    position: absolute;
+    top: 72%;
+     left: 63%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g5{
+    position: absolute;
+    top: 72%;
+     left: 66.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+.g6{
+    position: absolute;
+    top: 69.5%;
+     left: 70%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g7{
+    position: absolute;
+    top: 69.5%;
+     left: 76.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g8{
+    position: absolute;
+    top: 69.5%;
+     left: 81%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g9{
+    position: absolute;
+    top: 82%;
+     left: 52%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g10{
+    position: absolute;
+    top: 76%;
+     left: 57%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g11{
+    position: absolute;
+    top: 82%;
+     left: 62%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g12{
+    position: absolute;
+    top: 82%;
+     left: 66%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g13{
+    position: absolute;
+    top: 74%;
+     left: 71%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g14{
+    position: absolute;
+    top: 74%;
+     left: 75%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g15{
+    position: absolute;
+    top: 74%;
+     left: 78%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g16{
+    position: absolute;
+    top: 74%;
+     left: 81%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g17{
+    position: absolute;
+    top: 83%;
+     left: 57.5%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+
+ .g18{
+    position: absolute;
+    top: 79%;
+     left: 71%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g19{
+    position: absolute;
+    top: 79%;
+     left: 75%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g20{
+    position: absolute;
+    top: 79%;
+     left: 78%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g21{
+    position: absolute;
+    top: 79%;
+     left: 81%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g22{
+    position: absolute;
+    top: 84%;
+     left: 71%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g23{
+    position: absolute;
+    top: 84%;
+     left: 75%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g24{
+    position: absolute;
+    top: 84%;
+     left: 78%;
+     font-size: 12px;
+     font-weight: bold;
+ }
+ .g25{
+    position: absolute;
+    top: 84%;
+     left: 81%;
+     font-size: 12px;
+     font-weight: bold;
+ }
