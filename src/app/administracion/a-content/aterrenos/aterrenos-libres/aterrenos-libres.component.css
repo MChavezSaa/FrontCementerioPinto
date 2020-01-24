@@ -850,6 +850,7 @@
     font-weight: bold;
  }
  /* Patio B*/
+
  .b1{
     position: absolute;
     top: 399px;
@@ -908,327 +909,383 @@
  }
  .b9{
     position: absolute;
-     top: 479px;
+     top: 408px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
  .b10{
     position: absolute;
-    top: 479px;
+    top: 408px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
  .b11{
     position: absolute;
-    top: 479px;
+    top: 408px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
  .b12{
     position: absolute;
-    top: 479px;
+    top: 408px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
  .b13{
     position: absolute;
-     top: 479px;
+     top: 408px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
  .b14{
     position: absolute;
-     top: 479px;
+     top: 408px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
  .b15{
     position: absolute;
-     top: 479px;
+     top: 408px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
  .b16{
     position: absolute;
-     top: 479px;
+     top: 408px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
  }
  .b17{
     position: absolute;
-     top: 487px;
+     top: 417px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
  .b18{
     position: absolute;
-    top: 487px;
+    top: 417px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
  .b19{
     position: absolute;
-    top: 487px;
+    top: 417px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
  .b20{
     position: absolute;
-    top: 487px;
+    top: 417px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
  .b21{
     position: absolute;
-     top: 487px;
+     top: 417px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
  .b22{
     position: absolute;
-     top: 487px;
+     top: 417px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
  .b23{
     position: absolute;
-     top: 487px;
+     top: 417px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
  .b24{
     position: absolute;
-     top: 487px;
+     top: 417px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
  }
  .b25{
     position: absolute;
-     top: 496px;
+     top: 426px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
  .b26{
     position: absolute;
-    top: 496px;
+    top: 426px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
  .b27{
     position: absolute;
-    top: 496px;
+    top: 426px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
  .b28{
     position: absolute;
-    top: 496px;
+    top: 426px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
  .b29{
     position: absolute;
-     top: 496px;
+     top: 426px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
  .b30{
     position: absolute;
-     top: 496px;
+     top: 426px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
  .b31{
     position: absolute;
-     top: 496px;
+     top: 426px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
  .b32{
     position: absolute;
-     top: 496px;
+     top: 426px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
  }
- .b97{
+  .b33{
     position: absolute;
-     top: 505px;
+     top: 435px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
  .b34{
     position: absolute;
-    top: 505px;
+    top: 435px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
  .b35{
     position: absolute;
-    top: 505px;
+    top: 435px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
  .b36{
     position: absolute;
-    top: 505px;
+    top: 435px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
  .b37{
     position: absolute;
-     top: 505px;
+     top: 435px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
  .b38{
     position: absolute;
-     top: 505px;
+     top: 435px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
  .b39{
     position: absolute;
-     top: 505px;
+     top: 435px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
  .b40{
     position: absolute;
-     top: 505px;
+     top: 435px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
  }
  .b41{
     position: absolute;
-    top: 514px;
-    left: 148px;
+     top: 443px;
+     left: 148px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b42{
+    position: absolute;
+    top: 443px;
+    left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
- .b106{
+ .b43{
+    position: absolute;
+    top: 443px;
+    left: 185px;
+    font-size: 15px;
+    font-weight: bold;
+ }
+ .b44{
+    position: absolute;
+    top: 443px;
+    left: 200px;
+    font-size: 12px;
+    font-weight: bold;
+ }
+ .b45{
+    position: absolute;
+     top: 443px;
+     left: 222px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b46{
+    position: absolute;
+     top: 443px;
+     left: 237px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b47{
+    position: absolute;
+     top: 443px;
+     left: 258px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b48{
+    position: absolute;
+     top: 443px;
+     left: 273px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b49{
+    position: absolute;
+     top: 452px;
+     left: 148px;
+     font-size: 15px;
+     font-weight: bold;
+ }
+ .b50{
     position: absolute;
     top: 452px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
- .b107{
+ .b51{
     position: absolute;
     top: 452px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
- .b108{
+ .b52{
     position: absolute;
     top: 452px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
- .b109{
+ .b53{
     position: absolute;
      top: 452px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
- .b110{
+ .b54{
     position: absolute;
      top: 452px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
- .b111{
+ .b55{
     position: absolute;
      top: 452px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
- .b112{
+ .b56{
     position: absolute;
      top: 452px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
  }
- .b113{
+ .b57{
     position: absolute;
      top: 461px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
- .b114{
+ .b58{
     position: absolute;
     top: 461px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
- .b115{
+ .b59{
     position: absolute;
     top: 461px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
- .b116{
+ .b60{
     position: absolute;
     top: 461px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
- .b117{
+ .b61{
     position: absolute;
      top: 461px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
- .b118{
+ .b62{
     position: absolute;
      top: 461px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
- .b119{
+ .b63{
     position: absolute;
      top: 461px;
      left: 258px;
@@ -1256,20 +1313,14 @@
     font-size: 15px;
     font-weight: bold;
  }
- .b120{
+ .b67{
     position: absolute;
     top: 470px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
-
-
-
-
-
-  /* Patio C*/
-  .c1{
+ .b68{
     position: absolute;
     top: 470px;
     left: 200px;
@@ -1304,7 +1355,9 @@
      font-size: 15px;
      font-weight: bold;
  }
- .b73{
+ /*-------------------------------------------------------------*/
+
+  .b73{
     position: absolute;
      top: 479px;
      left: 148px;
@@ -1362,56 +1415,56 @@
  }
  .b81{
     position: absolute;
-     top: 488px;
+     top: 487px;
      left: 148px;
      font-size: 15px;
      font-weight: bold;
  }
  .b82{
     position: absolute;
-    top: 488px;
+    top: 487px;
     left: 163px;
     font-size: 15px;
     font-weight: bold;
  }
  .b83{
     position: absolute;
-    top: 488px;
+    top: 487px;
     left: 185px;
     font-size: 15px;
     font-weight: bold;
  }
  .b84{
     position: absolute;
-    top: 488px;
+    top: 487px;
     left: 200px;
     font-size: 12px;
     font-weight: bold;
  }
  .b85{
     position: absolute;
-     top: 488px;
+     top: 487px;
      left: 222px;
      font-size: 15px;
      font-weight: bold;
  }
  .b86{
     position: absolute;
-     top: 488px;
+     top: 487px;
      left: 237px;
      font-size: 15px;
      font-weight: bold;
  }
  .b87{
     position: absolute;
-     top: 488px;
+     top: 487px;
      left: 258px;
      font-size: 15px;
      font-weight: bold;
  }
  .b88{
     position: absolute;
-     top: 488px;
+     top: 487px;
      left: 273px;
      font-size: 15px;
      font-weight: bold;
@@ -1472,7 +1525,6 @@
      font-size: 15px;
      font-weight: bold;
  }
- /*  ----------------------------------------------------------------------------*/
  .b97{
     position: absolute;
      top: 505px;
@@ -1641,6 +1693,9 @@
     font-size: 15px;
     font-weight: bold;
  }
+
+
+
  /*PATIO C*/
  .c1{
    position: absolute;
