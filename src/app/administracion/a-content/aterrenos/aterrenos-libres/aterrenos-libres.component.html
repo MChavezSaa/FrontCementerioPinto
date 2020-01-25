@@ -1,4 +1,3 @@
-
 <!-- este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
 <br>
 <div class="container">
@@ -12,16 +11,16 @@
         </div>
         <div class="col-sm" *ngIf="service.hasRole('ROLE_ADMIN')">
           <button type="button" class="btn btn-outline-primary"
-          [routerLink]="['/administracion-inicio/ATerrenosOcupados/']">Ocupados</button>
+            [routerLink]="['/administracion-inicio/ATerrenosOcupados/']">Ocupados</button>
         </div>
         <div class="col-sm" *ngIf="service.hasRole('ROLE_ADMIN')">
           <button type="button" class="btn btn-outline-primary"
-          [routerLink]="['/administracion-inicio/ATerrenosReservados/']">Reservado</button>
+            [routerLink]="['/administracion-inicio/ATerrenosReservados/']">Reservado</button>
         </div>
       </div>
     </div>
   </div>
-  
+
   <br>
 
   <div class="row">
@@ -32,62 +31,78 @@
           <!--cambiar el ng for por el de la query -->
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">                             
-                <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
           <!--Fin Patio A-->
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
-            <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">              
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">              
+            <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!--Fin Patio B-->
 
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
-            <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba"> 
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">          
+            <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!--Fin Patio C-->
 
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
-            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba"> 
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">         
+            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!-- Fin Patio D-->
 
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
-            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba"> 
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">            
+            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
-            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba"> 
+            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
-              
+
             </div>
           </div>
           <!-- fin patio F-->
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
-            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba"> 
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">           
+            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!-- fin patio G-->
 
+          <!-- Patio H-->
+          <div *ngFor="let personH of peopleH; let i = index">
+            <div [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+            </div>
+          </div>
+          <!-- fin patio H-->
+           <!-- Patio H-->
+           <div *ngFor="let personI of peopleI; let i = index">
+            <div [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+            </div>
+          </div>
+          <!-- fin patio H-->
+
+
         </div>
       </div>
-    </div>   
+    </div>
   </div>
 </div><br>
 
