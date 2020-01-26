@@ -9,8 +9,8 @@
         </ol>
     </nav>
     <!--FIN MIGAS DE PAN-->
-<hr>
-<br>
+    <hr>
+    <br>
 
     <div class="container">
         <div class="row ">
@@ -47,6 +47,7 @@
                             <th scope="col">Tipo de tumba</th>
                             <th scope="col">Número de Tumba</th>
                             <th scope="col">Acciones</th>
+                            <th scope="col">Cuotas</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,18 +60,21 @@
                             <td>
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
-                                    data-target="#datosCliente"><i class="fas fa-eye"></i>
+                                    data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
+                                        class="fas fa-eye"></i>
                                 </button>
                                 &nbsp;
                                 <button type="button" name="editar" [routerLink]="['/personal-inicio/clientes-form']"
-                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                 &nbsp;
                                 <button type="button" name="eliminar" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i>
                                 </button>
-                                
-                                <!--,cli.id_cliente-->
-
+                            </td>
+                            <td> <button [routerLink]="['/administracion-inicio/CuotasContratoComponent/',ven.id_contrato]"
+                                type="button" name="eliminar" class="btn btn-success">
+                                <i class="fas fa-dollar-sign"></i>
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -95,31 +99,34 @@
 
             <div class="modal-body">
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></legend>
-                <label *ngFor="let ven of contratoList2">
-                    <b> Nombre:</b> {{ven.cliente.nombres_Cliente}}<br>
-                    <b>Apellidos:</b> {{ven.cliente.apellidoP_Cliente}} {{ven.cliente.apellidoM_Cliente}}<br>
-                    <b>Teléfono:</b> {{ven.cliente.telefono_Cliente}} <br>
-                    <b>Dirección:</b> {{ven.cliente.direccion_Cliente}} <br>
+                <label>
+                    <!--*ngFor="let ven of contratoList3"-->
+                    <b> Nombre:</b> {{getNombreCLiente()}}<br>
+                    <b>Apellidos:</b> {{getApellidos()}}<br>
+                    <b>Teléfono:</b> {{getTelefono()}} <br>
+                    <b>Dirección:</b> {{getDireccion()}} <br>
                 </label>
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos de a Compra</b></legend>
-                <label *ngFor="let ven of contratoList2">
-                   <!-- <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
-                    <b>Cementerio:</b> {{ven.cementerio.nombre_Cementerio}} <br>
-                    <b>Nombre del Terreno:</b> {{ven.terreno.nombre_Terreno}} <br>
-                    <b>Patio:</b> {{ven.patio.nombre_Patio}} <br>
-                    <b>Tipo de Tumba:</b> {{ven.tipoTumba.nombretipo_tumba}} <br>
-                    <b>Número de Tumba:</b> {{ven.tumba.numero_Tumba}} <br>
+                <label>
+                    <!--*ngFor="let ven of contratoList3"-->
+                    <!-- <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
+                    <b>Cementerio:</b> {{contratoModal.cementerio.nombre_Cementerio}} <br>
+                    <b>Nombre del Terreno:</b> {{contratoModal.terreno.nombre_Terreno}} <br>
+                    <b>Patio:</b> {{contratoModal.patio.nombre_Patio}} <br>
+                    <b>Tipo de Tumba:</b> {{contratoModal.tipoTumba.nombretipo_tumba}} <br>
+                    <b>Número de Tumba:</b> {{contratoModal.tumba.numero_Tumba}} <br>
                 </label>
-            <hr>
-            <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>
-                <label *ngFor="let ven of contratoList2">
-                  <!--  <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
-                    <b>Valor total Derecho:</b> {{ven.valor_Terreno}} <br>
-                    <b>Pago Inicial:</b> {{ven.pagoInicial}} <br>
-                    <b>Número de Cuotas:</b> {{ven.derecho.numero_Cuotas_Derecho}} <br>
-                    <b>Valor de Cuotas:</b> {{ven.derecho.valor_Cuota_Derecho}} <br>
-                    <b>Fecha de Pago:</b> {{ven.derecho.fecha_Pago_Derecho}} <br>
+                <hr>
+                <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>
+                <label>
+                    <!--*ngFor="let ven of contratoList3"-->
+                    <!--  <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
+                    <b>Valor total Derecho:</b> {{contratoModal.valor_Terreno}} <br>
+                    <b>Pago Inicial:</b> {{contratoModal.pagoInicial}} <br>
+                    <b>Número de Cuotas:</b> {{contratoModal.derecho.numero_Cuotas_Derecho}} <br>
+                    <b>Valor de Cuotas:</b> {{contratoModal.derecho.valor_Cuota_Derecho}} <br>
+                    <b>Fecha de Pago:</b> {{contratoModal.derecho.fecha_Pago_Derecho}} <br>
                 </label>
             </div>
 

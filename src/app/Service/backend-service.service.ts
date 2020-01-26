@@ -267,14 +267,14 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   }
 
   getContrato2ID(id: number): Observable<ContratoDos> {
-    return this.http.get<ContratoDos>(`${this.urlEndPoint}findcontratoV2/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.get<ContratoDos>(this.urlEndPoint+'findcontratoV2/'+id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
-        this.router.navigate(['/administracion-inicio/AVentas']);
+       // this.router.navigate(['/administracion-inicio/AVentas']);
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar', e.error.mensaje, 'error');
+       // Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -613,6 +613,14 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
+  getReservedTumbs() : Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listReservadoTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
+     catchError(e => {
+       this.isNoAutorizado(e);
+       return throwError(e);
+     })
+   );
+ }
   getfreeTumbs() : Observable<Tumba[]> {
      return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
       catchError(e => {

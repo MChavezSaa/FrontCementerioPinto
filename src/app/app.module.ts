@@ -71,6 +71,7 @@ import { AformTrasladoComponent } from './administracion/a-content/a-traslado/af
 import { SearchCementerioPipe } from './pipes/search-cementerio.pipe';
 import { SearchTerrenoPipe } from './pipes/search-terreno.pipe';
 import { SearchPatioPipe } from './pipes/search-patio.pipe';
+import { CuotasContratoComponent } from './administracion/a-content/cuotas-contrato/cuotas-contrato.component';
 
 
 const routes: Routes = [
@@ -362,6 +363,12 @@ const routes: Routes = [
         path: 'AFormularioTraslado/:id',
         component: AformTrasladoComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'CuotasContratoComponent/:id',
+        component: CuotasContratoComponent,
+        canActivate: [AuthGuard]
+
       }
 
     ]
@@ -435,7 +442,8 @@ const routes: Routes = [
     AformTrasladoComponent, 
     SearchCementerioPipe, 
     SearchTerrenoPipe, 
-    SearchPatioPipe    
+    SearchPatioPipe, 
+    CuotasContratoComponent    
   ],
   imports: [
     BrowserModule,
