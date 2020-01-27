@@ -829,4 +829,17 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
     );
   }
 
+  updateDifunto(difunto: Difunto, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updateDifunto/${id}`, difunto, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el difunto', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
 }
