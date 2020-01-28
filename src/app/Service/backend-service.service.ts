@@ -20,6 +20,7 @@ import { Traslado } from '../Entidades/Traslado';
 import { ContratoDos } from '../Entidades/ContratoDos';
 import { CuotasMantencion } from '../Entidades/CuotasMantencion';
 import { pagosMantencion } from '../Entidades/PagosMantencion';
+import { pagoDerecho } from '../Entidades/pagoDerecho';
 
 
 @Injectable({
@@ -834,6 +835,18 @@ export class BackendServiceService {
 
   getCuotasMantencion(id: number): Observable<pagosMantencion[]> {
     return this.http.get<pagosMantencion[]>(this.urlEndPoint + "listCuotasPorIDClienteEnContrato/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          if (this.isNoAutorizado(e)) {
+            return throwError(e);
+          }                    
+          return throwError(e);
+        })
+      );
+  }
+
+  getCuotasDerecho(id: number): Observable<pagoDerecho[]> {
+    return this.http.get<pagoDerecho[]>(this.urlEndPoint + "listCuotasDerecho/" + id,
       { headers: this.agregarAuthorizationHeader() }).pipe(
         catchError(e => {
           if (this.isNoAutorizado(e)) {

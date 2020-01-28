@@ -31,23 +31,20 @@
                 <table class="table table-hover" style="text-align: center">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Numero</th>
                             <th scope="col">Fecha de Pago</th>
                             <th scope="col">Valor Cuota</th>
                             <th scope="col">Pagar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <!--*ngFor="let ven of contratoList2 ; let i = index | filter2: searchText2"-->
+                        <tr *ngFor="let ven of contratoParams2 ;">
+                            <!---->
+
                             <td>
-                                <label for="">aa</label>
+                                {{ven.fechaVencimiento_Derecho}}
                             </td>
                             <td>
-                                <label for="">aa</label>
-                            </td>
-                            <td>
-                                <label for="">aa</label>
+                                {{ven.valorCuota_Derecho}}
                             </td>
                             <td>
 
@@ -71,16 +68,22 @@
                 <table class="table table-hover" style="text-align: center">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Numero</th>
+                            <!--<th scope="col">Numero</th>-->
                             <th scope="col">Fecha de Pago</th>
                             <th scope="col">Valor Cuota</th>
                             <th scope="col">Pagar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ><!--*ngFor="let cuotas of contratoParams | filter2: searchText2"-->
-                            
-                            
+                        <tr *ngFor="let cuotas of contratoParams ">
+                            <!---->
+
+                            <td>
+                                {{cuotas.fechaVencimiento_Mantencion}}
+                            </td>
+                            <td>
+                                {{cuotas.valorCuota_Mantencion}}
+                            </td>
                             <td>
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
                                     data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
