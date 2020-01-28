@@ -664,7 +664,7 @@ export class BackendServiceService {
     );
   }
   saveTumba(tumba: Tumba): Observable<Tumba> {
-    return this.http.post(this.urlEndPoint + "saveTipoTumba", tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.post(this.urlEndPoint + "saveTumbas", tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.tumba as Tumba),
       catchError(e => {
         if (this.isNoAutorizado(e)) {

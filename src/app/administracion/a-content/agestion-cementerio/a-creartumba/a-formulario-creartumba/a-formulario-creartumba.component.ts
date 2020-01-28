@@ -18,12 +18,12 @@ export class AFormularioCreartumbaComponent implements OnInit {
   formCreaTumba: FormGroup;
   creaTumbaParams: Tumba = new Tumba();
 
-  constructor(private service: BackendServiceService, 
+  constructor(private service: BackendServiceService,
     private formBuilder: FormBuilder,
-    private router: Router, 
-    private activatedRoute: ActivatedRoute) 
-    { 
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
     this.formCreaTumba = this.formBuilder.group({
+      nombre_Patio: [''],
       numero_Tumba: ['', [Validators.required]],
       tipo_Tumba: ['', [Validators.required]],
       estado_Tumba: ['', [Validators.required]],
@@ -32,7 +32,7 @@ export class AFormularioCreartumbaComponent implements OnInit {
       ancho: ['', [Validators.required]]
     });
 
-    }
+  }
 
   ngOnInit() {
     this.cargarCreaTumba();
@@ -44,12 +44,13 @@ export class AFormularioCreartumbaComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getTumbasPorID(id).subscribe((creaT) => this.creaTumbaParams = creaT)
-        console.log(this.creaTumbaParams);
+        this.service.getTumbasPorID(id).subscribe((creaT) => {
+          this.creaTumbaParams = creaT;
+          console.log(this.creaTumbaParams.patio.nombre_Patio);
+        })
       }
     })
   }
-
   public createCreaTumba(): void {
     this.service.saveTumba(this.formCreaTumba.value)
       .subscribe(
