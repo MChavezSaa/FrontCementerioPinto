@@ -3,8 +3,7 @@
         <!--MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a style="color:#1d87f8" data-toggle="modal"
-                    data-target="#exampleModal">Difuntos</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AformularioDifuntos']" href="#" (click)="cancelarDifunto()">Difuntos</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Difuntos</li>
         </ol>
     </nav>
