@@ -23,7 +23,7 @@ export class AFormularioCreartumbaComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
     this.formCreaTumba = this.formBuilder.group({
-      patio: ['', [Validators.required]],
+      nombre_Patio: [''],
       numero_Tumba: ['', [Validators.required]],
       tipo_Tumba: ['', [Validators.required]],
       estado_Tumba: ['', [Validators.required]],

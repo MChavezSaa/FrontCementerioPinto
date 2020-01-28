@@ -33,6 +33,7 @@
                         formControlName="numero_Tumba"
                             [(ngModel)]="creaTumbaParams.numero_Tumba" readonly>
                     </div>
+
                     <!-- <select formControlName="numero_Tumba" [(ngModel)]="creaTumbaParams.numero_Tumba" class="form-control" id="exampleFormControlSelect1"  >
                             <option value="" selected disabled>Seleccione número de Tumba </option>
                             <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.patio.nombre_Patio}} - Número {{l.numero_Tumba}}</option>
@@ -66,6 +67,7 @@
                             <label for="exampleFormControlSelect1"> Orientación de la tumba</label>
                             <select class="form-control" id="orientacion_Tumba" formControlName="orientacion_Tumba" [(ngModel)]="creaTumbaParams.orientacion_Tumba">
                                 <option value="" selected disabled>Seleccione una orientación</option>
+                                <option> Por Definir</option>
                                 <option> Norte - Sur</option>
                                 <option> Sur - Norte</option>
                                 <option> Este - Oeste</option>
