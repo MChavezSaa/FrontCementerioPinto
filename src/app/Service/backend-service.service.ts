@@ -18,6 +18,8 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { Difunto } from '../Entidades/Difunto';
 import { Traslado } from '../Entidades/Traslado';
 import { ContratoDos } from '../Entidades/ContratoDos';
+import { CuotasMantencion } from '../Entidades/CuotasMantencion';
+import { pagosMantencion } from '../Entidades/PagosMantencion';
 
 
 @Injectable({
@@ -40,10 +42,10 @@ export class BackendServiceService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  private agregarAuthorizationHeader(){
+  private agregarAuthorizationHeader() {
     let token = this.token;
-    if(token != null){
-      return this.httpHeaders.append('Authorization', 'Bearer '+token);
+    if (token != null) {
+      return this.httpHeaders.append('Authorization', 'Bearer ' + token);
     }
     return this.httpHeaders;
   }
@@ -68,16 +70,16 @@ export class BackendServiceService {
     return null;
   }
 
-  hasRole(role :string):boolean{
-    if(this.usuario.roles.includes(role)){
+  hasRole(role: string): boolean {
+    if (this.usuario.roles.includes(role)) {
       return true;
     }
     return false;
   }
 
-  logout():void{
-    this._token= null;
-    this._usuario= null;
+  logout(): void {
+    this._token = null;
+    this._usuario = null;
     sessionStorage.clear();
   }
 
@@ -99,9 +101,9 @@ export class BackendServiceService {
     return this.http.post<any>(urlEndPoint2, params.toString(), { headers: httpHeaders });
   }
 
-  isAuthenticated(): boolean{
+  isAuthenticated(): boolean {
     let payload = this.obtenerDatosToken(this.token);
-    if(payload!= null && payload.user_name && payload.user_name.length>0){
+    if (payload != null && payload.user_name && payload.user_name.length > 0) {
       return true;
     }
     return false;
@@ -121,7 +123,7 @@ export class BackendServiceService {
     sessionStorage.setItem('token', accessToken);
   }
   obtenerDatosToken(accessToken: string): any {
-    if (accessToken != null) { 
+    if (accessToken != null) {
       return JSON.parse(atob(accessToken.split(".")[1]));
     }
     return null;
@@ -130,7 +132,7 @@ export class BackendServiceService {
 
   private isNoAutorizado(e): boolean {
     if (e.status == 401 || e.status == 402) {
-      if(this.isAuthenticated()){
+      if (this.isAuthenticated()) {
         this.logout();
       }
       this.router.navigate(['/personal'])
@@ -138,21 +140,21 @@ export class BackendServiceService {
     }
     return false;
   }
-/*TRASLADO */
+  /*TRASLADO */
 
-saveTraslado(traslado: Traslado): Observable<Traslado> {
-  return this.http.post(this.urlEndPoint + "saveTraslado", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
-    map((response: any) => response.traslado as Traslado),
-    catchError(e => {
-      if (this.isNoAutorizado(e)) {
+  saveTraslado(traslado: Traslado): Observable<Traslado> {
+    return this.http.post(this.urlEndPoint + "saveTraslado", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.traslado as Traslado),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el traslado', e.error.mensaje, 'error');
         return throwError(e);
-      }
-      console.error(e.error.mensaje);
-      Swal.fire('Error al crear el traslado', e.error.mensaje, 'error');
-      return throwError(e);
-    })
-  );
-}
+      })
+    );
+  }
 
   /*CLIENTES*/
 
@@ -160,7 +162,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
     return this.http.get<Cliente>(this.urlEndPoint + "findCliente/" + id, { headers: this.agregarAuthorizationHeader() });
   }
   getClientes(): Observable<Cliente[]> {
-    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Cliente[]>(this.urlEndPoint + "listClientes", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -180,7 +182,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
     );
   }
   saveCliente(cliente: Cliente): Observable<Cliente> {
-    return this.http.post(this.urlEndPoint + "saveCliente", cliente, {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.post(this.urlEndPoint + "saveCliente", cliente, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.cliente as Cliente),
       catchError(e => {
 
@@ -267,14 +269,14 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   }
 
   getContrato2ID(id: number): Observable<ContratoDos> {
-    return this.http.get<ContratoDos>(this.urlEndPoint+'findcontratoV2/'+id, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.get<ContratoDos>(this.urlEndPoint + 'findcontratoV2/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
-       // this.router.navigate(['/administracion-inicio/AVentas']);
+        // this.router.navigate(['/administracion-inicio/AVentas']);
         console.error(e.error.mensaje);
-       // Swal.fire('Error al editar', e.error.mensaje, 'error');
+        // Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
@@ -282,14 +284,14 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /* FUNCIONARIO  */
 
   getFuncionarios(): Observable<Funcionario[]> {
-    return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Funcionario[]>(this.urlEndPoint + "listFuncionarios", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
       })
     );
   }
-  getFuncionariosPorID(id: number): Observable<Funcionario>{
+  getFuncionariosPorID(id: number): Observable<Funcionario> {
     return this.http.get<Funcionario>(this.urlEndPoint + "findFuncionario/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
 
@@ -304,7 +306,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
-  getFuncionariosPorRut(rut: string): Observable<Funcionario>{
+  getFuncionariosPorRut(rut: string): Observable<Funcionario> {
     return this.http.get<Funcionario>(this.urlEndPoint + "findByRutFuncionario/" + rut, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
 
@@ -318,8 +320,8 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
-  getFuncionarioBuscar(rut_Funcionario: String): Observable<Funcionario[]>{
-    return this.http.get<Funcionario[]>(this.urlEndPoint + "findByRutFuncionario/" + rut_Funcionario, {headers: this.agregarAuthorizationHeader()});
+  getFuncionarioBuscar(rut_Funcionario: String): Observable<Funcionario[]> {
+    return this.http.get<Funcionario[]>(this.urlEndPoint + "findByRutFuncionario/" + rut_Funcionario, { headers: this.agregarAuthorizationHeader() });
   }
   saveFuncionario(funcionario: Funcionario): Observable<Funcionario> {
     return this.http.post(this.urlEndPoint + "saveFuncionario", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
@@ -381,7 +383,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
-  updateTerreno(terreno: Terreno, id: number){
+  updateTerreno(terreno: Terreno, id: number) {
     return this.http.put<any>(`${this.urlEndPoint}updateTerreno/${id}`, terreno, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -407,21 +409,21 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
-  getTerrenoxID(id: number):Observable<Terreno>{      
-    
-    return this.http.get<Terreno>(`${this.urlEndPoint}findTerreno/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
-      catchError(e=>{
+  getTerrenoxID(id: number): Observable<Terreno> {
 
-        if(this.isNoAutorizado(e)){
+    return this.http.get<Terreno>(`${this.urlEndPoint}findTerreno/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
 
-        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        this.router.navigate(['/administracion-inicio/ACementerio']);
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar', e.error.mensaje,'error');
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
-      })  
-      
+      })
+
     );
   }
   deleteTerreno(id: number): Observable<Terreno> {
@@ -464,28 +466,28 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*PATIO*/  /**no existe update en patio */
 
   getPatio(): Observable<Patio[]> {
-    return this.http.get<Patio[]>(this.urlEndPoint + "listPatios", {headers:this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Patio[]>(this.urlEndPoint + "listPatios", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
       })
     );
   }
-  getPatioxID(id: number):Observable<Patio>{      
-    
-    return this.http.get<Patio>(`${this.urlEndPoint}findPatio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
-      catchError(e=>{
+  getPatioxID(id: number): Observable<Patio> {
 
-        if(this.isNoAutorizado(e)){
+    return this.http.get<Patio>(`${this.urlEndPoint}findPatio/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
 
-        this.router.navigate(['/administracion-inicio/APatio']); 
+        this.router.navigate(['/administracion-inicio/APatio']);
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar', e.error.mensaje,'error');
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
-      })  
-      
+      })
+
     );
   }
   savePatio(patio: Patio): Observable<Patio> {
@@ -555,7 +557,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*tipoTumba*/  /*tipo tumba no tiene delete */
 
   getTipoTumba(): Observable<TipoTumba[]> {
-    return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas", {headers:this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<TipoTumba[]>(this.urlEndPoint + "listTipotumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -606,23 +608,23 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {
-    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
       })
     );
   }
-  getReservedTumbs() : Observable<Tumba[]> {
-    return this.http.get<Tumba[]>(this.urlEndPoint + "listReservadoTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
-     catchError(e => {
-       this.isNoAutorizado(e);
-       return throwError(e);
-     })
-   );
- }
-  getfreeTumbs() : Observable<Tumba[]> {
-     return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", {headers: this.agregarAuthorizationHeader()}).pipe(
+  getReservedTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listReservadoTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  getfreeTumbs(): Observable<Tumba[]> {
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listFreeTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -689,28 +691,28 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*CEMENTERIO */
 
   getCementerio(): Observable<Cementerio[]> {
-    return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Cementerio[]>(this.urlEndPoint + "listCementerios", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
       })
     );
   }
-  getCementerioID(id: number):Observable<Cementerio>{      
-    
-    return this.http.get<Cementerio>(`${this.urlEndPoint}Cementerio/${id}`, {headers: this.agregarAuthorizationHeader()}).pipe(
-      catchError(e=>{
+  getCementerioID(id: number): Observable<Cementerio> {
 
-        if(this.isNoAutorizado(e)){
+    return this.http.get<Cementerio>(`${this.urlEndPoint}Cementerio/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+
+        if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
 
-        this.router.navigate(['/administracion-inicio/ACementerio']); 
+        this.router.navigate(['/administracion-inicio/ACementerio']);
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar', e.error.mensaje,'error');
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
-      })  
-      
+      })
+
     );
   }
   saveCementerio(cementerio: Cementerio): Observable<Cementerio> {
@@ -742,7 +744,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*Derecho */
 
   getDerecho(): Observable<Derecho[]> {
-    return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Derecho[]>(this.urlEndPoint + "listDerechos", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -777,7 +779,7 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   /*DIFUNTOS */
 
   getDifuntos(): Observable<Difunto[]> {
-    return this.http.get<Difunto[]>(this.urlEndPoint + "listDifuntos", {headers: this.agregarAuthorizationHeader()}).pipe(
+    return this.http.get<Difunto[]>(this.urlEndPoint + "listDifuntos", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -798,13 +800,13 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
     );
   }
 
-  subirFoto(archivo: File , id_Difunto): Observable<Difunto>{
-    
+  subirFoto(archivo: File, id_Difunto): Observable<Difunto> {
+
     let formData = new FormData();
     formData.append("archivo", archivo);
     formData.append("id", id_Difunto);
     return this.http.post(`${this.urlEndPoint}upload/`, formData).pipe(
-      map((response : any)=> response.difunto as Difunto ), 
+      map((response: any) => response.difunto as Difunto),
       catchError(e => {
         this.isNoAutorizado(e);
         Swal.fire('Error al crear el cementerio', e.error.mensaje, 'error');
@@ -815,9 +817,9 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
   getDifuntoPorID(id: number): Observable<Difunto> {
     return this.http.get<Difunto>(this.urlEndPoint + "findDifunto/" + id, { headers: this.agregarAuthorizationHeader() });
   }
- 
+
   reduccionDifunto(id: number): Observable<Difunto> {
-    return this.http.delete<Difunto>(this.urlEndPoint+ "DeleteDifunto/"+id, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.delete<Difunto>(this.urlEndPoint + "DeleteDifunto/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -827,6 +829,19 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
         return throwError(e);
       })
     );
+  }
+
+
+  getCuotasMantencion(id: number): Observable<pagosMantencion[]> {
+    return this.http.get<pagosMantencion[]>(this.urlEndPoint + "listCuotasPorIDClienteEnContrato/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          if (this.isNoAutorizado(e)) {
+            return throwError(e);
+          }                    
+          return throwError(e);
+        })
+      );
   }
 
   updateDifunto(difunto: Difunto, id: number): Observable<any> {
@@ -841,5 +856,4 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
-
 }
