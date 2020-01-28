@@ -8,6 +8,7 @@ export class Difunto {
     fecha_Nacimiento_Difunto:Date;
     fecha_Defuncion:Date;
     fecha_Inscripcion_Difunto:Date;
+    fecha_Entierro:Date;
     nombreC_Padre: string;
     nombreC_Madre: string;
    

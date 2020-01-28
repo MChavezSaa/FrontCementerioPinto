@@ -1,7 +1,9 @@
 .carousel-inner img {
     width: auto;
-    height: 360px;
-    max-height: 500px;   
+    height: auto;
+    max-height: 540px;
+   /* height: 360px;
+    max-height: 500px;*/   
  
 }
 .carousel-2,.carousel-3{ /*alinear texto de carousel a la parte superior*/

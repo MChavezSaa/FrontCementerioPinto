@@ -5,6 +5,7 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-a-fomulario-difunto',
   templateUrl: './a-fomulario-difunto.component.html',
@@ -13,11 +14,13 @@ import swal from 'sweetalert2';
 export class AFomularioDifuntoComponent implements OnInit {
 
   formDifunto: FormGroup;
+  difuntoParams: Difunto = new Difunto();
+
   difunto: Difunto;
   private fotoSeleccionada: File;
   difunto2 : Difunto;
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activeRoute: ActivatedRoute
+    private router: Router, private activatedRoute: ActivatedRoute
 
   ) {
     this.formDifunto = this.formBuilder.group({
@@ -44,8 +47,20 @@ export class AFomularioDifuntoComponent implements OnInit {
     });
   }
 
-  ngOnInit() {    
+  ngOnInit() {  
+    this.cargarDifunto();  
   }
+
+  public cargarDifunto(): void {
+    this.activatedRoute.params.subscribe(params => {
+      let id = params['id'];
+      if (id) {
+        this.service.getDifuntoPorID(id).subscribe((dif) => this.difuntoParams = dif)
+        console.log(this.difuntoParams);
+      }
+    })
+  }
+
   createDifunto(){
     this.service.saveDifunto(this.formDifunto.value)
       .subscribe(
@@ -58,5 +73,35 @@ export class AFomularioDifuntoComponent implements OnInit {
         console.log(err)
       }
     );
+  }
+
+  public update(): void {
+    this.service.updateDifunto(this.formDifunto.value, this.difuntoParams.id_Difunto)
+      .subscribe(
+        json => {
+          this.router.navigate(['/administracion-inicio/ADifuntos']);
+          swal.fire('Difunto Actualizado', `Se ha actualizado el difunto con Exito`, 'success');
+          this.difuntoParams = null;
+        },
+        err => {
+          console.log(err);
+        });
+  }
+
+  public cancelarDifunto() {
+    swal.fire({
+      title: 'Salir del formulario',
+      type: 'warning',
+      text: '¿Está seguro que desea salir del formulario de Ingreso de Difuntos?',
+
+      confirmButtonText: 'Yes ',
+      cancelButtonText: 'No',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then((result) => {
+      if (result.value) {
+        this.router.navigate(['/administracion-inicio/ADifuntos']);
+      }
+    })
   }
 }
