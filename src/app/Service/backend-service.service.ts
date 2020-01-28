@@ -18,6 +18,8 @@ import { identifierModuleUrl } from '@angular/compiler';
 import { Difunto } from '../Entidades/Difunto';
 import { Traslado } from '../Entidades/Traslado';
 import { ContratoDos } from '../Entidades/ContratoDos';
+import { CuotasMantencion } from '../Entidades/CuotasMantencion';
+import { pagosMantencion } from '../Entidades/PagosMantencion';
 
 
 @Injectable({
@@ -828,5 +830,16 @@ saveTraslado(traslado: Traslado): Observable<Traslado> {
       })
     );
   }
+
+  getCuotasMantencion(id:number): Observable<pagosMantencion[]> {
+    return this.http.get<pagosMantencion[]>(this.urlEndPoint + "listCuotasPorIDClienteEnContrato/"+ id, {headers: this.agregarAuthorizationHeader()}).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
+
 
 }
