@@ -138,8 +138,8 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" [disabled]="!formDifunto.valid" (click)='createDifunto()' class="btn btn-primary"
-                        *ngIf="!difuntoParams.id_Difunto else elseBlock">Guardar</button>
+                    <button type="submit"  (click)='createDifunto()' class="btn btn-primary"
+                        *ngIf="!difuntoParams.id_Difunto else elseBlock">Guardar</button> <!-- [disabled]="!formDifunto.valid"-->
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
                     </ng-template>
