@@ -1,0 +1,229 @@
+
+<div class="container">
+
+    <!--MIGAS DE PAN-->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/formularioVenta']"
+                    (click)="cancelarVenta()" href="#">Ventas</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Formulario Ventas</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+
+    <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
+    <hr style="color: black">
+    <div class="container">
+        <form novalidate>
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos Compra</h4>
+            </div>
+            &nbsp;
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label> Nombre Funcionario</label>
+                        <select id="func" name="funcionario" class="form-control" formControlName="nombres_Funcionario"
+                            [(ngModel)]="contratoParams.funcionario.nombres_Funcionario">
+                            <option value="" selected disabled>Seleccione Funcionario</option>
+                            <option *ngFor="let c of funcionarioList" [ngValue]="c">{{c.nombres_Funcionario}}</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="fecha_Ingreso_Venta"> Fecha Ingreso de venta</label>
+                        <input formControlName="fecha_Ingreso_Venta" id="fecha_Ingreso_Venta" class="form-control"
+                            type="date" name="fecha_Ingreso_Venta" [(ngModel)]="contratoParams.fecha_Ingreso_Venta">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label> Cementerio</label>
+                        <select id="cen" name="cementerio" class="form-control" formControlName="nombre_Cementerio"
+                            [(ngModel)]="contratoParams.cementerio.nombre_Cementerio">
+                            <option value="" selected disabled>Seleccione Cementerio</option>
+                            <option *ngFor="let cem of cementerioList" [ngValue]="cem">{{cem.nombre_Cementerio}}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label> Terreno</label>
+                        <select class="form-control" id="terr" name="terreno" formControlName="nombre_Terreno"
+                            [(ngModel)]="contratoParams.terreno.nombre_Terreno">
+                            <option value="" selected disabled>Seleccione Terreno </option>
+                            <option *ngFor="let ter of terrenoList" [ngValue]="ter">{{ter.nombre_Terreno}}</option>
+
+                        </select>
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label> Nombre de Patio</label>
+                        <select class="form-control" id="pat" name="patio" formControlName="nombre_Patio"
+                            [(ngModel)]="contratoParams.patio.nombre_Patio">
+                            <option value="" selected disabled>Seleccione Patio </option>
+                            <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label> Tipo de Tumba</label>
+                        <select class="form-control" id="tipoTumb" name="tipoTumba" formControlName="nombretipo_tumba"
+                            [(ngModel)]="contratoParams.tipoTumba.nombretipo_tumba">
+                            <option value="" selected disabled>Seleccione tipo de tumba </option>
+                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombretipo_tumba}}</option>
+
+                        </select>
+                    </div>
+
+                    <div class="col">
+                        <label> Número de Tumba</label>
+                        <select class="form-control" id="tumb" name="tumba" formControlName="numero_Tumba"
+                            [(ngModel)]="contratoParams.tumba.numero_Tumba">
+                            <option value="" selected disabled>Seleccione numero de Tumba </option>
+                            <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.numero_Tumba}}</option>
+
+                        </select>
+                        <!-- Agregar validacion con numeros solo con estado cero -->
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+
+
+
+
+                </div>
+            </div>
+
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos Cliente</h4>
+            </div>
+            &nbsp;
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                        <label> Rut Cliente</label>
+                        <select class="form-control" id="cliente1" name="cliente" formControlName="rut_Cliente"
+                            [(ngModel)]="contratoParams.cliente.rut_Cliente">
+                            <option value="" selected disabled>Seleccione cliente </option>
+                            <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
+
+                        </select>
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <label style="color: white"> _____________</label>
+                        </div>
+                        <div class="row">
+                            <!--<button type="button" class="btn btn-info "> Buscar </button>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="separacion" style="text-align: center">
+                <h4> &nbsp; Datos de Pago</h4>
+            </div>
+            &nbsp;
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label for="exampleFormControlSelect1"> Medio de Pago</label>
+                        <select class="form-control" id="medioPago" name="medio_Pago" formControlName="medio_Pago"
+                            [(ngModel)]="contratoParams.medio_Pago">
+                            <option value="" selected disabled>Seleccione medio de pago </option>
+                            <option> Efectivo</option>
+                            <option> Debito</option>
+                            <option> Crédito</option>
+                        </select>
+                        <!-- Agregar validacion con numeros solo con estado cero -->
+                    </div>
+                    <div class="col">
+                        <label> Valor Terreno</label>
+                        <input type="number" class="form-control" id="valorDerecho" name="valor_Terreno"
+                            placeholder="Ingrese el valor del derecho" formControlName="valor_Terreno"
+                            [(ngModel)]="contratoParams.valor_Terreno">
+                    </div>
+
+                    <div class="col">
+                        <label> Pago inicial</label>
+                        <input type="number" class="form-control" id="valorPagoInicial" name="pagoInicial"
+                            placeholder="Ingrese el valor del pago inicial" formControlName="pagoInicial"
+                            [(ngModel)]="contratoParams.pagoInicial">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label> Número de Cuotas</label>
+                        <input type="number" class="form-control" id="nroCuotas" name="nCuotas"
+                            placeholder="Ingrese número de cuotas" formControlName="n_Cuotas"
+                            [(ngModel)]="contratoParams.n_Cuotas">
+                    </div>
+                    <div class="col-2">
+                        <div class="row">
+                            <label style="color: white"> _____________</label>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-info " (click)="calcularValorCuota()"> Calcular
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="col-6">
+                        <label> Valor Cuota:</label>
+                        <div>
+                            <h1>{{show?'': returnCuota()}}</h1>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-4">
+                        <label> Dia para fecha de pago</label>
+                        <input type="date" class="form-control" id="fechaPago" name="fecha_Pago"
+                            data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
+                            formControlName="fecha_Pago" [(ngModel)]="contratoParams.fecha_Pago">
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col">
+                    <button (click)="cancelarVenta()" class="btn btn-danger">
+                        Cancelar </button>
+                </div>
+                <div class="col">
+                <button class="btn btn-primary" role="button" (click)='updateContrato2()'>Editar</button>
+                </div>
+            </div>
+
+
+
+        </form>
+        <br>
+
+
+    </div>
+</div>

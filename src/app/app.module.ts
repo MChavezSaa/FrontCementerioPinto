@@ -72,6 +72,7 @@ import { SearchCementerioPipe } from './pipes/search-cementerio.pipe';
 import { SearchTerrenoPipe } from './pipes/search-terreno.pipe';
 import { SearchPatioPipe } from './pipes/search-patio.pipe';
 import { CuotasContratoComponent } from './administracion/a-content/cuotas-contrato/cuotas-contrato.component';
+import { FormularioEditarventaComponent } from './administracion/a-content/a-venta/formulario-editarventa/formulario-editarventa.component';
 
 
 const routes: Routes = [
@@ -330,6 +331,16 @@ const routes: Routes = [
         canActivate:[AuthGuard]
       },
       {
+        path: 'formularioVenta/:id',
+        component: FormularioVentaComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'formularioEditarVenta/:id',
+        component: FormularioEditarventaComponent,
+        canActivate: [AuthGuard]
+      },
+      {
         path:'CCuotas',
         component: CCuotasComponent,
         canActivate:[AuthGuard]
@@ -443,7 +454,7 @@ const routes: Routes = [
     SearchCementerioPipe, 
     SearchTerrenoPipe, 
     SearchPatioPipe, 
-    CuotasContratoComponent    
+    CuotasContratoComponent, FormularioEditarventaComponent    
   ],
   imports: [
     BrowserModule,
