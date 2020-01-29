@@ -677,7 +677,7 @@ export class BackendServiceService {
     );
   }
   updateTumba(tumba: Tumba, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updateTumba/${id}`, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.put<any>(this.urlEndPoint+"updateTumba/"+id, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);

@@ -22,16 +22,16 @@
                 <div class="row">
                     <div class="col">
                         <label> Patio</label>
-                        <input type="text" style="text-align: right;"class="form-control" id="nombre_Patio" 
+                        <input [disabled]="true" type="text" style="text-align: right;"class="form-control" id="nombre_Patio" 
                         formControlName="nombre_Patio" 
-                        [(ngModel)]="creaTumbaParams.patio.nombre_Patio" readonly>    
+                        [(ngModel)]="creaTumbaParams.patio.nombre_Patio" >    
                     </div>
 
                     <div class="col">
                         <label> Número de Tumba</label>
-                        <input  type="text" style="text-align: right;" class="form-control" id="numero_Tumba" 
+                        <input [disabled]="true"  type="text" style="text-align: right;" class="form-control" id="numero_Tumba" 
                         formControlName="numero_Tumba"
-                            [(ngModel)]="creaTumbaParams.numero_Tumba" readonly>
+                            [(ngModel)]="creaTumbaParams.numero_Tumba" >
                     </div>
 
                     <!-- <select formControlName="numero_Tumba" [(ngModel)]="creaTumbaParams.numero_Tumba" class="form-control" id="exampleFormControlSelect1"  >

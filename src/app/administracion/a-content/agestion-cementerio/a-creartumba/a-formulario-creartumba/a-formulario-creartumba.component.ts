@@ -67,7 +67,14 @@ export class AFormularioCreartumbaComponent implements OnInit {
   }
 
   public updateCreaTumba(): void {
-    this.service.updateTumba(this.formCreaTumba.value, this.creaTumbaParams.id_Tumba)
+    let id ;
+
+    this.activatedRoute.params.subscribe(params => {
+      id = params['id'];
+    });
+
+    this.service.updateTumba(this.creaTumbaParams, 
+      id)
       .subscribe(
         json => {
           this.router.navigate(['/administracion-inicio/ACreaTumba']);
