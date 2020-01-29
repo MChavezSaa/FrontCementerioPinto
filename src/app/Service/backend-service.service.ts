@@ -845,6 +845,35 @@ export class BackendServiceService {
       );
   }
 
+  updatePM(pagosMantencion: pagosMantencion, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updatePagoMantencion/${id}`, 
+    pagosMantencion, 
+    { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  updatePD(pagosMantencion: pagoDerecho, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}updatePagoDerecho/${id}`, 
+    pagosMantencion, 
+    { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   getCuotasDerecho(id: number): Observable<pagoDerecho[]> {
     return this.http.get<pagoDerecho[]>(this.urlEndPoint + "listCuotasDerecho/" + id,
       { headers: this.agregarAuthorizationHeader() }).pipe(
@@ -869,4 +898,5 @@ export class BackendServiceService {
       })
     );
   }
+
 }
