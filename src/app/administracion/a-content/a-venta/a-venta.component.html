@@ -70,8 +70,13 @@
                                 <button type="button" name="eliminar" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i>
                                 </button>
+                                &nbsp;
+                                <button  [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]" type="button" name="pdf" class="btn btn-info">
+                                    <i class="fas fa-file-pdf"></i> 
+                                </button>
                             </td>
-                            <td> <button [routerLink]="['/administracion-inicio/CuotasContratoComponent/',ven.id_contrato]"
+                            <td> 
+                                <button [routerLink]="['/administracion-inicio/CuotasContratoComponent/',ven.id_contrato]"
                                 type="button" name="couta" class="btn btn-success">
                                 <i class="fas fa-dollar-sign"></i>
                                 </button>
