@@ -258,6 +258,35 @@ export class BackendServiceService {
     );
   }
 
+  updateContrato(contrato: Contrato, id: number): Observable<any> {
+    return this.http.put<any>(this.urlEndPoint + "updateContrato/" + id, contrato, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar el contrato de venta', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  getContratoPorID(id: number): Observable<Contrato> {
+
+    return this.http.get<Contrato>(`${this.urlEndPoint}findContrato/${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        // this.router.navigate(['/administracion-inicio/AVentas']);
+        console.error(e.error.mensaje);
+        Swal.fire('Error al editar', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+
+    );
+  }
+
   /* CONTRATO 2 */
 
   getContrato2(): Observable<ContratoDos[]> {
