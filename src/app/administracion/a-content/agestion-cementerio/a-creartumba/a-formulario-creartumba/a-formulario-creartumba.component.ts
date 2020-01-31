@@ -67,13 +67,13 @@ export class AFormularioCreartumbaComponent implements OnInit {
   }
 
   public updateCreaTumba(): void {
-    let id ;
+    let id;
 
     this.activatedRoute.params.subscribe(params => {
       id = params['id'];
     });
 
-    this.service.updateTumba(this.creaTumbaParams, 
+    this.service.updateTumba(this.creaTumbaParams,
       id)
       .subscribe(
         json => {
