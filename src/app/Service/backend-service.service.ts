@@ -37,6 +37,7 @@ export class BackendServiceService {
   private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
   private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
   private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
+  private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -635,6 +636,32 @@ export class BackendServiceService {
     );
   }
 
+  deleteTipoTumba(id: number): Observable<TipoTumba> {
+    return this.http.delete<TipoTumba>(`${this.urlEndPoint6}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Tipo de Tumba', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  cambiarEstadoTipoTumba(tipoTumba: TipoTumba, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}CambiaEstadoTipoTumba/${id}`, tipoTumba, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al cambiar el estado del tipo de tumba', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {

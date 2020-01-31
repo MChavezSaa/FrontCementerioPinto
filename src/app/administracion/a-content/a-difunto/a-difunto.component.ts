@@ -36,11 +36,11 @@ export class ADifuntoComponent implements OnInit {
 
     swalWithBootstrapButtons.fire({
       title: '¿Está seguro?',
-      text: `¿Está seguro que desea reduccir el difunto con ID: ${difunto.id_Difunto}?`,
+      text: `¿Está seguro que desea reducir al difunto ${difunto.nombres_Difunto} ${difunto.apellidoP_Difunto}?`,
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Si, eliminar!',
-      cancelButtonText: 'No, cancelar!',
+      confirmButtonText: 'Si, Reducir ',
+      cancelButtonText: 'No, Cancelar ',
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
@@ -48,8 +48,8 @@ export class ADifuntoComponent implements OnInit {
           response => {
            // this.difuntoList2 = this.difuntoList2.filter(fun => fun!== difunto)
             this.ngOnInit();
-            Swal.fire('Reduccion Satisfactoria', 
-            `se redujo el difunto con id ${difunto.id_Difunto}`,
+            Swal.fire('Reducción Satisfactoria', 
+              `Se redujo al difunto ${difunto.nombres_Difunto} ${difunto.apellidoP_Difunto}`,
             'success');
           }
         );

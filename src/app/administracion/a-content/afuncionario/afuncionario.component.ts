@@ -50,11 +50,11 @@ export class AFuncionarioComponent implements OnInit {
 
     swalWithBootstrapButtons.fire({
       title: '¿Está seguro?',
-      text: `¿Está seguro que desea eliminar el funcionario con ID: ${funcionario.id_funcionario}?`,
+      text: `¿Está seguro que desea eliminar al funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario}?`,
       type: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Si, eliminar!',
-      cancelButtonText: 'No, cancelar!',
+      confirmButtonText: 'Si, eliminar',
+      cancelButtonText: 'No, cancelar',
       reverseButtons: true
     }).then((result) => {
       if (result.value) {
@@ -63,7 +63,7 @@ export class AFuncionarioComponent implements OnInit {
             this.funcionarioList2 = this.funcionarioList2.filter(fun => fun!== funcionario)
             this.ngOnInit();
             Swal.fire('Eliminado Satisfactorio', 
-            `se elimino el funcionario con id ${funcionario.id_funcionario}`,
+              `Se elimino el funcionario al funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario}`,
             'success');
           }
         );
