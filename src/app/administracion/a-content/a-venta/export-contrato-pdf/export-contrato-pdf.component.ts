@@ -18,9 +18,13 @@ export class ExportContratoPDFComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  id: number;
   @ViewChild('content', {static: false}) content: ElementRef;
   exportar(){
+
+    this.activatedRoute.params.subscribe(params => {
+      this.id = params['id'];
+    })
     let doc = new jsPDF();
     let specialElementHandlers = {
       '#editor': function(ElementRef, renderer){
@@ -32,14 +36,15 @@ export class ExportContratoPDFComponent implements OnInit {
       'width':190,
       'elementHandlers': specialElementHandlers
     });
-    doc.save('exportado.pdf');
+    console.log(this.id);
+    doc.save('Contrato_'+this.id+'.pdf');
 
   }
   public cargarDifunto(): void {
     this.activatedRoute.params.subscribe(params => {
-      let id = params['id'];
-      if (id) {
-        this.service.getContratoXID(id).subscribe((dif) => this.contratoParams = dif)
+      this.id = params['id'];
+      if (this.id) {
+        this.service.getContratoXID(this.id).subscribe((dif) => this.contratoParams = dif)
         console.log(this.contratoParams);
       }
     })
