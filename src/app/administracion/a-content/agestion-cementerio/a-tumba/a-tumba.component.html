@@ -17,8 +17,8 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
                 </div>
-                <input type="text" class="form-control"
-                    placeholder="Filtrar por Nombre de Terreno" aria-describedby="basic-addon1">
+                <input type="text" class="form-control" [(ngModel)]="searchText8"
+                    placeholder="Filtrar por Nombre de Tipo de Tumba" aria-describedby="basic-addon1">
             </div>
             <div class="col-2"></div>
             <div class="col-6 text-right">
@@ -56,7 +56,7 @@
                                     </tr>
                                 </thead>                                
                                 <tbody>
-                                    <ng-container *ngFor="let ttb of tipotumbaList2">
+                                    <ng-container *ngFor="let ttb of tipotumbaList2 | filter8: searchText8 ">
                                     <tr *ngIf="ttb.estado_tipo_tumba==true" >
                                         <td>{{ttb.nombretipo_tumba}}</td>
                                         <td>{{ttb.capacidad_tipo_tumba}}</td>
@@ -92,7 +92,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <ng-container *ngFor="let ttb of tipotumbaList2">
+                                    <ng-container *ngFor="let ttb of tipotumbaList2 | filter8: searchText8">
                                         <tr *ngIf="ttb.estado_tipo_tumba==false">
                                             <td>{{ttb.nombretipo_tumba}}</td>
                                             <td>{{ttb.capacidad_tipo_tumba}}</td>

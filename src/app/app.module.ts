@@ -73,6 +73,7 @@ import { SearchTerrenoPipe } from './pipes/search-terreno.pipe';
 import { SearchPatioPipe } from './pipes/search-patio.pipe';
 import { CuotasContratoComponent } from './administracion/a-content/cuotas-contrato/cuotas-contrato.component';
 import { FormularioEditarventaComponent } from './administracion/a-content/a-venta/formulario-editarventa/formulario-editarventa.component';
+import { SearchTipotumbaPipe } from './pipes/search-tipotumba.pipe';
 
 
 const routes: Routes = [
@@ -448,13 +449,15 @@ const routes: Routes = [
     SearchNamePipe, 
     SearchVentaPipe, 
     SearchClientePipe, 
-    SearchDifuntoPipe, 
+    SearchDifuntoPipe,
+    SearchTipotumbaPipe,   
     ATrasladoComponent, 
     AformTrasladoComponent, 
     SearchCementerioPipe, 
     SearchTerrenoPipe, 
     SearchPatioPipe, 
-    CuotasContratoComponent, FormularioEditarventaComponent    
+    CuotasContratoComponent, 
+    FormularioEditarventaComponent 
   ],
   imports: [
     BrowserModule,

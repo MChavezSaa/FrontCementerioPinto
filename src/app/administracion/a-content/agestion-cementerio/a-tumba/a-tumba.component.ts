@@ -11,7 +11,8 @@ import Swal from 'sweetalert2';
 export class ATumbaComponent implements OnInit {
 
   tipotumbaList2: TipoTumba[] = [];
-  
+  searchText8: string;
+
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
