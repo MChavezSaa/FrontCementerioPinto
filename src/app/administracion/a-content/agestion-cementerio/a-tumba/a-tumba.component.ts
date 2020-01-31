@@ -43,7 +43,8 @@ export class ATumbaComponent implements OnInit {
 
     swalWithBootstrapButtons.fire({
       title: '¿Está seguro?',
-      text: `¿Está seguro que desea deshabilitar el tipo de tumba  ${tipoT.nombretipo_tumba} ?`,
+      text: `¿Está seguro que desea deshabilitar 
+      el tipo de tumba  ${tipoT.nombretipo_tumba} ?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, Deshabilitar ',
@@ -55,7 +56,7 @@ export class ATumbaComponent implements OnInit {
           response => {
             this.tipotumbaList2 = this.tipotumbaList2.filter(ter => ter !== tipoT)
             this.ngOnInit();
-            Swal.fire('Eliminado Satisfactoriamente',
+            Swal.fire('Deshabilitado Satisfactoriamente',
               `Se cambio de estado el tipo de tumba ${tipoT.nombretipo_tumba}`,
               'success');
           }
