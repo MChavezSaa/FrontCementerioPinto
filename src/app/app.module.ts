@@ -74,6 +74,8 @@ import { SearchPatioPipe } from './pipes/search-patio.pipe';
 import { CuotasContratoComponent } from './administracion/a-content/cuotas-contrato/cuotas-contrato.component';
 import { FormularioEditarventaComponent } from './administracion/a-content/a-venta/formulario-editarventa/formulario-editarventa.component';
 import { SearchTipotumbaPipe } from './pipes/search-tipotumba.pipe';
+import { CambiarPasswordComponent } from './administracion/a-content/cambiar-password/cambiar-password.component';
+import { ExportContratoPDFComponent } from './administracion/a-content/a-venta/export-contrato-pdf/export-contrato-pdf.component';
 
 
 const routes: Routes = [
@@ -381,7 +383,20 @@ const routes: Routes = [
         component: CuotasContratoComponent,
         canActivate: [AuthGuard]
 
+      },
+      {
+        path: 'cambiarPassword',
+        component: CambiarPasswordComponent,
+        canActivate: [AuthGuard]
+
+      },
+      {
+        path: 'exportPDF/:id',
+        component: ExportContratoPDFComponent,
+        canActivate: [AuthGuard]
+
       }
+      
 
     ]
   },
@@ -457,7 +472,9 @@ const routes: Routes = [
     SearchTerrenoPipe, 
     SearchPatioPipe, 
     CuotasContratoComponent, 
-    FormularioEditarventaComponent 
+    FormularioEditarventaComponent,
+     CambiarPasswordComponent, 
+     ExportContratoPDFComponent    
   ],
   imports: [
     BrowserModule,
