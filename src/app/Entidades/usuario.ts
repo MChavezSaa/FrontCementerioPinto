@@ -3,6 +3,7 @@ export class Usuario {
  username: string;
  password: string;
  enable: boolean;
+ nombre: string
  roles : string [] = [];
 
 }

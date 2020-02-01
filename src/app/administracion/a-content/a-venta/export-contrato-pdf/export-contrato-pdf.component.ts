@@ -4,6 +4,8 @@ import * as jsPDF from 'jspdf';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Contrato } from 'src/app/Entidades/Contrato';
+import html2canvas from 'html2canvas';
+
 
 
 @Component({
@@ -40,6 +42,27 @@ export class ExportContratoPDFComponent implements OnInit {
     doc.save('Contrato_'+this.id+'.pdf');
 
   }
+
+  public generatePDF() { 
+    this.activatedRoute.params.subscribe(params => {
+      this.id = params['id'];
+    })
+    var data = document.getElementById('content'); 
+    html2canvas(data).then(canvas => { 
+      // configuraciones de la pagina
+      var imgWidth = 208; 
+      var pageHeight = 295; 
+      var imgHeight = canvas.height * imgWidth / canvas.width; 
+      var heightLeft = imgHeight; 
+      
+      const contentDataURL = canvas.toDataURL('image/png') 
+      let pdf = new jsPDF('p', 'mm', 'a4'); // tamaaño A4 para pdf
+      var position = 0; 
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight) 
+      pdf.save('Contrato_'+this.id+'.pdf'); // generar PDF  
+    }); 
+  } 
+
   public cargarDifunto(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];

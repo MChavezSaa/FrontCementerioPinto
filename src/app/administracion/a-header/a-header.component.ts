@@ -25,11 +25,14 @@ export class AHeaderComponent implements OnInit {
     }
   }
   logout(): void {
-    let username = this.service.usuario.username;
+    let username = this.service.usuario.nombre;
     this.service.logout();
     this.router.navigateByUrl('/');
     Swal.fire('Cerrado de sesión satisfactorio', `Hasta pronto ${username}!`, 'success');
 
+  }
+  getNombre():  string{
+    return this.service.usuario.nombre;
   }
 
 }

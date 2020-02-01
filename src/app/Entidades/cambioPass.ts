@@ -1,5 +1,5 @@
 
 export class cambioPass{
-     contraseñaAntigua: string;
-     contraseñaNueva: string;
+     antigua: string;
+     nueva: string;
 }

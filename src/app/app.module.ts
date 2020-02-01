@@ -76,6 +76,7 @@ import { FormularioEditarventaComponent } from './administracion/a-content/a-ven
 import { SearchTipotumbaPipe } from './pipes/search-tipotumba.pipe';
 import { CambiarPasswordComponent } from './administracion/a-content/cambiar-password/cambiar-password.component';
 import { ExportContratoPDFComponent } from './administracion/a-content/a-venta/export-contrato-pdf/export-contrato-pdf.component';
+import { SearchTumbaPorPatioPipe } from './pipes/search-tumba-por-patio.pipe';
 
 
 const routes: Routes = [
@@ -471,10 +472,8 @@ const routes: Routes = [
     SearchCementerioPipe, 
     SearchTerrenoPipe, 
     SearchPatioPipe, 
-    CuotasContratoComponent, 
-    FormularioEditarventaComponent,
-     CambiarPasswordComponent, 
-     ExportContratoPDFComponent    
+    FormularioEditarventaComponent,   
+    CuotasContratoComponent, CambiarPasswordComponent, ExportContratoPDFComponent, SearchTumbaPorPatioPipe    
   ],
   imports: [
     BrowserModule,
