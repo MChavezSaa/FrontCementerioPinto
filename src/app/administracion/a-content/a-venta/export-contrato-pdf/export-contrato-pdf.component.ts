@@ -32,8 +32,8 @@ export class ExportContratoPDFComponent implements OnInit {
       }
     };
     let content  = this.content.nativeElement;
-    doc.fromHTML(content.innerHTML, 15 , 15, {
-      'width':190,
+    doc.fromHTML(content.innerHTML, 15 ,20, {
+      'width':250,
       'elementHandlers': specialElementHandlers
     });
     console.log(this.id);
