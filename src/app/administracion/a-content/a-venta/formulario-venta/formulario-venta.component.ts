@@ -95,7 +95,7 @@ export class FormularioVentaComponent implements OnInit {
   fun(id: number) {    
     this.tumbaListAux=[];
     for (let i = 0; i < this.tumbaList.length; i++) {
-      if(this.tumbaList[i].patio.id_Patio == id){
+      if(this.tumbaList[i].patio.id_Patio == id && this.tumbaList[i].estado_Tumba=="Disponible"){
           this.tumbaListAux.push(this.tumbaList[i]);
       }
     }
