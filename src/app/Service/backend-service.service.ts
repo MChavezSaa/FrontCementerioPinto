@@ -21,6 +21,7 @@ import { ContratoDos } from '../Entidades/ContratoDos';
 import { CuotasMantencion } from '../Entidades/CuotasMantencion';
 import { pagosMantencion } from '../Entidades/PagosMantencion';
 import { pagoDerecho } from '../Entidades/pagoDerecho';
+import { cambioPass } from '../Entidades/cambioPass';
 
 
 @Injectable({
@@ -116,12 +117,14 @@ export class BackendServiceService {
 
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
+    this._usuario.id_Usuario= payload.id;
+    this._usuario.nombre = payload.nombre;
     sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
-
   }
   guardarToken(accessToken: string): void {
     this._token = accessToken;
     sessionStorage.setItem('token', accessToken);
+     
   }
   obtenerDatosToken(accessToken: string): any {
     if (accessToken != null) {
@@ -908,6 +911,19 @@ export class BackendServiceService {
         }
         console.error(e.error.mensaje);
         Swal.fire('Error al editar el difunto', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+  cambioPass(cambioPass1: cambioPass, id:number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}cambioPass/${id}`, cambioPass1, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al cambiar la contraseña', e.error.mensaje, 'error');
         return throwError(e);
       })
     );

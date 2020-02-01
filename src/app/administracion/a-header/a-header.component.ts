@@ -31,5 +31,8 @@ export class AHeaderComponent implements OnInit {
     Swal.fire('Cerrado de sesión satisfactorio', `Hasta pronto ${username}!`, 'success');
 
   }
+  getNombre():  string{
+    return this.service.usuario.nombre;
+  }
 
 }

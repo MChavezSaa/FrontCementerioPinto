@@ -1,4 +1,4 @@
-import { Component, OnInit, ɵConsole } from '@angular/core';
+import { Component, OnInit, ɵConsole, OnChanges } from '@angular/core';
 import { Cementerio } from 'src/app/Entidades/Cementerio';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -20,63 +20,87 @@ import { Contrato } from '../../../../Entidades/Contrato';
   styleUrls: ['./formulario-venta.component.css']
 })
 export class FormularioVentaComponent implements OnInit {
-  cementerioList:Cementerio[] = [];
-  tipoTumbaList:TipoTumba[] = [];
+
+
+
+
+
+  cementerioList: Cementerio[] = [];
+  tipoTumbaList: TipoTumba[] = [];
   tumbaList: Tumba[] = [];
-  patioList: Patio[] =[];
-  clienteList: Cliente[] =[];
-  funcionarioList: Funcionario[]= [];
-  terrenoList: Terreno[]=[];
+  tumbaListAux: Tumba[] = [];
+  patioList: Patio[] = [];
+  clienteList: Cliente[] = [];
+  funcionarioList: Funcionario[] = [];
+  terrenoList: Terreno[] = [];
 
-  Show :Boolean = true;
-  valorCuota: number =0;
-  pagoDerecho :pagoDerecho;
+  Show: Boolean = true;
+  valorCuota: number = 0;
+  pagoDerecho: pagoDerecho;
 
- // formContrato: FormGroup;
-  private contrato2 :Contrato = new Contrato();
-  
+  // formContrato: FormGroup;
+  private contrato2: any = new Contrato();
+
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router:Router) { 
-     }
+    private router: Router) {
+      this.contrato2.tipoTumba= 0;
+      this.contrato2.funcionario =0;
+      this.contrato2.cliente =0;
+      this.contrato2.cementerio=0;
+      this.contrato2.terreno=0;
+      this.contrato2.patio=0;
+      this.contrato2.tumba=0;
+      this.contrato2.medio_Pago=0;
+  }
 
   ngOnInit() {
     this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
     this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
-    this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
+    this.service.getfreeTumbs().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
     this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
     this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
-    this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);    
+    this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
   }
 
-  calcularValorCuota(){
-   var nroCuotas = this.contrato2.n_Cuotas
-   var valTerr = this.contrato2.valor_Terreno
-   var pie = this.contrato2.pagoInicial
-   var resto = valTerr -pie;
-   var valCuotas = resto/nroCuotas;
-   this.contrato2.VCuotas = valCuotas;
-   this.valorCuota = valCuotas;
+  calcularValorCuota() {
+    var nroCuotas = this.contrato2.n_Cuotas
+    var valTerr = this.contrato2.valor_Terreno
+    var pie = this.contrato2.pagoInicial
+    var resto = valTerr - pie;
+    var valCuotas = resto / nroCuotas;
+    this.contrato2.VCuotas = valCuotas;
+    this.valorCuota = valCuotas;
   }
-  
-  returnCuota(){
+
+  returnCuota() {
     return this.valorCuota;
   }
-   saveContrato2(){
+  saveContrato2() {
     this.service.saveContrato(this.contrato2).subscribe(
-      contrato => {   
+      contrato => {
         //ver como tomar valor de nombre para funcion swal
         console.log(this.contrato2)
-        Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/AVentas']);  
+        Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');
+        this.router.navigate(['/administracion-inicio/AVentas']);
       },
-      err=>{
+      err => {
         console.log(err)
-      } 
+      }
     );
 
   }
+
+  fun(id: number) {    
+    this.tumbaListAux=[];
+    for (let i = 0; i < this.tumbaList.length; i++) {
+      if(this.tumbaList[i].patio.id_Patio == id){
+          this.tumbaListAux.push(this.tumbaList[i]);
+      }
+    }
+  }
+
 
   public cancelarVenta() {
     Swal.fire({
