@@ -100,7 +100,7 @@ export class FormularioVentaComponent implements OnInit {
       }
     }
   }
-
+ 
 
   public cancelarVenta() {
     Swal.fire({
