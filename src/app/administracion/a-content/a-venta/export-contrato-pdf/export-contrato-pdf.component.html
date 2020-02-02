@@ -1,10 +1,25 @@
+
+<div class="container">
+  <br>
+  <hr>
+  <div class="row" style="padding-left:90px ;">
+    <div>
+      <button (click)="generatePDF()">Exportar</button>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <div>
+      <button (click)="volver()">Volver</button>      
+    </div>
+  </div>
+<hr>
+</div>
 <div id='content' #content>
   <br><br><br>
   <div class="container">
     <div class="row">
-      <div class="col-1">
+      <div class="col-2">
       </div>
-      <div class="col-11" style="text-align: left;">
+      <div class="col-10" style="text-align: left;">
         <b>COMPRA DE TERRENO</b><br>
         <b>CEMENTERIO NUEVO DE PINTO</b>
       </div>
@@ -13,25 +28,26 @@
   <br><br><br>
   <div class="container">
     <div class="row">
-      <div class="col-1">
+      <div class="col-2">
       </div>
-      <div class="col-11" style="text-align: justify;">
+      <div class="col-10" style="text-align: justify;">
         <p>
           En Pinto con fecha "PASAR FECHA". Se realiza la compra de un terreno <br>
           en el cementerio nuevo de pinto por :
-          "NOMBRECLIENTE" "RUT", Patio: "PATIO" y Lote: "NUMERO TUMBA" por 20 años.<br>
+          {{contratoParams.cliente.nombres_Cliente}} {{contratoParams.cliente.apellidoP_Cliente}} {{contratoParams.cliente.apellidoM_Cliente}}  {{contratoParams.cliente.rut_Cliente}},<br>
+          Patio: {{contratoParams.patio.nombre_Patio}} y Lote: {{contratoParams.tumba.numero_Tumba}} por 20 años.<br>
           (Después de los 20 se hace renovación).
         </p>
         <p>
-          Medidas del terreno: Ancho "Ancho Tumba" X "Largo Tumba" largo.<br>
+          Medidas del terreno: Ancho {{contratoParams.tumba.ancho}} X {{contratoParams.tumba.largo}} largo.<br>
         </p>
         <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para "Capacidad" persona(después de 1 año se comienza a pagar mantencion)<br>
-          Terreno con un valor de "VALOR" pagado "MEDIOPAGO" "PIE" y la diferencia en "NumCuotas" de "VALORCUOTA" c/una  <br>
-          pagando los "FECHAPAGO" de cada mes.
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para {{contratoParams.tumba.tipo_Tumba.capacidad_tipo_tumba}} persona(s) (después de 1 año se comienza a pagar mantencion)<br>
+          Terreno con un valor de {{contratoParams.valor_Terreno}} pagado mediante {{contratoParams.medio_Pago | uppercase}} con un pago <br>
+          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias()}} de cada mes.
         </p>
         <p>
-          CELULAR: "TELEFONOCLIENTE" DIRECCION: "DIRECCION"<br>
+          CELULAR: {{contratoParams.cliente.telefono_Cliente}} DIRECCION: {{contratoParams.cliente.direccion_Cliente}}<br>
           (Plazo para construir 2 años desde la fecha de compra).
         </p>
       </div>
@@ -61,14 +77,6 @@
     </div>
   </div>
 </div>
+<br><br><br>
 
 
-
-<div>
-  <button (click)="generatePDF()">Exportar</button>
-</div><br><br><br>
-<!--
-
-
-
--->

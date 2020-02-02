@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ViewChild, ElementRef } from '@angular/core';
 import * as jsPDF from 'jspdf';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Contrato } from 'src/app/Entidades/Contrato';
 import html2canvas from 'html2canvas';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -18,7 +19,9 @@ export class ExportContratoPDFComponent implements OnInit {
   constructor(private service: BackendServiceService,
     private router: Router, private activatedRoute: ActivatedRoute) { }
 
+    
   ngOnInit() {
+    this.cargarContrato();
   }
   id: number;
   @ViewChild('content', {static: false}) content: ElementRef;
@@ -63,14 +66,28 @@ export class ExportContratoPDFComponent implements OnInit {
     }); 
   } 
 
-  public cargarDifunto(): void {
+  public cargarContrato(): void {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
       if (this.id) {
-        this.service.getContratoXID(this.id).subscribe((dif) => this.contratoParams = dif)
-        console.log(this.contratoParams);
+        this.service.getContratoXID(this.id).subscribe((dif) => {
+          this.contratoParams = dif;
+          console.log(this.contratoParams);
+        })
+        
       }
     })
   }
+
+  dias(){
+    var dia: Date = new Date(this.contratoParams.fecha_Pago);
+    console.log(dia.getDate());
+    return dia.getDate();
+  }
+  volver(){        
+    this.router.navigate(['/administracion-inicio/AVentas/']);
+  }
+  
+  
 
 }
