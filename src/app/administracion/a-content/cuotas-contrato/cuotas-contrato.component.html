@@ -14,12 +14,18 @@
     <hr>
     <br>
 
-    <div>
-        <i>
+
+
+    <div class="row" style="padding-left:90px ;">
+        <div class="col-2 text-left">
+            <button type="button" class="btn btn-info" (click)="volver()"> Volver </button>
+        </div>
+        <div class="col-8 text-center">
             <h3>Cuotas Contratos</h3>
-        </i>
-        &nbsp;
+        </div>
     </div>
+    <hr>
+
 
     <div class="card mb-3">
         <div class="card-header text-center">
@@ -48,9 +54,9 @@
                             </td>
                             <td>
 
-                                <button *ngIf="!ven.estadoCuota_Derecho == true"  type="button" class="btn btn-success" 
-                                (click)="pagarPD(ven, ven.id_PagosDerecho)">
-                                <i class="far fa-money-bill-alt"></i>
+                                <button *ngIf="!ven.estadoCuota_Derecho == true" type="button" class="btn btn-success"
+                                    (click)="pagarPD(ven, ven.id_PagosDerecho)">
+                                    <i class="far fa-money-bill-alt"></i>
                                 </button>
                         </tr>
                     </tbody>
@@ -85,9 +91,9 @@
                                 {{cuotas.valorCuota_Mantencion}}
                             </td>
                             <td>
-                                <button *ngIf="!cuotas.estadoCuota_Mantencion == true"  type="button" class="btn btn-success" 
-                                (click)="pagarPM(cuotas, cuotas.id_PagosMantencion)">
-                                <i class="far fa-money-bill-alt"></i>
+                                <button *ngIf="!cuotas.estadoCuota_Mantencion == true" type="button"
+                                    class="btn btn-success" (click)="pagarPM(cuotas, cuotas.id_PagosMantencion)">
+                                    <i class="far fa-money-bill-alt"></i>
                                 </button>
                             </td>
                         </tr>

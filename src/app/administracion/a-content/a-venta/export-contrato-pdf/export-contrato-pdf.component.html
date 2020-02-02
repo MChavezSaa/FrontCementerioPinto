@@ -3,12 +3,13 @@
   <br>
   <hr>
   <div class="row" style="padding-left:90px ;">
-    <div>
-      <button (click)="generatePDF()">Exportar</button>
+    <div class="col-4 text-left">
+      <button type="button" class="btn btn-info" 
+      (click)="volver()"> Volver </button>
     </div>
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <div>
-      <button (click)="volver()">Volver</button>      
+    <div class="col-4 text-right">
+      <button type="button" class="btn btn-info" 
+      (click)="generatePDF()"> Exportar </button>
     </div>
   </div>
 <hr>
@@ -44,10 +45,11 @@
         <p>
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para {{contratoParams.tumba.tipo_Tumba.capacidad_tipo_tumba}} persona(s) (después de 1 año se comienza a pagar mantencion)<br>
           Terreno con un valor de {{contratoParams.valor_Terreno}} pagado mediante {{contratoParams.medio_Pago | uppercase}} con un pago <br>
-          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias()}} de cada mes.
+          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias()}} <br> de cada mes.
         </p>
         <p>
-          CELULAR: {{contratoParams.cliente.telefono_Cliente}} DIRECCION: {{contratoParams.cliente.direccion_Cliente}}<br>
+          CELULAR: {{contratoParams.cliente.telefono_Cliente}} <br>
+          DIRECCION: {{contratoParams.cliente.direccion_Cliente}}<br>
           (Plazo para construir 2 años desde la fecha de compra).
         </p>
       </div>
@@ -76,7 +78,6 @@
       </div>      
     </div>
   </div>
--->
   
 </div>
 <br><br><br>

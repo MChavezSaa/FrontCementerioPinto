@@ -120,7 +120,6 @@
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
                                     <th scope="col">Acciones</th>
-                                    <th scope="col">Cuotas</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -136,24 +135,9 @@
                                                 (click)="cargarContrato(ven.id_contrato)"><i class="fas fa-eye"></i>
                                             </button>
                                             &nbsp;
-                                            <button type="button" name="editar"
-                                                [routerLink]="['/administracion-inicio/formularioEditarVenta/',ven.id_contrato]"
-                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                            &nbsp;
                                             <button type="button" name="eliminar" class="btn btn-success"
                                                 (click)="cambiaEstadoContrato(ven)">
                                                 <i class="fas fa-check-double"></i>
-                                            </button>
-                                            &nbsp;
-                                            <button [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]" type="button" name="pdf"
-                                                class="btn btn-info">
-                                                <i class="fas fa-file-pdf"></i>
-                                            </button>
-                                        </td>
-                                        <td>
-                                            <button [routerLink]="['/administracion-inicio/CuotasContratoComponent/',ven.id_contrato]" type="button"
-                                                name="couta" class="btn btn-success">
-                                                <i class="fas fa-dollar-sign"></i>
                                             </button>
                                         </td>
                                     </tr>

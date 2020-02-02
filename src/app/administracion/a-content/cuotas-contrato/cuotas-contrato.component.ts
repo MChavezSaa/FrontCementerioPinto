@@ -71,6 +71,9 @@ export class CuotasContratoComponent implements OnInit {
         });
   }
 
+  volver() {
+    this.router.navigate(['/administracion-inicio/AVentas/']);
+  }
   public cargarFuncionario(): void {
   
   }

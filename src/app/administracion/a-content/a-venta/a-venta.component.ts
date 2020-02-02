@@ -84,24 +84,4 @@ export class AVentaComponent implements OnInit {
         });
   }
 
-  /*
-    id_contrato2: number;
-    fecha_Ingreso_Venta: Date;
-    fecha_Pago: Date;
-    medio_Pago:string;
-    valor_Terreno: number;
-    pagoInicial:number;
-    n_Cuotas: number;
-    VCuotas: number;
-    
-    cementerio: Cementerio;
-    terreno: Terreno;
-    patio: Patio;
-    tumba: Tumba;
-    tipoTumba: TipoTumba;
-    cliente: Cliente;
-    funcionario:Funcionario;
-    derecho: Derecho;
-  */
-
 }
