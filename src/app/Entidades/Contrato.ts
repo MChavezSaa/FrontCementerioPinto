@@ -24,4 +24,5 @@ export class Contrato{
     tipoTumba: TipoTumba;
     cliente: Cliente;
     funcionario:Funcionario;
+    estado_contrato: boolean;
 }

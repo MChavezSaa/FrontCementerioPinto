@@ -39,6 +39,7 @@ export class BackendServiceService {
   private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
   private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
   private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
+  private urlEndPoint7: string = 'http://localhost:8080/DeleteContrato/';
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -290,7 +291,30 @@ export class BackendServiceService {
 
     );
   }
-
+  deleteContrato(id: number): Observable<Contrato> {
+    return this.http.delete<Contrato>(`${this.urlEndPoint7}${id}`, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al eliminar el Contrato', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  cambiarEstadoContrato(contrato: Contrato, id: number): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}CambiarEstadoContrato/${id}`, contrato, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al cambiar el estado del contrato', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
   /* CONTRATO 2 */
 
   getContrato2(): Observable<ContratoDos[]> {
