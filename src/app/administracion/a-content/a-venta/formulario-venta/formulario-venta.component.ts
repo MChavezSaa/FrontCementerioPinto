@@ -35,8 +35,15 @@ export class FormularioVentaComponent implements OnInit {
   terrenoList: Terreno[] = [];
 
   Show: Boolean = true;
+  doble: Boolean = false;
+  mostrarCliete : Boolean= false;
+  mostrarCuota : Boolean = false;
+
   valorCuota: number = 0;
   pagoDerecho: pagoDerecho;
+  tumba1: Tumba;
+  tumba2: Tumba;
+
 
   // formContrato: FormGroup;
   private contrato2: any = new Contrato();
@@ -52,6 +59,7 @@ export class FormularioVentaComponent implements OnInit {
       this.contrato2.patio=0;
       this.contrato2.tumba=0;
       this.contrato2.medio_Pago=0;
+     
   }
 
   ngOnInit() {
@@ -62,6 +70,14 @@ export class FormularioVentaComponent implements OnInit {
     this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
+  }
+
+  doble1(tipoTumba: TipoTumba){
+    if(tipoTumba.nombretipo_tumba=="Doble"){
+      this.doble=true;
+    }else{
+      this.doble=false;
+    }
   }
 
   calcularValorCuota() {
@@ -78,6 +94,14 @@ export class FormularioVentaComponent implements OnInit {
     return this.valorCuota;
   }
   saveContrato2() {
+    if(this.doble==true){
+  
+    let tumbasString  = this.tumba1.id_tumba+"-"+this.tumba2.id_tumba;
+     this.contrato2.tumba= tumbasString;
+    }else{
+     this.contrato2.tumba= this.tumba1.id_tumba;
+    }
+   
     this.service.saveContrato(this.contrato2).subscribe(
       contrato => {
         //ver como tomar valor de nombre para funcion swal
@@ -90,17 +114,8 @@ export class FormularioVentaComponent implements OnInit {
       }
     );
 
+  
   }
-
-  fun(id: number) {    
-    this.tumbaListAux=[];
-    for (let i = 0; i < this.tumbaList.length; i++) {
-      if(this.tumbaList[i].patio.id_Patio == id && this.tumbaList[i].estado_Tumba=="Disponible"){
-          this.tumbaListAux.push(this.tumbaList[i]);
-      }
-    }
-  }
- 
 
   public cancelarVenta() {
     Swal.fire({
@@ -119,6 +134,19 @@ export class FormularioVentaComponent implements OnInit {
     })
   }
 
-
+  mostrarClientes(){
+    if(this.contrato2.cliente!= null){
+        this.mostrarCliete = true;
+    }else{
+      this.mostrarCliete=false;
+    }
+  }
+  mostrarCuotas(){
+    if(this.contrato2.n_Cuotas>0){
+      this.mostrarCuota= true;
+    }else{
+      this.mostrarCuota=false;
+    }
+  }
 }
 

@@ -4,7 +4,7 @@ import { Patio } from './Patio';
 import { TipoTumba } from './TipoTumba';
 
 export class Tumba {    
-    id_Tumba: number;
+    id_tumba: number;
     numero_Tumba: number;
     valor_Tumba: number;
     //estado_Disponible: Boolean;

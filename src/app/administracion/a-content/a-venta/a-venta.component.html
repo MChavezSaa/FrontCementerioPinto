@@ -56,7 +56,7 @@
                             <td>{{ven.id_contrato}}</td>
                             <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                             <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
-                            <td>{{ven.tumba.numero_Tumba}}</td>
+                            <td>{{numerosTumba(ven)}}</td>
                             <td>
 
                                 <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -120,7 +120,7 @@
                     <b>Nombre del Terreno:</b> {{contratoModal.terreno.nombre_Terreno}} <br>
                     <b>Patio:</b> {{contratoModal.patio.nombre_Patio}} <br>
                     <b>Tipo de Tumba:</b> {{contratoModal.tipoTumba.nombretipo_tumba}} <br>
-                    <b>Número de Tumba:</b> {{contratoModal.tumba.numero_Tumba}} <br>
+                    <b>Número de Tumba:</b> {{numerosTumba(contratoModal)}} <br>
                 </label>
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>

@@ -20,7 +20,7 @@ export class Contrato{
     cementerio: Cementerio;
     terreno: Terreno;
     patio: Patio;
-    tumba: Tumba;
+    tumba: string;
     tipoTumba: TipoTumba;
     cliente: Cliente;
     funcionario:Funcionario;

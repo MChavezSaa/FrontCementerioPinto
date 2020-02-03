@@ -38,6 +38,8 @@ export class BackendServiceService {
   private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
   private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
   private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
+  ContratoList : Contrato[] =[];
+ 
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
