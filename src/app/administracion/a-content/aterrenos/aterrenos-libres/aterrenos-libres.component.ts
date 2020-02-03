@@ -41,6 +41,11 @@ export class ATerrenosLibresComponent implements OnInit {
   peopleK: Tumba[] = [];
   peopleL: Tumba[] = [];
 
+  MausoleoA: Tumba[] = [];
+  MausoleoB: Tumba[] = [];
+  MausoleoC: Tumba[] = [];
+  MausoleoD: Tumba[] = [];
+
   llenarListas() {
     for (let i = 0; i < this.TumbasLibresList.length; i++) {
       if (this.TumbasLibresList[i].patio.id_Patio == 1) {
@@ -78,6 +83,22 @@ export class ATerrenosLibresComponent implements OnInit {
                           } else {
                             if (this.TumbasLibresList[i].patio.id_Patio == 12) {
                               this.peopleL.push(this.TumbasLibresList[i]);
+                            } else {
+                              if (this.TumbasLibresList[i].patio.id_Patio == 13) {
+                                this.MausoleoA.push(this.TumbasLibresList[i]);
+                              } else {
+                                if (this.TumbasLibresList[i].patio.id_Patio == 14) {
+                                  this.MausoleoB.push(this.TumbasLibresList[i]);
+                                } else {
+                                  if (this.TumbasLibresList[i].patio.id_Patio == 15) {
+                                    this.MausoleoC.push(this.TumbasLibresList[i]);
+                                  } else {
+                                    if (this.TumbasLibresList[i].patio.id_Patio == 16) {
+                                      this.MausoleoD.push(this.TumbasLibresList[i]);
+                                    }
+                                  }
+                                }
+                              }
                             }
                           }
                         }
