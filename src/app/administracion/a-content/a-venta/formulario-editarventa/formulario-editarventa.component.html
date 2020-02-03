@@ -195,7 +195,7 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Dia para fecha de pago</label>
-                        <input type="date" class="form-control" id="fechaPago" name="fecha_Pago"
+                        <input [disabled]="true" type="date" class="form-control" id="fechaPago" name="fecha_Pago"
                             data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
                             [(ngModel)]="contrato2.fecha_Pago">
                     </div>
