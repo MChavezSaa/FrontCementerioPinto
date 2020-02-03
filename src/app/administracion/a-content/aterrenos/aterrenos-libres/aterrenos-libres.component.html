@@ -25,14 +25,17 @@
 
   <div class="row">
     <div class="col-8">
-      <div align="left">
+      <div align="left">                          
         <div class="container" align="center">
+          <img class="rosa" src="../assets/img/rosaPNG.png" alt=""  height="150px" width="150px" >
           <img src="../assets/img/cementerio2.jpg" alt="" width="910px" height="845px">
           <!--cambiar el ng for por el de la query -->
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" >
+              <div>
+                <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio A" >
+              </div>
             </div>
             <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
@@ -40,7 +43,7 @@
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
             <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio B">
             </div>
           </div>
           <!--Fin Patio B-->
@@ -48,7 +51,7 @@
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
             <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio c">
             </div>
           </div>
           <!--Fin Patio C-->
@@ -56,7 +59,7 @@
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
             <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio D">
             </div>
           </div>
           <!-- Fin Patio D-->
@@ -64,14 +67,14 @@
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
             <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;"data-toggle="tooltip" data-placement="top" title="Patio E">
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
             <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio F">
 
             </div>
           </div>
@@ -79,7 +82,7 @@
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
             <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio G">
             </div>
           </div>
           <!-- fin patio G-->
@@ -87,14 +90,14 @@
           <!-- Patio H-->
           <div *ngFor="let personH of peopleH; let i = index">
             <div [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio H">
             </div>
           </div>
           <!-- fin patio H-->
            <!-- Patio i-->
            <div *ngFor="let personI of peopleI; let i = index">
             <div [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio I">
             </div>
           </div>
           <!-- fin patio I-->
@@ -102,7 +105,7 @@
           <!-- Patio J-->
           <div *ngFor="let personJ of peopleJ; let i = index">
             <div [id]="'I' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio J">
             </div>
           </div>
           <!-- fin patio J-->
@@ -110,14 +113,14 @@
           <!-- Patio K-->
           <div *ngFor="let personK of peopleK; let i = index">
             <div [id]="'I' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio K">
             </div>
           </div>
           <!-- fin patio K-->
           <!-- Patio L-->
           <div *ngFor="let personL of peopleL; let i = index">
             <div [id]="'I' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio L">
             </div>
           </div>
           <!-- fin patio L-->

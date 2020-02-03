@@ -5,6 +5,12 @@
     display: inline-block;
     text-align: center;
 }
+.rosa{
+   position: absolute;
+    top: 60px;
+    left: 148px;    
+    
+}
  /*PATIO A*/
 .a1{
     position: absolute;
