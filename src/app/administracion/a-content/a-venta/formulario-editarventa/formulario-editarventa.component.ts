@@ -37,31 +37,31 @@ export class FormularioEditarventaComponent implements OnInit {
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute) {
-     }
-
-  ngOnInit() {
-      this.cargarContrato();
-      this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
-      this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
-      this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
-      this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
-      this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
-      this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
-      this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);    
   }
 
-  public cargarContrato(): void {
+  ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getContratoPorID(id).subscribe((con) => this.contratoParams = con)
-        console.log(this.contratoParams);
+        this.service.getContratoPorID(id).subscribe(con => {
+          this.contratoParams = con;
+          console.log(this.contratoParams);
+          this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
+          this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
+          this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
+          this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
+          this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
+          this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
+          this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
+        })
       }
-    })
+    });
+
   }
 
+
   public updateContrato(): void {
-    this.service.updateContrato(this.contrato2, this.contratoParams.id_contrato)
+    this.service.updateContrato(this.contratoParams, this.contratoParams.id_contrato)
       .subscribe(
         json => {
           this.router.navigate(['/administracion-inicio/AVentas']);
