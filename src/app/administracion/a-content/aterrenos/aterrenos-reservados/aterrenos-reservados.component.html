@@ -101,7 +101,7 @@
 
           <!-- Patio J-->
           <div *ngFor="let personJ of peopleJ; let i = index">
-            <div [id]="'I' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
+            <div [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
@@ -109,18 +109,50 @@
 
           <!-- Patio K-->
           <div *ngFor="let personK of peopleK; let i = index">
-            <div [id]="'I' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
+            <div [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!-- fin patio K-->
           <!-- Patio L-->
           <div *ngFor="let personL of peopleL; let i = index">
-            <div [id]="'I' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
+            <div [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
               <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;">
             </div>
           </div>
           <!-- fin patio L-->
+
+          <!-- Mausoleo A-->
+          <div *ngFor="let mauA of MausoleoA; let i = index">
+            <div [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 76px; height: 125px;">
+            </div>
+          </div>
+          <!-- Fin Mausoleo A-->
+          
+          <!-- Mausoleo B-->
+          <div *ngFor="let mauB of MausoleoB; let i = index">
+            <div [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 76px; height: 125px;">
+            </div>
+          </div>
+          <!-- Fin Mausoleo B-->
+          
+          <!-- Mausoleo C-->
+          <div *ngFor="let mauC of MausoleoC; let i = index">
+            <div [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 76px; height: 125px;">
+            </div>
+          </div>
+          <!-- Fin Mausoleo C-->
+          
+          <!-- Mausoleo D-->
+          <div *ngFor="let mauD of MausoleoD; let i = index">
+            <div [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
+              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 76px; height: 125px;">
+            </div>
+          </div>
+          <!-- Fin Mausoleo D-->
 
         </div>
       </div>

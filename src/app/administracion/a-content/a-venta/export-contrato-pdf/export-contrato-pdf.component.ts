@@ -38,9 +38,9 @@ export class ExportContratoPDFComponent implements OnInit {
       this.service.getContratoXID(this.id).subscribe(fun => {
         this.contratoParams = fun
         this.dias = new Date(this.contratoParams.fecha_Pago).getDate();
-        this.service.getTumbasPorID(Number(this.contratoParams.tumba.split("-")[1])).subscribe(lel => {
+        this.service.getTumbasPorID(Number(this.contratoParams.tumba.split("-")[0])).subscribe(lel => {
           this.tumbaL = lel
-          this.service.getfreeTumbs().subscribe(tumbaList1 => {
+          this.service.getTumba().subscribe(tumbaList1 => {
             this.tumbasList = tumbaList1
           });
         });

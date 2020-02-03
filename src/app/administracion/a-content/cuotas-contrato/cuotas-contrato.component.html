@@ -55,7 +55,7 @@
                             <td>
 
                                 <button *ngIf="!ven.estadoCuota_Derecho == true" type="button" class="btn btn-success"
-                                    (click)="pagarPD(ven, ven.id_PagosDerecho)">
+                                    (click)="confirmarD(ven, ven.id_PagosDerecho)">
                                     <i class="far fa-money-bill-alt"></i>
                                 </button>
                         </tr>
@@ -92,7 +92,7 @@
                             </td>
                             <td>
                                 <button *ngIf="!cuotas.estadoCuota_Mantencion == true" type="button"
-                                    class="btn btn-success" (click)="pagarPM(cuotas, cuotas.id_PagosMantencion)">
+                                    class="btn btn-success" (click)="confirmarM(cuotas, cuotas.id_PagosMantencion)">
                                     <i class="far fa-money-bill-alt"></i>
                                 </button>
                             </td>
