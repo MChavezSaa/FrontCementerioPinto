@@ -89,7 +89,7 @@
                         
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">1</label>
                         <select class="form-control" id="tumb" name="tumba" [(ngModel)]="tumba1">
-                            <option [ngValue]="0" disabled selected>Seleccione numero de Tumba </option>
+                            <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let l of tumbaListAux " [ngValue]="l">{{l.numero_Tumba}}</option>
 
                         </select>
@@ -100,7 +100,7 @@
                         
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">2</label>
                         <select class="form-control" id="tumb" name="tumba" [(ngModel)]="tumba2">
-                            <option [ngValue]="0" disabled selected>Seleccione numero de Tumba </option>
+                            <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let lc of tumbaListAux " [ngValue]="lc">{{lc.numero_Tumba}}</option>
 
                         </select>
