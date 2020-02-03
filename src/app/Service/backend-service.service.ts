@@ -272,7 +272,7 @@ export class BackendServiceService {
           return throwError(e);
         }
         console.error(e.error.mensaje);
-        Swal.fire('Error al editar el contrato de venta', e.error.mensaje, 'error');
+        Swal.fire('Error al actualizar el contrato de venta', e.error.mensaje, 'error');
         return throwError(e);
       })
     );
