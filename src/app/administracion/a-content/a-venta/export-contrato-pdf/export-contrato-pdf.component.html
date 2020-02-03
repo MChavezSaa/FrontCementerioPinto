@@ -31,21 +31,21 @@
     <div class="row">
       <div class="col-2">
       </div>
-      <div class="col-10" style="text-align: justify;">
+      <div class="col-10" style="text-align: justify;" >
         <p>
-          En Pinto con fecha "PASAR FECHA". Se realiza la compra de un terreno <br>
+          En Pinto con fecha {{contratoParams.fecha_Ingreso_Venta}}. Se realiza la compra de un terreno <br>
           en el cementerio nuevo de pinto por :
           {{contratoParams.cliente.nombres_Cliente}} {{contratoParams.cliente.apellidoP_Cliente}} {{contratoParams.cliente.apellidoM_Cliente}}  {{contratoParams.cliente.rut_Cliente}},<br>
-          Patio: {{contratoParams.patio.nombre_Patio}} y Lote: {{contratoParams.tumba.numero_Tumba}} por 20 años.<br>
+          Patio: {{contratoParams.patio.nombre_Patio}} y Lote: {{contratoParams.tumba}} por 20 años.<br>
           (Después de los 20 se hace renovación).
         </p>
         <p>
-          Medidas del terreno: Ancho {{contratoParams.tumba.ancho}} X {{contratoParams.tumba.largo}} largo.<br>
+          Medidas del terreno: Ancho {{tumbaL.ancho}} X {{tumbaL.largo}} largo.<br>
         </p>
         <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para {{contratoParams.tumba.tipo_Tumba.capacidad_tipo_tumba}} persona(s) (después de 1 año se comienza a pagar mantencion)<br>
-          Terreno con un valor de {{contratoParams.valor_Terreno}} pagado mediante {{contratoParams.medio_Pago | uppercase}} con un pago <br>
-          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias()}} <br> de cada mes.
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para {{contratoParams.tipoTumba.capacidad_tipo_tumba}} persona(s) (después de 1 año se comienza a pagar mantencion)<br>
+          Terreno con un valor de ${{contratoParams.valor_Terreno}} pagado mediante {{contratoParams.medio_Pago | uppercase}}, con un pago <br>
+          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias}} de cada mes.
         </p>
         <p>
           CELULAR: {{contratoParams.cliente.telefono_Cliente}} <br>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendServiceService } from '../Service/backend-service.service';
 
 @Component({
   selector: 'app-administracion',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdministracionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service : BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getContrato().subscribe(cont => this.service.ContratoList=cont);
   }
 
 }
