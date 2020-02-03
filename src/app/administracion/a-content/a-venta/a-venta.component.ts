@@ -17,18 +17,29 @@ export class AVentaComponent implements OnInit {
   contratoModal: ContratoDos;
   tumbasList: Tumba[] = [];
   searchText2: string;
+  
+
   constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
-    this.service.getContrato().subscribe(contratoList1 => {
-      this.contratoList2 = contratoList1
-      console.log(this.contratoList2);
+    this.service.getTumba().subscribe(tumbasList1 => { 
+      this.tumbasList = tumbasList1       
+      this.service.getContrato().subscribe(contratoList1 => {
+        this.contratoList2 = contratoList1     
+        this.contratoList2.forEach(element => {
+          console.log(this.numerosTumba(element));
+          element.tumba= this.numerosTumba(element);
+          
+        });
+      });
     });
+    
     this.service.getContrato2().subscribe(contratoList1 => {
       this.contratoList3 = contratoList1
-      console.log(this.contratoList3);
+      
     });
-    this.service.getfreeTumbs().subscribe(tumbasList1 => { this.tumbasList = tumbasList1 });
+   
+    
   }
 
   cargarContrato(id: number) {
@@ -105,7 +116,7 @@ export class AVentaComponent implements OnInit {
         }
         if (this.tumbasList[i].id_tumba == Number(tumbas[1])) {
           tumba2 = this.tumbasList[i];
-        }
+        } 
       }
       return tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;
     } else {

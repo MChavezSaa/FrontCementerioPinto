@@ -37,7 +37,7 @@
             <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
                 aria-controls="nav-activo" aria-selected="true">Contratos Activos</a>
             <a class="nav-item nav-link" id="nav-inactivo-tab" data-toggle="tab" href="#nav-inactivo" role="tab"
-                aria-controls="nav-inactivo" aria-selected="false">Contratos Inactivos</a>
+                aria-controls="nav-inactivo" aria-selected="false">Contratos Eliminados</a>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
@@ -68,7 +68,7 @@
                                         <td>{{ven.id_contrato}}</td>
                                         <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
-                                        <td>{{numerosTumba(ven)}}</td>
+                                        <td>{{ven.tumba}}</td>
                                         <td>
                                             <button type="button" class="btn btn-primary" data-toggle="modal"
                                                 data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
@@ -135,10 +135,6 @@
                                                 (click)="cargarContrato(ven.id_contrato)"><i class="fas fa-eye"></i>
                                             </button>
                                             &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-success"
-                                                (click)="cambiaEstadoContrato(ven)">
-                                                <i class="fas fa-check-double"></i>
-                                            </button>
                                             <button [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]" type="button" name="pdf"
                                                 class="btn btn-info">
                                                 <i class="fas fa-file-pdf"></i>

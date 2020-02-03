@@ -13,6 +13,7 @@ import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { Terreno } from 'src/app/Entidades/Terreno';
 import { Contrato } from '../../../../Entidades/Contrato';
 import swal from 'sweetalert2';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-formulario-editarventa',
@@ -23,50 +24,100 @@ export class FormularioEditarventaComponent implements OnInit {
   cementerioList: Cementerio[] = [];
   tipoTumbaList: TipoTumba[] = [];
   tumbaList: Tumba[] = [];
+  tumbaListAux: Tumba[] = [];
   patioList: Patio[] = [];
   clienteList: Cliente[] = [];
   funcionarioList: Funcionario[] = [];
   terrenoList: Terreno[] = [];
-
   Show: Boolean = true;
-  valorCuota: number = 0;
+  doble: Boolean = false;
+  mostrarCliete: Boolean = false;
+  mostrarCuota: Boolean = false;
+  tumba1: any = new Tumba();
+  tumba2: any = new Tumba();
+  valorCuota: number =0;
   pagoDerecho: pagoDerecho;
 
-  contratoParams: Contrato = new Contrato();
-  private contrato2: Contrato = new Contrato();
+  private contrato2: any = new Contrato();
 
   constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute) {
+
   }
 
   ngOnInit() {
+    this.valorCuota = this.contrato2.VCuotas;
+    this.Show = true
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getContratoPorID(id).subscribe(con => {
-          this.contratoParams = con;
-          console.log(this.contratoParams);
-          this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
-          this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
-          this.service.getTumba().subscribe(tumbaList1 => this.tumbaList = tumbaList1);
-          this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
-          this.service.getClientes().subscribe(clienteList1 => this.clienteList = clienteList1);
-          this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
-          this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
-        })
+        this.service.getClientes().subscribe(clienteList1 => {
+          this.clienteList = clienteList1
+
+          this.service.getContratoPorID(id).subscribe(con => {
+            this.contrato2 = con;
+            this.service.getTumba().subscribe(tumbaList1 => {
+              this.tumbaList = tumbaList1
+              if (this.contrato2.tipoTumba.nombretipo_tumba == "Doble") {
+                this.doble = true;
+                let str = this.contrato2.tumba;
+                let tumbas = str.split("-");
+                
+                for (let i = 0; i < this.tumbaList.length; i++) {
+                  if (tumbas[0] == this.tumbaList[i].id_tumba) {
+                    this.tumba1 = this.tumbaList[i];
+                    
+                  }
+                  if (Number(tumbas[1]) == this.tumbaList[i].id_tumba) {
+                    this.tumba2 = this.tumbaList[i];
+                    
+                  }
+                }
+  
+              } else {
+                this.doble = false;
+                this.tumba1 = this.tumbaList[Number(this.contrato2.tumba)];
+              }  
+            });        
+
+            this.clienteList.forEach(element => {
+              if (element.id_Cliente == con.cliente.id_Cliente) {
+                this.contrato2.cliente = element;
+              }
+            });
+            this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
+            this.service.getTipoTumba().subscribe(tipoTumbaList1 => this.tipoTumbaList = tipoTumbaList1);
+
+            this.service.getPatio().subscribe(patioList1 => this.patioList = patioList1);
+            this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
+            this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList = funcionarioList1);
+          })
+        });
+
+
       }
     });
 
   }
 
 
+  doble1(tipoTumba: TipoTumba) {
+    if (tipoTumba.nombretipo_tumba == "Doble") {
+      this.doble = true;
+    } else {
+      this.doble = false;
+    }
+  }
+
   public updateContrato(): void {
-    this.service.updateContrato(this.contratoParams, this.contratoParams.id_contrato)
+    console.log(this.contrato2);
+
+    this.service.updateContrato(this.contrato2, this.contrato2.id_contrato)
       .subscribe(
         json => {
           this.router.navigate(['/administracion-inicio/AVentas']);
           swal.fire('Contrato Actualizado', `Se ha actualizado el contrato con Exito`, 'success');
-          this.contratoParams = null;
+          this.contrato2 = null;
         },
         err => {
           console.log(err);
@@ -81,13 +132,13 @@ export class FormularioEditarventaComponent implements OnInit {
       id = params['id'];
     });
 
-    this.service.updateContrato(this.contratoParams,
+    this.service.updateContrato(this.contrato2,
       id)
       .subscribe(
         json => {
           this.router.navigate(['/administracion-inicio/AVentas']);
           Swal.fire('Contrato Actualizada', `Contrato actualizado con exito`, 'success');
-          this.contratoParams = null;
+          this.contrato2 = null;
         },
         err => {
           console.log(err);
@@ -105,7 +156,7 @@ export class FormularioEditarventaComponent implements OnInit {
     this.valorCuota = valCuotas;
   }
 
-  returnCuota() {
+  returnCuota() {  
     return this.valorCuota;
   }
   saveContrato2() {
@@ -139,4 +190,21 @@ export class FormularioEditarventaComponent implements OnInit {
       }
     })
   }
+
+  mostrarClientes() {
+    if (this.contrato2.cliente != null) {
+      this.mostrarCliete = true;
+    } else {
+      this.mostrarCliete = false;
+    }
+  }
+  mostrarCuotas() {
+    if (this.contrato2.n_Cuotas > 0) {
+      this.mostrarCuota = true;
+    } else {
+      this.mostrarCuota = false;
+    }
+  }
+
+
 }

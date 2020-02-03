@@ -21,10 +21,6 @@ import { Contrato } from '../../../../Entidades/Contrato';
 })
 export class FormularioVentaComponent implements OnInit {
 
-
-
-
-
   cementerioList: Cementerio[] = [];
   tipoTumbaList: TipoTumba[] = [];
   tumbaList: Tumba[] = [];
