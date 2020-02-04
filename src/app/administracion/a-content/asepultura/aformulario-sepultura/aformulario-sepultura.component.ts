@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { FormGroup } from '@angular/forms';
+import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 
 @Component({
   selector: 'app-aformulario-sepultura',
@@ -9,6 +11,9 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
   styleUrls: ['./aformulario-sepultura.component.css']
 })
 export class AFormularioSepulturaComponent implements OnInit {
+
+  formSepultura: FormGroup;
+  sepulturaParams: TumbaDifunto = new TumbaDifunto();
 
   constructor(private service: BackendServiceService,
     private router: Router, private activatedRoute: ActivatedRoute) { }
