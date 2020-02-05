@@ -52,11 +52,24 @@
             <div class="form-group">
                 <br>
                 <div class="row">
-                    <div class="col">
-                        <label>Rut Cliente</label>
-                        <input formControlName="rut_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.rut_Cliente" type="text" class="form-control"
-                            id="rutCliente" placeholder="Ingrese un rut 11111111-1">
-                    </div>
+                <div class="col">
+                    <label>Rut Cliente</label>
+                    <input formControlName="rut_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.rut_Cliente" type="text"
+                        class="form-control" id="rutCliente" placeholder="Ingrese un rut 11111111-1">
+                </div>
+                <div class="col">
+                    <label>Número Contrato</label>
+                    <select formControlName="contrato" [(ngModel)]="sepulturaParams.contrato.id_contrato" class="form-control"
+                        id="exampleFormControlSelect1">
+                        <option value="" selected disabled>Seleccione Contrato </option>
+                        <option  ></option>
+                    </select>
+                </div>
+                
+                </div>
+                <br>
+                <div class="row">
+                   
                     <div class="col">
                         <label>Nombre </label>
                         <input formControlName="nombre_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.nombres_Cliente" type="text"
@@ -103,7 +116,6 @@
                         <input formControlName="capacidadDisponible"
                             type="text" class="form-control" id="rutCliente" placeholder="Capacidad Disponible">
                     </div>
-                
                 </div>
             </div>
 
