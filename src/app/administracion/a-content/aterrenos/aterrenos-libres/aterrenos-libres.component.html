@@ -31,59 +31,65 @@
           <img src="../assets/img/cementerio2.jpg" alt="" width="910px" height="845px">
           <!--cambiar el ng for por el de la query -->
          
-          <!-- Patio A--> 
+         
+          <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" >
-              <div>
-                <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio A" >
-              </div>
+            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" data-toggle="tooltip"
+                data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
-            <!--donde esta el show image en el src de la imagen cambiar condicion por si estado de la tumba es ocupado-->
           </div>
-          <!--Fin Patio A-->
+          <!-- Fin Patio A-->
+
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
-            <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio B">
+            <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio B, Número {{personB.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
             </div>
           </div>
           <!--Fin Patio B-->
 
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
-            <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio c">
+            <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio C, Número {{personC.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!--Fin Patio C-->
 
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
-            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio D">
+            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio D, Número {{personD.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!-- Fin Patio D-->
 
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
-            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;"data-toggle="tooltip" data-placement="top" title="Patio E">
+            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio E, Número {{personE.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
-            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio F">
+            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio F, Número {{personF.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
 
             </div>
           </div>
           <!-- fin patio F-->
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
-            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio G">
+            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio G, Número {{personG.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!-- fin patio G-->
@@ -129,7 +135,7 @@
           <!-- Mausoleo A-->
           <div *ngFor="let mauA of MausoleoA; let i = index">
             <div [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo A, Numero{{mauA.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
             </div>
           </div>
           <!-- Fin Mausoleo A-->
@@ -137,7 +143,7 @@
           <!-- Mausoleo B-->
           <div *ngFor="let mauB of MausoleoB; let i = index">
             <div [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo B, Numero{{mauB.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
             </div>
           </div>
           <!-- Fin Mausoleo B-->
@@ -145,7 +151,7 @@
           <!-- Mausoleo C-->
           <div *ngFor="let mauC of MausoleoC; let i = index">
             <div [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo C, Numero{{mauC.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
             </div>
           </div>
           <!-- Fin Mausoleo C-->
@@ -153,7 +159,7 @@
           <!-- Mausoleo D-->
           <div *ngFor="let mauD of MausoleoD; let i = index">
             <div [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo D, Numero{{mauD.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 12px; height: 17px;" data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
             </div>
           </div>
           <!-- Fin Mausoleo D-->
