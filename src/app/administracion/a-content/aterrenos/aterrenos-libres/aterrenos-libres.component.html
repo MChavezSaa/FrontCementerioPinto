@@ -96,15 +96,17 @@
 
           <!-- Patio H-->
           <div *ngFor="let personH of peopleH; let i = index">
-            <div [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio H">
+            <div [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba"  data-toggle="tooltip" 
+            data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
             </div>
           </div>
           <!-- fin patio H-->
            <!-- Patio i-->
            <div *ngFor="let personI of peopleI; let i = index">
-            <div [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio I">
+            <div [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!-- fin patio I-->
