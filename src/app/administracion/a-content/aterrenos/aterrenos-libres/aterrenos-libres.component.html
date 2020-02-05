@@ -113,23 +113,26 @@
 
           <!-- Patio J-->
           <div *ngFor="let personJ of peopleJ; let i = index">
-            <div [id]="'I' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio J">
+            <div [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!-- fin patio J-->
 
           <!-- Patio K-->
           <div *ngFor="let personK of peopleK; let i = index">
-            <div [id]="'I' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio K">
+            <div [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba"  data-toggle="tooltip" 
+            data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
             </div>
           </div>
           <!-- fin patio K-->
           <!-- Patio L-->
           <div *ngFor="let personL of peopleL; let i = index">
-            <div [id]="'I' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
-              <img src="../../../../../assets/img/cuadroRojo.png" alt="" style="width: 65px; height: 47px;" data-toggle="tooltip" data-placement="top" title="Patio L">
+            <div [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba" data-toggle="tooltip" 
+            data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" >
             </div>
           </div>
           <!-- fin patio L-->
