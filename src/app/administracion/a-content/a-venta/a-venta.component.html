@@ -79,11 +79,13 @@
                                                 [routerLink]="['/administracion-inicio/formularioEditarVenta/',ven.id_contrato]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
                                             &nbsp;
-                                            <button type="button" name="eliminar" class="btn btn-danger" (click)="deleteContrato(ven)">
+                                            <button type="button" name="eliminar" class="btn btn-danger"
+                                                (click)="deleteContrato(ven)">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                             &nbsp;
-                                            <button [routerLink]="[ '/administracion-inicio/exportPDF/',ven.id_contrato ]"
+                                            <button
+                                                [routerLink]="[ '/administracion-inicio/exportPDF/',ven.id_contrato ]"
                                                 type="button" name="pdf" class="btn btn-info">
                                                 <i class="fas fa-file-pdf"></i>
                                             </button>
@@ -131,12 +133,14 @@
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
                                         <td>{{numerosTumba(ven)}}</td>
                                         <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosCliente"
-                                                (click)="cargarContrato(ven.id_contrato)"><i class="fas fa-eye"></i>
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
+                                                    class="fas fa-eye"></i>
                                             </button>
                                             &nbsp;
-                                            <button [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]" type="button" name="pdf"
-                                                class="btn btn-info">
+                                            <button
+                                                [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]"
+                                                type="button" name="pdf" class="btn btn-info">
                                                 <i class="fas fa-file-pdf"></i>
                                             </button>
                                         </td>
@@ -146,13 +150,15 @@
                         </table>
                     </div>
                 </div>
-  
-    <!-- Fin Seccion Activos/ Inactivos-->
+
+                <!-- Fin Seccion Activos/ Inactivos-->
 
 
 
+            </div>
+        </div>
+    </div>
 </div>
-
 <div class="modal" id="datosCliente">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -204,4 +210,4 @@
 
         </div>
     </div>
-</div>
+</div>  
