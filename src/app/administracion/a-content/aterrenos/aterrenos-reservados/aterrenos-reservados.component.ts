@@ -30,6 +30,10 @@ export class ATerrenosReservadosComponent implements OnInit {
   MausoleoC: Tumba[] = [];
   MausoleoD: Tumba[] = [];
 
+  NichoA: Tumba[] = [];
+  NichoB: Tumba[] = [];
+  NichoC: Tumba[] = [];
+
   ngOnInit() {
     this.service.getReservedTumbs().subscribe(tumbaList1 => {
       this.TumbasLibresList = tumbaList1
@@ -85,6 +89,18 @@ export class ATerrenosReservadosComponent implements OnInit {
                                   } else {
                                     if (this.TumbasLibresList[i].patio.id_Patio == 16) {
                                       this.MausoleoD.push(this.TumbasLibresList[i]);
+                                    } else {
+                                      if (this.TumbasLibresList[i].patio.id_Patio == 17) {
+                                        this.NichoA.push(this.TumbasLibresList[i]);
+                                      } else {
+                                        if (this.TumbasLibresList[i].patio.id_Patio == 18) {
+                                          this.NichoB.push(this.TumbasLibresList[i]);
+                                        } else {
+                                          if (this.TumbasLibresList[i].patio.id_Patio == 19) {
+                                            this.NichoC.push(this.TumbasLibresList[i]);
+                                          }
+                                        }
+                                      }
                                     }
                                   }
                                 }
@@ -103,5 +119,4 @@ export class ATerrenosReservadosComponent implements OnInit {
       }
     }
   }
-
 }

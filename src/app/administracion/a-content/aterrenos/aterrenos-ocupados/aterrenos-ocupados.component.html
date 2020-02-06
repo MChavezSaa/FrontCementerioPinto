@@ -6,132 +6,184 @@
     <div class="card-body">
       <h5><b><i>Terrenos Ocupados</i></b></h5>
       <div class="row">
-        <div class="col-sm" align="center" >
-          <button  type="button" class="btn btn-outline-primary"
+        <div class="col-sm" align="center">
+          <button type="button" class="btn btn-outline-primary"
             [routerLink]="['/administracion-inicio/ATerrenosLibres']">Libres</button>
         </div>
-        <div class="col-sm" >
+        <div class="col-sm">
           <button [disabled]="true" type="button" class="btn btn-outline-primary"
             routerLink="/administracion-inicio/ATerrenosOcupados">Ocupados</button>
         </div>
-          <div class="col-sm">
+        <div class="col-sm">
           <button type="button" class="btn btn-outline-primary"
             routerLink="/administracion-inicio/ATerrenosReservados">Reservado</button>
         </div>
       </div>
     </div>
   </div>
-
   <br>
-
+  <div class="container">
+    <legend>Detalle Terreno</legend>
+    <hr><br>
+    <table class="table">
+      <thead class="thead-dark table-bordered  ">
+        <tr>
+          <th style="width:300px;" scope="col">Nombre</th>
+          <td> {{nombre()}}</td>
+        </tr>
+        <tr>
+          <th style="width:300px;" scope="row"> Fecha Defunción</th>
+          <td>{{fd()}} </td>
+        </tr>
+        <tr>
+          <th style="width:300px;" scope="row"> Patio</th>
+          <td>{{nTerreno()}} </td>
+        </tr>
+        <tr>
+          <th style="width:300px;" scope="row"> Número Tumba</th>
+          <td>{{nTumba()}} </td>
+        </tr>
+      </thead>
+    </table>
+    <!-- <ul>
+            <li type="circle">Nombre: {{nombre()}}</li>
+            <li type="circle">Fecha Defunción: {{fd()}}</li>
+    
+          </ul>-->
+  </div>
   <div class="row">
-    <div class="col-8">
-      <div align="left">
+    <div class="col">
+      <div style="text-align: left;">
         <div class="container">
-          <img class="rosa" src="../assets/img/rosaPNG.png" alt=""  height="150px" width="150px" >
-          <img src="../assets/img/cementerio2.jpg" alt="" width="90%" height="80%">
+          <img class="rosa" src="../assets/img/rosaPNG.png" alt="" height="150px" width="150px">
+          <img src="../assets/img/cementerio2.jpg" alt="" width="910px" height="845px">
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div [id]="'a' + person.id_Terreno" [ngClass]="'a'+ person.id_tumba">
-              <a (click)="guardarDatos(person.id_Terreno,'a', person.name, person.FD, person.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
+            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!-- <a (click)="guardarDatos(person.id_Terreno,'a', person.name, person.FD, person.id_tumba)">
+               <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                </a>-->
             </div>
           </div>
           <!--Fin Patio A-->
           <!-- Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
-            <div [id]="'b' + personB.id_Terreno" [ngClass]="'b'+ personB.id_tumba">
-              <a (click)="guardarDatos(personB.id_Terreno,'b', personB.name, personB.FD, personB.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-              </a>
+            <div [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              </a>-->
             </div>
           </div>
           <!--Fin Patio B-->
 
           <!-- Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
-            <div [id]="'c' + personC.id_Terreno" [ngClass]="'c'+ personC.id_tumba"> <a
-                (click)="guardarDatos(personC.id_Terreno,'c', personC.name,personC.FD, personC.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue"></i>
-              </a>
+            <div [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                </a>-->
             </div>
           </div>
           <!--Fin Patio C-->
 
           <!-- Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
-            <div [id]="'d' + personD.id_Terreno" [ngClass]="'d'+ personD.id_tumba"> <a
-                (click)="guardarDatos(personD.id_Terreno,'d', personD.name, personD.FD, personD.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-              </a>
+            <div [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                </a>-->
             </div>
           </div>
           <!-- Fin Patio D-->
 
           <!-- Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
-            <div [id]="'e' + personE.id_Terreno" [ngClass]="'e'+ personE.id_tumba"> <a
-                (click)="guardarDatos(personE.id_Terreno,'e', personE.name, personE.FD, personE.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-              </a>
+            <div [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                 <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
             </div>
           </div>
           <!-- fin patio E-->
           <!-- Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
-            <div [id]="'f' + personF.id_Terreno" [ngClass]="'f'+ personF.id_tumba"> <a
-                (click)="guardarDatos(personF.id_Terreno,'f', personF.name, personF.FD, personF.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-              </a>
+            <div [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                  <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
             </div>
           </div>
           <!-- fin patio F-->
           <!-- Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
-            <div [id]="'g' + personG.id_Terreno" [ngClass]="'g'+ personG.id_tumba"> <a
-                (click)="guardarDatos(personG.id_Terreno,'g', personG.name, personG.FD, personG.id_tumba)">
-                <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i>
-              </a>
+            <div [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                 <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
             </div>
           </div>
           <!-- fin patio G-->
+          <!-- Patio H-->
+          <div *ngFor="let personH of peopleH; let i = index">
+            <div [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                </a>-->
+            </div>
+          </div>
+          <!-- fin patio H-->
+          <!-- Patio I-->
+          <div *ngFor="let personI of peopleI; let i = index">
+            <div [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                 <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
+            </div>
+          </div>
+          <!-- fin patio I-->
+          <!-- Patio J-->
+          <div *ngFor="let personJ of peopleJ; let i = index">
+            <div [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                 <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
+            </div>
+          </div>
+          <!-- fin patio J-->
+          <!-- Patio K-->
+          <div *ngFor="let personK of peopleK; let i = index">
+            <div [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                  <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                </a>-->
+            </div>
+          </div>
+          <!-- fin patio K-->
+          <!-- Patio L-->
+          <div *ngFor="let personL of peopleL; let i = index">
+            <div [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <!--<a (click)="guardarDatos(personB.patio.id_Patio,'b', personB.name, personB.FD, personB.id_tumba)">
+                <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+                 </a>-->
+            </div>
+          </div>
+          <!-- fin patio L-->
 
         </div>
       </div>
     </div>
-    <div class="col-4">
-      <legend>Detalle Terreno</legend>
-      <br>
-      <table class="table">
-        <thead class="thead-dark table-bordered">
 
-          <tr>
-            <th scope="col">Nombre</th>
-            <td> {{nombre()}}</td>
-          </tr>
-          <tr>
-            <th scope="row"> Fecha Defunción</th>
-            <td>{{fd()}} </td>
-          </tr>
-
-          <tr>
-            <th scope="row"> Patio</th>
-            <td>{{nTerreno()}} </td>
-          </tr>
-
-          <tr>
-            <th scope="row"> Número Tumba</th>
-            <td>{{nTumba()}} </td>
-          </tr>
-        </thead>
-
-      </table>
-      <!-- <ul>
-        <li type="circle">Nombre: {{nombre()}}</li>
-        <li type="circle">Fecha Defunción: {{fd()}}</li>
-
-      </ul>-->
-    </div>
   </div>
 </div><br>
-<!-- lala-->
