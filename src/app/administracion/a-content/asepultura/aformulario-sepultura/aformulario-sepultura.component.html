@@ -22,35 +22,28 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut Difunto</label>
-                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.difunto" (change)="mostrarDifuntos()">
+                        <select class="form-control" id="difunto" name="difunto"  (change)="mostrarDifuntos()">
                             <option [ngValue]="" disabled selected>Seleccione Difunto </option>
                             <option *ngFor="let c of difuntoList" [ngValue]="c">{{c.rut_Difunto}}</option>
-                          <!--  <option *ngFor="let x of difuntoList" [ngValue]="x">{{x.rut_Difunto}}</option>-->
                         </select>
                     </div>
                     <div class="col" *ngIf="mostrarDifunto">
-                        <label> Nombre Cliente</label>
+                        <label> Nombre Difunto</label>
                         <input [disabled]="true" class="form-control" type="text" for=""
-                            value="{{sepultura2.difunto.nombres_Difunto}} {{sepultura2.difunto.apellidoP_Difunto}} {{sepultura2.difunto.apellidoM_Difunto}}">
+                            value="{{sepultura2.difunto.nombres_Difunto}}">
                     </div>
-                    <div class="col">
-                        <label>Nombres</label>
-                        <input formControlName="nombres_Difunto" [(ngModel)]="sepulturaParams.difunto.nombres_Difunto" type="text"
-                            class="form-control" id="nombresDifunto" placeholder="Ingrese nombre difunto">
+                    <div class="col" *ngIf="mostrarDifunto">
+                        <label> Apellido Paterno</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                            value="{{sepultura2.difunto.apellidoP_Difunto}}">
                     </div>
-                    <div class="col">
-                        <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_Difunto" [(ngModel)]="sepulturaParams.difunto.apellidoP_Difunto" type="text"
-                            class="form-control" id="apellidoP_Difunto" placeholder="Ingrese apellido difunto">
+                    <div class="col" *ngIf="mostrarDifunto">
+                        <label> Apellido Materno</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                            value="{{sepultura2.difunto.apellidoM_Difunto}}">
                     </div>
-                    <div class="col">
-                        <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_Difunto" [(ngModel)]="sepulturaParams.difunto.apellidoM_Difunto" type="text"
-                            class="form-control" id="apellidoM_Difunto" placeholder="Ingrese apellido difunto">
-                    </div>
+                    
                 </div>
-            </div>
-            <div class="form-group">
             </div>
 
             <br>
@@ -62,12 +55,12 @@
                 <div class="row">
                 <div class="col">
                     <label>Rut Cliente</label>
-                    <input formControlName="rut_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.rut_Cliente" type="text"
+                    <input  type="text"
                         class="form-control" id="rutCliente" placeholder="Ingrese un rut 11111111-1">
                 </div>
                 <div class="col">
                     <label>Número Contrato</label>
-                    <select formControlName="contrato" [(ngModel)]="sepulturaParams.contrato.id_contrato" class="form-control"
+                    <select  class="form-control"
                         id="exampleFormControlSelect1">
                         <option value="" selected disabled>Seleccione Contrato </option>
                         <option  ></option>
@@ -80,17 +73,17 @@
                    
                     <div class="col">
                         <label>Nombre </label>
-                        <input formControlName="nombre_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.nombres_Cliente" type="text"
+                        <input  type="text"
                             class="form-control" id="nombre_cliente" placeholder="Ingrese nombre Cliente">
                     </div>
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.apellidoP_Cliente" type="text"
+                        <input  type="text"
                             class="form-control" id="apellidoP_cliente" placeholder="Ingrese apellido Paterno">
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_cliente" [(ngModel)]="sepulturaParams.contrato.cliente.apellidoM_Cliente" type="text"
+                        <input  type="text"
                             class="form-control" id="apellidoM_cliente" placeholder="Ingrese apellido Materno">
                     </div>
                 </div>
@@ -98,17 +91,17 @@
                 <div class="row">
                     <div class="col">
                         <label>Tipo de Tumba</label>
-                        <input formControlName="tipo_tumba" [(ngModel)]="sepulturaParams.contrato.tipoTumba.nombretipo_tumba" type="text"
+                        <input  type="text"
                             class="form-control" id="tipo_tumba" placeholder="Tipo de Tumba">
                     </div>
                     <div class="col">
                         <label>Patio </label>
-                        <input formControlName="nombre_Patio" [(ngModel)]="sepulturaParams.contrato.patio.nombre_Patio"
+                        <input 
                             type="text" class="form-control" id="nombre_Patio" placeholder="Patio">
                     </div>
                     <div class="col">
                         <label>Número Tumba</label>
-                        <input formControlName="numero_tumba" [(ngModel)]="sepulturaParams.tumba.numero_Tumba"
+                        <input 
                             type="text" class="form-control" id="rutCliente" placeholder="Número de Tumba">
                     </div>
                 </div>
@@ -116,12 +109,12 @@
                 <div class="row">
                     <div class="col">
                         <label>Capacidad Total</label>
-                        <input formControlName="capacidadTotal" [(ngModel)]="sepulturaParams.contrato.tipoTumba.capacidad_tipo_tumba"
+                        <input 
                             type="text" class="form-control" id="capacidadTotal" placeholder="Capacidad Total">
                     </div>
                     <div class="col">
                         <label>Capacidad Disponible</label>
-                        <input formControlName="capacidadDisponible"
+                        <input
                             type="text" class="form-control" id="rutCliente" placeholder="Capacidad Disponible">
                     </div>
                 </div>
