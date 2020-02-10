@@ -8,6 +8,7 @@ import { Tumba } from 'src/app/Entidades/Tumba';
   styleUrls: ['./aterrenos-libres.component.css']
 })
 export class ATerrenosLibresComponent implements OnInit {
+
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
 
@@ -18,7 +19,6 @@ export class ATerrenosLibresComponent implements OnInit {
       this.TumbasLibresList = tumbaList1
       this.llenarListas()
     });
-
   }
 
   llenarListaLibre() {

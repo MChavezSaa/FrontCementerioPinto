@@ -31,7 +31,7 @@ export class FormularioEditarventaComponent implements OnInit {
   terrenoList: Terreno[] = [];
   Show: Boolean = true;
   doble: Boolean = false;
-  mostrarCliete: Boolean = false;
+  mostrarCliente: Boolean = false;
   mostrarCuota: Boolean = false;
   tumba1: any = new Tumba();
   tumba2: any = new Tumba();
@@ -193,9 +193,9 @@ export class FormularioEditarventaComponent implements OnInit {
 
   mostrarClientes() {
     if (this.contrato2.cliente != null) {
-      this.mostrarCliete = true;
+      this.mostrarCliente = true;
     } else {
-      this.mostrarCliete = false;
+      this.mostrarCliente = false;
     }
   }
   mostrarCuotas() {

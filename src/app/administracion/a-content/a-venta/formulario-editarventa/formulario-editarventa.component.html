@@ -113,17 +113,16 @@
                             (change)="mostrarClientes()">
                             <option [ngValue]="0" disabled selected>Seleccione cliente </option>
                             <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
-
                         </select>
                     </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <label style="color: white"> _____________</label>
-                        </div>
-                        <div class="row" *ngIf="mostrarCliete">
-                            <label for="">Nombre Cliente: {{contrato2.cliente.nombres_Cliente}}
-                                {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}</label>
-                        </div>
+                    <div class="col-6" *ngIf="mostrarCliente">
+                        <label> Nombre Cliente</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                            value="{{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}">
+                        <!--
+                                            <div class="row" *ngIf="mostrarCliente">
+                                                <label for="">Nombre Cliente:  {{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}</label>
+                                            </div>-->
                     </div>
                 </div>
             </div>
