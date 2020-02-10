@@ -10,7 +10,8 @@
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/formularioVenta']" (click)="cancelarVenta()" href="#" >Ventas</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/formularioVenta']"
+                    (click)="cancelarVenta()" href="#">Ventas</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Ventas</li>
         </ol>
     </nav>
@@ -68,7 +69,7 @@
                     <div class="col">
                         <label> Nombre de Patio</label>
                         <select class="form-control" id="pat" name="patio" [(ngModel)]="contrato2.patio"
-                        (change)="fun(contrato2.patio.id_Patio)">
+                            (change)="fun(contrato2.patio.id_Patio)">
                             <option [ngValue]="0" disabled selected>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
 
@@ -78,15 +79,15 @@
                     <div class="col">
                         <label> Tipo de Tumba</label>
                         <select class="form-control" id="tipoTumb" name="tipoTumba" [(ngModel)]="contrato2.tipoTumba"
-                        (change)="doble1(contrato2.tipoTumba)">
+                            (change)="doble1(contrato2.tipoTumba)">
                             <option [ngValue]="0" disabled selected>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList "  [ngValue]="c">{{c.nombretipo_tumba}}</option>
+                            <option *ngFor="let c of tipoTumbaList " [ngValue]="c">{{c.nombretipo_tumba}}</option>
 
                         </select>
                     </div>
 
-                    <div class="col" >
-                        
+                    <div class="col">
+
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">1</label>
                         <select class="form-control" id="tumb" name="tumba" [(ngModel)]="tumba1">
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
@@ -97,7 +98,7 @@
                     </div>
 
                     <div class="col" *ngIf="doble">
-                        
+
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">2</label>
                         <select class="form-control" id="tumb" name="tumba" [(ngModel)]="tumba2">
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
@@ -106,10 +107,10 @@
                         </select>
                         <!-- Agregar validacion con numeros solo con estado cero -->
                     </div>
-                    
 
-                    
-               
+
+
+
                 </div>
             </div>
             <div class="form-group">
@@ -128,22 +129,23 @@
 
             <div class="form-group">
                 <div class="row">
-                    <div class="col-6">
+                    <div class="col-4">
                         <label> Rut Cliente</label>
                         <select class="form-control" id="cliente1" name="cliente" [(ngModel)]="contrato2.cliente"
-                        (change)="mostrarClientes()">
-                            <option [ngValue]="0" disabled selected>Seleccione cliente </option>
+                            (change)="mostrarClientes()">
+                            <option [ngValue]="0" disabled selected>Seleccione Cliente </option>
                             <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
 
                         </select>
                     </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <label style="color: white"> _____________</label>
-                        </div>
-                        <div class="row" *ngIf="mostrarCliete">
+                    <div class="col-6" *ngIf="mostrarCliente">
+                        <label> Nombre Cliente</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                            value="{{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}">
+                        <!--
+                        <div class="row" *ngIf="mostrarCliente">
                             <label for="">Nombre Cliente:  {{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}</label>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>
@@ -186,15 +188,16 @@
                     <div class="col-4">
                         <label> Número de Cuotas</label>
                         <input type="number" class="form-control" id="nroCuotas" name="nCuotas"
-                            placeholder="Ingrese número de cuotas" [(ngModel)]="contrato2.n_Cuotas" (change)="mostrarCuotas()">
+                            placeholder="Ingrese número de cuotas" [(ngModel)]="contrato2.n_Cuotas"
+                            (change)="mostrarCuotas()">
                     </div>
                     <div class="col-2">
                         <div class="row">
                             <label style="color: white"> _____________</label>
                         </div>
                         <div class="row" *ngIf="mostrarCuota">
-                            <label for="">{{calcularValorCuota()}}</label>                            
-                     </div>
+                            <label for="">{{calcularValorCuota()}}</label>
+                        </div>
                     </div>
 
                     <div class="col-6">
@@ -219,15 +222,15 @@
                 </div>
             </div>
 
-                <div class="form-group row">
-                    <div class="col">
-                        <button (click)="cancelarVenta()" class="btn btn-danger">
-                            Cancelar </button>
-                    </div>
-                    <div class="col">
-                        <button type="submit" (click)='saveContrato2()' class="btn btn-primary">Guardar</button>
-                    </div>
+            <div class="form-group row">
+                <div class="col">
+                    <button (click)="cancelarVenta()" class="btn btn-danger">
+                        Cancelar </button>
                 </div>
+                <div class="col">
+                    <button type="submit" (click)='saveContrato2()' class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
             <br>
         </form>
         <br>
