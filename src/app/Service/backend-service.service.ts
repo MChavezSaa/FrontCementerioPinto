@@ -22,6 +22,7 @@ import { CuotasMantencion } from '../Entidades/CuotasMantencion';
 import { pagosMantencion } from '../Entidades/PagosMantencion';
 import { pagoDerecho } from '../Entidades/pagoDerecho';
 import { cambioPass } from '../Entidades/cambioPass';
+import { TumbaDifunto } from '../Entidades/TumbaDifunto';
 
 
 @Injectable({
@@ -998,8 +999,8 @@ export class BackendServiceService {
     );
   }
 
-  cambioPass(cambioPass1: cambioPass, id:number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}cambioPass/${id}`, cambioPass1, { headers: this.agregarAuthorizationHeader() }).pipe(
+  cambioPass(user: Usuario): Observable<any> {
+    return this.http.put<any>(`${this.urlEndPoint}cambioPass/`, user, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -1010,5 +1011,31 @@ export class BackendServiceService {
       })
     );
   }
+  /*TUMBADIFUNTO*/
 
+  getTumbaDifunto(): Observable<TumbaDifunto[]> {
+    return this.http.get<TumbaDifunto[]>(this.urlEndPoint + "listTumbaDifunto", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
+  saveTumbaDifunto(funcionario: TumbaDifunto): Observable<TumbaDifunto> {
+    return this.http.post(this.urlEndPoint + "saveTumbaDifunto", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.funcionario as TumbaDifunto),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el funcionario', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+
+
+ 
 }

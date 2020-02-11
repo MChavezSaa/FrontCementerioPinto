@@ -3,8 +3,8 @@
         <!--MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioSepultura']" href="#"
-                   >Sepulturas</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioSepultura']"
+                    href="#">Sepulturas</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Sepulturas</li>
         </ol>
     </nav>
@@ -13,7 +13,7 @@
     <legend style="font-style: oblique"><b> Formulario Incripción de Sepulturas</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form  novalidate>
+        <form novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Difunto</h4>
             </div>
@@ -22,23 +22,25 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut Difunto</label>
-                        <select class="form-control" id="difunto" name="difunto"  (change)="mostrarDifuntos()">
-                            <option [ngValue]="" disabled selected>Seleccione Difunto </option>
-                            <option *ngFor="let c of difuntoList" [ngValue]="c">{{c.rut_Difunto}}</option>
+                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.difunto"
+                            (change)="mostrarDifuntos()">
+                            <option [ngValue]="0" disabled selected>Seleccione Difunto </option>
+                            <option *ngFor="let c of DifuntosList" [ngValue]="c">{{c.rut_Difunto}}</option>
+                            <!--  <option *ngFor="let x of difuntoList" [ngValue]="x">{{x.rut_Difunto}}</option>-->
                         </select>
                     </div>
                     <div class="col" *ngIf="mostrarDifunto">
-                        <label> Nombre Difunto</label>
+                        <label> Nombre </label>
                         <input [disabled]="true" class="form-control" type="text" for=""
                             value="{{sepultura2.difunto.nombres_Difunto}}">
                     </div>
                     <div class="col" *ngIf="mostrarDifunto">
-                        <label> Apellido Paterno</label>
+                        <label> Apellido paterno</label>
                         <input [disabled]="true" class="form-control" type="text" for=""
                             value="{{sepultura2.difunto.apellidoP_Difunto}}">
                     </div>
                     <div class="col" *ngIf="mostrarDifunto">
-                        <label> Apellido Materno</label>
+                        <label> Apellido materno</label>
                         <input [disabled]="true" class="form-control" type="text" for=""
                             value="{{sepultura2.difunto.apellidoM_Difunto}}">
                     </div>
@@ -46,94 +48,87 @@
                 </div>
             </div>
 
-            <br>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos del Contrato</h4>
             </div>
+
             <div class="form-group">
-                <br>
-                <div class="row">
-                <div class="col">
-                    <label>Rut Cliente</label>
-                    <input  type="text"
-                        class="form-control" id="rutCliente" placeholder="Ingrese un rut 11111111-1">
-                </div>
-                <div class="col">
-                    <label>Número Contrato</label>
-                    <select  class="form-control"
-                        id="exampleFormControlSelect1">
-                        <option value="" selected disabled>Seleccione Contrato </option>
-                        <option  ></option>
-                    </select>
-                </div>
-                
-                </div>
-                <br>
-                <div class="row">
-                   
-                    <div class="col">
-                        <label>Nombre </label>
-                        <input  type="text"
-                            class="form-control" id="nombre_cliente" placeholder="Ingrese nombre Cliente">
-                    </div>
-                    <div class="col">
-                        <label>Apellido Paterno</label>
-                        <input  type="text"
-                            class="form-control" id="apellidoP_cliente" placeholder="Ingrese apellido Paterno">
-                    </div>
-                    <div class="col">
-                        <label>Apellido Materno</label>
-                        <input  type="text"
-                            class="form-control" id="apellidoM_cliente" placeholder="Ingrese apellido Materno">
-                    </div>
-                </div>
-                <br>
                 <div class="row">
                     <div class="col">
-                        <label>Tipo de Tumba</label>
-                        <input  type="text"
-                            class="form-control" id="tipo_tumba" placeholder="Tipo de Tumba">
+                        <label>Rut cliente</label>
+                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="clienteAux"
+                            (change)="mostrarContratos()">
+                            <option [ngValue]="0" disabled selected>Seleccione cliente </option>
+                            <option *ngFor="let c of contratosList" [ngValue]="c.cliente">{{c.cliente.rut_Cliente}}</option>                           
+                        </select>
                     </div>
-                    <div class="col">
-                        <label>Patio </label>
-                        <input 
-                            type="text" class="form-control" id="nombre_Patio" placeholder="Patio">
+                    <div class="col" *ngIf="mostrarContrato2">
+                        <label> Nombre </label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                            value="{{clienteAux.nombres_Cliente}}">
                     </div>
-                    <div class="col">
-                        <label>Número Tumba</label>
-                        <input 
-                            type="text" class="form-control" id="rutCliente" placeholder="Número de Tumba">
+                    <div class="col" *ngIf="mostrarContrato2">
+                        <label> Apellido paterno</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{clienteAux.apellidoP_Cliente}}">
                     </div>
-                </div>
-                <br>
-                <div class="row">
-                    <div class="col">
-                        <label>Capacidad Total</label>
-                        <input 
-                            type="text" class="form-control" id="capacidadTotal" placeholder="Capacidad Total">
-                    </div>
-                    <div class="col">
-                        <label>Capacidad Disponible</label>
-                        <input
-                            type="text" class="form-control" id="rutCliente" placeholder="Capacidad Disponible">
+                    <div class="col" *ngIf="mostrarContrato2">
+                        <label> Apellido materno</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{clienteAux.apellidoM_Cliente}}">
                     </div>
                 </div>
             </div>
-
+            <div class="form-group">
+                <div class="row">
+                    <div class="col">
+                        <label>Numero Contrato</label>
+                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.contrato" 
+                        (change)="mostrarDatosContrato()">
+                            <option [ngValue]="0" disabled selected>Seleccione numero contrato </option>
+                            <option *ngFor="let c of contratosList" [ngValue]="c">{{c.id_contrato}}</option>                           
+                        </select>
+                    </div>   
+                    <div class="col" *ngIf="mostrarContrato3">
+                        <label> Tipo de tumba</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{sepultura2.contrato.tipoTumba.nombretipo_tumba}}">
+                    </div>   
+                    <div class="col" *ngIf="mostrarContrato3">
+                        <label> Patio</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{sepultura2.contrato.patio.nombre_Patio}}">
+                    </div>    
+                    <div class="col" *ngIf="mostrarContrato3">
+                        <label> Numero Tumba</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{sepultura2.contrato.tumba}}">
+                    </div> 
+                    
+                </div>
+                <div class="row">
+                    <div class="col" *ngIf="mostrarContrato3">
+                        <label> Capacidad total</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{sepultura2.contrato.tipoTumba.capacidad_tipo_tumba}}">
+                    </div> 
+                    <div class="col" *ngIf="mostrarContrato3">
+                        <label> Capacidad disponible</label>
+                        <input [disabled]="true" class="form-control" type="text" for=""
+                        value="{{cont}}">
+                    </div> 
+                </div>
+            </div>
             <div class="form-group row" style="text-align: center;">
                 <div class="col">
                     <button (click)="cancelarSepultura()" class="btn btn-danger">
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button (click)="create()" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
-
         </form>
-        <br>
-
-        <br>
-
+      
     </div>
 </div>

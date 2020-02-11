@@ -6,7 +6,7 @@ export class TumbaDifunto {
 
     fecha_Entierro_TD: Date;
     difunto: Difunto;
-    tumba: Tumba;
+    tumba: string;
     contrato: Contrato;
     //estadoSepultura:string;
 }

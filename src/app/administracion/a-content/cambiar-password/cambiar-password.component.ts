@@ -3,6 +3,7 @@ import { cambioPass } from 'src/app/Entidades/cambioPass';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Router } from '@angular/router';
 import swal from 'sweetalert2';
+import { Usuario } from 'src/app/Entidades/usuario';
 
 @Component({
   selector: 'app-cambiar-password',
@@ -20,7 +21,9 @@ export class CambiarPasswordComponent implements OnInit {
   cambiarPass(){    
     console.log(this.cambiopass);
     console.log(this.service.usuario.id_Usuario);
-    this.service.cambioPass(this.cambiopass, this.service.usuario.id_Usuario);
+    let user: Usuario = this.service.usuario;
+    user.password = this.cambiopass.nueva;
+    this.service.cambioPass(user);
     this.service.logout();
     this.route.navigate(['']);
   }
