@@ -5,5 +5,6 @@ export class Patio {
     capacidad_Patio: number;
     nombre_Patio: string;
     estado_Patio: boolean;
+    nombreTT: string;
     terreno: Terreno;
 }

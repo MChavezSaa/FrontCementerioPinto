@@ -34,9 +34,9 @@
 
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" data-toggle="tooltip"
+            <div  data-toggle="tooltip"
               data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;" [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
             </div>
           </div>
           <!-- Fin Patio A-->

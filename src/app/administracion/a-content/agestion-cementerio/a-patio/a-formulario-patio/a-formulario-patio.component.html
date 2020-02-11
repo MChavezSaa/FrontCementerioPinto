@@ -25,17 +25,18 @@
                             placeholder="Ingrese un nombre para el patio">
                     </div>
                     <div class="col">
-                        <label>Capacidad Patio</label>
-                        <input formControlName="capacidad_Patio"  [(ngModel)]="patioParams.capacidad_Patio" type="number" class="form-control" id="capacidadPatio"
-                            placeholder="Ingrese la capacidad del patio">
-                    </div>
-                    <div class="col-2">
-                        <label></label>
+                        <label for="exampleFormControlSelect1">Sector Cementerio</label>
+                        <select class="form-control"  formControlName="nombreTT"
+                            [(ngModel)]="patioParams.nombreTT">
+                            <option value="0" selected disabled>Seleccione un Sector</option>
+                            <option> Sector Nichos</option>
+                            <option> Sector Sepulturas</option>
+                            <option> Sector Mausoleos</option>
+                        </select>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-            </div>
+
             <div class="form-group">
                 <div class="row">
 
@@ -47,10 +48,13 @@
                             
                         </select>
                     </div>
-                    
-                    <div class="col-2">
-                        <label></label>
+
+                    <div class="col">
+                        <label>Capacidad Patio</label>
+                        <input formControlName="capacidad_Patio" [(ngModel)]="patioParams.capacidad_Patio" type="number"
+                            class="form-control" id="capacidadPatio" placeholder="Ingrese la capacidad del patio">
                     </div>
+  
                 </div>
             </div>
             <div class="form-group row">
