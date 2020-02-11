@@ -29,16 +29,20 @@ export class FormularioVentaComponent implements OnInit {
   clienteList: Cliente[] = [];
   funcionarioList: Funcionario[] = [];
   terrenoList: Terreno[] = [];
+  nichoList: Tumba[] = [];
 
   Show: Boolean = true;
   doble: Boolean = false;
+  paraNicho: Boolean = false;
   mostrarCliente : Boolean= false;
   mostrarCuota : Boolean = false;
+  mostrarNicho: Boolean = false;
 
   valorCuota: number = 0;
   pagoDerecho: pagoDerecho;
   tumba1: Tumba;
   tumba2: Tumba;
+  nivelNicho: Tumba;
 
 
   // formContrato: FormGroup;
@@ -71,9 +75,19 @@ export class FormularioVentaComponent implements OnInit {
   doble1(tipoTumba: TipoTumba){
     if(tipoTumba.nombretipo_tumba=="Doble"){
       this.doble=true;
+      this.paraNicho=false;
     }else{
+        
       this.doble=false;
+ 
     }
+    if (tipoTumba.nombretipo_tumba == "Nicho") {
+      this.paraNicho = true;
+      this.doble=false;
+    } else {
+      this.paraNicho = false;
+   }
+
   }
 
   calcularValorCuota() {
@@ -128,6 +142,20 @@ export class FormularioVentaComponent implements OnInit {
         this.router.navigate(['/administracion-inicio/AVentas']);
       }
     })
+  }
+
+  mostrarNichos(nivel: number){
+    this.nichoList = [];
+    let cont = 1;
+    if(cont <=3){
+      for (let i = 0; i < this.tumbaList.length; i++) {
+        if (this.tumbaList[i].estado_Tumba == "Disponible" && this.tumbaList[i].nivel == nivel) {
+          this.nichoList.push(this.tumbaList[i]);
+          cont++;
+        }
+      }
+    }
+    cont= 1;
   }
 
   mostrarClientes(){
