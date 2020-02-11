@@ -19,19 +19,23 @@ export class AFormularioSepulturaComponent implements OnInit {
   formSepultura: FormGroup;
   //sepulturaParams: TumbaDifunto = new TumbaDifunto();
 
-  mostrarDifunto: Boolean = false;
-  mostrarContrato2: Boolean = false;
-  mostrarContrato3: Boolean = false;
+  mostrarDifunto: Boolean = false;//validacion change
+  mostrarContrato2: Boolean = false;//validacion change
+  mostrarContrato3: Boolean = false;//validacion change
+
+
+  /*Arrays*/
   DifuntosList: Difunto[] = [];
   contratosList: Contrato[] = [];
   contratosListAux: Contrato[] = []
   contratosListAux2: Contrato[] = []
   clientesList: Cliente[] = [];
-  tumbaDifuntos : TumbaDifunto[] =[];
+  tumbaDifuntos: TumbaDifunto[] = [];
+  /*Fin Arrays*/
 
-  sepultura2: any = new TumbaDifunto();
-  clienteAux: any;
-  cont : number=0;
+  sepultura2: any = new TumbaDifunto();//objeto caja de bananas
+  clienteAux: any;//cliente validacion
+  cont: number = 0;//contador de uso de tumba 
 
   constructor(private service: BackendServiceService,
     private router: Router, private activatedRoute: ActivatedRoute) {
@@ -43,18 +47,22 @@ export class AFormularioSepulturaComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.service.getClientes().subscribe(r2 => {
+    this.service.getContratoDistinct().subscribe(r2 => {
       this.clientesList = r2;
-     // this.service.getTumbaDifunto().subscribe(fun => this.tumbaDifuntos = fun);
-    });
-    this.service.getContrato().subscribe(fun => {
-      this.contratosList = fun;
-   //   console.log(this.contratosList)
-      this.service.getDifuntos().subscribe(response => {
-        this.DifuntosList = response;
+      // this.service.getTumbaDifunto().subscribe(fun => this.tumbaDifuntos = fun);
+      this.service.getContrato().subscribe(fun => {
+        this.contratosList = fun;
+        //   console.log(this.contratosList)
+        this.service.getDifuntos().subscribe(response => {
+          this.DifuntosList = response;
 
+
+
+        });
       });
+
     });
+
 
 
   }
@@ -80,19 +88,22 @@ export class AFormularioSepulturaComponent implements OnInit {
 
 
   mostrarDifuntos() {
-
     if (this.sepultura2.difunto != null) {
       this.mostrarDifunto = true;
-      
+
     } else {
       this.mostrarDifunto = false;
     }
   }
   mostrarContratos() {
- //   console.log(this.clienteAux);
-
+    this.contratosListAux = [];
     if (this.clienteAux != null) {
-      this.mostrarContrato2 = true;     
+      this.mostrarContrato2 = true;
+      for (let i = 0; i < this.contratosList.length; i++) {
+        if (this.clienteAux.id_Cliente == this.contratosList[i].cliente.id_Cliente) {
+          this.contratosListAux.push(this.contratosList[i]);
+        }
+      }
     } else {
       this.mostrarContrato2 = false;
     }
@@ -103,41 +114,38 @@ export class AFormularioSepulturaComponent implements OnInit {
   mostrarDatosContrato() {
     if (this.sepultura2.contrato != null) {
       this.mostrarContrato3 = true;
-      for(let i =0; i<this.tumbaDifuntos.length; i++){
-        if(this.tumbaDifuntos[i].contrato.tumba == this.sepultura2.contrato.tumba){
-          this.cont= this.cont+1;
-         // console.log(this.cont);
+      for (let i = 0; i < this.tumbaDifuntos.length; i++) {
+        if (this.tumbaDifuntos[i].contrato.tumba == this.sepultura2.contrato.tumba) {
+          this.cont = this.cont + 1;
+          // console.log(this.cont);
         }
       }
     } else {
       this.mostrarContrato3 = false;
     }
   }
-  saveTumbaDifunto(){
-    this.sepultura2.tumba=  this.sepultura2.contrato.tumba;
+  saveTumbaDifunto() {
+    this.sepultura2.tumba = this.sepultura2.contrato.tumba;
     this.sepultura2.fecha_Entierro_TD = new Date();
 
     console.log(this.sepultura2);
-    
+
   }
-  public create():void{
-    
-    this.sepultura2.tumba=  this.sepultura2.contrato.tumba;
-    this.sepultura2.fecha_Entierro_TD = new Date();
+   create(): void {
+    this.sepultura2.tumba = this.sepultura2.contrato.tumba;    
     console.log(this.sepultura2);
     this.service.saveTumbaDifunto(this.sepultura2)
       .subscribe(
-      cementerio => {
-        
-        //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
-          Swal.fire('Cambio Realizado', `Contraseña cambiada con Exito`, 'success');    
-        this.router.navigate(['/administracion-inicio/ASepultura']); 
-        
-      },
-      err=>{
-        console.log(err)
-      }
-    );
+        cementerio => {
+          //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
+          Swal.fire('Cambio Realizado', `Contraseña cambiada con Exito`, 'success');
+          this.router.navigate(['/administracion-inicio/ASepultura']);
+
+        },
+        err => {
+          console.log(err)
+        }
+      );
   }
 
 

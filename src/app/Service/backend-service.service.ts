@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Cliente } from '../Entidades/Cliente';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, tap } from 'rxjs/operators';
 import { Funcionario } from '../Entidades/Funcionario';
 import { Terreno } from '../Entidades/Terreno';
 import { Patio } from '../Entidades/Patio';
@@ -41,8 +41,8 @@ export class BackendServiceService {
   private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
   private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
   private urlEndPoint7: string = 'http://localhost:8080/DeleteContrato/';
-  ContratoList : Contrato[] =[];
- 
+  ContratoList: Contrato[] = [];
+
 
   private httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' })
 
@@ -122,14 +122,14 @@ export class BackendServiceService {
 
     this._usuario.username = payload.user_name;
     this._usuario.roles = payload.authorities;
-    this._usuario.id_Usuario= payload.id;
+    this._usuario.id_Usuario = payload.id;
     this._usuario.nombre = payload.nombre;
     sessionStorage.setItem('usuario', JSON.stringify(this._usuario));
   }
   guardarToken(accessToken: string): void {
     this._token = accessToken;
     sessionStorage.setItem('token', accessToken);
-     
+
   }
   obtenerDatosToken(accessToken: string): any {
     if (accessToken != null) {
@@ -259,6 +259,14 @@ export class BackendServiceService {
   }
   getContrato(): Observable<Contrato[]> {
     return this.http.get<Contrato[]>(this.urlEndPoint + "listContratos", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+  getContratoDistinct(): Observable<Cliente[]> {
+    return this.http.get<Cliente[]>(this.urlEndPoint + "ListDistinct", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -705,7 +713,7 @@ export class BackendServiceService {
       })
     );
   }
-  
+
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {
@@ -777,7 +785,7 @@ export class BackendServiceService {
     );
   }
   updateTumba(tumba: Tumba, id: number): Observable<any> {
-    return this.http.put<any>(this.urlEndPoint+"updateTumba/"+id, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.put<any>(this.urlEndPoint + "updateTumba/" + id, tumba, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
@@ -939,40 +947,40 @@ export class BackendServiceService {
         catchError(e => {
           if (this.isNoAutorizado(e)) {
             return throwError(e);
-          }                    
+          }
           return throwError(e);
         })
       );
   }
 
   updatePM(pagosMantencion: pagosMantencion, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updatePagoMantencion/${id}`, 
-    pagosMantencion, 
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-        if (this.isNoAutorizado(e)) {
+    return this.http.put<any>(`${this.urlEndPoint}updatePagoMantencion/${id}`,
+      pagosMantencion,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          if (this.isNoAutorizado(e)) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
           return throwError(e);
-        }
-        console.error(e.error.mensaje);
-        Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
-        return throwError(e);
-      })
-    );
+        })
+      );
   }
 
   updatePD(pagosMantencion: pagoDerecho, id: number): Observable<any> {
-    return this.http.put<any>(`${this.urlEndPoint}updatePagoDerecho/${id}`, 
-    pagosMantencion, 
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-        if (this.isNoAutorizado(e)) {
+    return this.http.put<any>(`${this.urlEndPoint}updatePagoDerecho/${id}`,
+      pagosMantencion,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          if (this.isNoAutorizado(e)) {
+            return throwError(e);
+          }
+          console.error(e.error.mensaje);
+          Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
           return throwError(e);
-        }
-        console.error(e.error.mensaje);
-        Swal.fire('Error al pagar la cuota', e.error.mensaje, 'error');
-        return throwError(e);
-      })
-    );
+        })
+      );
   }
   getCuotasDerecho(id: number): Observable<pagoDerecho[]> {
     return this.http.get<pagoDerecho[]>(this.urlEndPoint + "listCuotasDerecho/" + id,
@@ -980,7 +988,7 @@ export class BackendServiceService {
         catchError(e => {
           if (this.isNoAutorizado(e)) {
             return throwError(e);
-          }                    
+          }
           return throwError(e);
         })
       );
@@ -1022,20 +1030,12 @@ export class BackendServiceService {
     );
   }
 
-  saveTumbaDifunto(funcionario: TumbaDifunto): Observable<TumbaDifunto> {
-    return this.http.post(this.urlEndPoint + "saveTumbaDifunto", funcionario, { headers: this.agregarAuthorizationHeader() }).pipe(
-      map((response: any) => response.funcionario as TumbaDifunto),
-      catchError(e => {
-        if (this.isNoAutorizado(e)) {
-          return throwError(e);
-        }
-        console.error(e.error.mensaje);
-        Swal.fire('Error al crear el funcionario', e.error.mensaje, 'error');
-        return throwError(e);
-      })
-    );
+
+
+  saveTumbaDifunto(tumbaDif: TumbaDifunto) {  
+    return this.http.post(this.urlEndPoint + "saveTumbaDifunto", tumbaDif, { headers: this.agregarAuthorizationHeader() });
   }
 
 
- 
+
 }

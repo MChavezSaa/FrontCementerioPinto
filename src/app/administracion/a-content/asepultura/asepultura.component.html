@@ -36,23 +36,15 @@
                                 <tr>
                                     <th scope="col">Nombre Difunto</th>
                                     <th scope="col">Numero de tumba</th>
-                                    <th scope="col">Fecha de sepultura</th>                                    
+                                    <th scope="col">Fecha de sepultura</th>
                                 </tr>
                             </thead>
                             <tbody>
             
-                                <tr *ngFor="let cem of cementerioList2">
-                                    <td>{{cem.nombre_Cementerio}}</td>
-                                    <td>{{cem.capacidad_Terrenos}}</td>
-                                    <td>{{cem.direccion_Cementerio}}</td>
-                                    <td>{{cem.telefono_Cementerio}}</td>
-                                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AFormularioCementerio/',cem.id_Cementerio]"
-                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                        &nbsp;
-                                        <button type="button" name="eliminar" class="btn btn-danger"><i
-                                                class="fas fa-trash-alt"></i>
-                                        </button>
-                                    </td>
+                                <tr *ngFor="let cem of tumbaDifuntoList">
+                                    <td>{{cem.difunto.nombres_Difunto}}</td>
+                                    <td>{{cem.tumba}}</td>
+                                    <td>{{cem.fecha_Entierro_TD}}</td>
                                 </tr>
                             </tbody>
                         </table>

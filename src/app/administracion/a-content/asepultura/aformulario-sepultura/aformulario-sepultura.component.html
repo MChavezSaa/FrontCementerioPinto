@@ -58,7 +58,7 @@
                         <select class="form-control" id="difunto" name="difunto" [(ngModel)]="clienteAux"
                             (change)="mostrarContratos()">
                             <option [ngValue]="0" disabled selected>Seleccione cliente </option>
-                            <option *ngFor="let c of contratosList" [ngValue]="c.cliente">{{c.cliente.rut_Cliente}}</option>                           
+                            <option *ngFor="let c of clientesList;" [ngValue]="c" >{{c.rut_Cliente}}</option>                           
                         </select>
                     </div>
                     <div class="col" *ngIf="mostrarContrato2">
@@ -85,7 +85,7 @@
                         <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.contrato" 
                         (change)="mostrarDatosContrato()">
                             <option [ngValue]="0" disabled selected>Seleccione numero contrato </option>
-                            <option *ngFor="let c of contratosList" [ngValue]="c">{{c.id_contrato}}</option>                           
+                            <option *ngFor="let c of contratosListAux" [ngValue]="c">{{c.id_contrato}}</option>                           
                         </select>
                     </div>   
                     <div class="col" *ngIf="mostrarContrato3">
@@ -116,6 +116,14 @@
                         <input [disabled]="true" class="form-control" type="text" for=""
                         value="{{cont}}">
                     </div> 
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <label> Fecha de sepultura</label>
+                        <input type="date" class="form-control" id="fechaEntierro" name="fechafechaEntierro_Pago"
+                        data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
+                        [(ngModel)]="sepultura2.fecha_Entierro_TD">
+                    </div>                 
                 </div>
             </div>
             <div class="form-group row" style="text-align: center;">
