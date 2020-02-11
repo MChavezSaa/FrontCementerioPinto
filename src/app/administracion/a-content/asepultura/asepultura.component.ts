@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 
 @Component({
   selector: 'app-asepultura',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ASepulturaComponent implements OnInit {
 
-  constructor() { }
+  tumbaDifuntoList: TumbaDifunto[] =[]
+
+  constructor(private service: BackendServiceService) { }
 
   ngOnInit() {
+    this.service.getTumbaDifunto().subscribe(fun =>{
+      this.tumbaDifuntoList = fun;
+      console.log(this.tumbaDifuntoList)
+    });
   }
 
 }

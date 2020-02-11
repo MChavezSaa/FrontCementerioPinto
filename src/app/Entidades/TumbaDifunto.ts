@@ -4,11 +4,14 @@ import { Contrato } from './Contrato';
 
 export class TumbaDifunto {
 
-    fecha_Entierro_TD: Date;
+    
+    id_Tumba_Difunto: number;
     difunto: Difunto;
     tumba: string;
     contrato: Contrato;
-    //estadoSepultura:string;
+    fecha_Entierro_TD: Date;
+
+
 }
 
 
