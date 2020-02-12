@@ -1,6 +1,5 @@
 
-export class cambioPass{
-     antigua: string;
+export class cambioPass{     
      nueva: string;   
       
 }

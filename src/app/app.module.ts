@@ -65,7 +65,7 @@ import { SearchNamePipe } from './pipes/search-name.pipe';
 import { SearchVentaPipe } from './pipes/search-venta.pipe';
 import { SearchClientePipe } from './pipes/search-cliente.pipe';
 import { SearchDifuntoPipe } from './pipes/search-difunto.pipe';
-import {AuthGuard} from './guards/auth.guard';
+import { AuthGuard } from './guards/auth.guard';
 import { ATrasladoComponent } from './administracion/a-content/a-traslado/a-traslado.component';
 import { AformTrasladoComponent } from './administracion/a-content/a-traslado/aform-traslado/aform-traslado.component';
 import { SearchCementerioPipe } from './pipes/search-cementerio.pipe';
@@ -77,6 +77,7 @@ import { SearchTipotumbaPipe } from './pipes/search-tipotumba.pipe';
 import { CambiarPasswordComponent } from './administracion/a-content/cambiar-password/cambiar-password.component';
 import { ExportContratoPDFComponent } from './administracion/a-content/a-venta/export-contrato-pdf/export-contrato-pdf.component';
 import { SearchTumbaPorPatioPipe } from './pipes/search-tumba-por-patio.pipe';
+import { ReportesComponent } from './administracion/a-content/reportes/reportes.component';
 
 
 const routes: Routes = [
@@ -109,8 +110,8 @@ const routes: Routes = [
         component: ClienteEnfasisTerrenoComponent
       },
       {
-        path:'Reglamento',
-        component:CReglamentoClientesComponent
+        path: 'Reglamento',
+        component: CReglamentoClientesComponent
       }
     ]
   },
@@ -161,178 +162,179 @@ const routes: Routes = [
     ]
   },
   { path: 'administracion', component: ELoginComponent },
-  { path: 'administracion-inicio', component: AdministracionComponent,
+  {
+    path: 'administracion-inicio', component: AdministracionComponent,
     children: [
       {
         path: "",
         component: AContentComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
 
       },
       {
-        path:"Afuncionarios",
-        component:AFuncionarioComponent,
-        canActivate:[AuthGuard]
+        path: "Afuncionarios",
+        component: AFuncionarioComponent,
+        canActivate: [AuthGuard]
       },
       {
-        path:"AFormularioFuncionario",
+        path: "AFormularioFuncionario",
         component: AFormularioFuncionarioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioFuncionario/:id',
         component: AFormularioFuncionarioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "Aclientes",
         component: AClienteComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "AFormCliente",
         component: AformClienteComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormCliente/:id',
         component: AformClienteComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "Aterrenos",
         component: ETerrenosComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "ADifuntos",
         component: ADifuntoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "AmapaTerrenos",
         component: EVerMapaTerrenoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "Areduccion",
         component: EReducccionComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "AformularioDifuntos",
         component: AFomularioDifuntoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: "AformularioDifuntos/:id",
         component: AFomularioDifuntoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ATerrenosLibres',
         component: ATerrenosLibresComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ATerrenosOcupados',
         component: ATerrenosOcupadosComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ATerrenosReservados',
         component: ATerrenosReservadosComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AMarkerEnfasis',
         component: AMarkerEnfasisComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ACementerio',
         component: ACementerioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioCementerio',
         component: AFormularioCementerioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'AFormularioCementerio/:id',
+        path: 'AFormularioCementerio/:id',
         component: AFormularioCementerioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'APatio',
         component: APatioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioPatio',
         component: AFormularioPatioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'AFormularioPatio/:id',
+        path: 'AFormularioPatio/:id',
         component: AFormularioPatioComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AGTerreno',
         component: ATerrenoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AGFormularioTerreno',
         component: AFormularioTerrenoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'AGFormularioTerreno/:id',
+        path: 'AGFormularioTerreno/:id',
         component: AFormularioTerrenoComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ATumba',
         component: ATumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioTumba',
         component: AFormularioTumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioTumba/:id',
         component: AFormularioTumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ACreaTumba',
         component: ACreartumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioCreaTumba',
         component: AFormularioCreartumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioCreaTumba/:id',
         component: AFormularioCreartumbaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'AVentas',
+        path: 'AVentas',
         component: AVentaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'formularioVenta',
-        component:FormularioVentaComponent,
-        canActivate:[AuthGuard]
+        path: 'formularioVenta',
+        component: FormularioVentaComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'formularioVenta/:id',
@@ -345,24 +347,24 @@ const routes: Routes = [
         canActivate: [AuthGuard]
       },
       {
-        path:'CCuotas',
+        path: 'CCuotas',
         component: CCuotasComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'ASepultura',
         component: ASepulturaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioSepultura',
         component: AFormularioSepulturaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
-        path:'AFormularioSepultura/:id',
+        path: 'AFormularioSepultura/:id',
         component: AFormularioSepulturaComponent,
-        canActivate:[AuthGuard]
+        canActivate: [AuthGuard]
       },
       {
         path: 'AFormularioTraslado/:id',
@@ -396,8 +398,14 @@ const routes: Routes = [
         component: ExportContratoPDFComponent,
         canActivate: [AuthGuard]
 
+      },
+      {
+        path: 'reportes',
+        component: ReportesComponent,
+        canActivate: [AuthGuard]
+
       }
-      
+
 
     ]
   },
@@ -461,19 +469,23 @@ const routes: Routes = [
     ACreartumbaComponent,
     AFormularioCreartumbaComponent,
     ASepulturaComponent,
-    AFormularioSepulturaComponent, 
-    SearchNamePipe, 
-    SearchVentaPipe, 
-    SearchClientePipe, 
+    AFormularioSepulturaComponent,
+    SearchNamePipe,
+    SearchVentaPipe,
+    SearchClientePipe,
     SearchDifuntoPipe,
-    SearchTipotumbaPipe,   
-    ATrasladoComponent, 
-    AformTrasladoComponent, 
-    SearchCementerioPipe, 
-    SearchTerrenoPipe, 
-    SearchPatioPipe, 
-    FormularioEditarventaComponent,   
-    CuotasContratoComponent, CambiarPasswordComponent, ExportContratoPDFComponent, SearchTumbaPorPatioPipe    
+    SearchTipotumbaPipe,
+    ATrasladoComponent,
+    AformTrasladoComponent,
+    SearchCementerioPipe,
+    SearchTerrenoPipe,
+    SearchPatioPipe,
+    FormularioEditarventaComponent,
+    CuotasContratoComponent,
+    CambiarPasswordComponent,
+    ExportContratoPDFComponent,
+    SearchTumbaPorPatioPipe,
+    ReportesComponent
   ],
   imports: [
     BrowserModule,

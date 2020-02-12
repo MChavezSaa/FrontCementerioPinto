@@ -8,9 +8,9 @@
       <p class="titulo-menu" align="center" style="color: white">Cementerio de Pinto</p>
     </div>
     <ul class="list-unstyled components">
-      <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> <span>Inicio</span> </a></li>
+      <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> Inicio </a></li>
      
-      <li *ngIf="service.hasRole('ROLE_CLIENT')" class="nav-item">
+      <li *ngIf="!service.hasRole('ROLE_EMPLEADO')" class="nav-item">
         <a class="nav-link" routerLink="CCuotas"><i class="fas fa-user-alt colorFig"></i> Mis Cuotas</a>
       </li>
 
@@ -53,8 +53,8 @@
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="nav-item">
         <a class="nav-link" routerLink="ASepultura"><i class="material-icons" style="font-size:px">call_received</i> Realizar Sepultura</a>
       </li>
-      <li *ngIf="service.hasRole('ROLE_EMPLEADO')" class="nav-item">
-        <a class="nav-link" routerLink="Aclientes"> Reportes</a>
+      <li *ngIf="!service.hasRole('ROLE_CLIENT')" class="nav-item">
+        <a class="nav-link" routerLink="reportes"><i class="fas fa-chart-pie"></i> Reportes</a>
       </li>
  
 
