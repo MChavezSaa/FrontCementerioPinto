@@ -4,7 +4,7 @@
 <div class="container">
   <div class="card">
     <div class="card-body">
-      <h5><b><i>Terrenos Ocupados</i></b></h5>
+      <h5><b><i>Terrenos Ocupados</i></b></h5><br>
       <div class="row">
         <div class="col-sm" align="center">
           <button type="button" class="btn btn-outline-primary"
@@ -22,47 +22,47 @@
     </div>
   </div>
   <br>
-  <div class="container">
-    <legend>Detalle Terreno</legend>
-    <hr><br>
-    <table class="table">
-      <thead class="thead-dark table-bordered  ">
+  <div class="container" *ngIf="mostrarTabla2" style="width:700px;" id="Mdifunto">
+    <legend>Detalle Difunto</legend>
+    <hr>
+    <table class="table" >
+      <thead class="thead-dark table-bordered " >
         <tr>
-          <th style="width:300px;" scope="col">Nombre</th>
-          <td> {{nombre()}}</td>
+          <th  scope="col">Nombre</th>
+          <td> {{Mdifunto.difunto.nombres_Difunto}}</td>
         </tr>
         <tr>
-          <th style="width:300px;" scope="row"> Fecha Defunción</th>
-          <td>{{fd()}} </td>
+          <th  scope="row"> Fecha Defunción</th>
+          <td>{{Mdifunto.difunto.fecha_Defuncion| date:'dd-MM-yyyy'}} </td>
         </tr>
         <tr>
-          <th style="width:300px;" scope="row"> Patio</th>
-          <td>{{nTerreno()}} </td>
+          <th  scope="row"> Fecha Entierro</th>
+          <td >{{Mdifunto.fecha_Entierro_TD | date:'dd-MM-yyyy'}} </td>
         </tr>
         <tr>
-          <th style="width:300px;" scope="row"> Número Tumba</th>
-          <td>{{nTumba()}} </td>
+          <th  scope="row"> Nombre Patio</th>
+          <td>{{Mdifunto.contrato.patio.nombre_Patio}} </td>
+        </tr>
+        <tr>
+          <th  scope="row"> Número Tumba</th>
+          <td>{{Mdifunto.contrato.tumba}} </td>
         </tr>
       </thead>
     </table>
-    <!-- <ul>
-            <li type="circle">Nombre: {{nombre()}}</li>
-            <li type="circle">Fecha Defunción: {{fd()}}</li>
-    
-          </ul>-->
   </div>
   <div class="row">
     <div class="col">
       <div style="text-align: left;">
-        <div class="container">
+        <div class="container" >
           <img class="rosa" src="../assets/img/rosaPNG.png" alt="" height="150px" width="150px">
           <img src="../assets/img/cementerio2.jpg" alt="" width="910px" height="845px">
          
           <!-- Patio A-->
-          <div *ngFor="let person of peopleA; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
+          <div *ngFor="let person of peopleA; let i = index"  >
+            <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}" >
+              <button (click)="mostrarDatosTabla(person)" ><img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;"
+                [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" ></button>
+              
             </div>
           </div>
           <!-- Fin Patio A-->

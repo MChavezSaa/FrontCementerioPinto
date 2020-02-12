@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 
 @Component({
   selector: 'app-aterrenos-ocupados',
@@ -14,10 +15,15 @@ export class ATerrenosOcupadosComponent implements OnInit {
   TumbasOcupadasList: Tumba[] = [];
   id: any;
   Letter: any;
-  nombre2: any;
+  Mdifunto: TumbaDifunto;
   Fd: any;
   id_tumba: any;
 
+  ocupado: any;
+  mostrarTabla2: Boolean = false;
+  tumbaDifuntos: TumbaDifunto[] = [];
+
+  ocupadosListAux: TumbaDifunto[] = []
 
   constructor(private router: Router, private service: BackendServiceService) { }
 
@@ -26,6 +32,7 @@ export class ATerrenosOcupadosComponent implements OnInit {
       this.TumbasOcupadasList = tumbaList1
       this.llenarListas()
     });
+    this.service.getTumbaDifunto().subscribe(tumbaDifuntoList1 => this.tumbaDifuntos = tumbaDifuntoList1);
   }
 
   llenarListaLibre() {
@@ -142,8 +149,31 @@ export class ATerrenosOcupadosComponent implements OnInit {
     }
   }
 
+  mostrarDatosTabla(aux : Tumba) { 
+
+    this.mostrarTabla2 = true;
+    for (let i = 0; i < this.tumbaDifuntos.length; i++) { 
+      if(this.tumbaDifuntos[i].id_Tumba_Difunto == aux.id_tumba){
+        this.Mdifunto = this.tumbaDifuntos[i];
+        console.log(this.tumbaDifuntos[i]);
+      }
+    }
+  }
 
   /*
+
+  aux.id_tumba
+    this.ocupadosListAux = [];
+    if (this.ocupado != null) {
+        this.mostrarTabla2 = true;
+      for (let i = 0; i < this.tumbaDifuntos.length; i++) {
+        if (this.== this.tumbaDifuntos[i].difunto.id_Difunto) {
+        this.ocupadosListAux.push(this.tumbaDifuntos[i]);
+        }
+     }
+    } else {
+      this.mostrarTabla2 = false;
+    }
 
   guardarDatos(iD: number, letter: string, nombre1: string, fd2: string, idTumba: number) {
     //vaciar var
