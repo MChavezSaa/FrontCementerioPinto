@@ -29,7 +29,7 @@
       <thead class="thead-dark table-bordered " >
         <tr>
           <th  scope="col">Nombre</th>
-          <td> {{Mdifunto.difunto.nombres_Difunto}}</td>
+          <td> {{Mdifunto.difunto.nombres_Difunto}} {{Mdifunto.difunto.apellidoP_Difunto}} {{Mdifunto.difunto.apellidoM_Difunto}}</td>
         </tr>
         <tr>
           <th  scope="row"> Fecha Defunción</th>
@@ -60,7 +60,7 @@
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index"  >
             <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}" >
-              <button (click)="mostrarDatosTabla(person)" ><img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;"
+              <button style="display: contents;" (click)="mostrarDatosTabla(person)" ><img src="../../../../../assets/img/parapintar.png" alt="" style="width: 10px; height: 7px;"
                 [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba" ></button>
               
             </div>
