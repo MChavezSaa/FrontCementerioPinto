@@ -174,27 +174,27 @@
 
           <!-- Nichos A-->
           <div *ngFor="let niA of NichoA; let i = index">
-            <div [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba" data-toggle="tooltip"
+            <div  data-toggle="tooltip"
               data-placement="top" title="Lote Nicho A, Número {{niA.numero_Tumba}}">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;" [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
             </div>
           </div>
           <!-- Fin Nichos A-->
 
           <!-- Nichos B-->
           <div *ngFor="let niB of NichoA; let i = index">
-            <div [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba" data-toggle="tooltip"
+            <div data-toggle="tooltip"
               data-placement="top" title="Lote Nicho B, Número {{niB.numero_Tumba}}">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;" [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba" >
             </div>
           </div>
           <!-- Fin Nichos B-->
 
           <!-- Nichos C-->
           <div *ngFor="let niC of NichoC; let i = index">
-            <div [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba" data-toggle="tooltip"
+            <div data-toggle="tooltip"
               data-placement="top" title="Lote Nicho C, Número {{niC.numero_Tumba}}">
-              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;">
+              <img src="../../../../../assets/img/parapintar.png" alt="" style="width: 8px; height: 3px;" [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba" >
             </div>
           </div>
           <!-- Fin Nichos C-->

@@ -22,7 +22,7 @@ export class ATerrenosOcupadosComponent implements OnInit {
   constructor(private router: Router, private service: BackendServiceService) { }
 
   ngOnInit() {
-    this.service.getfreeTumbs().subscribe(tumbaList1 => {
+    this.service.getOcupadoTumbs().subscribe(tumbaList1 => {
       this.TumbasOcupadasList = tumbaList1
       this.llenarListas()
     });
