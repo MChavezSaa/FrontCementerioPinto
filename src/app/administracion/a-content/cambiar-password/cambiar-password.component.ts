@@ -12,26 +12,32 @@ import { Usuario } from 'src/app/Entidades/usuario';
 })
 export class CambiarPasswordComponent implements OnInit {
 
-  constructor(private service : BackendServiceService, private route: Router) { }
-  cambiopass : cambioPass = new cambioPass();
+  constructor(private service: BackendServiceService, private route: Router) { }
+  cambiopass: cambioPass = new cambioPass();
   ngOnInit() {
   }
 
 
-  cambiarPass(){    
-    console.log(this.cambiopass);
-    console.log(this.service.usuario.id_Usuario);
-    let user: Usuario = this.service.usuario;
+  cambiarPass() {
+    let user: Usuario = new Usuario();
+    user.username = this.service.usuario.username;
     user.password = this.cambiopass.nueva;
-    this.service.cambioPass(user);
-    this.service.logout();
-    this.route.navigate(['']);
+    //user.roles=null;
+    console.log(user);
+    this.service.cambioPass(user).subscribe(res => {
+      console.log(res);
+      swal.fire('Contraseña cambiada correctamente', 'Ingrese nuevamente', 'success');
+      this.service.logout();
+      this.route.navigate(['']);
+    });
+
+
   }
 }
 /**
  * //
     //swal.fire('Contraseña Actualizada', `Se ha actualizado la contraseña con Exito`, 'success');
-    //limpiar storage 
+    //limpiar storage
     //
     //redirect
     //
