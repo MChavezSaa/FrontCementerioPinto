@@ -18,12 +18,13 @@ export class ReportesComponent implements OnInit {
 
   model: Date; //fecha inicio
   model2: Date; //fecha fin
-  fechas:IntervaloFecha;
-  private chart3: am4charts.XYChart; //reservas
-  reservas: any[] = [];
+  fechas: IntervaloFecha;
+  private chart3: am4charts.XYChart; //contratos
+  contratos: any[] = [];
+  show: boolean = true;
 
 
-  constructor(private restService: BackendServiceService) { 
+  constructor(private restService: BackendServiceService) {
     this.model = new Date();
     this.model2 = new Date();
   }
@@ -31,69 +32,135 @@ export class ReportesComponent implements OnInit {
   ngOnInit() {
 
   }
-
-  
-}
-/*
-generarReporte() {
-    this.cargarGraficoReservas();
+  generarReporte() {
+    this.cargarGraficocontratos();
   }
 
-  cargarGraficoReservas() {
+
+
+  imprimirMeses() {
+    console.log(new Date().getMonth())
+  }
+
+  cargarGraficocontratos() {
     //inicializar grafico clientes
     this.chart3 = am4core.create("chartdiv3", am4charts.XYChart);
     this.chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
     this.chart3.paddingRight = 10;
-    this.fechas = { fechaInicio: this.model+"", fechaFin: this.model2+"" };
+    this.fechas = { fechaInicio: this.model + "", fechaFin: this.model2 + "" };
     //Datos
     this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
-      this.reservas = res;
-      let agendada = 0;
-      let reservada = 0;
-      let canceladaCliente = 0;
-      let canceladaProfesional = 0;
-      let ausente = 0;
-      for (let index = 0; index < this.reservas.length; index++) {
-        if (this.reservas[index][0].estado_reserva.id_estado_reserva == 1) {
-          agendada++;
-        } else {
-          if (this.reservas[index][0].estado_reserva.id_estado_reserva == 2) {
-            reservada++;
-          } else {
-            if (this.reservas[index][0].estado_reserva.id_estado_reserva == 3) {
-              canceladaCliente++;
-            } else {
-              if (this.reservas[index][0].estado_reserva.id_estado_reserva == 4) {
-                canceladaProfesional++;
-              } else {
-                ausente++;
-              }
-            }
-          }
+      this.contratos = res;
+      //console.log(this.contratos);
+      let contEnero = 0;
+      let contFebrero = 0;
+      let contMarzo = 0;
+      let contAbril = 0;
+      let contMayo = 0;
+      let contJunio = 0;
+      let contJulio = 0;
+      let contAgosto = 0;
+      let contSeptiembre = 0;
+      let contOctubre = 0;
+      let contNoviembre = 0;
+      let contDiciembre = 0;
+
+
+      for (let index = 0; index < this.contratos.length; index++) {
+        let fecha1 = this.contratos[index].fecha_Ingreso_Venta+"";
+        let fechas = fecha1.split("-");        
+        
+        if (Number.parseInt(fechas[1]) == 1) {
+          contEnero++
         }
+        if (Number.parseInt(fechas[1]) == 2) {
+          contFebrero++
+        }
+        if (Number.parseInt(fechas[1]) == 3) {
+          contMarzo++
+        }
+        if (Number.parseInt(fechas[1])== 4) {
+          contAbril++
+        }
+        if (Number.parseInt(fechas[1])== 5) {
+          contMayo++
+        }
+        if (Number.parseInt(fechas[1])== 6) {
+          contJunio++
+        }
+        if (Number.parseInt(fechas[1])== 7) {
+          contJulio++
+        }
+        if (Number.parseInt(fechas[1])== 8) {
+          contAgosto++
+        }
+        if (Number.parseInt(fechas[1])== 9) {
+          contSeptiembre++
+        }
+        if (Number.parseInt(fechas[1])== 10) {
+          contOctubre++
+        }
+        if (Number.parseInt(fechas[1])== 11) {
+          contNoviembre++
+        }
+        if (Number.parseInt(fechas[1])== 12) {
+          contDiciembre++
+        }
+        
       }
+
       this.chart3.data = [{
-        "country": "Agendada",
-        "visits": agendada
+        "country": "Ene",
+        "visits": contEnero
       },
       {
-        "country": "Reservada",
-        "visits": reservada
+        "country": "Feb",
+        "visits": contFebrero
       },
       {
-        "country": "Cancelada Cliente",
-        "visits": canceladaCliente
+        "country": "Mar",
+        "visits": contMarzo
       },
       {
-        "country": "Cancelada Profesional",
-        "visits": canceladaProfesional
+        "country": "Abr",
+        "visits": contAbril
       },
       {
-        "country": "Ausente Cliente",
-        "visits": ausente
-      }]
+        "country": "May",
+        "visits": contMayo
+      },
+      {
+        "country": "Jun",
+        "visits": contJunio
+      },
+      {
+        "country": "Jul",
+        "visits": contJulio
+      },
+      {
+        "country": "Ago",
+        "visits": contAgosto
+      },
+      {
+        "country": "Sept",
+        "visits": contSeptiembre
+      },
+      {
+        "country": "Oct",
+        "visits": contOctubre
+      },
+      {
+        "country": "Nov",
+        "visits": contNoviembre
+      },
+      {
+        "country": "Dic",
+        "visits": contDiciembre
+      }
+      ]
+      this.show = true;
     }, err => {
-      this.reservas = [];
+      this.contratos = [];
     })
     // Create axes
     let categoryAxis = this.chart3.xAxes.push(new am4charts.CategoryAxis());
@@ -103,17 +170,20 @@ generarReporte() {
     let valueAxis = this.chart3.yAxes.push(new am4charts.ValueAxis());
     // Create series
     let series = this.chart3.series.push(new am4charts.ColumnSeries());
+    valueAxis.title.text = "Ventas Por Rango"
     series.dataFields.valueY = "visits";
     series.dataFields.categoryX = "country";
     series.name = "Visits";
     series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
     series.columns.template.fillOpacity = .8;
+
     let columnTemplate = series.columns.template;
     columnTemplate.strokeWidth = 2;
     columnTemplate.strokeOpacity = 1;
     //exportacion 
     this.chart3.exporting.menu = new am4core.ExportMenu();
-    this.chart3.exporting.title = "Reporte de Servicios";
+    this.chart3.exporting.filePrefix = "Reporte: " + this.model + "-" + this.model2;
+    this.chart3.exporting.title = "Reporte de venta";
     this.chart3.exporting.menu.items = [{
       "label": "<i class=\"fas fa-align-justify\"></i>",
       "menu": [
@@ -122,6 +192,7 @@ generarReporte() {
         { "type": "jpg", "label": " Grafico en JPG" }
       ]
     }];
+
   }
 
-*/
+}
