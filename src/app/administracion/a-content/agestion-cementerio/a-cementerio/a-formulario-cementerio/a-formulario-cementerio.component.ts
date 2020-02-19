@@ -24,9 +24,9 @@ export class AFormularioCementerioComponent implements OnInit {
     private activatedRoute:ActivatedRoute) {
 
     this.formCementerio = this.formBuilder.group({
-      nombre_Cementerio: ['', [Validators.required]] ,
-      direccion_Cementerio: ['', [Validators.required]],
-      telefono_Cementerio:['', [Validators.required]],
+      nombre_Cementerio: ['', [Validators.required, Validators.minLength(3)]] ,
+      direccion_Cementerio: ['', [Validators.required, Validators.minLength(3)]],
+      telefono_Cementerio: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]],
       capacidad_Terrenos: ['', [Validators.required]]
   });    
    }
