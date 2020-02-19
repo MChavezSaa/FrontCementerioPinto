@@ -24,7 +24,7 @@ export class AFormularioTerrenoComponent implements OnInit {
     private activatedRoute: ActivatedRoute) {
 
     this.formTerreno = this.formBuilder.group({
-      nombre_Terreno: ['', [Validators.required]],
+      nombre_Terreno: ['', [Validators.required, Validators.minLength(3)]],
       capacidad_Terreno: ['', [Validators.required]],
       estado_Terreno: ['', [Validators.required]],
       cementerio: ['', [Validators.required]]
