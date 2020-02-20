@@ -24,7 +24,7 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label>Rut</label>
+                        <label>RUN</label>
                         <input [disabled]="true" [(ngModel)]="difuntoTraslado.rut_Difunto" type="text"
                             class="form-control" id="rut_Difunto" >
                     </div>
@@ -90,16 +90,35 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label>Rut </label><!--[(ngModel)]="rut_Solicitante"-->
+                            <label>RUN </label><!--[(ngModel)]="rut_Solicitante"-->
                             <input  formControlName="rut_Solicitante" 
                             type="text" class="form-control"
-                                placeholder="Ingrese el rut del solicitante">
+                                placeholder="Ingrese el RUN del solicitante">
+                                <div *ngIf="formTraslado.get('rut_Solicitante').hasError('required') && 
+                                    (formTraslado.get('rut_Solicitante').touched || formTraslado.get('rut_Solicitante').dirty)"
+                                    class="alert alert-danger">
+                                    El RUN del Solicitante es obligatorio.
+                                </div>
+                                <div *ngIf="formTraslado.get('rut_Solicitante').hasError('pattern') && 
+                                     (formTraslado.get('rut_Solicitante').touched || formTraslado.get('rut_Solicitante').dirty)"
+                                    class="alert alert-danger">
+                                    El RUN debe tener el formato 1.234.567-k.
+                                </div>
                         </div>
                         <div class="col">
                             <label>Nombre Completo</label><!--[(ngModel)]="nombreC_Solicitante"-->
                             <input  formControlName="nombreC_Solicitante"
                             type="text" class="form-control"
                                 placeholder="Ingrese el nombre del solicitante">
+                                <div *ngIf="formTraslado.get('nombreC_Solicitante').hasError('required') && 
+                                    (formTraslado.get('nombreC_Solicitante').touched || formTraslado.get('nombreC_Solicitante').dirty)"
+                                    class="alert alert-danger">
+                                    El nombre del solicitante es obligatorio.
+                                </div>
+                                <div *ngIf="formTraslado.get('nombreC_Solicitante').hasError('minlength') && (formTraslado.get('nombreC_Solicitante').touched 
+                                    || formTraslado.get('nombreC_Solicitante').dirty)" class="alert alert-danger">
+                                    El nombre debe tener al menos 3 caracteres.
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -110,13 +129,22 @@
                             <input formControlName="direccion_Solicitante"
                             type="text" class="form-control"
                                 placeholder="Ingrese el domicilio del solicitante">
+                            <div *ngIf="formTraslado.get('direccion_Solicitante').hasError('required') && 
+                                (formTraslado.get('direccion_Solicitante').touched || formTraslado.get('direccion_Solicitante').dirty)"
+                                class="alert alert-danger">
+                                El domicilio del solicitante es obligatorio.
+                            </div>
                         </div>
                         <div class="col">
                             <label for="fecha_Traslado">Fecha Traslado</label><!-- [(ngModel)]="fecha_Traslado"-->
                             <input formControlName="fecha_Traslado" 
                             class="form-control" type="date"
                                 data-format="yyyy-MM-dd" data-template="D MMM YYYY">
-                                
+                            <div *ngIf="formTraslado.get('fecha_Traslado').hasError('required') && 
+                                (formTraslado.get('fecha_Traslado').touched || formTraslado.get('fecha_Traslado').dirty)"
+                                class="alert alert-danger">
+                                La fecha de traslado es obligatoria.
+                            </div>
                         </div>                        
                     </div>
                 </div>
@@ -133,25 +161,40 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="genero_Difunto">Cambio</label><!--[(ngModel)]="tipoDeCambio2"-->
+                            <label for="exampleFormControlSelect1">Cambio</label><!--[(ngModel)]="tipoDeCambio2"-->
                             <select  formControlName="tipoDeCambio"
                              class="form-control" id="exampleFormControlSelect1">
                                 <option value="" selected disabled>Seleccione tipo de cambio </option>
                                 <option>Interno</option>
                                 <option>Externo</option>
                             </select>
+                            <div *ngIf="formTraslado.get('tipoDeCambio').hasError('required') && 
+                                (formTraslado.get('tipoDeCambio').touched || formTraslado.get('tipoDeCambio').dirty)"
+                                class="alert alert-danger">
+                                Es obligatorio seleccionar un tipo de cambio.
+                            </div>
                         </div>
                         <div class="col">
                             <label>Desde</label><!--[(ngModel)]="lugarviejo"-->                        
                             <input  formControlName="lugarviejo"
                             type="text" class="form-control"
                                 placeholder="Ingrese ubicacion actual del difunto">
+                                <div *ngIf="formTraslado.get('lugarviejo').hasError('required') && 
+                                    (formTraslado.get('lugarviejo').touched || formTraslado.get('lugarviejo').dirty)"
+                                    class="alert alert-danger">
+                                    El lugar de origen es obligatorio.
+                                </div>
                         </div>
                         <div class="col">
                             <label>Hacia</label><!--[(ngModel)]="lugarnuevo"-->
                             <input  formControlName="lugarnuevo"
                             type="text" class="form-control"
                                 placeholder="Ingrese ubicacion nueva del difunto">
+                            <div *ngIf="formTraslado.get('lugarnuevo').hasError('required') && 
+                                (formTraslado.get('lugarnuevo').touched || formTraslado.get('lugarnuevo').dirty)"
+                                class="alert alert-danger">
+                                El lugar de destino es obligatorio.
+                            </div>
                         </div>
                     </div>
                 </div>                
@@ -161,6 +204,11 @@
                             <label>Observaciones</label><!--[(ngModel)]="observaciones"-->
                             <textarea  formControlName="observaciones" 
                             type="text" class="form-control"></textarea>
+                            <div *ngIf="formTraslado.get('observaciones').hasError('required') && 
+                                (formTraslado.get('observaciones').touched || formTraslado.get('observaciones').dirty)"
+                                class="alert alert-danger">
+                                Ingrese al menos una observación.
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -174,7 +222,7 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit"  (click)='createDifunto()' class="btn btn-primary"
+                    <button type="submit" [disabled]="!formTraslado.valid" (click)='createDifunto()' class="btn btn-primary"
                     >Guardar</button>
                    
                 </div>
