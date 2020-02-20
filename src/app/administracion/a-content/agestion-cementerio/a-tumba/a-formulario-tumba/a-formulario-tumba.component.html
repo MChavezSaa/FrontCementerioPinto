@@ -22,11 +22,26 @@
                         <label>Nombre</label>
                         <input formControlName="nombretipo_tumba" [(ngModel)]="tipotumbaParams.nombretipo_tumba" type="text" class="form-control" id="nombreTipoTumba"
                             placeholder="Ingrese un nombre para el tipo de tumba">
+                            <div *ngIf="formTipoTumba.get('nombretipo_tumba').hasError('required') && 
+                                (formTipoTumba.get('nombretipo_tumba').touched || formTipoTumba.get('nombretipo_tumba').dirty)"
+                                class="alert alert-danger">
+                                El Nombre del tipo de tumba es obligatorio.
+                            </div>
+                            <div *ngIf="formTipoTumba.get('nombretipo_tumba').hasError('minlength') && 
+                                (formTipoTumba.get('nombretipo_tumba').touched || formTipoTumba.get('nombretipo_tumba').dirty)"
+                                class="alert alert-danger">
+                                El nombre debe tener al menos 3 caracteres.
+                            </div>
                     </div>
                     <div class="col">
                         <label>Capacidad Tumba</label>
                         <input formControlName="capacidad_tipo_tumba" [(ngModel)]="tipotumbaParams.capacidad_tipo_tumba" type="number" class="form-control" id="capacidadTipoTumba"
                             placeholder="Ingrese la capacidad del tipo tumba">
+                            <div *ngIf="formTipoTumba.get('capacidad_tipo_tumba').hasError('required') && 
+                               (formTipoTumba.get('capacidad_tipo_tumba').touched || formTipoTumba.get('capacidad_tipo_tumba').dirty)"
+                                class="alert alert-danger">
+                                La capacidad de la tumba es obligatoria.
+                            </div>
                     </div>
                     <div class="col-2">
                         <label></label>
