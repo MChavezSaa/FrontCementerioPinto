@@ -23,6 +23,7 @@ import { pagosMantencion } from '../Entidades/PagosMantencion';
 import { pagoDerecho } from '../Entidades/pagoDerecho';
 import { cambioPass } from '../Entidades/cambioPass';
 import { TumbaDifunto } from '../Entidades/TumbaDifunto';
+import { IntervaloFecha } from '../Entidades/IntervaloFecha';
 
 
 @Injectable({
@@ -1032,10 +1033,19 @@ export class BackendServiceService {
 
 
 
-  saveTumbaDifunto(tumbaDif: TumbaDifunto) {  
+  saveTumbaDifunto(tumbaDif: TumbaDifunto) {
     return this.http.post(this.urlEndPoint + "saveTumbaDifunto", tumbaDif, { headers: this.agregarAuthorizationHeader() });
   }
 
 
 
+  /**REPORTES*/
+  getContratoFechas(fechas: IntervaloFecha) {
+    return this.http.post<Contrato[]>(this.urlEndPoint + "getContratoFechas",fechas ,{ headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);  
+      })
+    );
+  }
 }

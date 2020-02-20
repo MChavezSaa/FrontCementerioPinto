@@ -4,6 +4,14 @@ import { ContratoDos } from 'src/app/Entidades/ContratoDos';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import Swal from 'sweetalert2';
 import { Tumba } from 'src/app/Entidades/Tumba';
+import { Cliente } from 'src/app/Entidades/Cliente';
+import { Cementerio } from 'src/app/Entidades/Cementerio';
+import { Terreno } from 'src/app/Entidades/Terreno';
+import { Patio } from 'src/app/Entidades/Patio';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { TipoTumba } from 'src/app/Entidades/TipoTumba';
+import { Funcionario } from 'src/app/Entidades/Funcionario';
+import { Derecho } from 'src/app/Entidades/Derecho';
 
 @Component({
   selector: 'app-a-venta',
@@ -17,34 +25,54 @@ export class AVentaComponent implements OnInit {
   contratoModal: ContratoDos;
   tumbasList: Tumba[] = [];
   searchText2: string;
-  
+  numero_Tumba: any;
 
-  constructor(private service: BackendServiceService) { }
+
+  constructor(private service: BackendServiceService) { 
+    this.contratoModal = new ContratoDos();
+    this.contratoModal.cliente= new Cliente();
+    this.contratoModal.cementerio = new Cementerio();
+    this.contratoModal.terreno = new Terreno();
+    this.contratoModal.patio = new Patio();
+    this.contratoModal.tipoTumba = new TipoTumba();
+    this.contratoModal.funcionario = new Funcionario();
+    this.contratoModal.derecho = new Derecho();    
+  }
 
   ngOnInit() {
-    this.service.getTumba().subscribe(tumbasList1 => { 
-      this.tumbasList = tumbasList1       
+    this.service.getTumba().subscribe(tumbasList1 => {
+      this.tumbasList = tumbasList1
       this.service.getContrato().subscribe(contratoList1 => {
-        this.contratoList2 = contratoList1     
+        this.contratoList2 = contratoList1
         this.contratoList2.forEach(element => {
-          console.log(this.numerosTumba(element));
-          element.tumba= this.numerosTumba(element);
-          
+          //console.log(this.numerosTumba(element));
+          element.tumba = this.numerosTumba(element);
+
         });
       });
     });
-    
+
     this.service.getContrato2().subscribe(contratoList1 => {
       this.contratoList3 = contratoList1
-      
+
     });
-   
-    
+
+
   }
 
   cargarContrato(id: number) {
     this.contratoModal = null;
-    this.service.getContrato2ID(id).subscribe(contrato2 => this.contratoModal = contrato2);
+    let ContratoAux;
+   // this.service.getContrato2ID(id).subscribe(contrato2 => this.contratoModal = contrato2);
+    for(let i =0; i<this.contratoList3.length; i++){
+      if(id == this.contratoList3[i].id_contrato2){
+        this.contratoModal= this.contratoList3[i];
+        ContratoAux = this.contratoList3[i];
+      }
+    }
+    this.numerosTumba(ContratoAux);
+    
+  
   }
   getNombreCLiente() {
     return this.contratoModal.cliente.nombres_Cliente;
@@ -105,6 +133,7 @@ export class AVentaComponent implements OnInit {
   }
 
   numerosTumba(contrato: Contrato) {
+    this.numero_Tumba= null;
     if (contrato.tipoTumba.nombretipo_tumba == "Doble") {
       let str = contrato.tumba;
       let tumbas = str.split("-");
@@ -116,9 +145,10 @@ export class AVentaComponent implements OnInit {
         }
         if (this.tumbasList[i].id_tumba == Number(tumbas[1])) {
           tumba2 = this.tumbasList[i];
-        } 
+        }
       }
-      return tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;
+      this.numero_Tumba= tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;  
+      return this.numero_Tumba;   
     } else {
       let tumba1;
       for (let i = 0; i < this.tumbasList.length; i++) {
@@ -126,7 +156,8 @@ export class AVentaComponent implements OnInit {
           tumba1 = this.tumbasList[i];
         }
       }
-      return tumba1.numero_Tumba
+      this.numero_Tumba=  tumba1.numero_Tumba
+      return this.numero_Tumba
     }
   }
 
