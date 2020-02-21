@@ -19,13 +19,32 @@
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label>Rut</label>
-                        <input formControlName="rut_Difunto" [(ngModel)]="difuntoParams.rut_Difunto" type="text" class="form-control" id="rutDifunto" placeholder="Ingrese un rut 11111111-1">
+                        <label>RUN</label>
+                        <input formControlName="rut_Difunto" [(ngModel)]="difuntoParams.rut_Difunto" type="text" class="form-control" id="rutDifunto" placeholder="Ingrese un RUN 11111111-1">
+                        <div *ngIf="formDifunto.get('rut_Difunto').hasError('required') && 
+                            (formDifunto.get('rut_Difunto').touched || formDifunto.get('rut_Difunto').dirty)"
+                            class="alert alert-danger">
+                            El RUN del Difunto es obligatorio.
+                        </div>
+                        <div *ngIf="formDifunto.get('rut_Difunto').hasError('pattern') && 
+                            (formDifunto.get('rut_Difunto').touched || formDifunto.get('rut_Difunto').dirty)"
+                            class="alert alert-danger">
+                            El RUN debe tener el formato 1.234.567-k.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Nombres</label>
                         <input formControlName="nombres_Difunto" [(ngModel)]="difuntoParams.nombres_Difunto" type="text" class="form-control" id="nombresDifunto"
                             placeholder="Ingrese nombre difunto">
+                            <div *ngIf="formDifunto.get('nombres_Difunto').hasError('required') && 
+                                (formDifunto.get('nombres_Difunto').touched || formDifunto.get('nombres_Difunto').dirty)"
+                                class="alert alert-danger">
+                                El Nombre del Difunto es obligatorio.
+                            </div>
+                            <div *ngIf="formDifunto.get('nombres_Difunto').hasError('minlength') && (formDifunto.get('nombres_Difunto').touched 
+                                || formDifunto.get('nombres_Difunto').dirty)" class="alert alert-danger">
+                                El nombre debe tener al menos 3 caracteres.
+                            </div>
                     </div>
                 </div>
             </div>
@@ -37,29 +56,57 @@
                         <label>Apellido Paterno</label>
                         <input formControlName="apellidoP_Difunto" [(ngModel)]="difuntoParams.apellidoP_Difunto" type="text" class="form-control" id="apellidoPDifunto"
                             placeholder="Ingrese Apellido Paterno">
+                            <div *ngIf="formDifunto.get('apellidoP_Difunto').hasError('required') && 
+                                (formDifunto.get('apellidoP_Difunto').touched || formDifunto.get('apellidoP_Difunto').dirty)"
+                                class="alert alert-danger">
+                                El Apellido Paterno del Difunto es obligatorio.
+                            </div>
+                            <div *ngIf="formDifunto.get('apellidoP_Difunto').hasError('minlength') && (formDifunto.get('apellidoP_Difunto').touched 
+                                || formDifunto.get('apellidoP_Difunto').dirty)" class="alert alert-danger">
+                                El Apellido debe tener al menos 3 caracteres.
+                            </div>
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
                         <input formControlName="apellidoM_Difunto" [(ngModel)]="difuntoParams.apellidoM_Difunto" type="text" class="form-control" id="apellidoMDifunto"
                             placeholder="Ingrese Apellido Materno">
+                            <div *ngIf="formDifunto.get('apellidoM_Difunto').hasError('required') && 
+                                (formDifunto.get('apellidoM_Difunto').touched || formDifunto.get('apellidoM_Difunto').dirty)"
+                                class="alert alert-danger">
+                                El Apellido Materno del Difunto es obligatorio.
+                            </div>
+                            <div *ngIf="formDifunto.get('apellidoM_Difunto').hasError('minlength') && (formDifunto.get('apellidoM_Difunto').touched 
+                                || formDifunto.get('apellidoM_Difunto').dirty)" class="alert alert-danger">
+                                El Apellido debe tener al menos 3 caracteres.
+                            </div>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
-                        <label for="genero_Difunto">Género</label>
+                        <label for="exampleFormControlSelect1">Género</label>
                         <select formControlName="genero_Difunto" [(ngModel)]="difuntoParams.genero_Difunto" class="form-control" id="exampleFormControlSelect1">
                             <option value="" selected disabled >Seleccione Género </option>
                             <option>Femenino</option>
                             <option>Masculino</option>
                             <option>Otro</option>
                         </select>
+                        <div *ngIf="formDifunto.get('genero_Difunto').hasError('required') && 
+                            (formDifunto.get('genero_Difunto').touched || formDifunto.get('genero_Difunto').dirty)"
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un género.
+                        </div>
                     </div>
                     <div class="col">
                         <label for="fecha_Nacimiento_Difunto">Fecha Nacimiento</label>
                         <input formControlName="fecha_Nacimiento_Difunto" [(ngModel)]="difuntoParams.fecha_Nacimiento_Difunto" class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
                             th:errorclass="'form-control alert-danger'">
+                        <div *ngIf="formDifunto.get('fecha_Nacimiento_Difunto').hasError('required') && 
+                            (formDifunto.get('fecha_Nacimiento_Difunto').touched || formDifunto.get('fecha_Nacimiento_Difunto').dirty)"
+                            class="alert alert-danger">
+                            La fecha de nacimiento es obligatoria.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -72,16 +119,32 @@
                         <label for="fecha_Defuncion">Fecha Defunción</label>
                         <input formControlName="fecha_Defuncion" [(ngModel)]="difuntoParams.fecha_Defuncion" class="form-control" type="date" 
                         data-format="yyyy-MM-dd" data-template="DD MM YYYY">
+                        <div *ngIf="formDifunto.get('fecha_Defuncion').hasError('required') && 
+                            (formDifunto.get('fecha_Defuncion').touched || formDifunto.get('fecha_Defuncion').dirty)"
+                            class="alert alert-danger">
+                            La fecha de defunción es obligatoria.
+                        </div>
                     </div>
+                    
                     <div class="col">
                         <label for="fechaEntierroDifunto">Fecha Entierro</label>
                         <input formControlName="fecha_Entierro" [(ngModel)]="difuntoParams.fecha_Entierro" class="form-control" type="date" 
                         data-format="yyyy-MM-dd" data-template="DD MM YYYY">
+                        <div *ngIf="formDifunto.get('fecha_Entierro').hasError('required') && 
+                            (formDifunto.get('fecha_Entierro').touched || formDifunto.get('fecha_Entierro').dirty)"
+                            class="alert alert-danger">
+                            La fecha de entierro es obligatoria.
+                        </div>
                     </div>
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Incripción</label>
                         <input formControlName="fecha_Inscripcion_Difunto" [(ngModel)]="difuntoParams.fecha_Inscripcion_Difunto" class="form-control" type="date" 
                         data-format="yyyy-MM-dd" data-template="DD MM YYYY">
+                        <div *ngIf="formDifunto.get('fecha_Inscripcion_Difunto').hasError('required') && 
+                            (formDifunto.get('fecha_Inscripcion_Difunto').touched || formDifunto.get('fecha_Inscripcion_Difunto').dirty)"
+                            class="alert alert-danger">
+                            La fecha de inscripción es obligatoria.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -96,11 +159,29 @@
                         <label>Nombre del Padre</label>
                         <input formControlName="nombreC_Padre" [(ngModel)]="difuntoParams.nombreC_Padre" type="text" class="form-control" id="padreDifunto"
                             placeholder="Ingrese el nombre del Padre">
+                        <div *ngIf="formDifunto.get('nombreC_Padre').hasError('required') && 
+                            (formDifunto.get('nombreC_Padre').touched || formDifunto.get('nombreC_Padre').dirty)"
+                            class="alert alert-danger">
+                            El nombre del Padre es obligatorio.
+                        </div>
+                        <div *ngIf="formDifunto.get('nombreC_Padre').hasError('minlength') && (formDifunto.get('nombreC_Padre').touched 
+                            || formDifunto.get('nombreC_Padre').dirty)" class="alert alert-danger">
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Nombre de la Madre</label>
                         <input formControlName="nombreC_Madre" [(ngModel)]="difuntoParams.nombreC_Madre" type="text" class="form-control" id="madreDifunto"
                             placeholder="Ingrese el nombre de la Madre">
+                        <div *ngIf="formDifunto.get('nombreC_Madre').hasError('required') && 
+                            (formDifunto.get('nombreC_Madre').touched || formDifunto.get('nombreC_Madre').dirty)"
+                            class="alert alert-danger">
+                            El nombre de la Madre es obligatorio.
+                        </div>
+                        <div *ngIf="formDifunto.get('nombreC_Madre').hasError('minlength') && (formDifunto.get('nombreC_Madre').touched 
+                            || formDifunto.get('nombreC_Madre').dirty)" class="alert alert-danger">
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -137,7 +218,7 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit"  (click)='createDifunto()' class="btn btn-primary"
+                    <button type="submit" [disabled]="!formDifunto.valid" (click)='createDifunto()' class="btn btn-primary"
                         *ngIf="!difuntoParams.id_Difunto else elseBlock">Guardar</button> <!-- [disabled]="!formDifunto.valid"-->
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
