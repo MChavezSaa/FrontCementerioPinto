@@ -13,7 +13,7 @@
     <legend style="font-style: oblique"><b> Formulario Incripción de Sepulturas</b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form novalidate>
+        <form [formGroup]="formSepultura"  novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Difunto</h4>
             </div>
@@ -22,12 +22,16 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut Difunto</label>
-                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.difunto"
-                            (change)="mostrarDifuntos()">
+                        <select class="form-control" id="difunto" formControlName="difunto" [(ngModel)]="sepultura2.difunto"
+                            (change)="mostrarDifuntos()" >
                             <option [ngValue]="0" disabled selected>Seleccione Difunto </option>
                             <option *ngFor="let c of DifuntosList" [ngValue]="c">{{c.rut_Difunto}}</option>
-                            <!--  <option *ngFor="let x of difuntoList" [ngValue]="x">{{x.rut_Difunto}}</option>-->
                         </select>
+                        <div *ngIf="formSepultura.get('difunto').value==0 && 
+                            (formSepultura.get('difunto').touched || formSepultura.get('difunto').dirty) "
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un difunto.
+                        </div>
                     </div>
                     <div class="col" *ngIf="mostrarDifunto">
                         <label> Nombre </label>
@@ -56,11 +60,17 @@
                 <div class="row">
                     <div class="col">
                         <label>Rut cliente</label>
-                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="clienteAux"
+                        <select class="form-control" id="contrato" name="contrato" formControlName="cliente"
+                        [(ngModel)]="clienteAux"
                             (change)="mostrarContratos()">
                             <option [ngValue]="0" disabled selected>Seleccione cliente </option>
                             <option *ngFor="let c of clientesList;" [ngValue]="c" >{{c.rut_Cliente}}</option>                           
                         </select>
+                        <div *ngIf="formSepultura.get('cliente').value==0 && 
+                            (formSepultura.get('cliente').touched || formSepultura.get('cliente').dirty) "
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un cliente.
+                        </div>
                     </div>
                     <div class="col" *ngIf="mostrarContrato2">
                         <label> Nombre </label>
@@ -83,11 +93,16 @@
                 <div class="row">
                     <div class="col">
                         <label>Numero Contrato</label>
-                        <select class="form-control" id="difunto" name="difunto" [(ngModel)]="sepultura2.contrato" 
-                        (change)="mostrarDatosContrato()">
+                        <select class="form-control" id="contrato" name="contrato" formControlName="contrato"
+                        [(ngModel)]="sepultura2.contrato" (change)="mostrarDatosContrato()">
                             <option [ngValue]="0" disabled selected>Seleccione numero contrato </option>
                             <option *ngFor="let c of contratosListAux" [ngValue]="c">{{c.id_contrato}}</option>                           
                         </select>
+                        <div *ngIf="formSepultura.get('contrato').value==0 && 
+                            (formSepultura.get('contrato').touched || formSepultura.get('contrato').dirty)   "
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un contrato.
+                        </div>
                     </div>   
                     <div class="col" *ngIf="mostrarContrato3">
                         <label> Tipo de tumba</label>
@@ -123,7 +138,12 @@
                         <label> Fecha de sepultura</label>
                         <input type="date" class="form-control" id="fechaEntierro" name="fechafechaEntierro_Pago"
                         data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
-                        [(ngModel)]="sepultura2.fecha_Entierro_TD">
+                        formControlName="fecha_Entierro_TD"  [(ngModel)]="sepultura2.fecha_Entierro_TD">
+                        <div *ngIf="formSepultura.get('fecha_Entierro_TD').value==0 && 
+                            (formSepultura.get('fecha_Entierro_TD').touched || formSepultura.get('fecha_Entierro_TD').dirty)   "
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar una fecha para la sepultura.
+                        </div>
                     </div>                 
                 </div>
             </div>
@@ -133,7 +153,7 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button (click)="create()" class="btn btn-primary">Guardar</button>
+                    <button (click)="create()" [disabled]="!formSepultura.valid" class="btn btn-primary">Guardar</button>
                 </div>
             </div>
         </form>

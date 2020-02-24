@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import swal from 'sweetalert2';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
-import { FormGroup } from '@angular/forms';
+import { FormGroup,FormBuilder,FormControl, Validators } from '@angular/forms';
 import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 import { Difunto } from 'src/app/Entidades/Difunto';
 import { Contrato } from 'src/app/Entidades/Contrato';
@@ -23,7 +23,6 @@ export class AFormularioSepulturaComponent implements OnInit {
   mostrarContrato2: Boolean = false;//validacion change
   mostrarContrato3: Boolean = false;//validacion change
 
-
   /*Arrays*/
   DifuntosList: Difunto[] = [];
   contratosList: Contrato[] = [];
@@ -37,14 +36,22 @@ export class AFormularioSepulturaComponent implements OnInit {
   clienteAux: any;//cliente validacion
   cont: number = 0;//contador de uso de tumba 
 
-  constructor(private service: BackendServiceService,
-    private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+    private router: Router, private activatedRoute: ActivatedRoute,) {
     this.sepultura2.difunto = 0;
     this.sepultura2.tumba = 0;
     this.sepultura2.contrato = 0;
     this.sepultura2.fecha_Entierro_TD = 0;
-    //this.clienteAux=0;
+    this.clienteAux=0;
+
+    this.formSepultura = this.formBuilder.group({
+      difunto: ['', [Validators.required]],
+      contrato: ['', [Validators.required]],
+      cliente: ['', [Validators.required]],
+      fecha_Entierro_TD: ['', [Validators.required]],
+    });
   }
+
 
   ngOnInit() {
     this.service.getContratoDistinct().subscribe(r2 => {
@@ -55,15 +62,9 @@ export class AFormularioSepulturaComponent implements OnInit {
         //   console.log(this.contratosList)
         this.service.getDifuntos().subscribe(response => {
           this.DifuntosList = response;
-
-
-
         });
       });
-
     });
-
-
 
   }
 
@@ -73,7 +74,6 @@ export class AFormularioSepulturaComponent implements OnInit {
       title: 'Salir del formulario',
       type: 'warning',
       text: '¿Está seguro que desea salir del formulario de Ingreso de Sepulturas?',
-
       confirmButtonText: 'Yes ',
       cancelButtonText: 'No',
       showCancelButton: true,
@@ -88,9 +88,9 @@ export class AFormularioSepulturaComponent implements OnInit {
 
 
   mostrarDifuntos() {
+    console.log(this.formSepultura.get("difunto").value);
     if (this.sepultura2.difunto != null) {
       this.mostrarDifunto = true;
-
     } else {
       this.mostrarDifunto = false;
     }
@@ -109,8 +109,6 @@ export class AFormularioSepulturaComponent implements OnInit {
     }
   }
 
-
-
   mostrarDatosContrato() {
     if (this.sepultura2.contrato != null) {
       this.mostrarContrato3 = true;
@@ -127,7 +125,6 @@ export class AFormularioSepulturaComponent implements OnInit {
   saveTumbaDifunto() {
     this.sepultura2.tumba = this.sepultura2.contrato.tumba;
     this.sepultura2.fecha_Entierro_TD = new Date();
-
     console.log(this.sepultura2);
 
   }
@@ -140,14 +137,11 @@ export class AFormularioSepulturaComponent implements OnInit {
           //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
           Swal.fire('Cambio Realizado', `Contraseña cambiada con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/ASepultura']);
-
         },
         err => {
           console.log(err)
         }
       );
   }
-
-
 
 }
