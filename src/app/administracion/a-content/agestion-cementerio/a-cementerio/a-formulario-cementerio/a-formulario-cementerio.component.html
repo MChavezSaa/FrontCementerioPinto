@@ -26,12 +26,32 @@
                         <input [(ngModel)]="cementerioParams.nombre_Cementerio" formControlName="nombre_Cementerio"
                             type="text" class="form-control" id="nombre_Cementerio"
                             placeholder="Ingrese un nombre para el cementerio">
+                        <div *ngIf="formCementerio.get('nombre_Cementerio').hasError('required') && 
+                            (formCementerio.get('nombre_Cementerio').touched || formCementerio.get('nombre_Cementerio').dirty)"
+                            class="alert alert-danger">
+                            El Nombre del Cementerio es obligatorio.
+                        </div>
+                        <div *ngIf="formCementerio.get('nombre_Cementerio').hasError('minlength') && 
+                        (formCementerio.get('nombre_Cementerio').touched || formCementerio.get('nombre_Cementerio').dirty)" 
+                            class="alert alert-danger">
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Dirección</label>
                         <input formControlName="direccion_Cementerio"
                             [(ngModel)]="cementerioParams.direccion_Cementerio" type="text" class="form-control"
                             id="direccionCementerio" placeholder="Ingrese una dirección para el cementerio">
+                        <div *ngIf="formCementerio.get('direccion_Cementerio').hasError('required') && 
+                            (formCementerio.get('direccion_Cementerio').touched || formCementerio.get('direccion_Cementerio').dirty)"
+                            class="alert alert-danger">
+                            La dirección del Cementerio es obligatorio.
+                        </div>
+                        <div *ngIf="formCementerio.get('direccion_Cementerio').hasError('minlength') && 
+                            (formCementerio.get('direccion_Cementerio').touched || formCementerio.get('direccion_Cementerio').dirty)"
+                            class="alert alert-danger">
+                            La dirección debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col-2">
                         <label></label>
@@ -46,14 +66,29 @@
                     <div class="col">
                         <label>Teléfono</label>
                         <input formControlName="telefono_Cementerio" [(ngModel)]="cementerioParams.telefono_Cementerio"
-                            type="number" class="form-control" id="telefonoCementerio"
+                            type="number" class="form-control" id="telefono_Cementerio"
                             placeholder="Ingrese un número de teléfono">
+                        <div *ngIf="formCementerio.get('telefono_Cementerio').hasError('required') && 
+                            (formCementerio.get('telefono_Cementerio').touched || formCementerio.get('telefono_Cementerio').dirty)"
+                            class="alert alert-danger">
+                            El teléfono del cementerio es obligatorio.
+                        </div>
+                        <div *ngIf="formCementerio.get('telefono_Cementerio').hasError('pattern') && 
+                            (formCementerio.get('telefono_Cementerio').touched || formCementerio.get('telefono_Cementerio').dirty)"
+                            class="alert alert-danger">
+                            El teléfono debe contener 9 digitos.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Capacidad Cementerio</label>
                         <input formControlName="capacidad_Terrenos" [(ngModel)]="cementerioParams.capacidad_Terrenos"
-                            type="number" class="form-control" id="capacidadCementerio"
+                            type="number" class="form-control" id="capacidad_Terrenos"
                             placeholder="Ingrese la capacidad del cementerio">
+                        <div *ngIf="formCementerio.get('capacidad_Terrenos').hasError('required') && 
+                            (formCementerio.get('capacidad_Terrenos').touched || formCementerio.get('capacidad_Terrenos').dirty)"
+                            class="alert alert-danger">
+                            La capacidad del cementerio es obligatorio.
+                        </div>
                     </div>
                     <div class="col-2">
                         <label></label>
@@ -78,15 +113,3 @@
 
     </div>
 </div>
-
-<!--
-      <div style="text-align: center">
-                <button (click)="cancelarCementerio()" class="btn btn-danger"  >
-                    Cancelar </button>
-                &nbsp;&nbsp;
-                <button (click)="create()" type="submit" class="btn btn-success" *ngIf="!cementerioParams.id else elseBlock"> Guardar </button>
-                <ng-template #elseBlock>
-                    <button class="btn btn-primary" role="button" (click)='update()' >Editar</button>
-                  </ng-template>
-            </div>
--->

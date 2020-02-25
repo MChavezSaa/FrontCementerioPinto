@@ -52,7 +52,7 @@ export class ATerrenosLibresComponent implements OnInit {
 
   llenarListas() {
     for (let i = 0; i < this.TumbasLibresList.length; i++) {
-      if (this.TumbasLibresList[i].patio.id_Patio == 1) {
+      if (this.TumbasLibresList[i].patio.id_Patio == 1 ) {
         this.peopleA.push(this.TumbasLibresList[i]);
       } else {
         if (this.TumbasLibresList[i].patio.id_Patio == 2) {

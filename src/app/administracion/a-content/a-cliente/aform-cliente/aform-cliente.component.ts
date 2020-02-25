@@ -21,18 +21,18 @@ export class AformClienteComponent implements OnInit {
     ) {
 
     this.formCliente = this.formBuilder.group({
-      rut_Cliente: ['', [Validators.required]] ,
-      nombres_Cliente: ['', [Validators.required]] ,
-      apellidoP_Cliente: ['', [Validators.required]] ,
-      apellidoM_Cliente: ['', [Validators.required]] ,
+      rut_Cliente: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]] ,
+      nombres_Cliente: ['', [Validators.required, Validators.minLength(3)]] ,
+      apellidoP_Cliente: ['', [Validators.required, Validators.minLength(3)]] ,
+      apellidoM_Cliente: ['', [Validators.required, Validators.minLength(3)]] ,
       genero_Cliente: ['', [Validators.required]] ,
-      telefono_Cliente: ['', [Validators.required]] ,
-      direccion_Cliente: ['', [Validators.required]] ,
-      rut_Familiar: ['', [Validators.required]] ,
-      nombres_Familiar: ['', [Validators.required]] ,
-      apellidoP_Familiar: ['', [Validators.required]] ,
-      apellidoM_Familiar: ['', [Validators.required]] ,
-      telefono_Familiar: ['', [Validators.required]] 
+      telefono_Cliente: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]] ,
+      direccion_Cliente: ['', [Validators.required, Validators.minLength(10)]] ,
+      rut_Familiar: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]] ,
+      nombres_Familiar: ['', [Validators.required, Validators.minLength(3)]] ,
+      apellidoP_Familiar: ['', [Validators.required, Validators.minLength(3)]] ,
+      apellidoM_Familiar: ['', [Validators.required, Validators.minLength(3)]] ,
+      telefono_Familiar: ['', [Validators.required, Validators.pattern(/^\d{9}$/)]] 
 
   });    
    }

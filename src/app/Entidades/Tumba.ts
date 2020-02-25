@@ -11,6 +11,7 @@ export class Tumba {
     orientacion_Tumba: number;
     largo: number;
     ancho: number;
+    nivel: number;
     funcionario: Funcionario;
     patio: Patio;
     tipo_Tumba: TipoTumba;

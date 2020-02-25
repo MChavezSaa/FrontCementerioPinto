@@ -61,8 +61,7 @@
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <ng-container
-                                                                        *ngFor="let cli of clienteList2 | filter3: searchText3">
+                                                                <ng-container *ngFor="let cli of clienteList2 | filter3: searchText3">
                                                                         <tr *ngIf="cli.estadoCliente==true">
                                                                                 <td>{{cli.rut_Cliente}}</td>
                                                                                 <td>{{cli.nombres_Cliente}}</td>

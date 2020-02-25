@@ -23,19 +23,34 @@
                         <label>Nombre</label>
                         <input formControlName="nombre_Patio" [(ngModel)]="patioParams.nombre_Patio"  type="text" class="form-control" id="nombrePatio"
                             placeholder="Ingrese un nombre para el patio">
+                        <div *ngIf="formPatio.get('nombre_Patio').hasError('required') && 
+                             (formPatio.get('nombre_Patio').touched || formPatio.get('nombre_Patio').dirty)"
+                            class="alert alert-danger">
+                            El Nombre del patio es obligatorio.
+                        </div>
+                        <div *ngIf="formPatio.get('nombre_Patio').hasError('minlength') && (formPatio.get('nombre_Patio').touched 
+                            || formPatio.get('nombre_Patio').dirty)" class="alert alert-danger">
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
-                        <label>Capacidad Patio</label>
-                        <input formControlName="capacidad_Patio"  [(ngModel)]="patioParams.capacidad_Patio" type="number" class="form-control" id="capacidadPatio"
-                            placeholder="Ingrese la capacidad del patio">
-                    </div>
-                    <div class="col-2">
-                        <label></label>
+                        <label for="exampleFormControlSelect1">Sector Cementerio</label>
+                        <select class="form-control"  formControlName="nombreTT"
+                            [(ngModel)]="patioParams.nombreTT">
+                            <option value="0" selected disabled>Seleccione un Sector</option>
+                            <option> Sector Nichos</option>
+                            <option> Sector Sepulturas</option>
+                            <option> Sector Mausoleos</option>
+                        </select>
+                        <div *ngIf="formPatio.get('nombreTT').hasError('required') && 
+                            (formPatio.get('nombreTT').touched || formPatio.get('nombreTT').dirty)"
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un Sector.
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="form-group">
-            </div>
+
             <div class="form-group">
                 <div class="row">
 
@@ -46,11 +61,24 @@
                             <option *ngFor="let c of terrenoList" [ngValue]="c">{{c.nombre_Terreno}}</option>
                             
                         </select>
+                        <div *ngIf="formPatio.get('terreno').hasError('required') && 
+                            (formPatio.get('terreno').touched || formPatio.get('terreno').dirty)"
+                            class="alert alert-danger">
+                            Es obligatorio seleccionar un terreno.
+                        </div>
                     </div>
-                    
-                    <div class="col-2">
-                        <label></label>
+
+                    <div class="col">
+                        <label>Capacidad Patio</label>
+                        <input formControlName="capacidad_Patio" [(ngModel)]="patioParams.capacidad_Patio" type="number"
+                            class="form-control" id="capacidadPatio" placeholder="Ingrese la capacidad del patio">
+                            <div *ngIf="formPatio.get('capacidad_Patio').hasError('required') && 
+                                (formPatio.get('capacidad_Patio').touched || formPatio.get('capacidad_Patio').dirty)"
+                                class="alert alert-danger">
+                                La capacidad del patio es obligatorio.
+                            </div>
                     </div>
+  
                 </div>
             </div>
             <div class="form-group row">

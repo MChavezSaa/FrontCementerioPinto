@@ -41,9 +41,9 @@ export class AformTrasladoComponent implements OnInit {
     
      this.formTraslado = this.formBuilder.group({
 
-      rut_Solicitante: ['', [Validators.required]],
-      nombreC_Solicitante: ['', [Validators.required]],
-      direccion_Solicitante: ['', [Validators.required]],
+      rut_Solicitante: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]],
+      nombreC_Solicitante: ['', [Validators.required, Validators.minLength(3)]],
+      direccion_Solicitante: ['', [Validators.required, Validators.minLength(3)]],
       fecha_Traslado: ['', [Validators.required]],
       tipoDeCambio: ['', [Validators.required]],
       lugarviejo: ['', [Validators.required]],

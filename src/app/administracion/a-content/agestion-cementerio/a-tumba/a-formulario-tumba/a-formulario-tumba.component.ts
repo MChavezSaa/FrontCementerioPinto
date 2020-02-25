@@ -21,7 +21,7 @@ export class AFormularioTumbaComponent implements OnInit {
     private router: Router,
     private activatedRoute: ActivatedRoute) {
     this.formTipoTumba = this.formBuilder.group({
-      nombretipo_tumba: ['', [Validators.required]],
+      nombretipo_tumba: ['', [Validators.required, Validators.minLength(3)]],
       capacidad_tipo_tumba: ['', [Validators.required]]
     });
   }

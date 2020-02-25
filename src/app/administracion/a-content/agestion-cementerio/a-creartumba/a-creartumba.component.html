@@ -56,6 +56,7 @@
                                     <th scope="col">Orientación</th>
                                     <th scope="col">Largo</th>
                                     <th scope="col">Ancho</th>
+                                    <th scope="col">Nivel</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
@@ -68,6 +69,7 @@
                                         <td>{{tub.orientacion_Tumba}}</td>
                                         <td>{{tub.largo}}</td>
                                         <td>{{tub.ancho}}</td>
+                                        <td>{{tub.nivel}}</td>
                                         <td><button type="button" name="editar"
                                                 [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_tumba]"
                                                 class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>

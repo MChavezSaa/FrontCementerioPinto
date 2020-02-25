@@ -21,10 +21,10 @@ export class AFormularioFuncionarioComponent implements OnInit {
     ) {
 
     this.formFuncionario = this.formBuilder.group({
-      rut_Funcionario: ['', [Validators.required]] ,
-      nombres_Funcionario: ['', [Validators.required]],
-      apellidoP_Funcionario:['', [Validators.required]],
-      apellidoM_Funcionario: ['', [Validators.required]],
+      rut_Funcionario: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]] ,
+      nombres_Funcionario: ['', [Validators.required, Validators.minLength(3)]],
+      apellidoP_Funcionario: ['', [Validators.required, Validators.minLength(3)]],
+      apellidoM_Funcionario: ['', [Validators.required, Validators.minLength(3)]],
       cargo_Funcionario: ['', [Validators.required]],
       genero_Funcionario: ['', [Validators.required]],
       estado_funcionario: ['']

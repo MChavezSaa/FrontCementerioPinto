@@ -23,8 +23,9 @@ export class AFormularioPatioComponent implements OnInit {
     private activatedRoute:ActivatedRoute) {
     this.formPatio = this.formBuilder.group({
       capacidad_Patio: ['', [Validators.required]],
-      nombre_Patio: ['', [Validators.required]],
-      terreno: ['', [Validators.required]]
+      nombre_Patio: ['', [Validators.required, Validators.minLength(3)]],
+      terreno: ['', [Validators.required]],
+      nombreTT: ['', [Validators.required]], 
     });
   }
 

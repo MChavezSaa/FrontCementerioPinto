@@ -29,24 +29,29 @@ export class FormularioVentaComponent implements OnInit {
   clienteList: Cliente[] = [];
   funcionarioList: Funcionario[] = [];
   terrenoList: Terreno[] = [];
+  nichoList: Tumba[] = [];
 
   Show: Boolean = true;
   doble: Boolean = false;
+  paraNicho: Boolean = false;
   mostrarCliente : Boolean= false;
   mostrarCuota : Boolean = false;
+  mostrarNicho: Boolean = false;
 
   valorCuota: number = 0;
   pagoDerecho: pagoDerecho;
   tumba1: Tumba;
   tumba2: Tumba;
+  nivelNicho: Tumba;
 
+  formContrato: FormGroup;
 
-  // formContrato: FormGroup;
   private contrato2: any = new Contrato();
 
-
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
     private router: Router) {
+
       this.contrato2.tipoTumba= 0;
       this.contrato2.funcionario =0;
       this.contrato2.cliente =0;
@@ -55,7 +60,30 @@ export class FormularioVentaComponent implements OnInit {
       this.contrato2.patio=0;
       this.contrato2.tumba=0;
       this.contrato2.medio_Pago=0;
+
+      this.formContrato = this.formBuilder.group({
+        funcionario: ['', [Validators.required]],
+        fecha_Ingreso_Venta: ['', [Validators.required]],
+        cementerio: ['', [Validators.required]],
+        terreno: ['', [Validators.required]],
+        patio: ['', [Validators.required]],
+        tipoTumba:['',[Validators.required]],
+        tumba: ['', [Validators.required]],
+        tumba1: ['', [Validators.required]],
+        tumba2: ['', [Validators.required]],
+        cliente: ['', [Validators.required]], 
+        medio_Pago: ['', [Validators.required]],
+        valor_Terreno: ['', [Validators.required]],
+        pagoInicial: ['', [Validators.required]],
+        n_Cuotas: ['', [Validators.required]],
+        fecha_Pago: ['', [Validators.required]],
+        nivelNicho: ['', [Validators.required]],
+        numeroNicho: ['', [Validators.required]],
+      })
      
+      /*
+    VCuotas: number
+     */
   }
 
   ngOnInit() {
@@ -71,9 +99,19 @@ export class FormularioVentaComponent implements OnInit {
   doble1(tipoTumba: TipoTumba){
     if(tipoTumba.nombretipo_tumba=="Doble"){
       this.doble=true;
+      this.paraNicho=false;
     }else{
+        
       this.doble=false;
+ 
     }
+    if (tipoTumba.nombretipo_tumba == "Nicho") {
+      this.paraNicho = true;
+      this.doble=false;
+    } else {
+      this.paraNicho = false;
+   }
+
   }
 
   calcularValorCuota() {
@@ -128,6 +166,20 @@ export class FormularioVentaComponent implements OnInit {
         this.router.navigate(['/administracion-inicio/AVentas']);
       }
     })
+  }
+
+  mostrarNichos(nivel: number){
+    this.nichoList = [];
+    let cont = 1;
+    if(cont <=3){
+      for (let i = 0; i < this.tumbaList.length; i++) {
+        if (this.tumbaList[i].estado_Tumba == "Disponible" && this.tumbaList[i].nivel == nivel) {
+          this.nichoList.push(this.tumbaList[i]);
+          cont++;
+        }
+      }
+    }
+    cont= 1;
   }
 
   mostrarClientes(){

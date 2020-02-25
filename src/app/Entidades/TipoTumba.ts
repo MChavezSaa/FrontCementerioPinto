@@ -3,4 +3,5 @@ export class TipoTumba {
     nombretipo_tumba: string;
     capacidad_tipo_tumba: number;
     estado_tipo_tumba: boolean;
+
 }

@@ -24,25 +24,25 @@ export class AFomularioDifuntoComponent implements OnInit {
 
   ) {
     this.formDifunto = this.formBuilder.group({
-      rut_Difunto: ['', [Validators.required]],
-      nombres_Difunto: ['', [Validators.required]],
-      apellidoP_Difunto: ['', [Validators.required]],
-      apellidoM_Difunto: ['', [Validators.required]],
+      rut_Difunto: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]],
+      nombres_Difunto: ['', [Validators.required, Validators.minLength(3)]],
+      apellidoP_Difunto: ['', [Validators.required, Validators.minLength(3)]],
+      apellidoM_Difunto: ['', [Validators.required, Validators.minLength(3)]],
       genero_Difunto: ['', [Validators.required]],
       fecha_Nacimiento_Difunto: ['', [Validators.required]],
       fecha_Defuncion: ['', [Validators.required]],
       fecha_Inscripcion_Difunto: ['', [Validators.required]],
       fecha_Entierro: ['', [Validators.required]],
-      nombreC_Padre: ['', [Validators.required]],
-      nombreC_Madre: ['', [Validators.required]],
+      nombreC_Padre: ['', [Validators.required, Validators.minLength(3)]],
+      nombreC_Madre: ['', [Validators.required, Validators.minLength(3)]],
 
-      sacramento1: ['', [Validators.required]],
-      sacramento2: ['', [Validators.required]],
-      sacramento3: ['', [Validators.required]],
-      sacramento4: ['', [Validators.required]],
+      sacramento1: [''],
+      sacramento2: [''],
+      sacramento3: [''],
+      sacramento4: [''],
 
-      certificado_Defuncion: ['', [Validators.required]],
-      fotocopia_Carnet: ['', [Validators.required]]
+      certificado_Defuncion: [''],
+      fotocopia_Carnet: ['']
 
     });
   }
