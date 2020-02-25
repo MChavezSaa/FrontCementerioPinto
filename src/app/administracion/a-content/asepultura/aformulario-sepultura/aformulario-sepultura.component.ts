@@ -36,8 +36,11 @@ export class AFormularioSepulturaComponent implements OnInit {
   clienteAux: any;//cliente validacion
   cont: number = 0;//contador de uso de tumba 
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute,) {
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,) {
+      
     this.sepultura2.difunto = 0;
     this.sepultura2.tumba = 0;
     this.sepultura2.contrato = 0;

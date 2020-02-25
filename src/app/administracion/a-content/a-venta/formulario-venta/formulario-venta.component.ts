@@ -44,13 +44,14 @@ export class FormularioVentaComponent implements OnInit {
   tumba2: Tumba;
   nivelNicho: Tumba;
 
+  formContrato: FormGroup;
 
-  // formContrato: FormGroup;
   private contrato2: any = new Contrato();
 
-
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+  constructor(private service: BackendServiceService, 
+    private formBuilder: FormBuilder,
     private router: Router) {
+
       this.contrato2.tipoTumba= 0;
       this.contrato2.funcionario =0;
       this.contrato2.cliente =0;
@@ -59,7 +60,30 @@ export class FormularioVentaComponent implements OnInit {
       this.contrato2.patio=0;
       this.contrato2.tumba=0;
       this.contrato2.medio_Pago=0;
+
+      this.formContrato = this.formBuilder.group({
+        funcionario: ['', [Validators.required]],
+        fecha_Ingreso_Venta: ['', [Validators.required]],
+        cementerio: ['', [Validators.required]],
+        terreno: ['', [Validators.required]],
+        patio: ['', [Validators.required]],
+        tipoTumba:['',[Validators.required]],
+        tumba: ['', [Validators.required]],
+        tumba1: ['', [Validators.required]],
+        tumba2: ['', [Validators.required]],
+        cliente: ['', [Validators.required]], 
+        medio_Pago: ['', [Validators.required]],
+        valor_Terreno: ['', [Validators.required]],
+        pagoInicial: ['', [Validators.required]],
+        n_Cuotas: ['', [Validators.required]],
+        fecha_Pago: ['', [Validators.required]],
+        nivelNicho: ['', [Validators.required]],
+        numeroNicho: ['', [Validators.required]],
+      })
      
+      /*
+    VCuotas: number
+     */
   }
 
   ngOnInit() {
