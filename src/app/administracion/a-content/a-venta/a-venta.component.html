@@ -53,6 +53,7 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Fecha Inscripción</th>
+                                    <th scope="col">Dia de Pago</th>
                                     <th scope="col">Número de Contrato</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Tipo de tumba</th>
@@ -65,6 +66,7 @@
                                 <ng-container *ngFor="let ven of contratoList2 | filter2: searchText2">
                                     <tr *ngIf="ven.estado_Contrato==true">
                                         <td>{{ven.fecha_Ingreso_Venta}}</td>
+                                        <td>{{fechaPago(ven.fecha_Pago)}} de cada mes</td>
                                         <td>{{ven.id_contrato}}</td>
                                         <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
@@ -199,7 +201,7 @@
                     <b>Pago Inicial:</b> {{contratoModal.pagoInicial}} <br>
                     <b>Número de Cuotas:</b> {{contratoModal.derecho.numero_Cuotas_Derecho}} <br>
                     <b>Valor de Cuotas:</b> {{contratoModal.derecho.valor_Cuota_Derecho}} <br>
-                    <b>Fecha de Pago:</b> {{contratoModal.derecho.fecha_Pago_Derecho}} <br>
+                    <b>Dia de Pago:</b> {{fechaPago(contratoModal.derecho.fecha_Pago_Derecho)}} de cada mes <br>
                 </label>
             </div>
 

@@ -1048,4 +1048,15 @@ export class BackendServiceService {
       })
     );
   }
+
+  renovarCuotaMantencion(id: number): Observable<any> {
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/"+ id ,
+    { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+       // this.isNoAutorizado(e);
+        return throwError(e);  
+      })
+    );
+  }
+
 }
