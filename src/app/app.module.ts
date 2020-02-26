@@ -78,6 +78,7 @@ import { CambiarPasswordComponent } from './administracion/a-content/cambiar-pas
 import { ExportContratoPDFComponent } from './administracion/a-content/a-venta/export-contrato-pdf/export-contrato-pdf.component';
 import { SearchTumbaPorPatioPipe } from './pipes/search-tumba-por-patio.pipe';
 import { ReportesComponent } from './administracion/a-content/reportes/reportes.component';
+import { ExportTrasladoComponent } from './administracion/a-content/a-traslado/export-traslado/export-traslado.component';
 
 
 const routes: Routes = [
@@ -404,8 +405,12 @@ const routes: Routes = [
         component: ReportesComponent,
         canActivate: [AuthGuard]
 
+      },
+      {
+        path: 'comprobanteTraslado/:id',
+        component: ExportTrasladoComponent,
+        canActivate: [AuthGuard]
       }
-
 
     ]
   },
@@ -485,7 +490,8 @@ const routes: Routes = [
     CambiarPasswordComponent,
     ExportContratoPDFComponent,
     SearchTumbaPorPatioPipe,
-    ReportesComponent
+    ReportesComponent,
+    ExportTrasladoComponent
   ],
   imports: [
     BrowserModule,

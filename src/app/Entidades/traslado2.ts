@@ -1,3 +1,4 @@
+import { Difunto } from './Difunto';
 
 export class traslado2 {
     id_Traslado2: number;
@@ -9,6 +10,6 @@ export class traslado2 {
     lugarviejo: string;
     lugarnuevo: string;
     observaciones: string;
-  
+    difunto: Difunto;
   
 }

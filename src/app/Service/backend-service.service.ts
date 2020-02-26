@@ -24,6 +24,7 @@ import { pagoDerecho } from '../Entidades/pagoDerecho';
 import { cambioPass } from '../Entidades/cambioPass';
 import { TumbaDifunto } from '../Entidades/TumbaDifunto';
 import { IntervaloFecha } from '../Entidades/IntervaloFecha';
+import { traslado2 } from '../Entidades/traslado2';
 
 
 @Injectable({
@@ -166,6 +167,17 @@ export class BackendServiceService {
     );
   }
 
+  getTrasladoXID(id: number): Observable<traslado2> {
+    return this.http.get<traslado2>(this.urlEndPoint + 'findTraslado/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
+      })
+    );
+  }
   /*CLIENTES*/
 
   getClientePorID(id: number): Observable<Cliente> {

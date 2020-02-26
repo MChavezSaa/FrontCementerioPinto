@@ -144,6 +144,7 @@
                   <th scope="col">Apellido Materno</th>
                   <th scope="col">Fecha Defunción</th>
                   <th scope="col">Editar</th>
+                  <th scope="col">Comprobante</th>
                   
                 </tr>
               </thead>
@@ -157,6 +158,7 @@
                     <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
 
                     <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
+                    <td><button type="button" name="export" [routerLink]="['/administracion-inicio/comprobanteTraslado/',dif.id_Difunto]" class="btn btn-info"><i class="fas fa-file-pdf"></i></button></td>                    
                   </tr>
                 </ng-container>
               </tbody>

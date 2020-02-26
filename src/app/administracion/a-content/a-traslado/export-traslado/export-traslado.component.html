@@ -1,0 +1,94 @@
+<div class="container">
+
+    <hr>
+    <div class="row" style="padding-left:90px ;">
+        <div class="col-4 text-left">
+            <button type="button" class="btn btn-info" (click)="volver()"> Volver </button>
+        </div>
+        <div class="col-4 text-right">
+            <button type="button" class="btn btn-info" (click)="generatePDF()"> Exportar </button>
+        </div>
+    </div>
+    <hr>
+    <br><br>
+    <div id='content' #content> 
+        <div class="container">
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-10">
+                    <div>
+                        <b>Parroquia Nuestra Señora del Tránsito</b> <br>
+                        <b>Fono: 42-176400</b>
+                    </div>
+                    <div style="text-align: right;">
+                        <b>Pinto, {{trasladoParams.fecha_Traslado}}</b> <br>
+                    </div>
+                    <br>
+                    <h4 style="text-align: center;"> <b><u>SOLICITUD DE TRASLADO DE DIFUNTO</u></b></h4>
+                   <br><br>
+                    <div class="row">
+                    <div class="col-1">
+                    </div>
+                    <div class="col-10">
+                        <p> En la ciudad de Pinto, con fecha <b>{{trasladoParams.fecha_Traslado}}</b>, Sr.(Sra)
+                            <b>{{trasladoParams.nombreC_Solicitante}}</b> con RUN <b>{{trasladoParams.rut_Solicitante}}</b>
+                            y domicilio en {{trasladoParams.direccion_Solicitante}}, solicita al Sr. Cura Párroco
+                            de la ciudad de Pinto la autorización del traslado del difunto <b>{{trasladoParams.difunto.nombres_Difunto}}
+                             {{trasladoParams.difunto.apellidoP_Difunto}} {{trasladoParams.difunto.apellidoM_Difunto}}</b>, con RUN 
+                            <b>{{trasladoParams.difunto.rut_Difunto}}</b> fallecido el <b>{{trasladoParams.difunto.fecha_Defuncion}}</b>.
+                        </p>
+                        <p>
+                            Realizando un traslado de tipo <b>{{trasladoParams.tipoDeCambio}}</b><br>
+                            Desde: <b>{{trasladoParams.lugarviejo}}</b>. <br>
+                            Hasta: <b>{{trasladoParams.lugarnuevo}}</b>. <br><br>
+
+                            Observaciones: {{trasladoParams.observaciones}}
+                        </p>
+                        <br>
+                        <hr style="color:black;" />
+                        <h6 style="text-align: center;"><b>INFORME  OFICINA  DE  ADMINISTRACION  DE</b></h6>
+                        <h6 style="text-align: center;"><b>CEMENTERIO  PARROQUIAL  DE  PINTO</b></h6>
+                        <p>Visto los registros, los datos enunciados en la presente solicitud 
+                        son correctos, tanto en el nombre del cadáver como la ubicación en la
+                         que se desea realizar el traslado, autorizo el traslado de dicho cadáver. <br>
+                         <b>V"B": ADMINISTRADOR  CEMENTERIO  PARROQUIAL  DE  PINTO</b>
+                        </p>
+                        <hr style="color:black; size: 10px;" />
+                        <br><br> <br>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    <p>
+                                        ____________________ <br>
+                                        Firma Solicitante
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p>
+                                        ____________________ <br>
+                                        Firma Pbro. <br>Luis Concha Alarcón
+                                    </p>
+                                </div>
+                                <div class="col">
+                                    <p>
+                                        ____________________ <br>
+                                        Firma Encargado
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-1">
+                    </div>
+                   </div>
+
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+    </div>
+</div>
