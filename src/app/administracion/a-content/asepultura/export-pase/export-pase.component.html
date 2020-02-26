@@ -1,0 +1,68 @@
+<div class="container">
+
+    <hr>
+    <div class="row" style="padding-left:90px ;">
+        <div class="col-4 text-left">
+            <button type="button" class="btn btn-info" (click)="volver()"> Volver </button>
+        </div>
+        <div class="col-4 text-right">
+            <button type="button" class="btn btn-info" (click)="generatePDF()"> Exportar </button>
+        </div>
+    </div>
+    <hr>
+    <div id='content' #content>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-10">
+                    <div>
+                        <label><b>Cementerio Parroquial de Pinto</b></label> <br>
+                        <label><b>Fono: 42-176400</b></label>
+                    </div>
+                    <div style="text-align: right;">
+                        <label><b>Pinto, {{dia}} / {{mes}} / {{anio}}</b> <br></label>
+                    </div>
+                    <br>
+                    <h4 style="text-align: center;"> <b><u>PASE DE SEPULTACIÓN</u></b></h4>
+                    <br>
+                    <div class="row">
+                        <div class="col-1">
+                        </div>
+                        <div class="col-10">
+                            <legend> Se sepultó en el Cementerio Parroquial de Pinto el día {{paseParams.fecha_Entierro_TD}}, el cadáver de 
+                                <b>{{paseParams.difunto.nombres_Difunto}} {{paseParams.difunto.apellidoP_Difunto}}
+                                     {{paseParams.difunto.apellidoM_Difunto}}</b> de (edad difunto) años de edad.
+                            </legend>
+                              
+                            <br><br> <br>
+                            <div class="container"> <!-- Contenedor Firmas-->
+                                <div class="row">
+                                    <div class="col-2">
+                                    </div>
+                                    <div class="col-5">
+                                    </div>
+                                    <div class="col-5" style="text-align: center;">
+                                        <legend>
+                                            ____________________ <br>
+                                            Firma Pbro. <br>Luis Concha Alarcón
+                                        </legend>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-1">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+
+    </div>
+</div>

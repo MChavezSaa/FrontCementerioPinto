@@ -16,6 +16,11 @@ export class ExportTrasladoComponent implements OnInit {
   trasladoParams: traslado2;
   id: number;
 
+  fechaActual = new Date();
+  mes = this.fechaActual.getMonth() + 1;
+  dia = this.fechaActual.getDate();
+  anio = this.fechaActual.getFullYear();
+  
   constructor(private service: BackendServiceService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
@@ -50,7 +55,7 @@ export class ExportTrasladoComponent implements OnInit {
       let pdf = new jsPDF('p', 'mm', 'a4'); // tamaaño A4 para pdf
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save('ComprobanteTraslado  _' + this.id + '.pdf'); // generar PDF  
+      pdf.save('ComprobanteTraslado _' + this.id + '.pdf'); // generar PDF  
     });
   }
 

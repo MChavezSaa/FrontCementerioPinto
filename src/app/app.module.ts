@@ -79,6 +79,7 @@ import { ExportContratoPDFComponent } from './administracion/a-content/a-venta/e
 import { SearchTumbaPorPatioPipe } from './pipes/search-tumba-por-patio.pipe';
 import { ReportesComponent } from './administracion/a-content/reportes/reportes.component';
 import { ExportTrasladoComponent } from './administracion/a-content/a-traslado/export-traslado/export-traslado.component';
+import { ExportPaseComponent } from './administracion/a-content/asepultura/export-pase/export-pase.component';
 
 
 const routes: Routes = [
@@ -410,6 +411,11 @@ const routes: Routes = [
         path: 'comprobanteTraslado/:id',
         component: ExportTrasladoComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'paseSepultacion/:id',
+        component: ExportPaseComponent,
+        canActivate: [AuthGuard]
       }
 
     ]
@@ -491,7 +497,8 @@ const routes: Routes = [
     ExportContratoPDFComponent,
     SearchTumbaPorPatioPipe,
     ReportesComponent,
-    ExportTrasladoComponent
+    ExportTrasladoComponent,
+    ExportPaseComponent
   ],
   imports: [
     BrowserModule,

@@ -1049,6 +1049,17 @@ export class BackendServiceService {
     return this.http.post(this.urlEndPoint + "saveTumbaDifunto", tumbaDif, { headers: this.agregarAuthorizationHeader() });
   }
 
+  getSepulturaXID(id: number): Observable<TumbaDifunto> {
+    return this.http.get<TumbaDifunto>(this.urlEndPoint + 'findTumbaDifunto/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
+      })
+    );
+  }
 
 
   /**REPORTES*/

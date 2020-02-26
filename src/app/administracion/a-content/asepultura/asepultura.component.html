@@ -37,6 +37,7 @@
                                     <th scope="col">Nombre Difunto</th>
                                     <th scope="col">Numero de tumba</th>
                                     <th scope="col">Fecha de sepultura</th>
+                                    <th scope="col">Pase Sepultación</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -45,6 +46,10 @@
                                     <td>{{cem.difunto.nombres_Difunto}}</td>
                                     <td>{{cem.tumba}}</td>
                                     <td>{{cem.fecha_Entierro_TD}}</td>
+                                    <td><button  [routerLink]="[ '/administracion-inicio/paseSepultacion/',cem.id_Tumba_Difunto ]"   type="button" name="pdf"
+                                        class="btn btn-info">
+                                        <i class="fas fa-file-pdf"></i>
+                                    </button></td>
                                 </tr>
                             </tbody>
                         </table>
