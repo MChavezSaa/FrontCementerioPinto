@@ -88,7 +88,7 @@
                     <div class="col">
                         <label> Nombre de Patio</label>
                         <select class="form-control" id="pat" name="patio" formControlName="patio" [(ngModel)]="contrato2.patio"
-                            (change)="fun(contrato2.patio.id_Patio)">
+                            (change)="fun()">
                             <option [ngValue]="0" disabled selected>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
                         </select>
@@ -102,9 +102,9 @@
                     <div class="col">
                         <label> Tipo de Tumba</label>
                         <select class="form-control" id="tipoTumb" name="tipoTumba" formControlName="tipoTumba" [(ngModel)]="contrato2.tipoTumba"
-                            (change)="doble1(contrato2.tipoTumba)">
+                            (change)="doble1(contrato2)">
                             <option [ngValue]="0" disabled selected>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList " [ngValue]="c">{{c.nombretipo_tumba}}</option>
+                            <option *ngFor="let c of tipoTumbaListAux " [ngValue]="c">{{c.nombretipo_tumba}}</option>
                         </select>
                         <div *ngIf="formContrato.get('tipoTumba').value==0 && 
                             (formContrato.get('tipoTumba').touched || formContrato.get('tipoTumba').dirty) "
@@ -118,10 +118,11 @@
                         <select class="form-control" id="tumb" name="tumba" formControlName="nivelNicho" [(ngModel)]="nivelNicho" 
                         (change)="mostrarNichos(contrato2.nivel)" >
                             <option [ngValue]="0" disabled selected>Seleccione un nivel para el nicho</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option [ngValue]="1">1</option>
+                            <option [ngValue]="2">2</option>
+                            <option [ngValue]="3">3</option>
                         </select>
+                        <button (click)="imprime()">print</button>
                         <div *ngIf="formContrato.get('nivelNicho').hasError('required') && 
                             (formContrato.get('nivelNicho').touched || formContrato.get('nivelNicho').dirty) "
                             class="alert alert-danger">
@@ -161,7 +162,7 @@
                     </div>
                     <div class="col" *ngIf="paraNicho">
                         <label> Número de Nicho</label>&nbsp;<label *ngIf="paraNicho"></label>
-                        <select class="form-control" id="tumb" name="nicho" formControlName="numeroNicho" [(ngModel)]="numeroNicho" (change)="mostrarNichos(contrato2.nivel)">
+                        <select class="form-control" id="tumb" name="nicho" formControlName="numeroNicho" [(ngModel)]="numeroNicho" >
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let l of nichoList " [ngValue]="l">{{l.numero_Tumba}}</option>
                         </select>
