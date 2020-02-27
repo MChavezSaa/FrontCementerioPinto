@@ -5,7 +5,6 @@ import { Router, ActivatedRoute, RouterLink } from '@angular/router';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Contrato } from 'src/app/Entidades/Contrato';
 import html2canvas from 'html2canvas';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { Tumba } from 'src/app/Entidades/Tumba';
 
 

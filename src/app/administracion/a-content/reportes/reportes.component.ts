@@ -2,11 +2,10 @@
 import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core';
 import * as am4core from "@amcharts/amcharts4/core";
 import * as am4charts from "@amcharts/amcharts4/charts";
-import am4themes_animated from "@amcharts/amcharts4/themes/animated";
 import * as jsPDF from 'jspdf';
-import * as html2canvas from 'html2canvas';
 import { IntervaloFecha } from 'src/app/Entidades/IntervaloFecha';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
+import html2canvas from 'html2canvas';
 
 
 @Component({
@@ -22,7 +21,21 @@ export class ReportesComponent implements OnInit {
   private chart3: am4charts.XYChart; //contratos
   contratos: any[] = [];
   show: boolean = true;
+  cargarTabla: boolean= false;
 
+
+      contEnero = 0;
+      contFebrero = 0;
+      contMarzo = 0;
+      contAbril = 0;
+      contMayo = 0;
+      contJunio = 0;
+      contJulio = 0;
+      contAgosto = 0;
+      contSeptiembre = 0;
+      contOctubre = 0;
+      contNoviembre = 0;
+      contDiciembre = 0;
 
   constructor(private restService: BackendServiceService) {
     this.model = new Date();
@@ -32,7 +45,7 @@ export class ReportesComponent implements OnInit {
   ngOnInit() {
 
   }
-  generarReporte() {
+  generarReporte() {    
     this.cargarGraficocontratos();
   }
 
@@ -44,6 +57,7 @@ export class ReportesComponent implements OnInit {
 
   cargarGraficocontratos() {
     //inicializar grafico clientes
+    this.cargarTabla = true;
     this.chart3 = am4core.create("chartdiv3", am4charts.XYChart);
     this.chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
     this.chart3.paddingRight = 10;
@@ -52,18 +66,18 @@ export class ReportesComponent implements OnInit {
     this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
       this.contratos = res;
       //console.log(this.contratos);
-      let contEnero = 0;
-      let contFebrero = 0;
-      let contMarzo = 0;
-      let contAbril = 0;
-      let contMayo = 0;
-      let contJunio = 0;
-      let contJulio = 0;
-      let contAgosto = 0;
-      let contSeptiembre = 0;
-      let contOctubre = 0;
-      let contNoviembre = 0;
-      let contDiciembre = 0;
+       this.contEnero = 0;
+      this.contFebrero = 0;
+      this.contMarzo = 0;
+      this.contAbril = 0;
+      this.contMayo = 0;
+      this.contJunio = 0;
+      this.contJulio = 0;
+      this.contAgosto = 0;
+      this.contSeptiembre = 0;
+      this.contOctubre = 0;
+      this.contNoviembre = 0;
+      this.contDiciembre = 0;
 
 
       for (let index = 0; index < this.contratos.length; index++) {
@@ -71,91 +85,91 @@ export class ReportesComponent implements OnInit {
         let fechas = fecha1.split("-");        
         
         if (Number.parseInt(fechas[1]) == 1) {
-          contEnero++
+          this.contEnero++
         }
         if (Number.parseInt(fechas[1]) == 2) {
-          contFebrero++
+          this.contFebrero++
         }
         if (Number.parseInt(fechas[1]) == 3) {
-          contMarzo++
+          this.contMarzo++
         }
         if (Number.parseInt(fechas[1])== 4) {
-          contAbril++
+          this.contAbril++
         }
         if (Number.parseInt(fechas[1])== 5) {
-          contMayo++
+          this.contMayo++
         }
         if (Number.parseInt(fechas[1])== 6) {
-          contJunio++
+          this.contJunio++
         }
         if (Number.parseInt(fechas[1])== 7) {
-          contJulio++
+          this.contJulio++
         }
         if (Number.parseInt(fechas[1])== 8) {
-          contAgosto++
+          this.contAgosto++
         }
         if (Number.parseInt(fechas[1])== 9) {
-          contSeptiembre++
+          this.contSeptiembre++
         }
         if (Number.parseInt(fechas[1])== 10) {
-          contOctubre++
+          this.contOctubre++
         }
         if (Number.parseInt(fechas[1])== 11) {
-          contNoviembre++
+          this.contNoviembre++
         }
         if (Number.parseInt(fechas[1])== 12) {
-          contDiciembre++
+          this.contDiciembre++
         }
         
       }
 
       this.chart3.data = [{
         "country": "Ene",
-        "visits": contEnero
+        "visits": this.contEnero
       },
       {
         "country": "Feb",
-        "visits": contFebrero
+        "visits": this.contFebrero
       },
       {
         "country": "Mar",
-        "visits": contMarzo
+        "visits": this.contMarzo
       },
       {
         "country": "Abr",
-        "visits": contAbril
+        "visits": this.contAbril
       },
       {
         "country": "May",
-        "visits": contMayo
+        "visits": this.contMayo
       },
       {
         "country": "Jun",
-        "visits": contJunio
+        "visits": this.contJunio
       },
       {
         "country": "Jul",
-        "visits": contJulio
+        "visits": this.contJulio
       },
       {
         "country": "Ago",
-        "visits": contAgosto
+        "visits": this.contAgosto
       },
       {
         "country": "Sept",
-        "visits": contSeptiembre
+        "visits": this.contSeptiembre
       },
       {
         "country": "Oct",
-        "visits": contOctubre
+        "visits": this.contOctubre
       },
       {
         "country": "Nov",
-        "visits": contNoviembre
+        "visits": this.contNoviembre
       },
       {
         "country": "Dic",
-        "visits": contDiciembre
+        "visits": this.contDiciembre
       }
       ]
       this.show = true;
@@ -193,6 +207,28 @@ export class ReportesComponent implements OnInit {
       ]
     }];
 
+  }
+
+
+  @ViewChild('contenido', { static: false }) content: ElementRef;
+
+
+  public generatePDF() {
+    
+    var data = document.getElementById('contenido');
+    html2canvas(data).then(canvas => {
+      // configuraciones de la pagina
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('p', 'mm', 'a4'); // tamaaño A4 para pdf
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf"); // generar PDF  
+    });
   }
 
 }
