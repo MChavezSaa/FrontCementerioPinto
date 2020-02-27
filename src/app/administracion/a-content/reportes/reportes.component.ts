@@ -20,7 +20,7 @@ export class ReportesComponent implements OnInit {
   fechas: IntervaloFecha;
   private chart3: am4charts.XYChart; //contratos
   contratos: any[] = [];
-  show: boolean = true;
+  show: boolean = false;
   cargarTabla: boolean= false;
 
 

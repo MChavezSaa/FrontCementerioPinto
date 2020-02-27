@@ -41,7 +41,7 @@
                 <br><br>
                 <div align="right" style="padding-right: 40px;">
                     <button type="button" class="btn btn-info" (click)="generarReporte()">Generar Reporte</button>&nbsp;
-                    <button (click)="generatePDF()" class="btn btn-info">Crear PDF</button>
+                    <button (click)="generatePDF()" [disabled]="!show" class="btn btn-info">Crear PDF</button>
                 </div>
 
                 <br>
