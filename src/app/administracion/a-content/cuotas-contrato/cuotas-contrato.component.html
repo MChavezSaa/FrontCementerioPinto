@@ -25,8 +25,8 @@
         </div>
     </div>
     <hr>
-
-
+    <button (click)="renovarMantencion()" (change)="recargar()" >Renovar Cuotas Mantención</button>    
+    <br>
     <div class="card mb-3">
         <div class="card-header text-center">
             Cuotas Derecho
@@ -37,17 +37,17 @@
                 <table class="table table-hover" style="text-align: center">
                     <thead class="thead-dark">
                         <tr>
-                            <th scope="col">Fecha de Pago</th>
+                            <th scope="col">N°</th>
                             <th scope="col">Valor Cuota</th>
                             <th scope="col">Pagar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let ven of contratoParams2 ;">
+                        <tr *ngFor="let ven of contratoParams2 ; let i = index">
                             <!---->
 
                             <td>
-                                {{ven.fechaVencimiento_Derecho}}
+                                {{i+1}}
                             </td>
                             <td>
                                 {{ven.valorCuota_Derecho}}
@@ -75,23 +75,23 @@
                     <thead class="thead-dark">
                         <tr>
                             <!--<th scope="col">Numero</th>-->
-                            <th scope="col">Fecha de Pago</th>
+                            <th scope="col">N°</th>
                             <th scope="col">Valor Cuota</th>
                             <th scope="col">Pagar</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let cuotas of contratoParams ">
+                        <tr *ngFor="let cuotas of pagosMantencion1; let i = index ">
                             <!---->
 
-                            <td>
-                                {{cuotas.fechaVencimiento_Mantencion}}
+                            <td >
+                                {{i+1}}
                             </td>
-                            <td>
+                            <td >
                                 {{cuotas.valorCuota_Mantencion}}
                             </td>
                             <td>
-                                <button *ngIf="!cuotas.estadoCuota_Mantencion == true" type="button"
+                                <button type="button"
                                     class="btn btn-success" (click)="confirmarM(cuotas, cuotas.id_PagosMantencion)">
                                     <i class="far fa-money-bill-alt"></i>
                                 </button>
