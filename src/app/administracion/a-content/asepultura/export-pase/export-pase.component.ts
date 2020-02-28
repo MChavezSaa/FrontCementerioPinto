@@ -41,8 +41,13 @@ export class ExportPaseComponent implements OnInit {
       this.service.getSepulturaXID(this.id).subscribe(fun => {
         this.paseParams = fun
         console.log(this.paseParams.difunto.nombres_Difunto);
+        let fecha1 = new Date(this.paseParams.difunto.fecha_Nacimiento_Difunto);
+        let fecha2 = new Date(this.paseParams.fecha_Entierro_TD);
+        this.resta = fecha2.getTime() - fecha1.getTime();
+        this.resta = Math.floor((this.resta / (1000 * 60 * 60 * 24)) / 365);
       });
     });
+
   }
 
   @ViewChild('content', { static: false }) content: ElementRef;
@@ -70,36 +75,5 @@ export class ExportPaseComponent implements OnInit {
   volver() {
     this.router.navigate(['/administracion-inicio/ASepultura/']);
   }
-
-  calcularEdad() {
-    let fecha1 = new Date(this.difunto.fecha_Nacimiento_Difunto);
-    let fecha2 = new Date();
-
-   this.resta = fecha2.getTime() - fecha1.getTime();
-    this.resta = Math.round((this.resta / (1000 * 60 * 60 * 24)) / 365);
-    
-  }
-
-  /* 
-   if (this.paseParams.difunto.fecha_Nacimiento_Difunto) {
-      let edad = new Date(this.paseParams.difunto.fecha_Nacimiento_Difunto);
-      let timeDiff = Math.abs(Date.now() - edad.getTime());
-      this.mostrarEdad = Math.floor((timeDiff / (1000 * 3600 * 24)) / 365);
-    }
-
-  calcularEdad2(fecha_Nacimiento_Difunto) {
-    let fechaNace = new Date(fecha_Nacimiento_Difunto);
-    let fechaActual = new Date();
-
-    let mes = fechaActual.getMonth();
-    let dia = fechaActual.getDate();
-    let año = fechaActual.getFullYear();
-
-    fechaActual.setDate(dia);
-    fechaActual.setMonth(mes);
-    fechaActual.setFullYear(año);
-
-    this.edad = Math.floor(((fechaActual- fechaNace)/(1000 * 60 * 60 * 24)/ 365));
-  } */
 
 }
