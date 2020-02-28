@@ -184,7 +184,7 @@ export class ReportesComponent implements OnInit {
     let valueAxis = this.chart3.yAxes.push(new am4charts.ValueAxis());
     // Create series
     let series = this.chart3.series.push(new am4charts.ColumnSeries());
-    valueAxis.title.text = "Ventas Por Rango"
+    valueAxis.title.text = "Ventas"
     series.dataFields.valueY = "visits";
     series.dataFields.categoryX = "country";
     series.name = "Visits";
@@ -228,6 +228,24 @@ export class ReportesComponent implements OnInit {
       var position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
       pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf"); // generar PDF  
+    });
+  }
+
+  generarPDF() {
+    html2canvas(this.content.nativeElement, {
+      // Opciones
+      allowTaint: true,
+      useCORS: false,
+      // Calidad del PDF
+      scale: 2
+
+    }).then(canvas => {
+      var img = canvas.toDataURL("image/jpeg", 1.0);
+      var doc = new jsPDF('landscape');
+      doc.setFontSize(20);
+      doc.addImage(img, 'JPEG', 10, 10, 280, 150);
+
+      doc.save('reporte.pdf');
     });
   }
 
