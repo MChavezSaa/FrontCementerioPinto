@@ -121,8 +121,7 @@
                             <option [ngValue]="1">1</option>
                             <option [ngValue]="2">2</option>
                             <option [ngValue]="3">3</option>
-                        </select>
-                        <button (click)="imprime()">print</button>
+                        </select>                        
                         <div *ngIf="formContrato.get('nivelNicho').hasError('required') && 
                             (formContrato.get('nivelNicho').touched || formContrato.get('nivelNicho').dirty) "
                             class="alert alert-danger">

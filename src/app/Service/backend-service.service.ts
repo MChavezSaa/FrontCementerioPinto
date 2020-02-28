@@ -1081,5 +1081,23 @@ export class BackendServiceService {
       })
     );
   }
+  renovarcuotasDerecho10(id: number): Observable<any> {
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/"+ id ,
+    { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+       // this.isNoAutorizado(e);
+        return throwError(e);  
+      })
+    );
+  }
+  renovarcuotasDerecho20(id: number): Observable<any> {
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/"+ id ,
+    { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+       // this.isNoAutorizado(e);
+        return throwError(e);  
+      })
+    );
+  }
 
 }

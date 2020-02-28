@@ -16,8 +16,8 @@
 
 
 
-    <div class="row" style="padding-left:90px ;">
-        <div class="col-2 text-left">
+    <div class="row">
+        <div class="col-2 ">
             <button type="button" class="btn btn-info" (click)="volver()"> Volver </button>
         </div>
         <div class="col-8 text-center">
@@ -25,7 +25,11 @@
         </div>
     </div>
     <hr>
-    <button (click)="renovarMantencion()" (change)="recargar()" >Renovar Cuotas Mantención</button>    
+    <div class="container" style="padding-left: 90px;">
+        <button type="button" class="btn btn-info" (click)="renovarMantencion()">Renovar Cuotas Mantención</button> &nbsp;   
+        <button type="button" class="btn btn-info" (click)="renovarDerecho10()">Renovar Cuotas Derecho 10 años</button>   &nbsp; 
+        <button type="button" class="btn btn-info" (click)="renovarDerecho20()">Renovar Cuotas Derecho 20 años</button>    
+    </div>
     <br>
     <div class="card mb-3">
         <div class="card-header text-center">

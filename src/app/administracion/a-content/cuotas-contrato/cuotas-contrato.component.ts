@@ -150,4 +150,34 @@ export class CuotasContratoComponent implements OnInit {
   }
 
 
+  public renovarDerecho10(): void {
+    let id2;
+
+    this.activatedRoute.params.subscribe(params => {
+      id2 = params['id'];
+      this.service.renovarcuotasDerecho10(id2).subscribe(fun =>{
+        console.log('renovadas las cuotas derecho por 10');
+        this.ngOnInit();
+      });
+
+    }
+    )
+   
+  }
+
+  public renovarDerecho20(): void {
+    let id2;
+
+    this.activatedRoute.params.subscribe(params => {
+      id2 = params['id'];
+      this.service.renovarcuotasDerecho20(id2).subscribe(fun =>{
+        console.log('renovadas las cuotas derecho por 20');
+        this.ngOnInit();
+      });
+
+    }
+    )
+   
+  }
+
 }

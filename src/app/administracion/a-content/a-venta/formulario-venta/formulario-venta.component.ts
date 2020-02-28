@@ -185,12 +185,6 @@ export class FormularioVentaComponent implements OnInit {
     }
   }
 
-  /*
-  if (this.tumbaList[i].patio.id_Patio == patio.id_Patio
-        && this.tumbaList[i].estado_Tumba == "Disponible") {
-        this.tumbaListAux.push(this.tumbaList[i]);
-      } */
-
   fun() {
     console.log(this.contrato2.patio.nombre_Patio)
     
@@ -241,11 +235,6 @@ export class FormularioVentaComponent implements OnInit {
     console.log(this.tumbaListAux)
   }
 
-  imprime(){
-    console.log(this.nivelNicho);
-    console.log(this.nichoList);
-  }
-
   mostrarNichos() {
     this.nichoList = [];
     let cont = 1;
@@ -262,53 +251,3 @@ export class FormularioVentaComponent implements OnInit {
 
 
 }
-/**
- *
- *   if (patio.nombre_Patio == "Nichos Lote A") {
-        if (this.tipoTumbaList[i].nombretipo_tumba == "Nicho") {
-          this.tipoTumbaListAux = [];
-          this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-        }
-      } else {
-        else {
-          if (patio.nombre_Patio == "Nichos Lote C") {
-            if (this.tipoTumbaList[i].nombretipo_tumba == "Nicho") {
-              this.tipoTumbaListAux = [];
-              this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-            }
-          } else {
-            if (patio.nombre_Patio == "Mausoleo A") {
-              if (this.tipoTumbaList[i].nombretipo_tumba == "Mausoleos") {
-                this.tipoTumbaListAux = [];
-                this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-              }
-            } else {
-              if (patio.nombre_Patio == "Mausoleo B") {
-                if (this.tipoTumbaList[i].nombretipo_tumba == "Mausoleos") {
-                  this.tipoTumbaListAux = [];
-                  this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-                }
-              } else {
-                if (patio.nombre_Patio == "Mausoleo C") {
-                  if (this.tipoTumbaList[i].nombretipo_tumba == "Mausoleos") {
-                    this.tipoTumbaListAux = [];
-                    this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-                  }
-                } else {
-                  if (patio.nombre_Patio == "Mausoleo D") {
-                    if (this.tipoTumbaList[i].nombretipo_tumba == "Mausoleos") {
-                      this.tipoTumbaListAux = [];
-                      this.tipoTumbaListAux.push(this.tipoTumbaList[i]);
-                    }
-                  } else {
-                    this.tipoTumbaListAux = [];
-                    this.tipoTumbaListAux.push(this.tipoTumbaList[1]);
-                    this.tipoTumbaListAux.push(this.tipoTumbaList[2]);
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
- */
