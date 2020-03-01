@@ -16,7 +16,7 @@ export class AFormularioTumbaComponent implements OnInit {
   tipotumbaParams : TipoTumba = new TipoTumba();
 
 
-  constructor(private service: BackendServiceService, 
+  constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute) {

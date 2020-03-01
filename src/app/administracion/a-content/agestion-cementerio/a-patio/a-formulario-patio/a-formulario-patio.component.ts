@@ -17,7 +17,7 @@ export class AFormularioPatioComponent implements OnInit {
   formPatio:FormGroup;
   patioParams : Patio = new Patio();
 
-  constructor(private service: BackendServiceService, 
+  constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router: Router, 
     private activatedRoute:ActivatedRoute) {

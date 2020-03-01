@@ -17,10 +17,10 @@ export class AFomularioDifuntoComponent implements OnInit {
   difuntoParams: Difunto = new Difunto();
 
   difunto: Difunto;
-  private fotoSeleccionada: File;
+  public fotoSeleccionada: File;
   difunto2 : Difunto;
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute
+  constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
+    public router: Router, public activatedRoute: ActivatedRoute
 
   ) {
     this.formDifunto = this.formBuilder.group({

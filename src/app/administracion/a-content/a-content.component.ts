@@ -11,7 +11,7 @@ import { Cliente } from 'src/app/Entidades/Cliente';
 })
 export class AContentComponent implements OnInit {
 
-  constructor(private service : BackendServiceService) { }
+  constructor(public service : BackendServiceService) { }
   cantDifuntos : Difunto[] = []
   cantContratos: Contrato[] =[];
   cantClientes: Cliente[] = [];

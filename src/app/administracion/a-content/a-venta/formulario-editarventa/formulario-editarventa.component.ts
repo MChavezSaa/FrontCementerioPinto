@@ -38,10 +38,10 @@ export class FormularioEditarventaComponent implements OnInit {
   valorCuota: number =0;
   pagoDerecho: pagoDerecho;
 
-  private contrato2: any = new Contrato();
+  public contrato2: any = new Contrato();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute) {
+  constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
+    public router: Router, public activatedRoute: ActivatedRoute) {
 
   }
 

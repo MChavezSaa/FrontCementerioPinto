@@ -13,7 +13,7 @@ export class ACreartumbaComponent implements OnInit {
   tumbasOcupadoList: Tumba[] = [];
   tumbasReservadoList: Tumba[] = [];
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getfreeTumbs().subscribe(tumbaList => this.tumbasLibresList = tumbaList);

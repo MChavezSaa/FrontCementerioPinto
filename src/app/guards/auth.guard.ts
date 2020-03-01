@@ -8,7 +8,7 @@ import { BackendServiceService } from '../Service/backend-service.service';
 })
 export class AuthGuard implements CanActivate {
   
-  constructor(private service : BackendServiceService,
+  constructor(public service : BackendServiceService,
     private router: Router){}
   
   canActivate(

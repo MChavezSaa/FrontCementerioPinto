@@ -12,7 +12,7 @@ import { Usuario } from 'src/app/Entidades/usuario';
 })
 export class CambiarPasswordComponent implements OnInit {
 
-  constructor(private service: BackendServiceService, private route: Router) { }
+  constructor(public service: BackendServiceService, private route: Router) { }
   cambiopass: cambioPass = new cambioPass();
   ngOnInit() {
   }

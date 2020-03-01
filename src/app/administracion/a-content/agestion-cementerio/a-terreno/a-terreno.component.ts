@@ -13,7 +13,7 @@ export class ATerrenoComponent implements OnInit {
   terrenoList2: Terreno[] = [];
   searchText6: string;
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList2 = terrenoList1);

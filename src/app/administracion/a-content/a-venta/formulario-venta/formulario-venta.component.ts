@@ -47,11 +47,11 @@ export class FormularioVentaComponent implements OnInit {
 
   formContrato: FormGroup;
 
-  private contrato2: any = new Contrato();
+  public contrato2: any = new Contrato();
 
-  constructor(private service: BackendServiceService,
-    private formBuilder: FormBuilder,
-    private router: Router) {
+  constructor(public service: BackendServiceService,
+    public formBuilder: FormBuilder,
+    public router: Router) {
 
     this.contrato2.tipoTumba = 0;
     this.contrato2.funcionario = 0;

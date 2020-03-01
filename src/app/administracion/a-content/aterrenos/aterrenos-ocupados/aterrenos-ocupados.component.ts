@@ -25,7 +25,7 @@ export class ATerrenosOcupadosComponent implements OnInit {
 
   ocupadosListAux: TumbaDifunto[] = []
 
-  constructor(private router: Router, private service: BackendServiceService) { }
+  constructor(private router: Router, public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getOcupadoTumbs().subscribe(tumbaList1 => {

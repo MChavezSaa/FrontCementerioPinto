@@ -13,7 +13,7 @@ export class APatioComponent implements OnInit {
   patioList2: Patio[] = [];
   searchText7: string;
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getPatio().subscribe(patioList1 => this.patioList2 = patioList1);

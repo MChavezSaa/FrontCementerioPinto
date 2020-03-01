@@ -13,7 +13,7 @@ export class ATumbaComponent implements OnInit {
   tipotumbaList2: TipoTumba[] = [];
   searchText8: string;
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getTipoTumba().subscribe(tipotumbaList1 => this.tipotumbaList2 = tipotumbaList1);

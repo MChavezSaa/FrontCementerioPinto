@@ -14,7 +14,7 @@ export class ELoginComponent implements OnInit {
   usuario: Usuario;
   
 
-  constructor(private service: BackendServiceService, private router:Router) { 
+  constructor(public service: BackendServiceService, private router:Router) { 
     this.usuario= new Usuario();  
   }
 

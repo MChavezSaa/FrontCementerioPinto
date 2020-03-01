@@ -12,8 +12,8 @@ import { CuotasMantencion } from 'src/app/Entidades/CuotasMantencion';
 })
 export class CuotasContratoComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,
-    private service: BackendServiceService) { }
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,
+    public service: BackendServiceService) { }
 
   contratoParams: pagosMantencion[] = [];
   pagosMantencion1: pagosMantencion[] = [];

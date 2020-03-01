@@ -29,7 +29,7 @@ export class ExportPaseComponent implements OnInit {
    anio = this.fechaActual.getFullYear();
 
 
-  constructor(private service: BackendServiceService,
+  constructor(public service: BackendServiceService,
     private router: Router,
     private activatedRoute: ActivatedRoute) { }
 

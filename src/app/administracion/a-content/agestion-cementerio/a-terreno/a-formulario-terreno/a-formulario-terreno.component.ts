@@ -18,7 +18,7 @@ export class AFormularioTerrenoComponent implements OnInit {
   formTerreno: FormGroup;
   terrenoParams: Terreno = new Terreno();
 
-  constructor(private service: BackendServiceService, 
+  constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router: Router, 
     private activatedRoute: ActivatedRoute) {

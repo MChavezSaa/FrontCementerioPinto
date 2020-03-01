@@ -12,7 +12,7 @@ export class ATerrenosLibresComponent implements OnInit {
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getfreeTumbs().subscribe(tumbaList1 => {

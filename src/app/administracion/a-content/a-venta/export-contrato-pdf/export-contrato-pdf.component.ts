@@ -24,8 +24,8 @@ export class ExportContratoPDFComponent implements OnInit {
   largo: number = 0;
   tumbaL: Tumba = new Tumba();
   dias: number;
-  constructor(private service: BackendServiceService,
-    private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(public service: BackendServiceService,
+    public router: Router, public activatedRoute: ActivatedRoute) { }
 
 
   ngOnInit() {

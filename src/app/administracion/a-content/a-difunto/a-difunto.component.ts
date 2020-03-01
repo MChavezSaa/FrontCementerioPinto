@@ -15,7 +15,7 @@ export class ADifuntoComponent implements OnInit {
   DifuntosList: Difunto[] = [];
   searchText4: string;
   
-  constructor(private router : Router,private service: BackendServiceService) { }
+  constructor(public router : Router,public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getDifuntos().subscribe(response => this.DifuntosList = response);

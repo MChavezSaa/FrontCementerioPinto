@@ -15,8 +15,8 @@ export class AformClienteComponent implements OnInit {
   formCliente: FormGroup;
   clienteParams: Cliente = new Cliente();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute,
+  constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
+    public router: Router, public activatedRoute: ActivatedRoute,
 
     ) {
 

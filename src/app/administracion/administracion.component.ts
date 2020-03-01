@@ -8,7 +8,7 @@ import { BackendServiceService } from '../Service/backend-service.service';
 })
 export class AdministracionComponent implements OnInit {
 
-  constructor(private service : BackendServiceService) { }
+  constructor(public service : BackendServiceService) { }
 
   ngOnInit() {
     this.service.getContrato().subscribe(cont => this.service.ContratoList=cont);

@@ -18,7 +18,7 @@ export class AFormularioCementerioComponent implements OnInit {
   cementerioParams : Cementerio = new Cementerio();
 
 
-  constructor(private service: BackendServiceService, 
+  constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router:Router,
     private activatedRoute:ActivatedRoute) {

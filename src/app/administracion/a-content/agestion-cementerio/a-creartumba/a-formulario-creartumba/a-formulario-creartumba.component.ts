@@ -18,7 +18,7 @@ export class AFormularioCreartumbaComponent implements OnInit {
   formCreaTumba: FormGroup;
   creaTumbaParams: Tumba = new Tumba();
 
-  constructor(private service: BackendServiceService,
+  constructor(public service: BackendServiceService,
     private formBuilder: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute) {

@@ -36,13 +36,24 @@ export class BackendServiceService {
   private _usuario: Usuario;
   private _token: string;
 
-  private urlEndPoint: string = 'http://localhost:8080/';
+  private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
+  private urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteFuncionario/';
+  private urlEndPoint3: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTerreno/';
+  private urlEndPoint4: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteCliente/';
+  private urlEndPoint5: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeletePatio/';
+  private urlEndPoint6: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTipoTumba/';
+  private urlEndPoint7: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteContrato/';
+
+  /**parra.chillan.ubiobio.cl:8080//
+   *  private urlEndPoint: string = 'http://localhost:8080/';
   private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
   private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
   private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
   private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
   private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
   private urlEndPoint7: string = 'http://localhost:8080/DeleteContrato/';
+   */
+  
   ContratoList: Contrato[] = [];
 
 

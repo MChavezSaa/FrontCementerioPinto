@@ -29,7 +29,7 @@ export class AVentaComponent implements OnInit {
   diaPago: any;
 
 
-  constructor(private service: BackendServiceService) {
+  constructor(public service: BackendServiceService) {
     this.contratoModal = new ContratoDos();
     this.contratoModal.cliente = new Cliente();
     this.contratoModal.cementerio = new Cementerio();

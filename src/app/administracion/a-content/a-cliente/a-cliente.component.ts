@@ -13,7 +13,7 @@ export class AClienteComponent implements OnInit {
   clienteDetalle: Cliente;
   searchText3: string;
 
-  constructor(private service: BackendServiceService) { 
+  constructor(public service: BackendServiceService) { 
 
   }
 

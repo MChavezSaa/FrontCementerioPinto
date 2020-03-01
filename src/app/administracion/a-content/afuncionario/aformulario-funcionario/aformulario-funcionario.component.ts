@@ -15,7 +15,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
   formFuncionario: FormGroup;
   funcionarioParams: Funcionario = new Funcionario();
 
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
+  constructor(public service: BackendServiceService, private formBuilder: FormBuilder,
     private router: Router, private activatedRoute: ActivatedRoute,
 
     ) {

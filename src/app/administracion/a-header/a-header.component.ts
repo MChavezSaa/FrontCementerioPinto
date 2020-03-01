@@ -12,7 +12,7 @@ import { Usuario } from 'src/app/Entidades/usuario';
 export class AHeaderComponent implements OnInit {
   mostrarSidebar:boolean=true;
   usuario : Usuario;
-  constructor(private service:  BackendServiceService,private router: Router) { }
+  constructor(public service:  BackendServiceService,public router: Router) { }
 
   ngOnInit() {
     this.usuario = this.service.usuario;

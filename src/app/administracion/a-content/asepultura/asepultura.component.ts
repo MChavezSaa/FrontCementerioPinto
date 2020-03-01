@@ -11,7 +11,7 @@ export class ASepulturaComponent implements OnInit {
 
   tumbaDifuntoList: TumbaDifunto[] =[]
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
     this.service.getTumbaDifunto().subscribe(fun =>{

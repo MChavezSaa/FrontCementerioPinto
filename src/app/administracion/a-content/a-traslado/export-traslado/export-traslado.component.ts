@@ -21,9 +21,9 @@ export class ExportTrasladoComponent implements OnInit {
   dia = this.fechaActual.getDate();
   anio = this.fechaActual.getFullYear();
   
-  constructor(private service: BackendServiceService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+  constructor(public service: BackendServiceService,
+    public router: Router,
+    public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.trasladoParams = new traslado2();

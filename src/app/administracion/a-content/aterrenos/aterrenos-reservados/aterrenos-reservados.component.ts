@@ -9,7 +9,7 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
 })
 export class ATerrenosReservadosComponent implements OnInit {
 
-  constructor(private service: BackendServiceService) { }
+  constructor(public service: BackendServiceService) { }
   
   TumbasLibresList: Tumba[] = [];
   peopleA: Tumba[] = [];

@@ -35,8 +35,8 @@ export class AformTrasladoComponent implements OnInit {
 
 
   funcionario1: Funcionario;
-  constructor(private service: BackendServiceService, private formBuilder: FormBuilder,
-    private router: Router, private activatedRoute: ActivatedRoute, ) {
+  constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
+    public router: Router, public activatedRoute: ActivatedRoute, ) {
 
     
      this.formTraslado = this.formBuilder.group({
