@@ -15,18 +15,19 @@ export class ATerrenosLibresComponent implements OnInit {
   constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
-    this.service.getfreeTumbs().subscribe(tumbaList1 => {
+    this.service.getTumba().subscribe(tumbaList1 => {
       this.TumbasLibresList = tumbaList1
-      this.llenarListas()
+     // this.llenarListas()
     });
   }
 
-  llenarListaLibre() {
-    for (let i = 0; i < this.TodasLastumbasList.length; i++) {
-      if (this.TodasLastumbasList[i].estado_Tumba == "Disponible")
+  /**
+   *llenarListaLibre() {
+    for (let i = 0; i < this.TodasLastumbasList.length; i++) {      
         this.TumbasLibresList.push(this.TodasLastumbasList[i]);
     }
   }
+   */
 
   peopleA: Tumba[] = [];
   peopleB: Tumba[] = [];

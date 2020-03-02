@@ -161,21 +161,5 @@ export class ATerrenosOcupadosComponent implements OnInit {
     }
   }
 
-  /*
-
-  aux.id_tumba
-    this.ocupadosListAux = [];
-    if (this.ocupado != null) {
-        this.mostrarTabla2 = true;
-      for (let i = 0; i < this.tumbaDifuntos.length; i++) {
-        if (this.== this.tumbaDifuntos[i].difunto.id_Difunto) {
-        this.ocupadosListAux.push(this.tumbaDifuntos[i]);
-        }
-     }
-    } else {
-      this.mostrarTabla2 = false;
-    }
-
-
-
 }
+
