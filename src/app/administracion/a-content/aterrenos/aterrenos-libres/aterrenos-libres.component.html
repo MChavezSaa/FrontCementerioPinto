@@ -41,7 +41,7 @@
 
           <!-- Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
-            <div *ngIf="person.estado_Tumba == 'Disponible'">
+            <div *ngIf="person.estado_Tumba === 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
                 <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
@@ -201,109 +201,289 @@
             </div>
           </div>
           <!-- fin patio G-->
-
           <!-- Patio H-->
           <div *ngFor="let personH of peopleH; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
+            <div *ngIf="personH.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="personH.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
+                <button style="display: contents;" (click)="mostrarDatosTabla(personH)"><img
+                    src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                    [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba"></button>
+              </div>
+            </div>
+            <div *ngIf="personH.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio H , Número {{personH.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- fin patio H-->
           <!-- Patio i-->
           <div *ngFor="let personI of peopleI; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
+            <div *ngIf="personI.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="personI.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
+                <button style="display: contents;" (click)="mostrarDatosTabla(personI)"><img
+                    src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                    [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba"></button>
+              </div>
+            </div>
+            <div *ngIf="personI.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio I , Número {{personI.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- fin patio I-->
-
           <!-- Patio J-->
           <div *ngFor="let personJ of peopleJ; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
+            <div *ngIf="personJ.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="personJ.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
+                <button style="display: contents;" (click)="mostrarDatosTabla(personJ)"><img
+                    src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                    [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba"></button>
+              </div>
+            </div>
+            <div *ngIf="personJ.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio J , Número {{personJ.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- fin patio J-->
-
           <!-- Patio K-->
           <div *ngFor="let personK of peopleK; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
+            <div *ngIf="personK.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="personK.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
+                <button style="display: contents;" (click)="mostrarDatosTabla(personK)"><img
+                    src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                    [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba"></button>
+              </div>
+            </div>
+            <div *ngIf="personK.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio K , Número {{personK.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- fin patio K-->
+
           <!-- Patio L-->
           <div *ngFor="let personL of peopleL; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
-                [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
+            <div *ngIf="personL.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="personL.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
+                <button style="display: contents;" (click)="mostrarDatosTabla(personL)"><img
+                    src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                    [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba"></button>
+              </div>
+            </div>
+            <div *ngIf="personL.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Patio L , Número {{personL.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                  [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- fin patio L-->
 
           <!-- Mausoleo A-->
           <div *ngFor="let mauA of MausoleoA; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
-                [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
+            <div *ngIf="mauA.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauA.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauA.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Mausoleo A-->
 
           <!-- Mausoleo B-->
           <div *ngFor="let mauB of MausoleoB; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
-                [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
+            <div *ngIf="mauB.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauB.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauB.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Mausoleo B-->
 
           <!-- Mausoleo C-->
           <div *ngFor="let mauC of MausoleoC; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
-                [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
+            <div *ngIf="mauC.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauC.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauC.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Mausoleo C-->
 
           <!-- Mausoleo D-->
           <div *ngFor="let mauD of MausoleoD; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
-                [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
+            <div *ngIf="mauD.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauD.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mC' + mauD.patio.id_Patio" [ngClass]="'mC'+ mauD.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="mauD.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                  [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Mausoleo D-->
 
           <!-- Nichos A-->
           <div *ngFor="let niA of NichoA; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Lote Nicho A, Número {{niA.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
-                [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
+            <div *ngIf="niA.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niA.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niA.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Nichos A-->
 
           <!-- Nichos B-->
           <div *ngFor="let niB of NichoA; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Lote Nicho B, Número {{niB.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
-                [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
+            <div *ngIf="niB.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niB.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niB.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Nichos B-->
 
           <!-- Nichos C-->
           <div *ngFor="let niC of NichoC; let i = index">
-            <div data-toggle="tooltip" data-placement="top" title="Lote Nicho C, Número {{niC.numero_Tumba}}">
-              <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
-                [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
+            <div *ngIf="niC.estado_Tumba == 'Disponible'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nB' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niC.estado_Tumba == 'Ocupado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
+                <img src="assets/img/VistaOcupado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
+              </div>
+            </div>
+            <div *ngIf="niC.estado_Tumba == 'Reservado'">
+              <div data-toggle="tooltip" data-placement="top"
+                title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
+                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                  [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
+              </div>
             </div>
           </div>
           <!-- Fin Nichos C-->
@@ -313,4 +493,4 @@
   </div>
 </div>
 
-</div><br>
+<br>
