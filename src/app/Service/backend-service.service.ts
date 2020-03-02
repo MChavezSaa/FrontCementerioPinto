@@ -104,7 +104,8 @@ export class BackendServiceService {
   }
 
   login(usuario: Usuario): Observable<any> {
-    const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
+    //const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
+    const urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/oauth/token';
 
     const credenciales = btoa('angularapp' + ':' + '12345');
 
