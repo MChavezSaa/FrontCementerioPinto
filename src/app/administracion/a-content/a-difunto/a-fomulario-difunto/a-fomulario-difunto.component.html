@@ -99,9 +99,10 @@
                         </div>
                     </div>
                     <div class="col">
-                        <label for="fecha_Nacimiento_Difunto">Fecha Nacimiento</label>
-                        <input formControlName="fecha_Nacimiento_Difunto" [(ngModel)]="difuntoParams.fecha_Nacimiento_Difunto" class="form-control" type="date" th:field="*{fechaNacimientodifunto}"
-                            th:errorclass="'form-control alert-danger'">
+                        <label for="">Fecha Nacimiento</label>
+                        <input formControlName="fecha_Nacimiento_Difunto" 
+                        [(ngModel)]="difuntoParams.fecha_Nacimiento_Difunto" 
+                        class="form-control" type="date" >
                         <div *ngIf="formDifunto.get('fecha_Nacimiento_Difunto').hasError('required') && 
                             (formDifunto.get('fecha_Nacimiento_Difunto').touched || formDifunto.get('fecha_Nacimiento_Difunto').dirty)"
                             class="alert alert-danger">
@@ -126,7 +127,7 @@
                         </div>
                     </div>
                     
-                    <div class="col">
+                   <!-- <div class="col">
                         <label for="fechaEntierroDifunto">Fecha Entierro</label>
                         <input formControlName="fecha_Entierro" [(ngModel)]="difuntoParams.fecha_Entierro" class="form-control" type="date" 
                         data-format="yyyy-MM-dd" data-template="DD MM YYYY">
@@ -135,7 +136,7 @@
                             class="alert alert-danger">
                             La fecha de entierro es obligatoria.
                         </div>
-                    </div>
+                    </div>-->
                     <div class="col">
                         <label for="fechaNacimientoDifunto">Fecha Incripción</label>
                         <input formControlName="fecha_Inscripcion_Difunto" [(ngModel)]="difuntoParams.fecha_Inscripcion_Difunto" class="form-control" type="date" 
