@@ -9,20 +9,24 @@
     </nav>
     <!--FIN MIGAS DE PAN-->
 
-    <div class="row my-3">
-        <!--SECCION PARA FILTRAR-->
-        <div class="col-2 my-auto">
-            Filtrar por nombre:
-        </div>
-        <div class="col-4 my-auto">
-            <input type="text" >
-        </div>
-        <div class="col-6 text-right">
-            <button type="button" class="btn btn-info"
-                [routerLink]="['/administracion-inicio/AFormularioSepultura']">Formulario Ingreso</button>
+    <div class="container">
+        <div class="row ">
+            <!--SECCION PARA FILTRAR-->
+            <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="searchText"
+                    placeholder="Filtrar por rut del Difunto" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-2"></div>
+            <div class="col-6 text-right">
+                <button type="button" class="btn btn-info"
+                    [routerLink]="['/administracion-inicio/AFormularioSepultura']">Formulario de Ingreso</button>
+            </div>
         </div>
     </div>
-    <!--FIN SECCION PARA FILTRAR-->
+    <br>
 
             <div class="card mb-3">
                 <div class="card-header text-center">
@@ -35,15 +39,17 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Nombre Difunto</th>
-                                    <th scope="col">Numero de tumba</th>
-                                    <th scope="col">Fecha de sepultura</th>
+                                    <th scope="col">RUN Difunto</th>
+                                    <th scope="col">Número de tumba</th>
+                                    <th scope="col">Fecha de Sepultura</th>
                                     <th scope="col">Pase Sepultación</th>
                                 </tr>
                             </thead>
                             <tbody>
             
-                                <tr *ngFor="let cem of tumbaDifuntoList">
+                                <tr *ngFor="let cem of tumbaDifuntoList | filter10: searchText">
                                     <td>{{cem.difunto.nombres_Difunto}}</td>
+                                    <td>{{cem.difunto.rut_Difunto}}</td>
                                     <td>{{cem.tumba}}</td>
                                     <td>{{cem.fecha_Entierro_TD}}</td>
                                     <td><button  [routerLink]="[ '/administracion-inicio/paseSepultacion/',cem.id_Tumba_Difunto ]"   type="button" name="pdf"

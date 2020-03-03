@@ -80,6 +80,7 @@ import { SearchTumbaPorPatioPipe } from './pipes/search-tumba-por-patio.pipe';
 import { ReportesComponent } from './administracion/a-content/reportes/reportes.component';
 import { ExportTrasladoComponent } from './administracion/a-content/a-traslado/export-traslado/export-traslado.component';
 import { ExportPaseComponent } from './administracion/a-content/asepultura/export-pase/export-pase.component';
+import { SearchSepulturaPipe } from './pipes/search-sepultura.pipe';
 
 
 const routes: Routes = [
@@ -498,7 +499,8 @@ const routes: Routes = [
     SearchTumbaPorPatioPipe,
     ReportesComponent,
     ExportTrasladoComponent,
-    ExportPaseComponent
+    ExportPaseComponent,
+    SearchSepulturaPipe
   ],
   imports: [
     BrowserModule,
