@@ -161,9 +161,12 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="exampleFormControlSelect1">Cambio</label><!--[(ngModel)]="tipoDeCambio2"-->
+                            <label for="exampleFormControlSelect1">Cambio</label>
                             <select  formControlName="tipoDeCambio"
-                             class="form-control" id="exampleFormControlSelect1">
+                             class="form-control" id="exampleFormControlSelect1"
+                             [(ngModel)]="tipoDeCambio2"
+                             (change)="tipoCambio(tipoDeCambio2)"
+                             >
                                 <option value="" selected disabled>Seleccione tipo de cambio </option>
                                 <option>Interno</option>
                                 <option>Externo</option>
@@ -174,7 +177,7 @@
                                 Es obligatorio seleccionar un tipo de cambio.
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col" *ngIf="cambiodesde" >
                             <label>Desde</label><!--[(ngModel)]="lugarviejo"-->                        
                             <input  formControlName="lugarviejo"
                             type="text" class="form-control"
@@ -185,7 +188,7 @@
                                     El lugar de origen es obligatorio.
                                 </div>
                         </div>
-                        <div class="col">
+                        <div class="col" *ngIf="cambiohacia">
                             <label>Hacia</label><!--[(ngModel)]="lugarnuevo"-->
                             <input  formControlName="lugarnuevo"
                             type="text" class="form-control"

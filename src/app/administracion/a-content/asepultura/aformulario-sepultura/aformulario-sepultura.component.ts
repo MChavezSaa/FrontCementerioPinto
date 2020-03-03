@@ -132,19 +132,26 @@ export class AFormularioSepulturaComponent implements OnInit {
 
   }
    create(): void {
-    this.sepultura2.tumba = this.sepultura2.contrato.tumba;    
+     let fechaDef = new Date(this.sepultura2.difunto.fecha_Defuncion).getTime();
+     console.log(fechaDef);
+     let fechaEnt = new Date(this.sepultura2.fecha_Entierro_TD).getTime();
+     console.log(fechaEnt);
+    if(fechaEnt>fechaDef){     
+       this.sepultura2.tumba = this.sepultura2.contrato.tumba;    
     console.log(this.sepultura2);
     this.service.saveTumbaDifunto(this.sepultura2)
       .subscribe(
-        cementerio => {
-          //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
-          Swal.fire('Cambio Realizado', `Contraseña cambiada con Exito`, 'success');
+        cementerio => {          
+          Swal.fire('Sepultura Realizada', `Sepultura realizada con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/ASepultura']);
         },
         err => {
           console.log(err)
         }
-      );
+      );       
+    }else{
+      Swal.fire('Fecha de Entierro Incorrecta', `Fecha de entierro no puede ser menor a fecha de defunción del difunto`, 'error');
+    }
   }
 
 }
