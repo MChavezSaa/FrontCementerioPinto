@@ -9,7 +9,8 @@ import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 })
 export class ASepulturaComponent implements OnInit {
 
-  tumbaDifuntoList: TumbaDifunto[] =[]
+  tumbaDifuntoList: TumbaDifunto[] =[];
+  searchText: string;
 
   constructor(public service: BackendServiceService) { }
 
