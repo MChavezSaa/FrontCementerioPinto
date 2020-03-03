@@ -30,7 +30,8 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre Funcionario</label>
-                        <select id="func" name="funcionario" class="form-control" formControlName="funcionario" [(ngModel)]="contrato2.funcionario">
+                        <select id="func" name="funcionario" class="form-control" formControlName="funcionario"
+                            [(ngModel)]="contrato2.funcionario">
                             <option [ngValue]="0" disabled selected>Seleccione Funcionario</option>
                             <option *ngFor="let c of funcionarioList" [ngValue]="c">{{c.nombres_Funcionario}}</option>
                         </select>
@@ -57,7 +58,8 @@
                 <div class="row">
                     <div class="col">
                         <label> Cementerio</label>
-                        <select id="cen" name="cementerio" class="form-control" formControlName="cementerio" [(ngModel)]="contrato2.cementerio">
+                        <select id="cen" name="cementerio" class="form-control" formControlName="cementerio"
+                            [(ngModel)]="contrato2.cementerio">
                             <option [ngValue]="0" disabled selected>Seleccione Cementerio</option>
                             <option *ngFor="let cem of cementerioList" [ngValue]="cem">{{cem.nombre_Cementerio}}
                             </option>
@@ -70,7 +72,8 @@
                     </div>
                     <div class="col">
                         <label> Terreno</label>
-                        <select class="form-control" id="terr" name="terreno" formControlName="terreno" [(ngModel)]="contrato2.terreno">
+                        <select class="form-control" id="terr" name="terreno" formControlName="terreno"
+                            [(ngModel)]="contrato2.terreno">
                             <option [ngValue]="0" disabled selected>Seleccione Terreno </option>
                             <option *ngFor="let ter of terrenoList" [ngValue]="ter">{{ter.nombre_Terreno}}</option>
                         </select>
@@ -87,8 +90,8 @@
                 <div class="row">
                     <div class="col">
                         <label> Nombre de Patio</label>
-                        <select class="form-control" id="pat" name="patio" formControlName="patio" [(ngModel)]="contrato2.patio"
-                            (change)="fun()">
+                        <select class="form-control" id="pat" name="patio" formControlName="patio"
+                            [(ngModel)]="contrato2.patio" (change)="fun()">
                             <option [ngValue]="0" disabled selected>Seleccione Patio </option>
                             <option *ngFor="let c of patioList" [ngValue]="c">{{c.nombre_Patio}}</option>
                         </select>
@@ -101,8 +104,8 @@
 
                     <div class="col">
                         <label> Tipo de Tumba</label>
-                        <select class="form-control" id="tipoTumb" name="tipoTumba" formControlName="tipoTumba" [(ngModel)]="contrato2.tipoTumba"
-                            (change)="doble1(contrato2)">
+                        <select class="form-control" id="tipoTumb" name="tipoTumba" formControlName="tipoTumba"
+                            [(ngModel)]="contrato2.tipoTumba" (change)="doble1(contrato2)">
                             <option [ngValue]="0" disabled selected>Seleccione tipo de tumba </option>
                             <option *ngFor="let c of tipoTumbaListAux " [ngValue]="c">{{c.nombretipo_tumba}}</option>
                         </select>
@@ -113,15 +116,15 @@
                         </div>
                     </div>
                     <div class="col" *ngIf="paraNicho">
-                    
+
                         <label> Nivel de Nicho </label>&nbsp;<label *ngIf="paraNicho"></label>
-                        <select class="form-control" id="tumb" name="tumba" formControlName="nivelNicho" [(ngModel)]="nivelNicho" 
-                        (change)="mostrarNichos(contrato2.nivel)" >
+                        <select class="form-control" id="tumb" name="tumba" formControlName="nivelNicho"
+                            [(ngModel)]="nivelNicho" (change)="mostrarNichos(contrato2.nivel)">
                             <option [ngValue]="0" disabled selected>Seleccione un nivel para el nicho</option>
                             <option [ngValue]="1">1</option>
                             <option [ngValue]="2">2</option>
                             <option [ngValue]="3">3</option>
-                        </select>                        
+                        </select>
                         <div *ngIf="formContrato.get('nivelNicho').hasError('required') && 
                             (formContrato.get('nivelNicho').touched || formContrato.get('nivelNicho').dirty) "
                             class="alert alert-danger">
@@ -133,7 +136,8 @@
                     <div class="col" *ngIf="!paraNicho">
 
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">1</label>
-                        <select class="form-control" id="tumb" name="tumba" formControlName="tumba1" [(ngModel)]="tumba1">
+                        <select class="form-control" id="tumb" name="tumba" formControlName="tumba1"
+                            [(ngModel)]="tumba1">
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let l of tumbaListAux " [ngValue]="l">{{l.numero_Tumba}}</option>
                         </select>
@@ -148,7 +152,8 @@
                     <div class="col" *ngIf="doble">
 
                         <label> Número de Tumba </label>&nbsp;<label *ngIf="doble">2</label>
-                        <select class="form-control" id="tumb" name="tumba" formControlName="tumba2" [(ngModel)]="tumba2">
+                        <select class="form-control" id="tumb" name="tumba" formControlName="tumba2"
+                            [(ngModel)]="tumba2">
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let lc of tumbaListAux " [ngValue]="lc">{{lc.numero_Tumba}}</option>
                         </select>
@@ -161,7 +166,8 @@
                     </div>
                     <div class="col" *ngIf="paraNicho">
                         <label> Número de Nicho</label>&nbsp;<label *ngIf="paraNicho"></label>
-                        <select class="form-control" id="tumb" name="nicho" formControlName="numeroNicho" [(ngModel)]="numeroNicho" >
+                        <select class="form-control" id="tumb" name="nicho" formControlName="numeroNicho"
+                            [(ngModel)]="numeroNicho">
                             <option [ngValue]="0" disabled selected>Seleccione un número de Tumba </option>
                             <option *ngFor="let l of nichoList " [ngValue]="l">{{l.numero_Tumba}}</option>
                         </select>
@@ -183,8 +189,8 @@
                 <div class="row">
                     <div class="col-4">
                         <label> Rut Cliente</label>
-                        <select class="form-control" id="cliente1" name="cliente" formControlName="cliente" [(ngModel)]="contrato2.cliente"
-                            (change)="mostrarClientes()">
+                        <select class="form-control" id="cliente1" name="cliente" formControlName="cliente"
+                            [(ngModel)]="contrato2.cliente" (change)="mostrarClientes()">
                             <option [ngValue]="0" disabled selected>Seleccione Cliente </option>
                             <option *ngFor="let x of clienteList" [ngValue]="x">{{x.rut_Cliente}}</option>
                         </select>
@@ -215,8 +221,8 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Medio de Pago</label>
-                        <select class="form-control" id="medioPago" name="medio_Pago"
-                            formControlName="medio_Pago" [(ngModel)]="contrato2.medio_Pago">
+                        <select class="form-control" id="medioPago" name="medio_Pago" formControlName="medio_Pago"
+                            [(ngModel)]="contrato2.medio_Pago">
                             <option [ngValue]="0" disabled selected>Seleccione medio de pago </option>
                             <option> Efectivo</option>
                             <option> Debito</option>
@@ -232,23 +238,36 @@
                     <div class="col">
                         <label> Valor Terreno</label>
                         <input type="number" class="form-control" id="valorDerecho" name="valor_Terreno"
-                            placeholder="Ingrese el valor del derecho" formControlName="valor_Terreno" [(ngModel)]="contrato2.valor_Terreno">
-                            <div *ngIf="formContrato.get('valor_Terreno').hasError('required') && 
+                            placeholder="Ingrese el valor del derecho" formControlName="valor_Terreno"
+                            [(ngModel)]="contrato2.valor_Terreno">
+                        <div *ngIf="formContrato.get('valor_Terreno').hasError('required') && 
                                 (formContrato.get('valor_Terreno').touched || formContrato.get('valor_Terreno').dirty)"
-                                class="alert alert-danger">
-                                El valor del terreno es obligatorio.
-                            </div>
+                            class="alert alert-danger">
+                            El valor del terreno es obligatorio.
+                        </div>
+                        <div *ngIf="formContrato.get('valor_Terreno').hasError('min') && 
+                        (formContrato.get('valor_Terreno').touched || formContrato.get('valor_Terreno').dirty)"
+                            class="alert alert-danger">
+                            El valor del terreno debe ser mayor a cero
+                        </div>
+
                     </div>
 
                     <div class="col">
                         <label> Pago inicial</label>
                         <input type="number" class="form-control" id="valorPagoInicial" name="pagoInicial"
-                            placeholder="Ingrese el valor del pago inicial" formControlName="pagoInicial" [(ngModel)]="contrato2.pagoInicial">
-                            <div *ngIf="formContrato.get('pagoInicial').hasError('required') && 
+                            placeholder="Ingrese el valor del pago inicial" formControlName="pagoInicial"
+                            [(ngModel)]="contrato2.pagoInicial">
+                        <div *ngIf="formContrato.get('pagoInicial').hasError('required') && 
                                 (formContrato.get('pagoInicial').touched || formContrato.get('pagoInicial').dirty)"
-                                class="alert alert-danger">
-                                El valor del pago inicial es obligatorio.
-                            </div>
+                            class="alert alert-danger">
+                            El valor del pago inicial es obligatorio.
+                        </div>
+                        <div *ngIf="formContrato.get('pagoInicial').hasError('min') && 
+                                (formContrato.get('pagoInicial').touched || formContrato.get('pagoInicial').dirty)"
+                            class="alert alert-danger">
+                            El valor del pago inicial debe ser mayor a cero
+                        </div>
                     </div>
 
                 </div>
@@ -259,13 +278,18 @@
                     <div class="col-4">
                         <label> Número de Cuotas</label>
                         <input type="number" class="form-control" id="nroCuotas" name="nCuotas"
-                            placeholder="Ingrese número de cuotas" formControlName="n_Cuotas" [(ngModel)]="contrato2.n_Cuotas"
-                            (change)="mostrarCuotas()">
-                            <div *ngIf="formContrato.get('n_Cuotas').hasError('required') && 
+                            placeholder="Ingrese número de cuotas" formControlName="n_Cuotas"
+                            [(ngModel)]="contrato2.n_Cuotas" (change)="mostrarCuotas()">
+                        <div *ngIf="formContrato.get('n_Cuotas').hasError('required') && 
                                 (formContrato.get('n_Cuotas').touched || formContrato.get('n_Cuotas').dirty)"
-                                class="alert alert-danger">
-                                El número de cuotas es obligatorio.
-                            </div>
+                            class="alert alert-danger">
+                            El número de cuotas es obligatorio.
+                        </div>
+                        <div *ngIf="formContrato.get('n_Cuotas').hasError('min') && 
+                        (formContrato.get('n_Cuotas').touched || formContrato.get('n_Cuotas').dirty)"
+                            class="alert alert-danger">
+                            El número de cuotas debe ser mayor a cero
+                        </div>
                     </div>
                     <div class="col-2">
                         <div class="row">
@@ -279,7 +303,7 @@
                     <div class="col-6">
                         <label> Valor Cuota:</label>
                         <div>
-                            <h1>{{Show?'': returnCuota()}}</h1>
+                            <h1>{{returnCuota()}}</h1>
                         </div>
 
 
@@ -294,11 +318,11 @@
                         <input type="date" class="form-control" id="fechaPago" name="fecha_Pago"
                             data-format="yyyy-MM-dd" data-template="D MMM YYYY" placeholder="Ingrese el dia de pago"
                             formControlName="fecha_Pago" [(ngModel)]="contrato2.fecha_Pago">
-                            <div *ngIf="formContrato.get('fecha_Pago').hasError('required') && 
+                        <div *ngIf="formContrato.get('fecha_Pago').hasError('required') && 
                                 (formContrato.get('fecha_Pago').touched || formContrato.get('fecha_Pago').dirty)"
-                                class="alert alert-danger">
-                                Debe seleccionar un dia para la fecha de pago.
-                            </div>
+                            class="alert alert-danger">
+                            Debe seleccionar un dia para la fecha de pago.
+                        </div>
                     </div>
                 </div>
             </div>

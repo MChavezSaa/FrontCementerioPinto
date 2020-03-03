@@ -18,7 +18,7 @@ export class AFomularioDifuntoComponent implements OnInit {
 
   difunto: Difunto;
   public fotoSeleccionada: File;
-  difunto2 : Difunto;
+  difunto2: Difunto;
   constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
     public router: Router, public activatedRoute: ActivatedRoute
 
@@ -32,7 +32,7 @@ export class AFomularioDifuntoComponent implements OnInit {
       fecha_Nacimiento_Difunto: ['', [Validators.required]],
       fecha_Defuncion: ['', [Validators.required]],
       fecha_Inscripcion_Difunto: ['', [Validators.required]],
-      fecha_Entierro: ['', [Validators.required]],
+      //fecha_Entierro: ['', [Validators.required]],
       nombreC_Padre: ['', [Validators.required, Validators.minLength(3)]],
       nombreC_Madre: ['', [Validators.required, Validators.minLength(3)]],
 
@@ -47,8 +47,8 @@ export class AFomularioDifuntoComponent implements OnInit {
     });
   }
 
-  ngOnInit() {  
-    this.cargarDifunto();  
+  ngOnInit() {
+    this.cargarDifunto();
   }
 
   public cargarDifunto(): void {
@@ -61,31 +61,58 @@ export class AFomularioDifuntoComponent implements OnInit {
     })
   }
 
-  createDifunto(){
-    this.service.saveDifunto(this.formDifunto.value)
-      .subscribe(
-      cliente => {          
-        this.difunto = cliente;
-        this.router.navigate(['/administracion-inicio/ADifuntos']);
-        swal.fire('Difunto creado con exito', 'Registro exitoso!','success');
-      },
-      err=>{
-        console.log(err)
+  createDifunto() {
+    let actual = new Date().getTime();
+    if (new Date(this.difuntoParams.fecha_Nacimiento_Difunto).getTime() > actual) {
+      swal.fire('Fecha de nacimiento', 'La fecha de nacimiento no puede ser mayor a la fecha actual', 'error');
+    } else {
+      if (new Date(this.difuntoParams.fecha_Nacimiento_Difunto).getTime() > new Date(this.difuntoParams.fecha_Defuncion).getTime()) {
+        swal.fire('Fecha de Defuncion', 'La fecha de defuncion no puede ser menor a la fecha de nacimiento', 'error');
+      } else {
+        if (new Date(this.difuntoParams.fecha_Inscripcion_Difunto).getTime() > actual) {
+          swal.fire('Fecha de Inscripción', 'La fecha de inscripción no puede ser mayor a la fecha actual', 'error');
+        } else {
+          this.service.saveDifunto(this.formDifunto.value)
+            .subscribe(
+              cliente => {
+                this.difunto = cliente;
+                this.router.navigate(['/administracion-inicio/ADifuntos']);
+                swal.fire('Difunto creado con exito', 'Registro exitoso!', 'success');
+              },
+              err => {
+                console.log(err)
+              }
+            );
+        }
       }
-    );
+    }
   }
 
   public update(): void {
-    this.service.updateDifunto(this.formDifunto.value, this.difuntoParams.id_Difunto)
-      .subscribe(
-        json => {
-          this.router.navigate(['/administracion-inicio/ADifuntos']);
-          swal.fire('Difunto Actualizado', `Se ha actualizado el difunto con Exito`, 'success');
-          this.difuntoParams = null;
-        },
-        err => {
-          console.log(err);
-        });
+    let actual = new Date().getTime();
+    if (new Date(this.difuntoParams.fecha_Nacimiento_Difunto).getTime() > actual) {
+      swal.fire('Fecha de nacimiento', 'La fecha de nacimiento no puede ser mayor a la fecha actual', 'error');
+    } else {
+      if (new Date(this.difuntoParams.fecha_Nacimiento_Difunto).getTime() > new Date(this.difuntoParams.fecha_Defuncion).getTime()) {
+        swal.fire('Fecha de Defuncion', 'La fecha de defuncion no puede ser menor a la fecha de nacimiento', 'error');
+      } else {
+        if (new Date(this.difuntoParams.fecha_Inscripcion_Difunto).getTime() > actual) {
+          swal.fire('Fecha de Inscripción', 'La fecha de inscripción no puede ser mayor a la fecha actual', 'error');
+        } else {
+          this.service.updateDifunto(this.formDifunto.value, this.difuntoParams.id_Difunto)
+            .subscribe(
+              json => {
+                this.router.navigate(['/administracion-inicio/ADifuntos']);
+                swal.fire('Difunto Actualizado', `Se ha actualizado el difunto con Exito`, 'success');
+                this.difuntoParams = null;
+              },
+              err => {
+                console.log(err);
+              });
+        }
+      }
+    }
+
   }
 
   public cancelarDifunto() {

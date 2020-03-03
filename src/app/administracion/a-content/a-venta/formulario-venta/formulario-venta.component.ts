@@ -31,8 +31,8 @@ export class FormularioVentaComponent implements OnInit {
   funcionarioList: Funcionario[] = [];
   terrenoList: Terreno[] = [];
   nichoList: Tumba[] = [];
-  NivelList : any[] = [1,2,3];
-  Show: Boolean = true;
+  NivelList: any[] = [1, 2, 3];
+  show: Boolean = false;
   doble: Boolean = false;
   paraNicho: Boolean = false;
   mostrarCliente: Boolean = false;
@@ -61,7 +61,7 @@ export class FormularioVentaComponent implements OnInit {
     this.contrato2.patio = 0;
     this.contrato2.tumba = 0;
     this.contrato2.medio_Pago = 0;
-    
+
 
     this.formContrato = this.formBuilder.group({
       funcionario: ['', [Validators.required]],
@@ -75,9 +75,9 @@ export class FormularioVentaComponent implements OnInit {
       tumba2: ['', [Validators.required]],
       cliente: ['', [Validators.required]],
       medio_Pago: ['', [Validators.required]],
-      valor_Terreno: ['', [Validators.required]],
-      pagoInicial: ['', [Validators.required]],
-      n_Cuotas: ['', [Validators.required]],
+      valor_Terreno: ['', [Validators.required, Validators.min(1)]],
+      pagoInicial: ['', [Validators.required,Validators.min(1)]],
+      n_Cuotas: ['', [Validators.required, Validators.min(1)]],
       fecha_Pago: ['', [Validators.required]],
       nivelNicho: ['', [Validators.required]],
       numeroNicho: ['', [Validators.required]],
@@ -115,6 +115,7 @@ export class FormularioVentaComponent implements OnInit {
 
 
   calcularValorCuota() {
+    this.show=true;
     var nroCuotas = this.contrato2.n_Cuotas
     var valTerr = this.contrato2.valor_Terreno
     var pie = this.contrato2.pagoInicial
@@ -135,20 +136,20 @@ export class FormularioVentaComponent implements OnInit {
     } else {
       this.contrato2.tumba = this.tumba1.id_tumba;
     }
-
-    this.service.saveContrato(this.contrato2).subscribe(
-      contrato => {
-        //ver como tomar valor de nombre para funcion swal
-        console.log(this.contrato2)
-        Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');
-        this.router.navigate(['/administracion-inicio/AVentas']);
-      },
-      err => {
-        console.log(err)
-      }
-    );
-
-
+    let actual = new Date();
+    if (new Date(this.contrato2.fecha_Ingreso_Venta).getTime() > actual.getTime() ) { 
+      Swal.fire('Fecha Ingreso', `fecha de ingreso no puede ser mayor a fecha actual`, 'error');
+    }else{
+      this.service.saveContrato(this.contrato2).subscribe(
+        contrato => {          
+          Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');
+          this.router.navigate(['/administracion-inicio/AVentas']);
+        },
+        err => {
+          console.log(err)
+        }
+      );
+    }     
   }
 
   public cancelarVenta() {
@@ -187,35 +188,35 @@ export class FormularioVentaComponent implements OnInit {
 
   fun() {
     console.log(this.contrato2.patio.nombre_Patio)
-    
+
     this.tumbaListAux = [];
-    this.tipoTumbaListAux=[];    
-    if (this.contrato2.patio.nombre_Patio == "Nichos Lote A") {            
+    this.tipoTumbaListAux = [];
+    if (this.contrato2.patio.nombre_Patio == "Nichos Lote A") {
       this.tipoTumbaListAux.push(this.tipoTumbaList[0]);
     } else {
-      if (this.contrato2.patio.nombre_Patio == "Nichos Lote B") {                
+      if (this.contrato2.patio.nombre_Patio == "Nichos Lote B") {
         this.tipoTumbaListAux.push(this.tipoTumbaList[0]);
       } else {
-        if (this.contrato2.patio.nombre_Patio == "Nichos Lote C") {          
+        if (this.contrato2.patio.nombre_Patio == "Nichos Lote C") {
           this.tipoTumbaListAux.push(this.tipoTumbaList[0]);
         } else {
           if (this.contrato2.patio.nombre_Patio == "Mausoleo A") {
-            this.paraNicho= false;
+            this.paraNicho = false;
             this.tipoTumbaListAux.push(this.tipoTumbaList[3]);
           } else {
             if (this.contrato2.patio.nombre_Patio == "Mausoleo B") {
-              this.paraNicho= false;
+              this.paraNicho = false;
               this.tipoTumbaListAux.push(this.tipoTumbaList[3]);
             } else {
               if (this.contrato2.patio.nombre_Patio == "Mausoleo C") {
-                this.paraNicho= false;
+                this.paraNicho = false;
                 this.tipoTumbaListAux.push(this.tipoTumbaList[3]);
               } else {
                 if (this.contrato2.patio.nombre_Patio == "Mausoleo D") {
-                  this.paraNicho= false;
+                  this.paraNicho = false;
                   this.tipoTumbaListAux.push(this.tipoTumbaList[3]);
-                }else{                  
-                  this.paraNicho= false;
+                } else {
+                  this.paraNicho = false;
                   this.tipoTumbaListAux.push(this.tipoTumbaList[1]);
                   this.tipoTumbaListAux.push(this.tipoTumbaList[2]);
                 }
@@ -240,8 +241,8 @@ export class FormularioVentaComponent implements OnInit {
     let cont = 1;
     if (cont <= 3) {
       for (let i = 0; i < this.tumbaList.length; i++) {
-        if (this.tumbaListAux[i].nivel === this.nivelNicho) {          
-          this.nichoList.push(this.tumbaListAux[i]);          
+        if (this.tumbaListAux[i].nivel === this.nivelNicho) {
+          this.nichoList.push(this.tumbaListAux[i]);
         }
       }
       cont++;
