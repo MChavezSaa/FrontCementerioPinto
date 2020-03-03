@@ -47,7 +47,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let ven of contratoParams2 ; let i = index">
+                        <tr *ngFor="let ven of pagosDerecho1 ; let i = index">
                             <!---->
 
                             <td>
@@ -58,7 +58,7 @@
                             </td>
                             <td>
 
-                                <button *ngIf="!ven.estadoCuota_Derecho == true" type="button" class="btn btn-success"
+                                <button  type="button" class="btn btn-success"
                                     (click)="confirmarD(ven, ven.id_PagosDerecho)">
                                     <i class="far fa-money-bill-alt"></i>
                                 </button>

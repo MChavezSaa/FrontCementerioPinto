@@ -226,7 +226,8 @@ export class ReportesComponent implements OnInit {
       const contentDataURL = canvas.toDataURL('image/png')
       let pdf = new jsPDF('p', 'mm', 'a4'); // tamaaño A4 para pdf
       var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+     // pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.addImage(contentDataURL, 'JPEG', 15, 40, 180, 160)
       pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf"); // generar PDF  
     });
   }
