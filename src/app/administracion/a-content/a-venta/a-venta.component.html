@@ -55,6 +55,7 @@
                                     <th scope="col">Fecha Inscripción</th>
                                     <th scope="col">Dia de Pago</th>
                                     <th scope="col">Número de Contrato</th>
+                                    <th scope="col">Perpetuidad Actual</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
@@ -69,6 +70,7 @@
                                         <td>{{ven.fecha_Ingreso_Venta}}</td>
                                         <td>{{fechaPago(ven.fecha_Pago)}} de cada mes</td>
                                         <td>{{ven.id_contrato}}</td>
+                                        <td>{{ven.perpetuidad}} años</td>
                                         <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
                                         <td>{{ven.tumba}}</td>
@@ -124,6 +126,7 @@
                                 <tr>
                                     <th scope="col">Fecha Inscripción</th>
                                     <th scope="col">Número de Contrato</th>
+                                    <th scope="col">Ultima Perpetuidad</th>
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
@@ -135,6 +138,7 @@
                                     <tr *ngIf="ven.estado_Contrato==false">
                                         <td>{{ven.fecha_Ingreso_Venta}}</td>
                                         <td>{{ven.id_contrato}}</td>
+                                        <td>{{ven.perpetuidad}} años</td>
                                         <td>{{ven.cliente.nombres_Cliente}} {{ven.cliente.apellidoP_Cliente}}</td>
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
                                         <td>{{numerosTumba(ven)}}</td>
