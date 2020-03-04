@@ -15,6 +15,12 @@ import { Tumba } from 'src/app/Entidades/Tumba';
   styleUrls: ['./export-contrato-pdf.component.css']
 })
 export class ExportContratoPDFComponent implements OnInit {
+
+  fechaActual = new Date();
+  mes = this.fechaActual.getMonth() + 1;
+  dia = this.fechaActual.getDate();
+  anio = this.fechaActual.getFullYear();
+  
   contratoParams: Contrato;
   tumbasList: Tumba[] = [];
   id: number;

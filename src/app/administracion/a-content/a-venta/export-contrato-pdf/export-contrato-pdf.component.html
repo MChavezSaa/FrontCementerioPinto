@@ -1,85 +1,105 @@
-
 <div class="container">
-  
-  <hr>
-  <div class="row" style="padding-left:90px ;">
-    <div class="col-4 text-left">
-      <button type="button" class="btn btn-info" 
-      (click)="volver()"> Volver </button>
-    </div>
-    <div class="col-4 text-right">
-      <button type="button" class="btn btn-info" 
-      (click)="generatePDF()"> Exportar </button>
-    </div>
-  </div>
-<hr>
-</div>
-<div id='content' #content>
-  <br><br><br>
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-      </div>
-      <div class="col-10" style="text-align: left;">
-        <b>COMPRA DE TERRENO</b><br>
-        <b>CEMENTERIO NUEVO DE PINTO</b>
-      </div>
-    </div>
-  </div>
-  <br>
-  <div class="container">
-    <div class="row">
-      <div class="col-2">
-      </div>
-      <div class="col-10" style="text-align: justify;" >
-        <p>
-          En Pinto con fecha {{contratoParams.fecha_Ingreso_Venta}}. Se realiza la compra de un terreno <br>
-          en el cementerio nuevo de pinto por :
-          {{contratoParams.cliente.nombres_Cliente}} {{contratoParams.cliente.apellidoP_Cliente}} {{contratoParams.cliente.apellidoM_Cliente}}  {{contratoParams.cliente.rut_Cliente}},<br>
-          Patio: {{contratoParams.patio.nombre_Patio}} y Lote: {{contratoParams.tumba}} por 20 años.<br>
-          (Después de los 20 años se hace renovación).
-        </p>
-        <p>
-          Medidas del terreno: Ancho {{tumbaL.ancho}} X {{tumbaL.largo}} largo.<br>
-        </p>
-        <p>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Para {{contratoParams.tipoTumba.capacidad_tipo_tumba}} persona(s) (después de 1 año se comienza a pagar mantencion)<br>
-          Terreno con un valor de ${{contratoParams.valor_Terreno}} pagado mediante {{contratoParams.medio_Pago | uppercase}}, con un pago <br>
-          inicial de ${{contratoParams.pagoInicial}} y la diferencia en {{contratoParams.n_Cuotas}} cuota(s) de {{contratoParams.VCuotas}} c/una pagando los {{dias}} de <br> cada mes.
-        </p>
-        <p>
-          CELULAR: {{contratoParams.cliente.telefono_Cliente}} <br>
-          DIRECCION: {{contratoParams.cliente.direccion_Cliente}}<br>
-          (Plazo para construir 2 años desde la fecha de compra).
-        </p>
-      </div>
-    </div>
-  </div>
-  <br><br>
-  <div class="container" >
-    <div class="row">
-      <div class="col">
-       
-      </div>
-      <div class="col">
-        <p>
-          ____________________ <br>
-        FIRMA SECRETARIA
-        </p>
-      </div>   
-      <div class="col">
-        <p >
-          ____________________ <br>
-        FIRMA COMPRADOR
-        </p>
-      </div>   
-      <div class="col">
-       
-      </div>      
-    </div>
-  </div>
-  
-</div>
-<br><br><br>
 
+    <hr>
+    <div class="row" style="padding-left:90px ;">
+        <div class="col-4 text-left">
+            <button type="button" class="btn btn-info" (click)="volver()"> Volver </button>
+        </div>
+        <div class="col-4 text-right">
+            <button type="button" class="btn btn-info" (click)="generatePDF()"> Exportar </button>
+        </div>
+    </div>
+    <hr>
+    <div id='content' #content>
+        <div class="container">
+            <br><br>
+            <div class="row">
+                <div class="col-1">
+                </div>
+                <div class="col-9">
+                    <div>
+                        <b>Parroquia Nuestra Señora del Tránsito</b> <br>
+                        <b>Fono: 42-176400</b>
+                    </div>
+                    <div style="text-align: right;">
+                        <b>Pinto, {{dia}} / {{mes}} / {{anio}}</b> <br>
+                    </div>
+                    <br><hr><br>
+                    <h4 style="text-align: center;"> <b><u>COMPRA DE DERECHO</u></b></h4>
+                    <h4 style="text-align: center;"> <b><u>CEMENTERIO PARROQUIAL PINTO - SECTOR NUEVO</u></b></h4>
+                    <br>
+                    
+                    <div class="row">
+                        <div class="col-1">
+                        </div>
+                        <div class="col-10">
+                            <p>
+                                En la ciudad de Pinto, con fecha <b>{{contratoParams.fecha_Ingreso_Venta}}</b>. Se
+                                realiza la compra de un derecho
+                                en el Cementerio nuevo de Pinto, donde en el presente contrato se certifica que
+                            </p>
+                            <b><u>
+                                    <h6> DATOS DEL CLIENTE</h6>
+                                </u></b>
+                            <p>
+                                &nbsp; - RUN: <b>{{contratoParams.cliente.direccion_Cliente}}</b> <br>
+                                &nbsp; - Sr(a).: <b>{{contratoParams.cliente.nombres_Cliente}}
+                                    {{contratoParams.cliente.apellidoP_Cliente}}
+                                    {{contratoParams.cliente.apellidoM_Cliente}}</b> <br>
+                                &nbsp; - Dirección: <b>{{contratoParams.cliente.direccion_Cliente}}</b> <br>
+                                &nbsp; - Celular: <b>{{contratoParams.cliente.telefono_Cliente}}</b> <br>
+                                <br>
+                                Es propietario de derechos de sepultación los cuales se especifican a continuación:
+                            </p>
+                            <b><u>
+                                    <h6> DATOS DEL DERECHO</h6>
+                                </u></b>
+                            <p>
+                                &nbsp; - Nombre de Patio: <b>{{contratoParams.patio.nombre_Patio}}</b> <br>
+                                &nbsp; - Tipo de Sepultura: <b>{{contratoParams.tipoTumba.nombretipo_tumba}}</b> <br>
+                                &nbsp; - Capacidad de Sepultura: <b>{{contratoParams.tipoTumba.capacidad_tipo_tumba}}
+                                    capacidades</b> (después de 1 año se comienza a pagar <br>&nbsp;&nbsp;&nbsp;&nbsp; mantención).<br>
+                                &nbsp; - Número de Sepultura: <b>{{contratoParams.tumba}}</b> <br>
+                                &nbsp; - Perpetuidad: <b>20 años</b> (realizar renovación pasada la fecha).<br>
+                                &nbsp; - Medidas de la Sepultura: <b>{{tumbaL.ancho}} mts.</b> de ancho y
+                                <b>{{tumbaL.largo}} mts.</b> de largo.
+                            </p>
+                            <p>
+                                El contrato del derecho de sepultura se realiza por un valor total de <b>${{contratoParams.valor_Terreno}}</b>
+                                con un pago inicial de <b>${{contratoParams.pagoInicial}}</b>, pagado mediante
+                                <b>{{contratoParams.medio_Pago}}</b> y una diferencia en <b>{{contratoParams.n_Cuotas}} 
+                                cuota(s)</b> de ${{contratoParams.valor_Terreno}} cada una, con dia de pago los <b>{{dias}} de cada mes</b>. 
+                                El plazo para construir es de 2 años desde la fecha de compra del derecho.
+                            </p>
+                            <br>
+                            <hr>
+                            <br> <br>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col" style="text-align: center;">
+                                        <p>
+                                            ______________________ <br>
+                                            Firma Comprador
+                                        </p>
+                                    </div>
+                                    <div class="col" style="text-align: center;">
+                                        <p>
+                                            ______________________ <br>
+                                            Firma Secretaria
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-1">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                </div>
+            </div>
+        </div>
+        <br><br><br>
 
+    </div>
+</div>
