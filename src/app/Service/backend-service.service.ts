@@ -25,6 +25,7 @@ import { cambioPass } from '../Entidades/cambioPass';
 import { TumbaDifunto } from '../Entidades/TumbaDifunto';
 import { IntervaloFecha } from '../Entidades/IntervaloFecha';
 import { traslado2 } from '../Entidades/traslado2';
+import { traslado3 } from '../Entidades/traslado3';
 
 
 @Injectable({
@@ -168,8 +169,21 @@ export class BackendServiceService {
   }
   /*TRASLADO */
 
-  saveTraslado(traslado: Traslado): Observable<Traslado> {
-    return this.http.post(this.urlEndPoint + "saveTraslado", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+  saveTraslado(traslado: traslado3): Observable<Traslado> {
+    return this.http.post(this.urlEndPoint + "saveTrasladoInterno", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.traslado as Traslado),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el traslado', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  saveTraslado2(traslado: Traslado): Observable<Traslado> {
+    return this.http.post(this.urlEndPoint + "saveTrasladoExterno", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.traslado as Traslado),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -1114,5 +1128,17 @@ export class BackendServiceService {
       })
     );
   }
+  findContratoPorDifunto1(id:number): Observable<TumbaDifunto>{
+    return this.http.get<TumbaDifunto>(this.urlEndPoint + 'findContratoPorDifunto/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
+      })
+    );
+  }
+
 
 }
