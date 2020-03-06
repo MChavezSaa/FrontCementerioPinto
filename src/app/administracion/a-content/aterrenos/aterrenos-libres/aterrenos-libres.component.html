@@ -10,7 +10,7 @@
         Terrenos Libres&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <img src="assets/img/VistaOcupado.png" alt="" style="width: 30px; height: 30px; border: black 1px solid;">&nbsp;
         Terrenos Ocupados&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <img src="assets/img/VistaReservado.png" alt="" style="width: 30px; height: 30px; border: black 1px solid;">&nbsp;
+        <img src="assets/img/VistaLibre.png" alt="" style="width: 30px; height: 30px; border: black 1px solid;">&nbsp;
         Terrenos Reservados&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </p></b>
       </div>
@@ -46,7 +46,7 @@
             </div>
             <div *ngIf="person.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba">
               </div>
             </div>
@@ -57,7 +57,7 @@
           <div *ngFor="let personB of peopleB; let i = index">
             <div *ngIf="personB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio B, Número {{personB.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
               </div>
             </div>
@@ -70,7 +70,7 @@
             </div>
             <div *ngIf="personB.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio B, Número {{personB.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'b' + personB.patio.id_Patio" [ngClass]="'b'+ personB.numero_Tumba">
               </div>
             </div>
@@ -80,7 +80,7 @@
           <div *ngFor="let personC of peopleC; let i = index">
             <div *ngIf="personC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio C, Número {{personC.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
               </div>
             </div>
@@ -93,7 +93,7 @@
             </div>
             <div *ngIf="personC.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio C, Número {{personC.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'c' + personC.patio.id_Patio" [ngClass]="'c'+ personC.numero_Tumba">
               </div>
             </div>
@@ -103,7 +103,7 @@
           <div *ngFor="let personD of peopleD; let i = index">
             <div *ngIf="personD.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio D, Número {{personD.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
               </div>
             </div>
@@ -116,7 +116,7 @@
             </div>
             <div *ngIf="personD.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio D, Número {{personD.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'d' + personD.patio.id_Patio" [ngClass]="'d'+ personD.numero_Tumba">
               </div>
             </div>
@@ -126,7 +126,7 @@
           <div *ngFor="let personE of peopleE; let i = index">
             <div *ngIf="personE.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio E, Número {{personE.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
               </div>
             </div>
@@ -139,7 +139,7 @@
             </div>
             <div *ngIf="personE.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio E, Número {{personE.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'e' + personE.patio.id_Patio" [ngClass]="'e'+ personE.numero_Tumba">
               </div>
             </div>
@@ -149,7 +149,7 @@
           <div *ngFor="let personF of peopleF; let i = index">
             <div *ngIf="personF.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio F, Número {{personF.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
               </div>
             </div>
@@ -162,7 +162,7 @@
             </div>
             <div *ngIf="personF.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio F , Número {{personF.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'f' + personF.patio.id_Patio" [ngClass]="'f'+ personF.numero_Tumba">
               </div>
             </div>
@@ -172,7 +172,7 @@
           <div *ngFor="let personG of peopleG; let i = index">
             <div *ngIf="personG.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio G, Número {{personG.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
               </div>
             </div>
@@ -185,7 +185,7 @@
             </div>
             <div *ngIf="personG.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio G , Número {{personG.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'g' + personG.patio.id_Patio" [ngClass]="'g'+ personG.numero_Tumba">
               </div>
             </div>
@@ -195,7 +195,7 @@
           <div *ngFor="let personH of peopleH; let i = index">
             <div *ngIf="personH.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
               </div>
             </div>
@@ -208,7 +208,7 @@
             </div>
             <div *ngIf="personH.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio H , Número {{personH.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'h' + personH.patio.id_Patio" [ngClass]="'h'+ personH.numero_Tumba">
               </div>
             </div>
@@ -218,7 +218,7 @@
           <div *ngFor="let personI of peopleI; let i = index">
             <div *ngIf="personI.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
               </div>
             </div>
@@ -231,7 +231,7 @@
             </div>
             <div *ngIf="personI.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio I , Número {{personI.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'I' + personI.patio.id_Patio" [ngClass]="'I'+ personI.numero_Tumba">
               </div>
             </div>
@@ -241,7 +241,7 @@
           <div *ngFor="let personJ of peopleJ; let i = index">
             <div *ngIf="personJ.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
               </div>
             </div>
@@ -254,7 +254,7 @@
             </div>
             <div *ngIf="personJ.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio J , Número {{personJ.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'j' + personJ.patio.id_Patio" [ngClass]="'j'+ personJ.numero_Tumba">
               </div>
             </div>
@@ -264,7 +264,7 @@
           <div *ngFor="let personK of peopleK; let i = index">
             <div *ngIf="personK.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
               </div>
             </div>
@@ -277,7 +277,7 @@
             </div>
             <div *ngIf="personK.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio K , Número {{personK.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'k' + personK.patio.id_Patio" [ngClass]="'k'+ personK.numero_Tumba">
               </div>
             </div>
@@ -288,7 +288,7 @@
           <div *ngFor="let personL of peopleL; let i = index">
             <div *ngIf="personL.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
               </div>
             </div>
@@ -301,7 +301,7 @@
             </div>
             <div *ngIf="personL.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio L , Número {{personL.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 10px; height: 7px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 10px; height: 7px;"
                   [id]="'l' + personL.patio.id_Patio" [ngClass]="'l'+ personL.numero_Tumba">
               </div>
             </div>
@@ -312,7 +312,7 @@
           <div *ngFor="let mauA of MausoleoA; let i = index">
             <div *ngIf="mauA.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
               </div>
             </div>
@@ -324,7 +324,7 @@
             </div>
             <div *ngIf="mauA.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mA' + mauA.patio.id_Patio" [ngClass]="'mA'+ mauA.numero_Tumba">
               </div>
             </div>
@@ -335,7 +335,7 @@
           <div *ngFor="let mauB of MausoleoB; let i = index">
             <div *ngIf="mauB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
               </div>
             </div>
@@ -347,7 +347,7 @@
             </div>
             <div *ngIf="mauB.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mB' + mauB.patio.id_Patio" [ngClass]="'mB'+ mauB.numero_Tumba">
               </div>
             </div>
@@ -358,7 +358,7 @@
           <div *ngFor="let mauC of MausoleoC; let i = index">
             <div *ngIf="mauC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
               </div>
             </div>
@@ -370,7 +370,7 @@
             </div>
             <div *ngIf="mauC.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mC' + mauC.patio.id_Patio" [ngClass]="'mC'+ mauC.numero_Tumba">
               </div>
             </div>
@@ -381,7 +381,7 @@
           <div *ngFor="let mauD of MausoleoD; let i = index">
             <div *ngIf="mauD.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
               </div>
             </div>
@@ -393,7 +393,7 @@
             </div>
             <div *ngIf="mauD.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 12px; height: 17px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 12px; height: 17px;"
                   [id]="'mD' + mauD.patio.id_Patio" [ngClass]="'mD'+ mauD.numero_Tumba">
               </div>
             </div>
@@ -405,7 +405,7 @@
             <div *ngIf="niA.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
               </div>
             </div>
@@ -419,7 +419,7 @@
             <div *ngIf="niA.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nA' + niA.patio.id_Patio" [ngClass]="'nA'+ niA.numero_Tumba">
               </div>
             </div>
@@ -431,7 +431,7 @@
             <div *ngIf="niB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
               </div>
             </div>
@@ -445,7 +445,7 @@
             <div *ngIf="niB.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nB' + niB.patio.id_Patio" [ngClass]="'nB'+ niB.numero_Tumba">
               </div>
             </div>
@@ -457,7 +457,7 @@
             <div *ngIf="niC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
-                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre2.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nB' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
               </div>
             </div>
@@ -471,7 +471,7 @@
             <div *ngIf="niC.estado_Tumba == 'Reservado'">
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
-                <img src="assets/img/VistaReservado.png" alt="" style="width: 8px; height: 3px;"
+                <img src="assets/img/VistaLibre.png" alt="" style="width: 8px; height: 3px;"
                   [id]="'nC' + niC.patio.id_Patio" [ngClass]="'nC'+ niC.numero_Tumba">
               </div>
             </div>
