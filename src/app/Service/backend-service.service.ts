@@ -759,7 +759,7 @@ export class BackendServiceService {
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {
-    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);

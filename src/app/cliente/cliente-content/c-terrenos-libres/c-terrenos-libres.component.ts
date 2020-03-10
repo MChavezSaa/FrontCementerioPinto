@@ -15,8 +15,8 @@ export class CTerrenosLibresComponent implements OnInit {
   constructor(public service: BackendServiceService) { }
 
   ngOnInit() {
-    this.service.getfreeTumbs().subscribe(tumbaList1 => {
-      this.TumbasLibresList = tumbaList1
+    this.service.getTumba().subscribe(tumbaList1 => {
+      this.TumbasLibresList = tumbaList1     
       this.llenarListas()
     });
   }
@@ -52,7 +52,7 @@ export class CTerrenosLibresComponent implements OnInit {
 
   llenarListas() {
     for (let i = 0; i < this.TumbasLibresList.length; i++) {
-      if (this.TumbasLibresList[i].patio.id_Patio == 1) {
+      if (this.TumbasLibresList[i].patio.id_Patio == 1 ) {
         this.peopleA.push(this.TumbasLibresList[i]);
       } else {
         if (this.TumbasLibresList[i].patio.id_Patio == 2) {

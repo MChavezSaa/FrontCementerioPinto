@@ -17,9 +17,9 @@ export class ATerrenosLibresComponent implements OnInit {
   ngOnInit() {
     this.service.getTumba().subscribe(tumbaList1 => {
       this.TumbasLibresList = tumbaList1
-      console.log(this.TumbasLibresList); 
+      
       this.llenarListas()
-    });
+    });    
   }
 
   /**
