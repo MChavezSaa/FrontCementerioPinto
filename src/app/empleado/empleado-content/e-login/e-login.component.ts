@@ -26,7 +26,7 @@ export class ELoginComponent implements OnInit {
   }
 
   login(): void{
-    console.log(this.usuario);
+   // console.log(this.usuario);
 
     if(this.usuario.username == null || this.usuario.password == null){      
       Swal.fire('Error al ingresar', 'Verifica usuario y contraseña.', 'error');
@@ -34,7 +34,7 @@ export class ELoginComponent implements OnInit {
     }
       
     this.service.login(this.usuario).subscribe(response => {
-      console.log(response);      
+     // console.log(response);      
       
       //let payload = JSON.parse(atob(response.access_token.split(".")[1]));
 
