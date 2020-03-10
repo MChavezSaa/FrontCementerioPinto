@@ -25,7 +25,7 @@
                         <select class="form-control" id="difunto" formControlName="difunto" [(ngModel)]="sepultura2.difunto"
                             (change)="mostrarDifuntos()" >
                             <option [ngValue]="0" disabled selected>Seleccione Difunto </option>
-                            <option *ngFor="let c of DifuntosList" [ngValue]="c">{{c.rut_Difunto}}</option>
+                            <option *ngFor="let c of DifuntosListAux" [ngValue]="c">{{c.rut_Difunto}}</option>
                         </select>
                         <div *ngIf="formSepultura.get('difunto').value==0 && 
                             (formSepultura.get('difunto').touched || formSepultura.get('difunto').dirty) "

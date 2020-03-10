@@ -1140,5 +1140,12 @@ export class BackendServiceService {
     );
   }
 
-
+  getDistinctDifuntos(): Observable<Difunto[]> {
+    return this.http.get<Difunto[]>(this.urlEndPoint + "distincDifunto", { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
 }

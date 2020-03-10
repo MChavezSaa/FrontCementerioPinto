@@ -19,7 +19,10 @@ export class AFuncionarioComponent implements OnInit {
  // funcionariosFiltered: Funcionario[];
   //funcionarios: Funcionario[];
 
-  constructor(public service: BackendServiceService, private router: Router, ) { }
+  constructor(public service: BackendServiceService, private router: Router, ) {
+    this.funcionarioDetail = new Funcionario;
+    
+   }
 
   ngOnInit() {
     this.service.getFuncionarios().subscribe(funcionarioList1 => this.funcionarioList2 = funcionarioList1);
