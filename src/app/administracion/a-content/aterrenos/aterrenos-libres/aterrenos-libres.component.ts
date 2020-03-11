@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Tumba } from 'src/app/Entidades/Tumba';
+import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 
 @Component({
   selector: 'app-aterrenos-libres',
@@ -11,6 +12,7 @@ export class ATerrenosLibresComponent implements OnInit {
 
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
+  MismaTumba: Tumba[] = [];
 
   constructor(public service: BackendServiceService) { }
 
@@ -19,17 +21,11 @@ export class ATerrenosLibresComponent implements OnInit {
       this.TumbasLibresList = tumbaList1
       
       this.llenarListas()
-    });    
+    });
+    this.service.getTumba().subscribe(tumbaList2 =>{ this.MismaTumba = tumbaList2});
   }
 
-  /**
-   *llenarListaLibre() {
-    for (let i = 0; i < this.TodasLastumbasList.length; i++) {      
-        this.TumbasLibresList.push(this.TodasLastumbasList[i]);
-    }
-  }
-   */
-
+  
   peopleA: Tumba[] = [];
   peopleB: Tumba[] = [];
   peopleC: Tumba[] = [];
@@ -135,4 +131,9 @@ export class ATerrenosLibresComponent implements OnInit {
       }
     }
   }
+
+  porTumba(){
+
+  }
+
 }
