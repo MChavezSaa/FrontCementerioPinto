@@ -12,7 +12,8 @@ export class ATerrenosLibresComponent implements OnInit {
 
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
-  MismaTumba: Tumba[] = [];
+  MismaTumba: TumbaDifunto[] = [];
+  MostrarDifunto: TumbaDifunto;
 
   constructor(public service: BackendServiceService) { }
 
@@ -22,7 +23,7 @@ export class ATerrenosLibresComponent implements OnInit {
       console.log(this.TumbasLibresList); 
       this.llenarListas()
     });
-    this.service.getTumba().subscribe(tumbaList2 =>{ this.MismaTumba = tumbaList2});
+    this.service.getTumbaDifunto().subscribe(tumbaList2 =>{ this.MismaTumba = tumbaList2});
   }
 
   
@@ -132,8 +133,15 @@ export class ATerrenosLibresComponent implements OnInit {
     }
   }
 
-  porTumba(){
-
+  porTumba(aux : Tumba){
+      for (let i = 0; i < this.MismaTumba.length; i++) { 
+        console.log("entro for");
+        if( this.MismaTumba[i].tumba.localeCompare(' '+ aux.numero_Tumba)){
+            this.MostrarDifunto = this.MismaTumba[i];
+            console.log("entro if");          
+            console.log(this.MostrarDifunto);          
+        }
+      }
   }
 
 }

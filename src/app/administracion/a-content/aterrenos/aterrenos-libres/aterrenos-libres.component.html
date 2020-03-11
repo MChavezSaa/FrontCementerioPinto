@@ -40,7 +40,7 @@
             <div *ngIf="person.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
                 <button style="display: contents;" data-toggle="modal" data-target="#DifuntosOcupados"
-                (click)="mostrarModal(person)"><img src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                (click)="porTumba(person)"><img src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
                     [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba"></button>
               </div>
             </div>
@@ -503,15 +503,18 @@
                           <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Detalle Sepultura</b></h4>
                           <button type="button" class="close" data-dismiss="modal">&times;</button>
                   </div>
-                  <div class="modal-body">
-                          <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto</b></h5>
-                          <p style="font-family: 'Times New Roman', Times, serif;"> <!-- Hacer ngFor para mostrar todos los sepultados en la misma tumba--> 
-                            &nbsp; <b>RUN:</b> <br>
-                            &nbsp; <b>Nombre:</b> <br>
-                            &nbsp; <b>Fecha Defunción:</b> <br>
-                            &nbsp; <b>Número Sepultura:</b> <br>
-                            &nbsp; <b>Nivel Sepultura:</b> <br>
-                          </p>
+                  <div class="modal-body" *ngFor="let dif of MismaTumba">
+                    <div ><!-- *ngIf="dif.tumba == '2'"-->
+                      <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto</b></h5>
+                      <p style="font-family: 'Times New Roman', Times, serif;"> <!-- Hacer ngFor para mostrar todos los sepultados en la misma tumba--> 
+                        &nbsp; <b>RUN:</b>{{dif.difunto.rut_Difunto}} <br>
+                        &nbsp; <b>Nombre:</b> {{dif.difunto.nombres_Difunto}} {{dif.difunto.apellidoP_Difunto}} {{dif.difunto.apellidoM_Difunto}}<br>
+                        &nbsp; <b>Fecha Defunción:</b> {{dif.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}} <br>
+                        &nbsp; <b>Fecha Sepultura:</b> {{dif.fecha_Entierro_TD | date:'dd-MM-yyyy'}} <br>
+                        &nbsp; <b>Número Sepultura:</b> {{dif.tumba}} <br>
+                      </p>
+                    </div>
+                         
                   </div>
                   <div class="modal-footer">
                           <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
