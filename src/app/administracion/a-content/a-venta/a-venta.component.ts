@@ -48,7 +48,7 @@ export class AVentaComponent implements OnInit {
         this.contratoList2.forEach(element => {
           //console.log(this.numerosTumba(element));
           element.tumba = this.numerosTumba(element);
-         // element.fecha_Pago = this.fechaPago(element.fecha_Pago);
+          // element.fecha_Pago = this.fechaPago(element.fecha_Pago);
 
         });
       });
@@ -61,15 +61,14 @@ export class AVentaComponent implements OnInit {
 
 
   }
-  fechaPago(date: Date) {    
-    let f1 = new Date(date);    
+  fechaPago(date: Date) {
+    let f1 = new Date(date);
     return f1.getUTCDate();
-    
+
   }
   cargarContrato(id: number) {
     this.contratoModal = null;
     let ContratoAux;
-    // this.service.getContrato2ID(id).subscribe(contrato2 => this.contratoModal = contrato2);
     for (let i = 0; i < this.contratoList3.length; i++) {
       if (id == this.contratoList3[i].id_contrato2) {
         this.contratoModal = this.contratoList3[i];

@@ -1148,4 +1148,17 @@ export class BackendServiceService {
       })
     );
   }
+
+  ContratosPorUsuario(username:string): Observable<Contrato[]>{
+    return this.http.get<Contrato[]>(this.urlEndPoint + 'ContratosByUsername/' + username, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
+      })
+    );
+  }
+
 }

@@ -81,6 +81,8 @@ import { ReportesComponent } from './administracion/a-content/reportes/reportes.
 import { ExportTrasladoComponent } from './administracion/a-content/a-traslado/export-traslado/export-traslado.component';
 import { ExportPaseComponent } from './administracion/a-content/asepultura/export-pase/export-pase.component';
 import { SearchSepulturaPipe } from './pipes/search-sepultura.pipe';
+import { ExportContratoClienteComponent } from './administracion/a-content/c-cuotas/export-contrato-cliente/export-contrato-cliente.component';
+import { CuotasClienteComponent } from './administracion/a-content/c-cuotas/cuotas-cliente/cuotas-cliente.component';
 
 
 const routes: Routes = [
@@ -417,8 +419,17 @@ const routes: Routes = [
         path: 'paseSepultacion/:id',
         component: ExportPaseComponent,
         canActivate: [AuthGuard]
+      },
+      {
+        path: 'exportPDFCliente/:id',
+        component: ExportContratoClienteComponent,
+        canActivate: [AuthGuard]
+      },
+      {
+        path: 'coutasCliente/:id',
+        component: CuotasClienteComponent,
+        canActivate: [AuthGuard]
       }
-
     ]
   },
 ];
@@ -500,7 +511,9 @@ const routes: Routes = [
     ReportesComponent,
     ExportTrasladoComponent,
     ExportPaseComponent,
-    SearchSepulturaPipe
+    SearchSepulturaPipe,
+    ExportContratoClienteComponent,
+    CuotasClienteComponent
   ],
   imports: [
     BrowserModule,
