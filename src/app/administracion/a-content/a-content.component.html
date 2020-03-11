@@ -58,7 +58,6 @@
     </div>
     <!-- Fin bienvenida-->
 
-
     <!-- Inicio estadisticas-->
     <div class="col-4" *ngIf="!service.hasRole('ROLE_CLIENT')">
         <div class="card">
@@ -102,6 +101,30 @@
             </div>
         </div>
 
+    </div>
+
+    <div class="col-4" *ngIf="service.hasRole('ROLE_CLIENT')">
+        <div class="card">
+            <div class="card-body">
+                <div>
+                    <b>
+                        <h4>HORARIO ATENCION</h4>
+                    </b>
+                    <hr class="my-4">
+                    <b><label for="">
+                            Lunes a Viernes: <br>
+                            - Mañana : 09:00 a 13:00 hrs. <br>
+                            - Tarde&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: 14:00 a 17:00 hrs. <br>
+                            - Sábado&nbsp;&nbsp;: 09:30 a 12:30 hrs.
+                        </label>
+                    </b>
+                    <hr class="my-4">
+                    <b><h4>FONO</h4></b>
+                    <hr class="my-4">
+                    <b><label for="">- 42 176400</label></b>                    
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--Fin estadisticas-->
