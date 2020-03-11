@@ -37,27 +37,19 @@ export class BackendServiceService {
   private _usuario: Usuario;
   private _token: string;
 
-  /*private urlEndPoint: string = 'http://localhost:8080/';
-  private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
-  private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
-  private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
-  private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
-  private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
-  private urlEndPoint7: string = 'http://localhost:8080/DeleteContrato/';
-  
-  *parra.chillan.ubiobio.cl:8080//
-   * 
-   */ 
+  /*
   private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
-  private urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteFuncionario/';
-  private urlEndPoint3: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTerreno/';
-  private urlEndPoint4: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteCliente/';
-  private urlEndPoint5: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeletePatio/';
-  private urlEndPoint6: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTipoTumba/';
-  private urlEndPoint7: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteContrato/';
+   */
+  private urlEndPoint: string = 'http://localhost:8080/';
+  private urlEndPoint2: string = this.urlEndPoint + 'DeleteFuncionario/';
+  private urlEndPoint3: string = this.urlEndPoint + 'DeleteTerreno/';
+  private urlEndPoint4: string = this.urlEndPoint + 'DeleteCliente/';
+  private urlEndPoint5: string = this.urlEndPoint + 'DeletePatio/';
+  private urlEndPoint6: string = this.urlEndPoint + 'DeleteTipoTumba/';
+  private urlEndPoint7: string = this.urlEndPoint + 'DeleteContrato/';
 
-   
-  
+
+
   ContratoList: Contrato[] = [];
 
 
@@ -108,8 +100,8 @@ export class BackendServiceService {
   }
 
   login(usuario: Usuario): Observable<any> {
-    //const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
-    const urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/oauth/token';
+    const urlEndPoint2: string = this.urlEndPoint + 'oauth/token';
+
 
     const credenciales = btoa('angularapp' + ':' + '12345');
 
@@ -1093,42 +1085,42 @@ export class BackendServiceService {
 
   /**REPORTES*/
   getContratoFechas(fechas: IntervaloFecha) {
-    return this.http.post<Contrato[]>(this.urlEndPoint + "getContratoFechas",fechas ,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.post<Contrato[]>(this.urlEndPoint + "getContratoFechas", fechas, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
-        return throwError(e);  
+        return throwError(e);
       })
     );
   }
 
   renovarCuotaMantencion(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
-      })
-    );
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
   }
   renovarcuotasDerecho10(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
-      })
-    );
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
   }
   renovarcuotasDerecho20(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
-      })
-    );
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
   }
-  findContratoPorDifunto1(id:number): Observable<TumbaDifunto>{
+  findContratoPorDifunto1(id: number): Observable<TumbaDifunto> {
     return this.http.get<TumbaDifunto>(this.urlEndPoint + 'findContratoPorDifunto/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -1149,7 +1141,7 @@ export class BackendServiceService {
     );
   }
 
-  ContratosPorUsuario(username:string): Observable<Contrato[]>{
+  ContratosPorUsuario(username: string): Observable<Contrato[]> {
     return this.http.get<Contrato[]>(this.urlEndPoint + 'ContratosByUsername/' + username, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         if (this.isNoAutorizado(e)) {
