@@ -573,23 +573,38 @@
 <br>
 
 <div class="modal" id="DifuntosOcupados">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Detalle Sepultura</b></h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body"  *ngFor="let dif of MismaTumba">
-        <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto Sepultura N° {{dif.tumba}}</b></h5>
-        <p style="font-family: 'Times New Roman', Times, serif;">
-          <!-- Hacer ngFor para mostrar todos los sepultados en la misma tumba-->
-          &nbsp; <b>Ubicación Sepultura:</b> {{dif.contrato.patio.nombre_Patio}} <br>
-          &nbsp; <b>RUN:</b> {{dif.difunto.rut_Difunto}}<br>
-          &nbsp; <b>Nombre:</b> {{dif.difunto.nombres_Difunto}} {{dif.difunto.apellidoP_Difunto}} {{dif.difunto.apellidoM_Difunto}} <br>
-          &nbsp; <b>Fecha Defunción:</b> {{dif.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}} <br>
-          &nbsp; <b>Fecha Sepultura:</b> {{dif.fecha_Entierro_TD | date:'dd-MM-yyyy'}}<br>
-          
-        </p>
+      <div class="modal-body" >
+        <br>
+        <div class="table-responsive">
+          <table class="table table-hover" style="text-align: center">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Ubicación Sepultura</th>
+                    <th scope="col">RUN</th>
+                    <th scope="col">Nombre Difunto</th>
+                    <th scope="col">Fecha Defunción</th>
+                    <th scope="col">Fecha Sepultura</th>
+                </tr>
+            </thead>
+            <tbody>
+  
+                <tr *ngFor="let dif of MismaTumba " >
+                    <td>Número {{dif.tumba}}, <br> {{dif.contrato.patio.nombre_Patio}}</td>
+                    <td>{{dif.difunto.rut_Difunto}}</td>
+                    <td>{{dif.difunto.nombres_Difunto}} {{dif.difunto.apellidoP_Difunto}} {{dif.difunto.apellidoM_Difunto}}</td>
+                    <td>{{dif.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+                    <td>{{dif.fecha_Entierro_TD | date:'dd-MM-yyyy'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+        
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
