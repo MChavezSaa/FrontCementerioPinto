@@ -11,7 +11,7 @@
       <li><a [routerLink]="['/administracion-inicio']"><i class="fas fa-home"></i> Inicio </a></li>
      
       <li *ngIf="!service.hasRole('ROLE_EMPLEADO')" class="nav-item">
-        <a class="nav-link" routerLink="CCuotas"><i class="fas fa-user-alt colorFig"></i> Mis Cuotas</a>
+        <a class="nav-link" routerLink="CCuotas"><i class="fas fa-user-alt colorFig"></i> Mis Contratos</a>
       </li>
 
       <li *ngIf="service.hasRole('ROLE_ADMIN')" class="active ">
