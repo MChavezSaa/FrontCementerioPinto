@@ -1065,8 +1065,8 @@ export class BackendServiceService {
   }
 
 
-  getMostrarDifuntos(id: string): Observable<Object[]> {
-    return this.http.get<Object[]>(this.urlEndPoint + "mostrarDifunto/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+  getMostrarDifuntos(id: string): Observable<TumbaDifunto[]> {
+    return this.http.get<TumbaDifunto[]>(this.urlEndPoint + "mostrarDifunto/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);

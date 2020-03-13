@@ -44,7 +44,7 @@
             <div *ngIf="person.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(person)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(person)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'a' + person.patio.id_Patio"
                     [ngClass]="'a'+ person.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -579,11 +579,11 @@
         <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Detalle Sepultura</b></h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body"  *ngFor="let dif of MismaTumba">
         <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto</b></h5>
         <p style="font-family: 'Times New Roman', Times, serif;">
           <!-- Hacer ngFor para mostrar todos los sepultados en la misma tumba-->
-          &nbsp; <b>RUN:</b> <br>
+          &nbsp; <b>RUN:</b><br>
           &nbsp; <b>Nombre:</b> <br>
           &nbsp; <b>Fecha Defunción:</b> <br>
           &nbsp; <b>Número Sepultura:</b> <br>

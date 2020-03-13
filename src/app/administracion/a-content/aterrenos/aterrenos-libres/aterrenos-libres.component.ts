@@ -14,7 +14,7 @@ export class ATerrenosLibresComponent implements OnInit {
 
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
-  MismaTumba: Object[] = [];
+  MismaTumba: TumbaDifunto[] = [];
   //MostrarDifunto: TumbaDifunto;
   //mostrarParams : TumbaDifunto = new TumbaDifunto();
 
