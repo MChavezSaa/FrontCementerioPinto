@@ -72,7 +72,7 @@
             <div *ngIf="personB.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio B, Número {{personB.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personB)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personB)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'b' + person.patio.id_Patio"
                     [ngClass]="'b'+ personB.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -99,7 +99,7 @@
             <div *ngIf="personC.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio C, Número {{personC.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personC)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personC)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'c' + person.patio.id_Patio"
                     [ngClass]="'c'+ person.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -126,7 +126,7 @@
             <div *ngIf="personD.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio D, Número {{personD.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personD)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personD)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'a' + personD.patio.id_Patio"
                     [ngClass]="'d'+ personD.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -153,7 +153,7 @@
             <div *ngIf="personE.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio E, Número {{personE.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(person)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personE)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'e' + personE.patio.id_Patio"
                     [ngClass]="'e'+ personE.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -180,7 +180,7 @@
             <div *ngIf="personF.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio F, Número {{personF.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personF)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personF)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'f' + personF.patio.id_Patio"
                     [ngClass]="'f'+ personF.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -207,7 +207,7 @@
             <div *ngIf="personG.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio G, Número {{personG.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personG)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personG)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'g' + personG.patio.id_Patio"
                     [ngClass]="'g'+ personG.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -234,7 +234,7 @@
             <div *ngIf="personH.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personH)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personH)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'h' + personH.patio.id_Patio"
                     [ngClass]="'h'+ personH.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -261,7 +261,7 @@
             <div *ngIf="personI.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personI)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personI)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'I' + personI.patio.id_Patio"
                     [ngClass]="'I'+ personI.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -288,7 +288,7 @@
             <div *ngIf="personJ.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personJ)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personJ)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'j' + personJ.patio.id_Patio"
                     [ngClass]="'j'+ personJ.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -315,7 +315,7 @@
             <div *ngIf="personK.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personK)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personK)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'k' + personK.patio.id_Patio"
                     [ngClass]="'k'+ personK.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -343,7 +343,7 @@
             <div *ngIf="personL.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(personL)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(personL)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'l' + personL.patio.id_Patio"
                     [ngClass]="'l'+ personL.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -371,7 +371,7 @@
             <div *ngIf="mauA.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(mauA)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(mauA)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'a' + person.patio.id_Patio"
                     [ngClass]="'mA'+ mauA.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -399,7 +399,7 @@
             <div *ngIf="mauB.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(mauB)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(mauB)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'mB' + mauB.patio.id_Patio"
                     [ngClass]="'mB'+ mauB.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -427,7 +427,7 @@
             <div *ngIf="mauC.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(mauC)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(mauC)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'mC' + mauC.patio.id_Patio"
                     [ngClass]="'mC'+ mauC.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -455,7 +455,7 @@
             <div *ngIf="mauD.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(mauD)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(mauD)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'mD' + mauD.patio.id_Patio"
                     [ngClass]="'mD'+ mauD.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -485,7 +485,7 @@
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho A, Número {{niA.numero_Tumba}}, Nivel {{niA.nivel}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(niA)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(niA)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'nA' + niA.patio.id_Patio"
                     [ngClass]="'nA'+ niA.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -516,7 +516,7 @@
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho B, Número {{niB.numero_Tumba}}, Nivel {{niB.nivel}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(niB)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(niB)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'nB' + niB.patio.id_Patio"
                     [ngClass]="'nB'+ niB.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""
@@ -547,7 +547,7 @@
               <div data-toggle="tooltip" data-placement="top"
                 title="Lote Nicho C, Número {{niC.numero_Tumba}}, Nivel {{niC.nivel}}">
                 <button *ngIf="!service.hasRole('ROLE_CLIENT')" style="display: contents;" data-toggle="modal"
-                  data-target="#DifuntosOcupados" (click)="mostrarModal(niC)"><img src="assets/img/VistaOcupado.png"
+                  data-target="#DifuntosOcupados" (click)="cargarMostrarDifuntos(niC)"><img src="assets/img/VistaOcupado.png"
                     alt="" style="width: 10px; height: 7px;" [id]="'nC' + niC.patio.id_Patio"
                     [ngClass]="'nC'+ niC.numero_Tumba"></button>
                 <img *ngIf="service.hasRole('ROLE_CLIENT')" src="assets/img/VistaOcupado.png" alt=""

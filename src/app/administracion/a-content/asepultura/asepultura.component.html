@@ -51,7 +51,7 @@
                                     <td>{{cem.difunto.nombres_Difunto}}</td>
                                     <td>{{cem.difunto.rut_Difunto}}</td>
                                     <td>{{cem.tumba}}</td>
-                                    <td>{{cem.fecha_Entierro_TD}}</td>
+                                    <td>{{cem.fecha_Entierro_TD| date:'dd-MM-yyyy'}}</td>
                                     <td><button  [routerLink]="[ '/administracion-inicio/paseSepultacion/',cem.id_Tumba_Difunto ]"   type="button" name="pdf"
                                         class="btn btn-info">
                                         <i class="fas fa-file-pdf"></i>

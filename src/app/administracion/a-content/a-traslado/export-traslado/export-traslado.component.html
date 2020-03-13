@@ -31,12 +31,12 @@
                     <div class="col-1">
                     </div>
                     <div class="col-10">
-                        <p> En la ciudad de Pinto, con fecha <b>{{trasladoParams.fecha_Traslado}}</b>, Sr.(Sra)
+                        <p> En la ciudad de Pinto, con fecha <b>{{trasladoParams.fecha_Traslado | date:'dd-MM-yyyy'}}</b>, Sr.(Sra)
                             <b>{{trasladoParams.nombreC_Solicitante}}</b> con RUN <b>{{trasladoParams.rut_Solicitante}}</b>
                             y domicilio en {{trasladoParams.direccion_Solicitante}}, solicita al Sr. Cura Párroco
                             de la ciudad de Pinto la autorización del traslado del difunto <b>{{trasladoParams.difunto.nombres_Difunto}}
                              {{trasladoParams.difunto.apellidoP_Difunto}} {{trasladoParams.difunto.apellidoM_Difunto}}</b>, con RUN 
-                            <b>{{trasladoParams.difunto.rut_Difunto}}</b> fallecido el <b>{{trasladoParams.difunto.fecha_Defuncion}}</b>.
+                            <b>{{trasladoParams.difunto.rut_Difunto}}</b> fallecido el <b>{{trasladoParams.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}}</b>.
                         </p>
                         <p>
                             Realizando un traslado de tipo: <b>{{trasladoParams.tipoDeCambio}}</b><br>

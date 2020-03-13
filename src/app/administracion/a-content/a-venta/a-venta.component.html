@@ -67,7 +67,7 @@
                             <tbody>
                                 <ng-container *ngFor="let ven of contratoList2 | filter2: searchText2">
                                     <tr *ngIf="ven.estado_Contrato==true">
-                                        <td>{{ven.fecha_Ingreso_Venta}}</td>
+                                        <td>{{ven.fecha_Ingreso_Venta | date:'dd-MM-yyyy'}}</td>
                                         <td>{{fechaPago(ven.fecha_Pago)}} de cada mes</td>
                                         <td>{{ven.id_contrato}}</td>
                                         <td>{{ven.perpetuidad}} años</td>
