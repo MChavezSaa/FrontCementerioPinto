@@ -31,8 +31,11 @@ export class ATerrenosLibresComponent implements OnInit {
 
   public cargarMostrarDifuntos(id: Tumba): void{
     let idString: string = id.id_tumba+"";
-        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> this.MismaTumba = mostrar) 
-        console.log(this.MismaTumba);
+        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {
+          this.MismaTumba = mostrar
+          console.log(this.MismaTumba);
+        }); 
+        
   }
   
   peopleA: Tumba[] = [];
