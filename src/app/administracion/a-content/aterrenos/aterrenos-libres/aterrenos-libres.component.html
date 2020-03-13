@@ -580,14 +580,15 @@
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
       <div class="modal-body"  *ngFor="let dif of MismaTumba">
-        <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto</b></h5>
+        <h5 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Difunto Sepultura N° {{dif.tumba}}</b></h5>
         <p style="font-family: 'Times New Roman', Times, serif;">
           <!-- Hacer ngFor para mostrar todos los sepultados en la misma tumba-->
-          &nbsp; <b>RUN:</b><br>
-          &nbsp; <b>Nombre:</b> <br>
-          &nbsp; <b>Fecha Defunción:</b> <br>
-          &nbsp; <b>Número Sepultura:</b> <br>
-          &nbsp; <b>Nivel Sepultura:</b> <br>
+          &nbsp; <b>Ubicación Sepultura:</b> {{dif.contrato.patio.nombre_Patio}} <br>
+          &nbsp; <b>RUN:</b> {{dif.difunto.rut_Difunto}}<br>
+          &nbsp; <b>Nombre:</b> {{dif.difunto.nombres_Difunto}} {{dif.difunto.apellidoP_Difunto}} {{dif.difunto.apellidoM_Difunto}} <br>
+          &nbsp; <b>Fecha Defunción:</b> {{dif.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}} <br>
+          &nbsp; <b>Fecha Sepultura:</b> {{dif.fecha_Entierro_TD | date:'dd-MM-yyyy'}}<br>
+          
         </p>
       </div>
       <div class="modal-footer">
