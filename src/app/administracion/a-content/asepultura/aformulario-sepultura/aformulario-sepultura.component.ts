@@ -25,6 +25,7 @@ export class AFormularioSepulturaComponent implements OnInit {
 
   /*Arrays*/
   DifuntosList: Difunto[] = [];
+  DifuntosListAux: Difunto[] = [];
   contratosList: Contrato[] = [];
   contratosListAux: Contrato[] = []
   contratosListAux2: Contrato[] = []
@@ -75,6 +76,11 @@ export class AFormularioSepulturaComponent implements OnInit {
           */
           this.service.getTumbaDifunto().subscribe(response => {
             this.tumbaDifuntoParaCont = response;
+            this.service.getDistinctDifuntos().subscribe(fun  =>{
+              this.DifuntosListAux = fun;
+              console.log("listadistinct");
+              console.log(this.DifuntosListAux);
+            });
           });
         });
       });
@@ -118,6 +124,7 @@ export class AFormularioSepulturaComponent implements OnInit {
           this.contratosListAux.push(this.contratosList[i]);
         }
       }
+      console.log(this.contratosListAux)
     } else {
       this.mostrarContrato2 = false;
     }

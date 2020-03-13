@@ -25,6 +25,7 @@ import { cambioPass } from '../Entidades/cambioPass';
 import { TumbaDifunto } from '../Entidades/TumbaDifunto';
 import { IntervaloFecha } from '../Entidades/IntervaloFecha';
 import { traslado2 } from '../Entidades/traslado2';
+import { traslado3 } from '../Entidades/traslado3';
 
 
 @Injectable({
@@ -36,27 +37,19 @@ export class BackendServiceService {
   private _usuario: Usuario;
   private _token: string;
 
-  /*private urlEndPoint: string = 'http://localhost:8080/';
-  private urlEndPoint2: string = 'http://localhost:8080/DeleteFuncionario/';
-  private urlEndPoint3: string = 'http://localhost:8080/DeleteTerreno/';
-  private urlEndPoint4: string = 'http://localhost:8080/DeleteCliente/';
-  private urlEndPoint5: string = 'http://localhost:8080/DeletePatio/';
-  private urlEndPoint6: string = 'http://localhost:8080/DeleteTipoTumba/';
-  private urlEndPoint7: string = 'http://localhost:8080/DeleteContrato/';
-  
-  *parra.chillan.ubiobio.cl:8080//
-   * 
-   */ 
+  /*
   private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
-  private urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteFuncionario/';
-  private urlEndPoint3: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTerreno/';
-  private urlEndPoint4: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteCliente/';
-  private urlEndPoint5: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeletePatio/';
-  private urlEndPoint6: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteTipoTumba/';
-  private urlEndPoint7: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/DeleteContrato/';
+   */
+  private urlEndPoint: string = 'http://localhost:8080/';
+  private urlEndPoint2: string = this.urlEndPoint + 'DeleteFuncionario/';
+  private urlEndPoint3: string = this.urlEndPoint + 'DeleteTerreno/';
+  private urlEndPoint4: string = this.urlEndPoint + 'DeleteCliente/';
+  private urlEndPoint5: string = this.urlEndPoint + 'DeletePatio/';
+  private urlEndPoint6: string = this.urlEndPoint + 'DeleteTipoTumba/';
+  private urlEndPoint7: string = this.urlEndPoint + 'DeleteContrato/';
 
-   
-  
+
+
   ContratoList: Contrato[] = [];
 
 
@@ -107,8 +100,8 @@ export class BackendServiceService {
   }
 
   login(usuario: Usuario): Observable<any> {
-    //const urlEndPoint2: string = 'http://localhost:8080/oauth/token';
-    const urlEndPoint2: string = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/oauth/token';
+    const urlEndPoint2: string = this.urlEndPoint + 'oauth/token';
+
 
     const credenciales = btoa('angularapp' + ':' + '12345');
 
@@ -168,8 +161,21 @@ export class BackendServiceService {
   }
   /*TRASLADO */
 
-  saveTraslado(traslado: Traslado): Observable<Traslado> {
-    return this.http.post(this.urlEndPoint + "saveTraslado", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+  saveTraslado(traslado: traslado3): Observable<Traslado> {
+    return this.http.post(this.urlEndPoint + "saveTrasladoInterno", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
+      map((response: any) => response.traslado as Traslado),
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        Swal.fire('Error al crear el traslado', e.error.mensaje, 'error');
+        return throwError(e);
+      })
+    );
+  }
+  saveTraslado2(traslado: Traslado): Observable<Traslado> {
+    return this.http.post(this.urlEndPoint + "saveTrasladoExterno", traslado, { headers: this.agregarAuthorizationHeader() }).pipe(
       map((response: any) => response.traslado as Traslado),
       catchError(e => {
         if (this.isNoAutorizado(e)) {
@@ -745,7 +751,7 @@ export class BackendServiceService {
   /*TUMBA*/ /*NO TIENE DELETE*/
 
   getTumba(): Observable<Tumba[]> {
-    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas", { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.get<Tumba[]>(this.urlEndPoint + "listTumbas").pipe(
       catchError(e => {
         this.isNoAutorizado(e);
         return throwError(e);
@@ -1079,38 +1085,70 @@ export class BackendServiceService {
 
   /**REPORTES*/
   getContratoFechas(fechas: IntervaloFecha) {
-    return this.http.post<Contrato[]>(this.urlEndPoint + "getContratoFechas",fechas ,{ headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.post<Contrato[]>(this.urlEndPoint + "getContratoFechas", fechas, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
         this.isNoAutorizado(e);
-        return throwError(e);  
+        return throwError(e);
       })
     );
   }
 
   renovarCuotaMantencion(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
-      catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
-      })
-    );
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
   }
   renovarcuotasDerecho10(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
+  }
+  renovarcuotasDerecho20(id: number): Observable<any> {
+    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/" + id,
+      { headers: this.agregarAuthorizationHeader() }).pipe(
+        catchError(e => {
+          // this.isNoAutorizado(e);
+          return throwError(e);
+        })
+      );
+  }
+  findContratoPorDifunto1(id: number): Observable<TumbaDifunto> {
+    return this.http.get<TumbaDifunto>(this.urlEndPoint + 'findContratoPorDifunto/' + id, { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
       })
     );
   }
-  renovarcuotasDerecho20(id: number): Observable<any> {
-    return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/"+ id ,
-    { headers: this.agregarAuthorizationHeader() }).pipe(
+
+  getDistinctDifuntos(): Observable<Difunto[]> {
+    return this.http.get<Difunto[]>(this.urlEndPoint + "distincDifunto", { headers: this.agregarAuthorizationHeader() }).pipe(
       catchError(e => {
-       // this.isNoAutorizado(e);
-        return throwError(e);  
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
+  ContratosPorUsuario(username: string): Observable<Contrato[]> {
+    return this.http.get<Contrato[]>(this.urlEndPoint + 'ContratosByUsername/' + username, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        if (this.isNoAutorizado(e)) {
+          return throwError(e);
+        }
+        console.error(e.error.mensaje);
+        return throwError(e);
       })
     );
   }

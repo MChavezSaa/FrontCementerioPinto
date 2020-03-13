@@ -1,1 +1,75 @@
-<p>c-cuotas works!</p>
+<div class="container">
+
+    <nav aria-label="breadcrumb">
+        <!--MIGAS DE PAN-->
+        <ol class="breadcrumb bg-white pl-0">
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Mis Contratos</li>
+        </ol>
+    </nav>
+    <!--FIN MIGAS DE PAN-->
+    <hr>
+    <br>
+    <br>
+
+    <div class="col">
+        <h3><b><i>Mis contratos</i></b></h3><br>
+    </div>
+    <div>
+        <div>
+            <div class="card mb-3">
+                <div class="card-header text-center">
+                    Listado de Contratos
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <!--INICIO LISTADO DE TABLA -->
+                        <table class="table table-hover" style="text-align: center">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Fecha Inscripción</th>
+                                    <th scope="col">Dia de Pago</th>
+                                    <th scope="col">Número de Contrato</th>
+                                    <th scope="col">Perpetuidad Actual</th>                                    
+                                    <th scope="col">Tipo de tumba</th>
+                                    <th scope="col">Número de Tumba</th>
+                                    <th scope="col" >Acciones</th>
+                                    <th scope="col">Cuotas</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <ng-container *ngFor="let ven of contratoList ">
+                                    <tr >
+                                        <td>{{ven.fecha_Ingreso_Venta}}</td>
+                                        <td>{{fechaPago(ven.fecha_Pago)}} de cada mes</td>
+                                        <td>{{ven.id_contrato}}</td>
+                                        <td>{{ven.perpetuidad}} años</td>                                        
+                                        <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
+                                        <td>{{ven.tumba}}</td>
+                                        <td>
+                                            <button
+                                                [routerLink]="[ '/administracion-inicio/exportPDFCliente/',ven.id_contrato ]"
+                                                type="button" name="pdf" class="btn btn-info">
+                                                <i class="fas fa-file-pdf"></i>
+                                            </button>
+                                        </td>
+                                        
+                                        <td>
+                                            <button 
+                                                [routerLink]="['/administracion-inicio/coutasCliente/',ven.id_contrato]"
+                                                type="button" [disabled]="ven.estado_Contrato== false"  name="couta" class="btn btn-success">
+                                                <i class="fas fa-dollar-sign"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </ng-container>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

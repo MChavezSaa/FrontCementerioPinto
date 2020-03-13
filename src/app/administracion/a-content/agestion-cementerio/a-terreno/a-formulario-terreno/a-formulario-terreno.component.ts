@@ -16,13 +16,16 @@ export class AFormularioTerrenoComponent implements OnInit {
 
   cementerioList: Cementerio[] = [];
   formTerreno: FormGroup;
-  terrenoParams: Terreno = new Terreno();
+  terrenoParams: Terreno ;
 
   constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router: Router, 
     private activatedRoute: ActivatedRoute) {
 
+      this.terrenoParams = new Terreno();
+      this.terrenoParams.cementerio = new Cementerio();
+      
     this.formTerreno = this.formBuilder.group({
       nombre_Terreno: ['', [Validators.required, Validators.minLength(3)]],
       capacidad_Terreno: ['', [Validators.required]],
@@ -41,8 +44,11 @@ export class AFormularioTerrenoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getTerrenoxID(id).subscribe((patio) => this.terrenoParams = patio)
-        console.log(this.terrenoParams);
+        this.service.getTerrenoxID(id).subscribe((patio) => {
+          this.terrenoParams = patio
+          
+        })
+        
         this.terrenoParams = null;
       }
     })

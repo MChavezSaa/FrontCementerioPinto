@@ -66,8 +66,8 @@
               </thead>
               <tbody>
                 <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
-                  
-                    <tr *ngIf="dif.estadoDifunto== 'Activo'" >                    
+                  <!--|| dif.estadoDifunto== 'Sepultado'"-->
+                    <tr *ngIf="dif.estadoDifunto== 'Activo' " >
                       <td>{{dif.id_Difunto}}</td>   
                       <td>{{dif.nombres_Difunto}}</td>
                       <td>{{dif.apellidoP_Difunto}}</td>

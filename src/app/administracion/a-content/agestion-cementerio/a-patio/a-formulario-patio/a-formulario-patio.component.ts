@@ -15,14 +15,17 @@ export class AFormularioPatioComponent implements OnInit {
 
   terrenoList:Terreno[] = [];
   formPatio:FormGroup;
-  patioParams : Patio = new Patio();
+  patioParams : Patio;
 
   constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
     private router: Router, 
     private activatedRoute:ActivatedRoute) {
+      this.patioParams = new Patio();
+      this.patioParams.terreno = new Terreno();
+
     this.formPatio = this.formBuilder.group({
-      capacidad_Patio: ['', [Validators.required]],
+      capacidad_Patio: {value: '', disabled: true},
       nombre_Patio: ['', [Validators.required, Validators.minLength(3)]],
       terreno: ['', [Validators.required]],
       nombreTT: ['', [Validators.required]], 

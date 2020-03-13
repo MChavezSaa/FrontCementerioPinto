@@ -14,10 +14,11 @@ export class AClienteComponent implements OnInit {
   searchText3: string;
 
   constructor(public service: BackendServiceService) { 
-
+    this.clienteDetalle = new Cliente();
   }
 
   ngOnInit() {
+    
     this.service.getClientes().subscribe(clienteList1 => this.clienteList2 = clienteList1);
   }
 

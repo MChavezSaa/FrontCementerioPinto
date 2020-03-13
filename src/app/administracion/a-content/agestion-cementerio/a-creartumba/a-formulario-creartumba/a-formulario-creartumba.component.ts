@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import Swal from 'sweetalert2';
+import { Patio } from 'src/app/Entidades/Patio';
 
 @Component({
   selector: 'app-a-formulario-creartumba',
@@ -16,12 +17,14 @@ export class AFormularioCreartumbaComponent implements OnInit {
   tipoTumbaList: TipoTumba[] = [];
   tumbaList: Tumba[] = [];
   formCreaTumba: FormGroup;
-  creaTumbaParams: Tumba = new Tumba();
+  creaTumbaParams: Tumba;
 
   constructor(public service: BackendServiceService,
     private formBuilder: FormBuilder,
     private router: Router,
     private activatedRoute: ActivatedRoute) {
+      this.creaTumbaParams = new Tumba();
+      this.creaTumbaParams.patio = new Patio();
     this.formCreaTumba = this.formBuilder.group({
       nombre_Patio: [{ value: '', disabled:true }],
       numero_Tumba: [{ value: '', disabled: true }, [Validators.required]],

@@ -187,8 +187,6 @@ export class FormularioVentaComponent implements OnInit {
   }
 
   fun() {
-    console.log(this.contrato2.patio.nombre_Patio)
-
     this.tumbaListAux = [];
     this.tipoTumbaListAux = [];
     if (this.contrato2.patio.nombre_Patio == "Nichos Lote A") {
@@ -233,7 +231,6 @@ export class FormularioVentaComponent implements OnInit {
         }
       }
     }
-    console.log(this.tumbaListAux)
   }
 
   mostrarNichos() {
