@@ -30,7 +30,8 @@ export class ATerrenosLibresComponent implements OnInit {
   }
 
   public cargarMostrarDifuntos(id: Tumba): void{
-        this.service.getMostrarDifuntos(id.id_tumba + "").subscribe((mostrar)=> this.MismaTumba = mostrar) 
+    let idString: string = id.id_tumba+"";
+        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> this.MismaTumba = mostrar) 
         console.log(this.MismaTumba);
   }
   
