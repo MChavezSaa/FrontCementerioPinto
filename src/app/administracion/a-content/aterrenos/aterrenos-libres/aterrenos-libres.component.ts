@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
+import { ActivatedRoute } from '@angular/router';
+import { object } from '@amcharts/amcharts4/core';
 
 @Component({
   selector: 'app-aterrenos-libres',
@@ -12,10 +14,12 @@ export class ATerrenosLibresComponent implements OnInit {
 
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
-  MismaTumba: TumbaDifunto[] = [];
-  MostrarDifunto: TumbaDifunto;
+  MismaTumba: Object[] = [];
+  //MostrarDifunto: TumbaDifunto;
+  //mostrarParams : TumbaDifunto = new TumbaDifunto();
 
-  constructor(public service: BackendServiceService) { }
+  constructor(public service: BackendServiceService,
+    private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
     this.service.getTumba().subscribe(tumbaList1 => {
@@ -23,9 +27,12 @@ export class ATerrenosLibresComponent implements OnInit {
       
       this.llenarListas()
     });
-    this.service.getTumbaDifunto().subscribe(tumbaList2 =>{ this.MismaTumba = tumbaList2});
   }
 
+  public cargarMostrarDifuntos(id: Tumba): void{
+        this.service.getMostrarDifuntos(id.id_tumba + "").subscribe((mostrar)=> this.MismaTumba = mostrar) 
+        console.log(this.MismaTumba);
+  }
   
   peopleA: Tumba[] = [];
   peopleB: Tumba[] = [];
@@ -133,7 +140,7 @@ export class ATerrenosLibresComponent implements OnInit {
     }
   }
 
-  porTumba(aux : Tumba){
+ /* porTumba(aux : Tumba){
       for (let i = 0; i < this.MismaTumba.length; i++) { 
         console.log("entro for");
         if( this.MismaTumba[i].tumba.localeCompare(' '+ aux.numero_Tumba)){
@@ -142,6 +149,6 @@ export class ATerrenosLibresComponent implements OnInit {
             console.log(this.MostrarDifunto);          
         }
       }
-  }
+  }*/
 
 }

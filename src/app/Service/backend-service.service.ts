@@ -1065,6 +1065,15 @@ export class BackendServiceService {
   }
 
 
+  getMostrarDifuntos(id: Tumba): Observable<Object[]> {
+    return this.http.get<Object[]>(this.urlEndPoint + "mostrarDifunto/" + id, { headers: this.agregarAuthorizationHeader() }).pipe(
+      catchError(e => {
+        this.isNoAutorizado(e);
+        return throwError(e);
+      })
+    );
+  }
+
 
   saveTumbaDifunto(tumbaDif: TumbaDifunto) {
     return this.http.post(this.urlEndPoint + "saveTumbaDifunto", tumbaDif, { headers: this.agregarAuthorizationHeader() });

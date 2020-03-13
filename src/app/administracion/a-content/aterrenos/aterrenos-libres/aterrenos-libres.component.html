@@ -40,7 +40,7 @@
             <div *ngIf="person.estado_Tumba == 'Ocupado'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
                 <button style="display: contents;" data-toggle="modal" data-target="#DifuntosOcupados"
-                (click)="porTumba(person)"><img src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
+                (click)="cargarMostrarDifuntos(person)"><img src="assets/img/VistaOcupado.png" alt="" style="width: 10px; height: 7px;"
                     [id]="'a' + person.patio.id_Patio" [ngClass]="'a'+ person.numero_Tumba"></button>
               </div>
             </div>
