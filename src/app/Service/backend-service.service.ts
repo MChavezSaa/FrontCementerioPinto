@@ -38,9 +38,11 @@ export class BackendServiceService {
   private _token: string;
 
   /*
-  private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
-   */
+  
   private urlEndPoint: string = 'http://localhost:8080/';
+   */
+  
+  private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
   private urlEndPoint2: string = this.urlEndPoint + 'DeleteFuncionario/';
   private urlEndPoint3: string = this.urlEndPoint + 'DeleteTerreno/';
   private urlEndPoint4: string = this.urlEndPoint + 'DeleteCliente/';

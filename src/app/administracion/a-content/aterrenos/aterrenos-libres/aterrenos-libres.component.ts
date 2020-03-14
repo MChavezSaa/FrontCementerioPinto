@@ -29,7 +29,7 @@ export class ATerrenosLibresComponent implements OnInit {
     });
   }
 
-  public cargarMostrarDifuntos(id: Tumba): void{
+  public cargarMostrarDifuntos(id: Tumba){
     let idString: string = id.id_tumba+"";
         this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {
           this.MismaTumba = mostrar
