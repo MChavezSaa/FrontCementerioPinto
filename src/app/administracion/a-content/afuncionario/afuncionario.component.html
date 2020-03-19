@@ -1,7 +1,7 @@
 <div class="container">
 
     <nav aria-label="breadcrumb">
-         MIGAS DE PAN-->
+      
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Funcionarios</li>
@@ -9,11 +9,11 @@
     </nav>
     <hr>
     <br>
-     FIN MIGAS DE PAN-->
+    
 
     <div class="container">
         <div class="row ">
-             SECCION PARA FILTRAR-->
+         
             <div class="input-group mb-3 col-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
@@ -30,27 +30,6 @@
     </div>
     <br>
 
-  SECCION PARA FILTRAR
-    <div class="container">
-        <div class="row ">
-            <div class="col-2 my-auto">
-                Filtrar por nombre:
-            </div>
-            <div class="col-4">
-                <input type="text" [(ngModel)]="searchText" placeholder="Nombre del funcionario">
-            </div>
-            <div class="col-6 text-right">
-                <button type="button" class="btn btn-info"
-                    [routerLink]="['/administracion-inicio/AFormularioFuncionario']">Formulario de Ingreso</button>
-            </div>
-        </div>
-    </div>
--->
-    <br>
-    
-     FIN SECCION PARA FILTRAR-->
-
-      Seccion Activos/ Inactivos-->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
@@ -67,7 +46,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                         INICIO LISTADO DE TABLA //    *ngIf="funcionarioList2.estado_funcionario==1" *ngIf="funcionarioList2.estado_funcionario==1" -->
+                       
                         <table class="table table-hover" style="text-align: center"  >
                             <thead class="thead-dark">
                                 <tr>
@@ -122,7 +101,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                         INICIO LISTADO DE TABLA ///    *ngIf="funcionarioList2.estado_funcionario==false" -->
+                        
                         <table class="table table-hover" style="text-align: center"  >
                             <thead class="thead-dark">
                                 <tr>
@@ -164,25 +143,24 @@
             </div>
         </div>
     </div>
-      Fin Seccion Activos/ Inactivos-->
+      
 
     
 
 </div>
 
-  MODAL DE DATOS-->
-  The Modal -->
+
 <div class="modal" id="datosFuncionario">
     <div class="modal-dialog">
         <div class="modal-content">
 
-              Modal Header -->
+              
             <div class="modal-header">
                 <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver Funcionario</b></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 
-              Modal body -->
+              
             <div class="modal-body">
                  <label >
                     <b>RUN:</b> {{cargarRut()}} <br>
@@ -194,7 +172,7 @@
                 </label>
             </div>
 
-              Modal footer -->
+              
             <div class="modal-footer">
                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
             </div>
@@ -202,4 +180,4 @@
         </div>
     </div>
 </div>
-  FIN MODAL DE DATOS-->
+  

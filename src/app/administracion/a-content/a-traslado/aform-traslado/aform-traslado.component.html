@@ -1,6 +1,5 @@
 <div class="container">
     <nav aria-label="breadcrumb">
-         MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioTraslado']" href="#"
@@ -8,13 +7,11 @@
             <li class="breadcrumb-item active" aria-current="page">Formulario Traslados</li>
         </ol>
     </nav>
-     FIN MIGAS DE PAN-->
 
     <legend style="font-style: oblique"><b> Formulario de Traslados</b> </legend>
     <hr style="color: black">
     <div class="container">
 
-         ************************************************************************************************************************************-->
         <div class="separacion" style="text-align: center">
             <h4> &nbsp; Datos Difunto</h4>
         </div>
@@ -76,19 +73,17 @@
         </div>
         <div class="separacion" style="text-align: center">
             <h4> &nbsp; Datos de los Solicitantes Autorizados</h4>
-        </div>        
+        </div>
         <div class="container">
             <br>
             <div class="form-group">
                 <div class="row">
                     <div class="col">
                         <label>Nombre Cliente Autorizado </label>
-                         [(ngModel)]="rut_Solicitante"-->
                         <input [disabled]="true" [(ngModel)]="nombreClienteAutorizado" type="text" class="form-control">
                     </div>
                     <div class="col">
                         <label>Nombre Familiar Autorizado</label>
-                         [(ngModel)]="nombreC_Solicitante"-->
                         <input [disabled]="true" [(ngModel)]="nombreFamiliarAutorizado" type="text"
                             class="form-control">
                     </div>
@@ -97,7 +92,6 @@
             <br>
         </div>
 
-         ************************************************************************************************************************************-->
         <form [formGroup]="formTraslado" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos del Traslado</h4>
@@ -107,7 +101,7 @@
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
-                            <label for="fecha_Traslado">Fecha Traslado</label>  [(ngModel)]="fecha_Traslado"-->
+                            <label for="fecha_Traslado">Fecha Traslado</label>
                             <input formControlName="fecha_Traslado" class="form-control" type="date"
                                 data-format="yyyy-MM-dd" data-template="D MMM YYYY">
                             <div *ngIf="formTraslado.get('fecha_Traslado').hasError('required') && 
@@ -137,7 +131,6 @@
                         </div>
                         <div class="col" *ngIf="cambiodesde">
                             <label>Desde</label>
-                             [(ngModel)]="lugarviejo"-->
                             <input formControlName="lugarviejo" type="text" class="form-control"
                                 placeholder="Ingrese ubicacion actual del difunto">
                             <div *ngIf="formTraslado.get('lugarviejo').hasError('required') && 
@@ -148,7 +141,6 @@
                         </div>
                         <div class="col" *ngIf="cambiohacia">
                             <label>Hacia</label>
-                             [(ngModel)]="lugarnuevo"-->
                             <input formControlName="lugarnuevo" type="text" class="form-control"
                                 placeholder="Ingrese ubicacion nueva del difunto">
                             <div *ngIf="formTraslado.get('lugarnuevo').hasError('required') && 
@@ -156,22 +148,22 @@
                                 class="alert alert-danger">
                                 El lugar de destino es obligatorio.
                             </div>
-                        </div> 
+                        </div>
                         <div class="col" *ngIf="internovar">
-                            <label for="">Contratos del cliente: <b>{{nombreClienteAutorizado}}</b></label> 
-                            <select formControlName="lugarnuevo" class="form-control" id="contrato" name="contrato" >
+                            <label for="">Contratos del cliente: <b>{{nombreClienteAutorizado}}</b></label>
+                            <select formControlName="lugarnuevo" class="form-control" id="contrato" name="contrato">
                                 <option [ngValue]="0" disabled selected>Seleccione cliente </option>
-                                <option *ngFor="let x of contratoList;" [ngValue]="x" ><b>Contrato</b>: {{x.id_contrato}} - <b>Tumba</b>: {{x.tumba}} - <b>Patio</b>: {{x.patio.nombre_Patio}}</option>
-                            </select>                            
-                        </div>                          
-                    </div>                    
-                </div>                
-            
+                                <option *ngFor="let x of contratoList;" [ngValue]="x"><b>Contrato</b>: {{x.id_contrato}}
+                                    - <b>Tumba</b>: {{x.tumba}} - <b>Patio</b>: {{x.patio.nombre_Patio}}</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="row">
                         <div class="col">
                             <label>Observaciones</label>
-                             [(ngModel)]="observaciones"-->
                             <textarea formControlName="observaciones" type="text" class="form-control"></textarea>
                             <div *ngIf="formTraslado.get('observaciones').hasError('required') && 
                                 (formTraslado.get('observaciones').touched || formTraslado.get('observaciones').dirty)"

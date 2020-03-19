@@ -1,19 +1,20 @@
 <div class="container">
 
-     MIGAS DE PAN-->
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioFuncionario']" href="#" (click)="cancelarFuncionario()">Funcionarios</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormularioFuncionario']" href="#"
+                    (click)="cancelarFuncionario()">Funcionarios</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Funcionario</li>
         </ol>
     </nav>
-     FIN MIGAS DE PAN-->
+
 
     <legend>Formulario inscripción Funcionarios</legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formFuncionario" novalidate >
+        <form [formGroup]="formFuncionario" novalidate>
             <div class="separacion">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -22,32 +23,34 @@
                     <div class="col">
                         <label>RUN
                         </label>
-                        <input formControlName="rut_Funcionario" [(ngModel)]="funcionarioParams.rut_Funcionario" type="text" class="form-control" id="rut_Funcionario"
+                        <input formControlName="rut_Funcionario" [(ngModel)]="funcionarioParams.rut_Funcionario"
+                            type="text" class="form-control" id="rut_Funcionario"
                             placeholder="Ingrese un RUN 11111111-1">
-                            <div *ngIf="formFuncionario.get('rut_Funcionario').hasError('required') && 
+                        <div *ngIf="formFuncionario.get('rut_Funcionario').hasError('required') && 
                                   (formFuncionario.get('rut_Funcionario').touched || formFuncionario.get('rut_Funcionario').dirty)"
-                                class="alert alert-danger">
-                                El RUN del Funcionario es obligatorio.
-                            </div>
-                            <div *ngIf="formFuncionario.get('rut_Funcionario').hasError('pattern') && 
+                            class="alert alert-danger">
+                            El RUN del Funcionario es obligatorio.
+                        </div>
+                        <div *ngIf="formFuncionario.get('rut_Funcionario').hasError('pattern') && 
                                    (formFuncionario.get('rut_Funcionario').touched || formFuncionario.get('rut_Funcionario').dirty)"
-                                class="alert alert-danger">
-                                El RUN debe tener el formato 1.234.567-k.
-                            </div>
+                            class="alert alert-danger">
+                            El RUN debe tener el formato 1.234.567-k.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Nombres</label>
-                        <input formControlName="nombres_Funcionario" [(ngModel)]="funcionarioParams.nombres_Funcionario" type="text" class="form-control" id="nombres_Funcionario"
+                        <input formControlName="nombres_Funcionario" [(ngModel)]="funcionarioParams.nombres_Funcionario"
+                            type="text" class="form-control" id="nombres_Funcionario"
                             placeholder="Ingrese ambos nombres del Funcionario">
-                            <div *ngIf="formFuncionario.get('nombres_Funcionario').hasError('required') && 
+                        <div *ngIf="formFuncionario.get('nombres_Funcionario').hasError('required') && 
                                 (formFuncionario.get('nombres_Funcionario').touched || formFuncionario.get('nombres_Funcionario').dirty)"
-                                class="alert alert-danger">
-                                El Nombre del Funcionario es obligatorio.
-                            </div>
-                            <div *ngIf="formFuncionario.get('nombres_Funcionario').hasError('minlength') && (formFuncionario.get('nombres_Funcionario').touched 
+                            class="alert alert-danger">
+                            El Nombre del Funcionario es obligatorio.
+                        </div>
+                        <div *ngIf="formFuncionario.get('nombres_Funcionario').hasError('minlength') && (formFuncionario.get('nombres_Funcionario').touched 
                                 || formFuncionario.get('nombres_Funcionario').dirty)" class="alert alert-danger">
-                                El nombre debe tener al menos 3 caracteres.
-                            </div>
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -57,31 +60,33 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_Funcionario" [(ngModel)]="funcionarioParams.apellidoP_Funcionario" type="text" class="form-control" id="apellidoP_Funcionario"
-                            placeholder="Ingrese Apellido Paterno">
-                            <div *ngIf="formFuncionario.get('apellidoP_Funcionario').hasError('required') && 
+                        <input formControlName="apellidoP_Funcionario"
+                            [(ngModel)]="funcionarioParams.apellidoP_Funcionario" type="text" class="form-control"
+                            id="apellidoP_Funcionario" placeholder="Ingrese Apellido Paterno">
+                        <div *ngIf="formFuncionario.get('apellidoP_Funcionario').hasError('required') && 
                                 (formFuncionario.get('apellidoP_Funcionario').touched || formFuncionario.get('apellidoP_Funcionario').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Paterno del Cliente es obligatorio.
-                            </div>
-                            <div *ngIf="formFuncionario.get('apellidoP_Funcionario').hasError('minlength') && (formFuncionario.get('apellidoP_Funcionario').touched 
+                            class="alert alert-danger">
+                            El Apellido Paterno del Cliente es obligatorio.
+                        </div>
+                        <div *ngIf="formFuncionario.get('apellidoP_Funcionario').hasError('minlength') && (formFuncionario.get('apellidoP_Funcionario').touched 
                                 || formFuncionario.get('apellidoP_Funcionario').dirty)" class="alert alert-danger">
-                                El apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_Funcionario" [(ngModel)]="funcionarioParams.apellidoM_Funcionario" type="text" class="form-control" id="apellidoM_Funcionario"
-                            placeholder="Ingrese Apellido Materno">
-                            <div *ngIf="formFuncionario.get('apellidoM_Funcionario').hasError('required') && 
+                        <input formControlName="apellidoM_Funcionario"
+                            [(ngModel)]="funcionarioParams.apellidoM_Funcionario" type="text" class="form-control"
+                            id="apellidoM_Funcionario" placeholder="Ingrese Apellido Materno">
+                        <div *ngIf="formFuncionario.get('apellidoM_Funcionario').hasError('required') && 
                                  (formFuncionario.get('apellidoM_Funcionario').touched || formFuncionario.get('apellidoM_Funcionario').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Materno del Cliente es obligatorio.
-                            </div>
-                            <div *ngIf="formFuncionario.get('apellidoM_Funcionario').hasError('minlength') && (formFuncionario.get('apellidoM_Funcionario').touched 
+                            class="alert alert-danger">
+                            El Apellido Materno del Cliente es obligatorio.
+                        </div>
+                        <div *ngIf="formFuncionario.get('apellidoM_Funcionario').hasError('minlength') && (formFuncionario.get('apellidoM_Funcionario').touched 
                                 || formFuncionario.get('apellidoM_Funcionario').dirty)" class="alert alert-danger">
-                                El apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -89,7 +94,8 @@
                 <div class="row">
                     <div class="col">
                         <label for="exampleFormControlSelect1">Género</label>
-                        <select formControlName="genero_Funcionario" [(ngModel)]="funcionarioParams.genero_Funcionario" class="form-control" id="genero_Funcionario">
+                        <select formControlName="genero_Funcionario" [(ngModel)]="funcionarioParams.genero_Funcionario"
+                            class="form-control" id="genero_Funcionario">
                             <option value="" selected disabled>Seleccione Género </option>
                             <option>Masculino</option>
                             <option>Femenino</option>
@@ -104,7 +110,8 @@
 
                     <div class="col">
                         <label for="exampleFormControlSelect1">Cargo</label>
-                        <select formControlName="cargo_Funcionario" [(ngModel)]="funcionarioParams.cargo_Funcionario" class="form-control" id="cargo_Funcionario">
+                        <select formControlName="cargo_Funcionario" [(ngModel)]="funcionarioParams.cargo_Funcionario"
+                            class="form-control" id="cargo_Funcionario">
                             <option value="" selected disabled>Seleccione Cargo </option>
                             <option>Párroco</option>
                             <option>Secretaria</option>
@@ -127,7 +134,8 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" [disabled]="!formFuncionario.valid" (click)='createFuncionario()' class="btn btn-primary"
+                    <button type="submit" [disabled]="!formFuncionario.valid" (click)='createFuncionario()'
+                        class="btn btn-primary"
                         *ngIf="!funcionarioParams.id_funcionario else elseBlock">Guardar</button>
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
@@ -136,14 +144,14 @@
             </div>
 
 
-             
+
             <div style="text-align: center">
                 <button (click)="cancelarFuncionario()" type="submit" class="btn btn-danger"> Cancelar </button>
                 &nbsp;&nbsp;
                 <button (click)="createFuncionario()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
-            -->
+
         </form>
-  
+
     </div>
 </div>

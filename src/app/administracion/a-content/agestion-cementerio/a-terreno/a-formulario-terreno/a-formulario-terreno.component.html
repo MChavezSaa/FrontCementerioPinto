@@ -1,5 +1,5 @@
 <div class="container">
-     MIGAS DE PAN-->
+     
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
@@ -9,7 +9,7 @@
             <li class="breadcrumb-item active" aria-current="page">Formulario Terrenos</li>
         </ol>
     </nav>
-     FIN MIGAS DE PAN-->
+     
 
 
     <legend>Formulario inscripción Terreno Nuevo</legend>
@@ -81,7 +81,7 @@
                     <button (click)="cancelarTerreno()" class="btn btn-danger">
                         Cancelar </button>
                 </div>
-                  [disabled]="!formTerreno.valid"-->
+                
                 <div class="col">
                     <button type="submit" (click)='createTerreno()'
                         class="btn btn-primary" *ngIf="!terrenoParams.id_terreno else elseBlock">Guardar</button>

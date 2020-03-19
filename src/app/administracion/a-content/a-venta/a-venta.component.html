@@ -1,20 +1,17 @@
 <div class="container">
 
     <nav aria-label="breadcrumb">
-         MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Ventas</li>
         </ol>
     </nav>
-     FIN MIGAS DE PAN-->
     <hr>
     <br>
 
     <div class="container">
         <div class="row ">
-             SECCION PARA FILTRAR-->
             <div class="input-group mb-3 col-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
@@ -31,7 +28,6 @@
     </div>
     <br>
 
-      Seccion Activos/ Inactivos-->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
@@ -48,7 +44,6 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                         INICIO LISTADO DE TABLA -->
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
@@ -60,7 +55,7 @@
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
                                     <th scope="col" colspan="2">Acciones</th>
-                                    
+
                                     <th scope="col">Cuotas</th>
                                 </tr>
                             </thead>
@@ -75,29 +70,33 @@
                                         <td>{{ven.tipoTumba.nombretipo_tumba}}</td>
                                         <td>{{ven.tumba}}</td>
                                         <td>
-                                           
-                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#datosCliente"
-                                                    (click)="cargarContrato(ven.id_contrato)"><i class="fas fa-eye"></i>
-                                                </button>
-                                                <br><br>
-                                                <button type="button" name="editar" [routerLink]="['/administracion-inicio/formularioEditarVenta/',ven.id_contrato]"
-                                                    class="btn btn-warning"><i class="fas fa-pencil-alt"></i>
-                                                </button>
-                                            
-                                           
+
+                                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
+                                                    class="fas fa-eye"></i>
+                                            </button>
+                                            <br><br>
+                                            <button type="button" name="editar"
+                                                [routerLink]="['/administracion-inicio/formularioEditarVenta/',ven.id_contrato]"
+                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i>
+                                            </button>
+
+
                                         </td>
                                         <td>
-                                    
-                                            <button type="button" name="eliminar" class="btn btn-danger" (click)="deleteContrato(ven)">
+
+                                            <button type="button" name="eliminar" class="btn btn-danger"
+                                                (click)="deleteContrato(ven)">
                                                 <i class="fas fa-trash-alt"></i>
                                             </button>
                                             <br><br>
-                                            <button [routerLink]="[ '/administracion-inicio/exportPDF/',ven.id_contrato ]" type="button" name="pdf"
-                                                class="btn btn-info" >
+                                            <button
+                                                [routerLink]="[ '/administracion-inicio/exportPDF/',ven.id_contrato ]"
+                                                type="button" name="pdf" class="btn btn-info">
                                                 <i class="fas fa-file-pdf"></i>
                                             </button>
                                         </td>
-                                       
+
                                         <td style="line-height: 100px;">
                                             <button
                                                 [routerLink]="['/administracion-inicio/CuotasContratoComponent/',ven.id_contrato]"
@@ -120,7 +119,6 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                         INICIO LISTADO DE TABLA -->
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
@@ -160,11 +158,6 @@
                         </table>
                     </div>
                 </div>
-
-                  Fin Seccion Activos/ Inactivos-->
-
-
-
             </div>
         </div>
     </div>
@@ -172,8 +165,6 @@
 <div class="modal" id="datosCliente">
     <div class="modal-dialog">
         <div class="modal-content">
-
-
             <div class="modal-header">
                 <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver Venta</b></h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -183,7 +174,6 @@
             <div class="modal-body">
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></legend>
                 <label>
-                     *ngFor="let ven of contratoList3"-->
                     <b> Nombre:</b> {{getNombreCLiente()}}<br>
                     <b>Apellidos:</b> {{getApellidos()}}<br>
                     <b>Teléfono:</b> {{getTelefono()}} <br>
@@ -192,8 +182,7 @@
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos de a Compra</b></legend>
                 <label>
-                     *ngFor="let ven of contratoList3"-->
-                      <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
+
                     <b>Cementerio:</b> {{contratoModal.cementerio.nombre_Cementerio}} <br>
                     <b>Nombre del Terreno:</b> {{contratoModal.terreno.nombre_Terreno}} <br>
                     <b>Patio:</b> {{contratoModal.patio.nombre_Patio}} <br>
@@ -203,8 +192,7 @@
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>
                 <label>
-                     *ngFor="let ven of contratoList3"-->
-                       <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
+
                     <b>Valor total Derecho:</b> {{contratoModal.valor_Terreno}} <br>
                     <b>Pago Inicial:</b> {{contratoModal.pagoInicial}} <br>
                     <b>Número de Cuotas:</b> {{contratoModal.derecho.numero_Cuotas_Derecho}} <br>
@@ -220,4 +208,4 @@
 
         </div>
     </div>
-</div>  
+</div>

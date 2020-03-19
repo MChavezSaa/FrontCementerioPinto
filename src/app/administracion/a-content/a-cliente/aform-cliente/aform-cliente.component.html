@@ -1,19 +1,18 @@
 <div class="container">
 
-     MIGAS DE PAN-->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
-            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormCliente']" href="#" (click)="cancelarCliente()">Clientes</a></li>
+            <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AFormCliente']" href="#"
+                    (click)="cancelarCliente()">Clientes</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Clientes</li>
         </ol>
     </nav>
-     FIN MIGAS DE PAN-->
 
     <legend style="font-style: oblique"><b> Formulario Incripción de Clientes </b> </legend>
     <hr style="color: black">
     <div class="container">
-        <form [formGroup]="formCliente" novalidate> 
+        <form [formGroup]="formCliente" novalidate>
             <div class="separacion" style="text-align: center">
                 <h4> &nbsp; Datos Personales</h4>
             </div>
@@ -21,8 +20,8 @@
                 <div class="row">
                     <div class="col">
                         <label>RUN</label>
-                        <input formControlName="rut_Cliente" [(ngModel)]="clienteParams.rut_Cliente" type="text" 
-                        class="form-control" id="rutCliente" placeholder="ej: 11.111.111-1" >
+                        <input formControlName="rut_Cliente" [(ngModel)]="clienteParams.rut_Cliente" type="text"
+                            class="form-control" id="rutCliente" placeholder="ej: 11.111.111-1">
                         <div *ngIf="formCliente.get('rut_Cliente').hasError('required') && 
                         (formCliente.get('rut_Cliente').touched || formCliente.get('rut_Cliente').dirty)"
                             class="alert alert-danger">
@@ -37,18 +36,18 @@
                     </div>
                     <div class="col">
                         <label>Nombres</label>
-                        <input formControlName="nombres_Cliente" [(ngModel)]="clienteParams.nombres_Cliente" type="text" class="form-control" id="nombresCliente"
-                            placeholder="Ingrese nombre Cliente" >
+                        <input formControlName="nombres_Cliente" [(ngModel)]="clienteParams.nombres_Cliente" type="text"
+                            class="form-control" id="nombresCliente" placeholder="Ingrese nombre Cliente">
                         <div *ngIf="formCliente.get('nombres_Cliente').hasError('required') && 
                         (formCliente.get('nombres_Cliente').touched || formCliente.get('nombres_Cliente').dirty)"
-                         class="alert alert-danger">
+                            class="alert alert-danger">
                             El Nombre del Cliente es obligatorio.
                         </div>
                         <div *ngIf="formCliente.get('nombres_Cliente').hasError('minlength') && (formCliente.get('nombres_Cliente').touched 
                         || formCliente.get('nombres_Cliente').dirty)" class="alert alert-danger">
                             El nombre debe tener al menos 3 caracteres.
                         </div>
-                       
+
                     </div>
                 </div>
             </div>
@@ -58,31 +57,33 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_Cliente" [(ngModel)]="clienteParams.apellidoP_Cliente" type="text" class="form-control" id="apellidoPCliente"
+                        <input formControlName="apellidoP_Cliente" [(ngModel)]="clienteParams.apellidoP_Cliente"
+                            type="text" class="form-control" id="apellidoPCliente"
                             placeholder="Ingrese Apellido Paterno">
-                            <div *ngIf="formCliente.get('apellidoP_Cliente').hasError('required') && 
+                        <div *ngIf="formCliente.get('apellidoP_Cliente').hasError('required') && 
                                 (formCliente.get('apellidoP_Cliente').touched || formCliente.get('apellidoP_Cliente').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Paterno del Cliente es obligatorio.
-                            </div>
-                            <div *ngIf="formCliente.get('apellidoP_Cliente').hasError('minlength') && (formCliente.get('apellidoP_Cliente').touched 
+                            class="alert alert-danger">
+                            El Apellido Paterno del Cliente es obligatorio.
+                        </div>
+                        <div *ngIf="formCliente.get('apellidoP_Cliente').hasError('minlength') && (formCliente.get('apellidoP_Cliente').touched 
                                 || formCliente.get('apellidoP_Cliente').dirty)" class="alert alert-danger">
-                                El apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_Cliente" [(ngModel)]="clienteParams.apellidoM_Cliente" type="text" class="form-control" id="apellidoMCliente"
+                        <input formControlName="apellidoM_Cliente" [(ngModel)]="clienteParams.apellidoM_Cliente"
+                            type="text" class="form-control" id="apellidoMCliente"
                             placeholder="Ingrese Apellido Materno">
-                            <div *ngIf="formCliente.get('apellidoM_Cliente').hasError('required') && 
+                        <div *ngIf="formCliente.get('apellidoM_Cliente').hasError('required') && 
                                 (formCliente.get('apellidoM_Cliente').touched || formCliente.get('apellidoM_Cliente').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Materno del Cliente es obligatorio.
-                            </div>
-                            <div *ngIf="formCliente.get('apellidoM_Cliente').hasError('minlength') && (formCliente.get('apellidoM_Cliente').touched 
+                            class="alert alert-danger">
+                            El Apellido Materno del Cliente es obligatorio.
+                        </div>
+                        <div *ngIf="formCliente.get('apellidoM_Cliente').hasError('minlength') && (formCliente.get('apellidoM_Cliente').touched 
                                 || formCliente.get('apellidoM_Cliente').dirty)" class="alert alert-danger">
-                                El apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -90,7 +91,8 @@
                 <div class="row">
                     <div class="col-3">
                         <label for="exampleFormControlSelect1"> Género</label>
-                        <select formControlName="genero_Cliente" [(ngModel)]="clienteParams.genero_Cliente" class="form-control" id="exampleFormControlSelect1">
+                        <select formControlName="genero_Cliente" [(ngModel)]="clienteParams.genero_Cliente"
+                            class="form-control" id="exampleFormControlSelect1">
                             <option value="" selected disabled>Seleccione Género </option>
                             <option>Femenino</option>
                             <option>Masculino</option>
@@ -104,8 +106,8 @@
                     </div>
                     <div class="col-3">
                         <label>Teléfono</label>
-                        <input formControlName="telefono_Cliente" [(ngModel)]="clienteParams.telefono_Cliente" type="text" 
-                        class="form-control" id="telefonoCliente" placeholder=" ej: 987654321 ">
+                        <input formControlName="telefono_Cliente" [(ngModel)]="clienteParams.telefono_Cliente"
+                            type="text" class="form-control" id="telefonoCliente" placeholder=" ej: 987654321 ">
                         <div *ngIf="formCliente.get('telefono_Cliente').hasError('required') && 
                             (formCliente.get('telefono_Cliente').touched || formCliente.get('telefono_Cliente').dirty)"
                             class="alert alert-danger">
@@ -119,13 +121,13 @@
                     </div>
                     <div class="col-6">
                         <label>Dirección</label>
-                        <input formControlName="direccion_Cliente" [(ngModel)]="clienteParams.direccion_Cliente" type="text" class="form-control" id="direccionCliente"
-                            placeholder=" Ingrese una dirección">
+                        <input formControlName="direccion_Cliente" [(ngModel)]="clienteParams.direccion_Cliente"
+                            type="text" class="form-control" id="direccionCliente" placeholder=" Ingrese una dirección">
                         <div *ngIf="formCliente.get('direccion_Cliente').hasError('required') && 
                             (formCliente.get('direccion_Cliente').touched || formCliente.get('direccion_Cliente').dirty)"
                             class="alert alert-danger">
                             La dirección del Cliente es obligatoria.
-                        </div>                       
+                        </div>
                         <div *ngIf="formCliente.get('direccion_Cliente').hasError('minlength') && (formCliente.get('direccion_Cliente').touched 
                           || formCliente.get('direccion_Cliente').dirty)" class="alert alert-danger">
                             La dirección debe tener al menos 10 caracteres.
@@ -142,7 +144,8 @@
                 <div class="row">
                     <div class="col">
                         <label>RUN</label>
-                        <input formControlName="rut_Familiar"  [(ngModel)]="clienteParams.rut_Familiar" type="text" class="form-control" id="rutFam" placeholder="ej: 11111111-1">
+                        <input formControlName="rut_Familiar" [(ngModel)]="clienteParams.rut_Familiar" type="text"
+                            class="form-control" id="rutFam" placeholder="ej: 11111111-1">
                         <div *ngIf="formCliente.get('rut_Familiar').hasError('required') && 
                         (formCliente.get('rut_Familiar').touched || formCliente.get('rut_Familiar').dirty)"
                             class="alert alert-danger">
@@ -156,17 +159,18 @@
                     </div>
                     <div class="col">
                         <label>Nombre Familiar</label>
-                        <input formControlName="nombres_Familiar" [(ngModel)]="clienteParams.nombres_Familiar" type="text" class="form-control" id="nombreFam"
+                        <input formControlName="nombres_Familiar" [(ngModel)]="clienteParams.nombres_Familiar"
+                            type="text" class="form-control" id="nombreFam"
                             placeholder="Ingrese el nombre del familiar">
-                            <div *ngIf="formCliente.get('nombres_Familiar').hasError('required') && 
+                        <div *ngIf="formCliente.get('nombres_Familiar').hasError('required') && 
                                 (formCliente.get('nombres_Familiar').touched || formCliente.get('nombres_Familiar').dirty)"
-                                class="alert alert-danger">
-                                El Nombre del Familiar es obligatorio.
-                            </div>
-                            <div *ngIf="formCliente.get('nombres_Familiar').hasError('minlength') && (formCliente.get('nombres_Familiar').touched 
+                            class="alert alert-danger">
+                            El Nombre del Familiar es obligatorio.
+                        </div>
+                        <div *ngIf="formCliente.get('nombres_Familiar').hasError('minlength') && (formCliente.get('nombres_Familiar').touched 
                                || formCliente.get('nombres_Familiar').dirty)" class="alert alert-danger">
-                                El nombre debe tener al menos 3 caracteres.
-                            </div>
+                            El nombre debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -175,31 +179,33 @@
                 <div class="row">
                     <div class="col">
                         <label>Apellido Paterno</label>
-                        <input formControlName="apellidoP_Familiar" [(ngModel)]="clienteParams.apellidoP_Familiar" type="text" class="form-control" id="apellidoPFam"
+                        <input formControlName="apellidoP_Familiar" [(ngModel)]="clienteParams.apellidoP_Familiar"
+                            type="text" class="form-control" id="apellidoPFam"
                             placeholder="Ingrese el apellido Paterno">
-                            <div *ngIf="formCliente.get('apellidoP_Familiar').hasError('required') && 
+                        <div *ngIf="formCliente.get('apellidoP_Familiar').hasError('required') && 
                                 (formCliente.get('apellidoP_Familiar').touched || formCliente.get('apellidoP_Familiar').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Paterno del Familiar es obligatorio.
-                            </div>
-                            <div *ngIf="formCliente.get('apellidoP_Familiar').hasError('minlength') && (formCliente.get('apellidoP_Familiar').touched 
+                            class="alert alert-danger">
+                            El Apellido Paterno del Familiar es obligatorio.
+                        </div>
+                        <div *ngIf="formCliente.get('apellidoP_Familiar').hasError('minlength') && (formCliente.get('apellidoP_Familiar').touched 
                                || formCliente.get('apellidoP_Familiar').dirty)" class="alert alert-danger">
-                                El Apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El Apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                     <div class="col">
                         <label>Apellido Materno</label>
-                        <input formControlName="apellidoM_Familiar" [(ngModel)]="clienteParams.apellidoM_Familiar" type="text" class="form-control" id="apellidoMFam"
+                        <input formControlName="apellidoM_Familiar" [(ngModel)]="clienteParams.apellidoM_Familiar"
+                            type="text" class="form-control" id="apellidoMFam"
                             placeholder="Ingrese el apellido Materno">
-                            <div *ngIf="formCliente.get('apellidoM_Familiar').hasError('required') && 
+                        <div *ngIf="formCliente.get('apellidoM_Familiar').hasError('required') && 
                                 (formCliente.get('apellidoM_Familiar').touched || formCliente.get('apellidoM_Familiar').dirty)"
-                                class="alert alert-danger">
-                                El Apellido Materno del Familiar es obligatorio.
-                            </div>
-                            <div *ngIf="formCliente.get('apellidoM_Familiar').hasError('minlength') && (formCliente.get('apellidoM_Familiar').touched 
+                            class="alert alert-danger">
+                            El Apellido Materno del Familiar es obligatorio.
+                        </div>
+                        <div *ngIf="formCliente.get('apellidoM_Familiar').hasError('minlength') && (formCliente.get('apellidoM_Familiar').touched 
                                 || formCliente.get('apellidoM_Familiar').dirty)" class="alert alert-danger">
-                                El apellido debe tener al menos 3 caracteres.
-                            </div>
+                            El apellido debe tener al menos 3 caracteres.
+                        </div>
                     </div>
                 </div>
             </div>
@@ -207,8 +213,8 @@
                 <div class="row">
                     <div class="col">
                         <label>Teléfono</label>
-                        <input formControlName="telefono_Familiar" [(ngModel)]="clienteParams.telefono_Familiar" type="text" class="form-control" 
-                        id="telefonoFam" placeholder=" ej: 987654321">
+                        <input formControlName="telefono_Familiar" [(ngModel)]="clienteParams.telefono_Familiar"
+                            type="text" class="form-control" id="telefonoFam" placeholder=" ej: 987654321">
                         <div *ngIf="formCliente.get('telefono_Familiar').hasError('required') && 
                             (formCliente.get('telefono_Familiar').touched || formCliente.get('telefono_Familiar').dirty)"
                             class="alert alert-danger">
@@ -231,24 +237,24 @@
                         Cancelar </button>
                 </div>
                 <div class="col">
-                    <button type="submit" [disabled]="!formCliente.valid" (click)='createCliente()' class="btn btn-primary"
-                        *ngIf="!clienteParams.id_Cliente else elseBlock">Guardar</button>
+                    <button type="submit" [disabled]="!formCliente.valid" (click)='createCliente()'
+                        class="btn btn-primary" *ngIf="!clienteParams.id_Cliente else elseBlock">Guardar</button>
                     <ng-template #elseBlock>
-                        <button class="btn btn-primary" role="button" [disabled]="!formCliente.valid" (click)='update()'>Editar</button>
+                        <button class="btn btn-primary" role="button" [disabled]="!formCliente.valid"
+                            (click)='update()'>Editar</button>
                     </ng-template>
                 </div>
             </div>
-             
+
             <div style="text-align: center">
                 <button (click)="cancelarCliente()" type="submit" class="btn btn-danger"> Cancelar
                 </button>
                 &nbsp;&nbsp;
                 <button (click)="createCliente()" type="submit" class="btn btn-success"> Guardar </button>
             </div>
-        -->
+
         </form>
         <br>
-        
         <br>
 
     </div>
