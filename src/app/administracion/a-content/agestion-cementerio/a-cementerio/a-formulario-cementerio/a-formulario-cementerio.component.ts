@@ -40,8 +40,7 @@ export class AFormularioCementerioComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{ 
       let id = params['id'];
       if(id){
-        this.service.getCementerioID(id).subscribe((vehiculo)=>this.cementerioParams=vehiculo) 
-        console.log(this.cementerioParams);
+        this.service.getCementerioID(id).subscribe((vehiculo)=>this.cementerioParams=vehiculo)        
       }
     })
   }
@@ -49,8 +48,7 @@ export class AFormularioCementerioComponent implements OnInit {
   public create():void{
     this.service.saveCementerio(this.formCementerio.value)
       .subscribe(
-      cementerio => {   
-        //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
+      cementerio => {          
           Swal.fire('Nuevo cementerio', `Cementerio creado con Exito`, 'success');    
         this.router.navigate(['/administracion-inicio/ACementerio']); 
         this.cementerioParams = null;

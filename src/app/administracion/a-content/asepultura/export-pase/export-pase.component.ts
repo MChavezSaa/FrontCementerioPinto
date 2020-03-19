@@ -39,8 +39,7 @@ export class ExportPaseComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
       this.service.getSepulturaXID(this.id).subscribe(fun => {
-        this.paseParams = fun
-        console.log(this.paseParams.difunto.nombres_Difunto);
+        this.paseParams = fun       
         let fecha1 = new Date(this.paseParams.difunto.fecha_Nacimiento_Difunto);
         let fecha2 = new Date(this.paseParams.fecha_Entierro_TD);
         this.resta = fecha2.getTime() - fecha1.getTime();

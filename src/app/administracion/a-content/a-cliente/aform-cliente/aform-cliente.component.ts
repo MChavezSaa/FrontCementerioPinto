@@ -45,7 +45,6 @@ export class AformClienteComponent implements OnInit {
       let id = params['id'];
       if (id) {
         this.service.getClientePorID(id).subscribe((cli) => this.clienteParams = cli)
-        console.log(this.clienteParams);
       }
     })
   }
@@ -66,8 +65,7 @@ export class AformClienteComponent implements OnInit {
   public createCliente():void{
     this.service.saveCliente(this.formCliente.value)
       .subscribe(
-      cliente => {   
-        //ver como tomar valor de nombre para funcion swal
+      cliente => {           
           Swal.fire('Nuevo Cliente', `Cliente creado con Exito`, 'success');    
         this.router.navigate(['/administracion-inicio/Aclientes']);  
       },

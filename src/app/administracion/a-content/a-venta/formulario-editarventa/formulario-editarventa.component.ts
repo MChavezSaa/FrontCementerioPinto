@@ -110,7 +110,7 @@ export class FormularioEditarventaComponent implements OnInit {
   }
 
   public updateContrato(): void {
-    console.log(this.contrato2);
+    
 
     this.service.updateContrato(this.contrato2, this.contrato2.id_contrato)
       .subscribe(
@@ -161,9 +161,7 @@ export class FormularioEditarventaComponent implements OnInit {
   }
   saveContrato2() {
     this.service.saveContrato(this.contrato2).subscribe(
-      contrato => {
-        //ver como tomar valor de nombre para funcion swal
-        console.log(this.contrato2)
+      contrato => {        
         Swal.fire('Nuevo Contrato', `Contrato creado con Exito`, 'success');
         this.router.navigate(['/administracion-inicio/AVentas']);
       },

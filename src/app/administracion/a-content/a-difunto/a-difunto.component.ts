@@ -45,8 +45,7 @@ export class ADifuntoComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         this.service.reduccionDifunto(difunto.id_Difunto).subscribe(
-          response => {
-           // this.difuntoList2 = this.difuntoList2.filter(fun => fun!== difunto)
+          response => {           
             this.ngOnInit();
             Swal.fire('Reducción Satisfactoria', 
               `Se redujo al difunto ${difunto.nombres_Difunto} ${difunto.apellidoP_Difunto}`,

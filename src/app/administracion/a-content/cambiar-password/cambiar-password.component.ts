@@ -21,11 +21,8 @@ export class CambiarPasswordComponent implements OnInit {
   cambiarPass() {
     let user: Usuario = new Usuario();
     user.username = this.service.usuario.username;
-    user.password = this.cambiopass.nueva;
-    //user.roles=null;
-    console.log(user);
-    this.service.cambioPass(user).subscribe(res => {
-      console.log(res);
+    user.password = this.cambiopass.nueva;   
+    this.service.cambioPass(user).subscribe(res => {      
       swal.fire('Contraseña cambiada correctamente', 'Ingrese nuevamente', 'success');
       this.service.logout();
       this.route.navigate(['']);
@@ -34,11 +31,3 @@ export class CambiarPasswordComponent implements OnInit {
 
   }
 }
-/**
- * //
-    //swal.fire('Contraseña Actualizada', `Se ha actualizado la contraseña con Exito`, 'success');
-    //limpiar storage
-    //
-    //redirect
-    //
- */

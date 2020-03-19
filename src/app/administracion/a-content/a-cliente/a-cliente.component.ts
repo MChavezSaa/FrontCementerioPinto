@@ -72,7 +72,7 @@ export class AClienteComponent implements OnInit {
 
   cargarDatosModalCliente(id: number) {
     this.service.getClientePorID(id).subscribe(clienteBuscado => this.clienteDetalle = clienteBuscado);
-   // console.log(this.clienteDetalle);
+   
   }
   cargarRutCliente(): string {
     return this.clienteDetalle.rut_Cliente;

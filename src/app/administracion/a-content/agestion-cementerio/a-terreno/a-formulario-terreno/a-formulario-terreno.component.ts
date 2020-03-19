@@ -36,7 +36,6 @@ export class AFormularioTerrenoComponent implements OnInit {
 
   ngOnInit() {
     this.cargarTerreno();
-
     this.service.getCementerio().subscribe(cementerioList1 => this.cementerioList = cementerioList1);
   }
 
@@ -71,8 +70,7 @@ export class AFormularioTerrenoComponent implements OnInit {
     console.log(this.formTerreno.value);
     this.service.saveTerreno(this.formTerreno.value)
       .subscribe(
-        terreno => {
-          //ver como tomar valor de nombre para funcion swal
+        terreno => {          
           Swal.fire('Nuevo Terreno', `Terreno creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/AGTerreno']);
           this.terrenoParams = null;

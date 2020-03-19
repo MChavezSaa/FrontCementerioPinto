@@ -40,8 +40,7 @@ export class AFormularioPatioComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{ 
       let id = params['id'];
       if(id){
-        this.service.getPatioxID(id).subscribe((patio)=>this.patioParams=patio) 
-        console.log(this.patioParams);
+        this.service.getPatioxID(id).subscribe((patio)=>this.patioParams=patio)
       }
     })
   }
@@ -62,8 +61,7 @@ export class AFormularioPatioComponent implements OnInit {
   public createPatio(): void {
     this.service.savePatio(this.formPatio.value)
       .subscribe(
-        patio => {
-          //ver como tomar valor de nombre para funcion swal
+        patio => {         
           Swal.fire('Nuevo Patio', `Patio creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/APatio']);
           this.patioParams = null;

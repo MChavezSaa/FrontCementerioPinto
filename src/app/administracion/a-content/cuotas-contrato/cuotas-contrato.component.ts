@@ -136,8 +136,7 @@ export class CuotasContratoComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       id2 = params['id'];
-      this.service.renovarCuotaMantencion(id2).subscribe(fun => {
-        console.log('renovadas las cuotas');
+      this.service.renovarCuotaMantencion(id2).subscribe(fun => {       
         this.ngOnInit();
       });
 
@@ -153,7 +152,6 @@ export class CuotasContratoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       id2 = params['id'];
       this.service.renovarcuotasDerecho10(id2).subscribe(fun => {
-        console.log('renovadas las cuotas derecho por 10');
         this.ngOnInit();
       });
 
@@ -168,7 +166,6 @@ export class CuotasContratoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       id2 = params['id'];
       this.service.renovarcuotasDerecho20(id2).subscribe(fun => {
-        console.log('renovadas las cuotas derecho por 20');
         this.ngOnInit();
       });
 

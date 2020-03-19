@@ -40,8 +40,7 @@ export class AFormularioFuncionarioComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getFuncionariosPorID(id).subscribe((fun) => this.funcionarioParams = fun)
-        console.log(this.funcionarioParams);
+        this.service.getFuncionariosPorID(id).subscribe((fun) => this.funcionarioParams = fun)       
       }
     })
   }

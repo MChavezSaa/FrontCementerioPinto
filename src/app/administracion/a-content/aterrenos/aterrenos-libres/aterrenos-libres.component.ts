@@ -143,16 +143,4 @@ export class ATerrenosLibresComponent implements OnInit {
       }
     }
   }
-
- /* porTumba(aux : Tumba){
-      for (let i = 0; i < this.MismaTumba.length; i++) { 
-        console.log("entro for");
-        if( this.MismaTumba[i].tumba.localeCompare(' '+ aux.numero_Tumba)){
-            this.MostrarDifunto = this.MismaTumba[i];
-            console.log("entro if");          
-            console.log(this.MostrarDifunto);          
-        }
-      }
-  }*/
-
 }

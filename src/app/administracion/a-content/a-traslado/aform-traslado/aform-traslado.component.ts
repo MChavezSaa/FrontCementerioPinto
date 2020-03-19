@@ -82,7 +82,6 @@ export class AformTrasladoComponent implements OnInit {
         });
         this.service.getContrato().subscribe(fun => {
           let contratoLista = fun;
-          console.log(fun);
           for (let i = 0; i < contratoLista.length; i++) {
             if (this.contratoBuscado.contrato.cliente.id_Cliente == contratoLista[i].cliente.id_Cliente) {
               this.contratoList.push(contratoLista[i]);
@@ -120,7 +119,6 @@ export class AformTrasladoComponent implements OnInit {
         this.service.saveTraslado(t2)          
           .subscribe(
             cliente => {
-              console.log(t2);
               this.router.navigate(['/administracion-inicio/ADifuntos']);
               Swal.fire('Traslado creado con exito', 'Registro exitoso!', 'success');
               
@@ -129,7 +127,6 @@ export class AformTrasladoComponent implements OnInit {
               console.log(err)
             }
           );
-        console.log("correcto");
       } else {
         Swal.fire('Fecha Traslado Erronea', 'Fecha de traslado no puede ser menor a fecha de defuncion del difunto', 'error');
       }

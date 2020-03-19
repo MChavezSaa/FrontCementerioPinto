@@ -102,8 +102,7 @@ export class ExportContratoClienteComponent implements OnInit {
       }
     }
   
-    numeroTumbas() {
-      //contratoParams.tumba.numero_Tumba
+    numeroTumbas() {     
       if (this.contratoParams.tipoTumba.nombretipo_tumba == "Doble") {
         let str = this.contratoParams.tumba;
         let tumbas = str.split("-");

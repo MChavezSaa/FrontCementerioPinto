@@ -16,8 +16,7 @@ export class ASepulturaComponent implements OnInit {
 
   ngOnInit() {
     this.service.getTumbaDifunto().subscribe(fun =>{
-      this.tumbaDifuntoList = fun;
-      console.log(this.tumbaDifuntoList)
+      this.tumbaDifuntoList = fun;      
     });
   }
 
