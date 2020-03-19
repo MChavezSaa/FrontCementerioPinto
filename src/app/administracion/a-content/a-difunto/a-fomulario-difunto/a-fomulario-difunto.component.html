@@ -1,13 +1,13 @@
 <div class="container">
     <nav aria-label="breadcrumb">
-        <!--MIGAS DE PAN-->
+         MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio/AformularioDifuntos']" href="#" (click)="cancelarDifunto()">Difuntos</a></li>
             <li class="breadcrumb-item active" aria-current="page">Formulario Difuntos</li>
         </ol>
     </nav>
-    <!--FIN MIGAS DE PAN-->
+     FIN MIGAS DE PAN-->
 
     <legend style="font-style: oblique"><b> Formulario Incripción de Difuntos</b> </legend>
     <hr style="color: black">
@@ -127,7 +127,7 @@
                         </div>
                     </div>
                     
-                   <!-- <div class="col">
+                     <div class="col">
                         <label for="fechaEntierroDifunto">Fecha Entierro</label>
                         <input formControlName="fecha_Entierro" [(ngModel)]="difuntoParams.fecha_Entierro" class="form-control" type="date" 
                         data-format="yyyy-MM-dd" data-template="DD MM YYYY">
@@ -220,7 +220,7 @@
                 </div>
                 <div class="col">
                     <button type="submit" [disabled]="!formDifunto.valid" (click)='createDifunto()' class="btn btn-primary"
-                        *ngIf="!difuntoParams.id_Difunto else elseBlock">Guardar</button> <!-- [disabled]="!formDifunto.valid"-->
+                        *ngIf="!difuntoParams.id_Difunto else elseBlock">Guardar</button>   [disabled]="!formDifunto.valid"-->
                     <ng-template #elseBlock>
                         <button class="btn btn-primary" role="button" (click)='update()'>Editar</button>
                     </ng-template>

@@ -1,15 +1,15 @@
-<div class="container"><!--CONTENEDOR PRINCIPAL-->
+<div class="container"> CONTENEDOR PRINCIPAL-->
 
-    <nav aria-label="breadcrumb"><!--MIGAS DE PAN-->
+    <nav aria-label="breadcrumb"> MIGAS DE PAN-->
       <ol class="breadcrumb bg-white pl-0">
         <li class="breadcrumb-item"><a  [routerLink]="['/personal-inicio']" href="#">Inicio Personal</a></li>
         <li class="breadcrumb-item active" aria-current="page">Clientes</li>
       </ol>
-    </nav><!--FIN MIGAS DE PAN-->
+    </nav> FIN MIGAS DE PAN-->
   
       <h1>Clientes</h1>
   
-      <div class="row my-3"><!--SECCION PARA FILTRAR-->
+      <div class="row my-3"> SECCION PARA FILTRAR-->
         <div class="col-2 my-auto">
           Filtrar por:
         </div>
@@ -19,14 +19,14 @@
         <div class="col-6 text-right">
             <button type="button" name="editar" class="btn btn-primary btn-lg" routerLink="/personal-inicio/formularioClientes">Agregar Cliente</button>
         </div>
-      </div><!--FIN SECCION PARA FILTRAR-->
+      </div> FIN SECCION PARA FILTRAR-->
   
-      <!--<div class="card mb-3">CARD CONTENEDORA DE LA TABLA-->
+       <div class="card mb-3">CARD CONTENEDORA DE LA TABLA-->
         <div class="card-header text-center">
           Listado de Clientes
         </div>
-       <!-- <div class="card-body">-->
-          <div class="table-responsive"><!--INICIO TABLA REVISIONES-->
+         <div class="card-body">-->
+          <div class="table-responsive"> INICIO TABLA REVISIONES-->
             <table class="table table-hover" style="text-align: center">
                 <thead class="thead-dark">
                   <tr>
@@ -80,7 +80,7 @@
                     <th><button class="btn btn-danger"><i class="fas fa-trash-alt"></i></button> </th>
                   </tr>
   
-                  <!--<tr *ngFor="let c of clientesFiltered">
+                   <tr *ngFor="let c of clientesFiltered">
                     <td>{{c.rut}}</td>
                     <td>{{c.nombre}}</td>
                     <td>{{c.apellido}}</td>
@@ -91,7 +91,7 @@
                   </tr>-->
                 </tbody>
             </table>
-          </div><!--FIN TABLA REVISIONES-->  
-        <!--</div>-->
-     <!-- </div>FIN CARD CONTENEDORA DE TABLA-->
-    </div><!--FIN CONTENEDOR PRINCIPAL-->
+          </div> FIN TABLA REVISIONES-->  
+         </div>-->
+       </div>FIN CARD CONTENEDORA DE TABLA-->
+    </div> FIN CONTENEDOR PRINCIPAL-->

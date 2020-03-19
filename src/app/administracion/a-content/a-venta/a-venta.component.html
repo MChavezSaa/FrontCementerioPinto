@@ -1,20 +1,20 @@
 <div class="container">
 
     <nav aria-label="breadcrumb">
-        <!--MIGAS DE PAN-->
+         MIGAS DE PAN-->
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a>
             </li>
             <li class="breadcrumb-item active" aria-current="page">Ventas</li>
         </ol>
     </nav>
-    <!--FIN MIGAS DE PAN-->
+     FIN MIGAS DE PAN-->
     <hr>
     <br>
 
     <div class="container">
         <div class="row ">
-            <!--SECCION PARA FILTRAR-->
+             SECCION PARA FILTRAR-->
             <div class="input-group mb-3 col-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
@@ -31,7 +31,7 @@
     </div>
     <br>
 
-    <!-- Seccion Activos/ Inactivos-->
+      Seccion Activos/ Inactivos-->
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <a class="nav-item nav-link active" id="nav-activo-tab" data-toggle="tab" href="#nav-activo" role="tab"
@@ -48,7 +48,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA -->
+                         INICIO LISTADO DE TABLA -->
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
@@ -120,7 +120,7 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA -->
+                         INICIO LISTADO DE TABLA -->
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
@@ -161,7 +161,7 @@
                     </div>
                 </div>
 
-                <!-- Fin Seccion Activos/ Inactivos-->
+                  Fin Seccion Activos/ Inactivos-->
 
 
 
@@ -183,7 +183,7 @@
             <div class="modal-body">
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Cliente</b></legend>
                 <label>
-                    <!--*ngFor="let ven of contratoList3"-->
+                     *ngFor="let ven of contratoList3"-->
                     <b> Nombre:</b> {{getNombreCLiente()}}<br>
                     <b>Apellidos:</b> {{getApellidos()}}<br>
                     <b>Teléfono:</b> {{getTelefono()}} <br>
@@ -192,8 +192,8 @@
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos de a Compra</b></legend>
                 <label>
-                    <!--*ngFor="let ven of contratoList3"-->
-                    <!-- <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
+                     *ngFor="let ven of contratoList3"-->
+                      <b>Fecha de Venta:</b> {{ven.derecho.fecha_Inscripcion_Derecho}} <br> -->
                     <b>Cementerio:</b> {{contratoModal.cementerio.nombre_Cementerio}} <br>
                     <b>Nombre del Terreno:</b> {{contratoModal.terreno.nombre_Terreno}} <br>
                     <b>Patio:</b> {{contratoModal.patio.nombre_Patio}} <br>
@@ -203,8 +203,8 @@
                 <hr>
                 <legend style="font-family: 'Times New Roman', Times, serif;"><b>Datos del Pago</b></legend>
                 <label>
-                    <!--*ngFor="let ven of contratoList3"-->
-                    <!--  <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
+                     *ngFor="let ven of contratoList3"-->
+                       <b>Medio de Pago:</b> {{ven.derecho.medioPago}} <br>-->
                     <b>Valor total Derecho:</b> {{contratoModal.valor_Terreno}} <br>
                     <b>Pago Inicial:</b> {{contratoModal.pagoInicial}} <br>
                     <b>Número de Cuotas:</b> {{contratoModal.derecho.numero_Cuotas_Derecho}} <br>

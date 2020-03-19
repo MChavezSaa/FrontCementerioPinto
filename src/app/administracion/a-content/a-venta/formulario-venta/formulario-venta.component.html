@@ -1,4 +1,4 @@
-<!--
+ 
  <label for="" class="col-sm-6"> funcionarioList</label> &nbsp;
                         
 
@@ -6,7 +6,7 @@
 
 <div class="container">
 
-    <!--MIGAS DE PAN-->
+     MIGAS DE PAN-->
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
@@ -15,7 +15,7 @@
             <li class="breadcrumb-item active" aria-current="page">Formulario Ventas</li>
         </ol>
     </nav>
-    <!--FIN MIGAS DE PAN-->
+     FIN MIGAS DE PAN-->
 
     <legend style="font-style: oblique"><b> Formulario Venta Derecho</b> </legend>
     <hr style="color: black">
@@ -130,7 +130,7 @@
                             class="alert alert-danger">
                             Es obligatorio seleccionar un nivel para el nicho.
                         </div>
-                        <!-- Agregar validacion con numeros solo con estado cero -->
+                          Agregar validacion con numeros solo con estado cero -->
                     </div>
 
                     <div class="col" *ngIf="!paraNicho">
@@ -146,7 +146,7 @@
                             class="alert alert-danger">
                             Es obligatorio seleccionar un número de tumba.
                         </div>
-                        <!-- Agregar validacion con numeros solo con estado cero (change)="fun(contrato2.patio.id_Patio)"-->
+                          Agregar validacion con numeros solo con estado cero (change)="fun(contrato2.patio.id_Patio)"-->
                     </div>
 
                     <div class="col" *ngIf="doble">
@@ -162,7 +162,7 @@
                             class="alert alert-danger">
                             Es obligatorio seleccionar un segundo número de tumba.
                         </div>
-                        <!-- Agregar validacion con numeros solo con estado cero -->
+                          Agregar validacion con numeros solo con estado cero -->
                     </div>
                     <div class="col" *ngIf="paraNicho">
                         <label> Número de Nicho</label>&nbsp;<label *ngIf="paraNicho"></label>
@@ -204,7 +204,7 @@
                         <label> Nombre Cliente</label>
                         <input [disabled]="true" class="form-control" type="text" for=""
                             value="{{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}">
-                        <!--
+                         
                         <div class="row" *ngIf="mostrarCliente">
                             <label for="">Nombre Cliente:  {{contrato2.cliente.nombres_Cliente}} {{contrato2.cliente.apellidoP_Cliente}} {{contrato2.cliente.apellidoM_Cliente}}</label>
                         </div>-->
@@ -233,7 +233,7 @@
                             class="alert alert-danger">
                             Seleccione un medio de pago.
                         </div>
-                        <!-- Agregar validacion con numeros solo con estado cero -->
+                          Agregar validacion con numeros solo con estado cero -->
                     </div>
                     <div class="col">
                         <label> Valor Terreno</label>

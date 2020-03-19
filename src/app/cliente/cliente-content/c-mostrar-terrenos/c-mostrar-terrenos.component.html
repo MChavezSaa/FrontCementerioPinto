@@ -1,4 +1,4 @@
-<!-- este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
+  este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
 
 <br>
 <div class="container">
@@ -29,15 +29,15 @@
       <div align="left">
         <div class="container">
           <img src="assets/img/mapa3.jpg" alt="" width="90%" height="80%">
-          <!-- Patio A-->
+            Patio A-->
           <div *ngFor="let person of peopleA; let i = index">
             <div [id]="'a' + person.id_Terreno" [ngClass]="'a'+ person.id_tumba">
               <a (click)="guardarDatos(person.id_Terreno,'a', person.name, person.FD, person.id_tumba)">
                 <i class="fas fa-map-marker-alt fa-2x" style="color: blue "></i></a>
             </div>
           </div>
-          <!--Fin Patio A-->
-          <!-- Patio B-->
+           Fin Patio A-->
+            Patio B-->
           <div *ngFor="let personB of peopleB; let i = index">
             <div [id]="'b' + personB.id_Terreno" [ngClass]="'b'+ personB.id_tumba">
               <a (click)="guardarDatos(personB.id_Terreno,'b', personB.name, personB.FD, personB.id_tumba)">
@@ -45,9 +45,9 @@
               </a>
             </div>
           </div>
-          <!--Fin Patio B-->
+           Fin Patio B-->
 
-          <!-- Patio C-->
+            Patio C-->
           <div *ngFor="let personC of peopleC; let i = index">
             <div [id]="'c' + personC.id_Terreno" [ngClass]="'c'+ personC.id_tumba"> <a
                 (click)="guardarDatos(personC.id_Terreno,'c', personC.name,personC.FD, personC.id_tumba)">
@@ -55,9 +55,9 @@
               </a>
             </div>
           </div>
-          <!--Fin Patio C-->
+           Fin Patio C-->
 
-          <!-- Patio D-->
+            Patio D-->
           <div *ngFor="let personD of peopleD; let i = index">
             <div [id]="'d' + personD.id_Terreno" [ngClass]="'d'+ personD.id_tumba"> <a
                 (click)="guardarDatos(personD.id_Terreno,'d', personD.name, personD.FD, personD.id_tumba)">
@@ -65,9 +65,9 @@
               </a>
             </div>
           </div>
-          <!-- Fin Patio D-->
+            Fin Patio D-->
 
-          <!-- Patio E-->
+            Patio E-->
           <div *ngFor="let personE of peopleE; let i = index">
             <div [id]="'e' + personE.id_Terreno" [ngClass]="'e'+ personE.id_tumba"> <a
                 (click)="guardarDatos(personE.id_Terreno,'e', personE.name, personE.FD, personE.id_tumba)">
@@ -75,8 +75,8 @@
               </a>
             </div>
           </div>
-          <!-- fin patio E-->
-          <!-- Patio F-->
+            fin patio E-->
+            Patio F-->
           <div *ngFor="let personF of peopleF; let i = index">
             <div [id]="'f' + personF.id_Terreno" [ngClass]="'f'+ personF.id_tumba"> <a
                 (click)="guardarDatos(personF.id_Terreno,'f', personF.name, personF.FD, personF.id_tumba)">
@@ -84,8 +84,8 @@
               </a>
             </div>
           </div>
-          <!-- fin patio F-->
-          <!-- Patio G-->
+            fin patio F-->
+            Patio G-->
           <div *ngFor="let personG of peopleG; let i = index">
             <div [id]="'g' + personG.id_Terreno" [ngClass]="'g'+ personG.id_tumba"> <a
                 (click)="guardarDatos(personG.id_Terreno,'g', personG.name, personG.FD, personG.id_tumba)">
@@ -93,7 +93,7 @@
               </a>
             </div>
           </div>
-          <!-- fin patio G-->
+            fin patio G-->
 
         </div>
       </div>
@@ -125,7 +125,7 @@
         </thead>
 
       </table>
-      <!-- <ul>
+        <ul>
         <li type="circle">Nombre: {{nombre()}}</li>
         <li type="circle">Fecha Defunción: {{fd()}}</li>
 
@@ -133,4 +133,4 @@
     </div>
   </div>
 </div><br>
-<!-- lala-->
+  lala-->
