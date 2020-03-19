@@ -14,9 +14,7 @@ export class ATerrenosLibresComponent implements OnInit {
 
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
-  MismaTumba: TumbaDifunto[] = [];
-  //MostrarDifunto: TumbaDifunto;
-  //mostrarParams : TumbaDifunto = new TumbaDifunto();
+  MismaTumba: TumbaDifunto[] = [];  
 
   constructor(public service: BackendServiceService,
     private activatedRoute:ActivatedRoute) { }
@@ -24,16 +22,18 @@ export class ATerrenosLibresComponent implements OnInit {
   ngOnInit() {
     this.service.getTumba().subscribe(tumbaList1 => {
       this.TumbasLibresList = tumbaList1
-      
       this.llenarListas()
     });
   }
 
   public cargarMostrarDifuntos(id: Tumba){
     let idString: string = id.id_tumba+"";
-        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {
-          this.MismaTumba = mostrar
-          console.log(this.MismaTumba);
+        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {          
+          for(let i =0; i<mostrar.length ; i++){
+            if(mostrar[i].estadoTumbaDifunto == true){
+              this.MismaTumba.push(mostrar[i]);             
+            }
+          }       
         }); 
         
   }

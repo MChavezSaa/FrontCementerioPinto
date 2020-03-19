@@ -12,6 +12,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { TipoTumba } from 'src/app/Entidades/TipoTumba';
 import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { Derecho } from 'src/app/Entidades/Derecho';
+import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 
 @Component({
   selector: 'app-a-venta',
@@ -45,10 +46,8 @@ export class AVentaComponent implements OnInit {
       this.tumbasList = tumbasList1
       this.service.getContrato().subscribe(contratoList1 => {
         this.contratoList2 = contratoList1
-        this.contratoList2.forEach(element => {
-          //console.log(this.numerosTumba(element));
-          element.tumba = this.numerosTumba(element);
-          // element.fecha_Pago = this.fechaPago(element.fecha_Pago);
+        this.contratoList2.forEach(element => {        
+          element.tumba = this.numerosTumba(element);         
 
         });
       });
@@ -93,36 +92,51 @@ export class AVentaComponent implements OnInit {
   }
 
   deleteContrato(contrato: Contrato): void {
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: 'btn btn-success',
-        cancelButton: 'btn btn-danger'
-      },
-      buttonsStyling: false,
-    })
+    let listaValidacion: TumbaDifunto[] = [];
+    let idString = contrato.tumba;
+    this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {
+      listaValidacion = mostrar;
 
-    swalWithBootstrapButtons.fire({
-      title: '¿Está seguro?',
-      text: `¿Está seguro que desea deshabilitar el contrato de ${contrato.cliente.nombres_Cliente} ${contrato.cliente.apellidoP_Cliente}?`,
-      type: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Si, deshabilitar',
-      cancelButtonText: 'No, cancelar',
-      reverseButtons: true
-    }).then((result) => {
-      if (result.value) {
-        this.service.deleteContrato(contrato.id_contrato).subscribe(
-          response => {
-            this.contratoList2 = this.contratoList2.filter(con => con !== contrato)
-            this.ngOnInit();
-            Swal.fire('Deshabilitado con exito',
-              `Se deshabilito el contrato del cliente ${contrato.cliente.nombres_Cliente} ${contrato.cliente.apellidoP_Cliente} `,
-              'success');
+      if(listaValidacion.length != 0){
+        Swal.fire('Error al eliminar contrato',
+                  'Aun hay difuntos activos dentro del contrato. Corroborar difuntos antes de eliminar.',
+                  'error');
+      }else{
+        const swalWithBootstrapButtons = Swal.mixin({
+          customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+          },
+          buttonsStyling: false,
+        })
+    
+        swalWithBootstrapButtons.fire({
+          title: '¿Está seguro?',
+          text: `¿Está seguro que desea deshabilitar el contrato de ${contrato.cliente.nombres_Cliente} ${contrato.cliente.apellidoP_Cliente}?`,
+          type: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Si, deshabilitar',
+          cancelButtonText: 'No, cancelar',
+          reverseButtons: true
+        }).then((result) => {
+          if (result.value) {
+            this.service.deleteContrato(contrato.id_contrato).subscribe(
+              response => {
+                this.contratoList2 = this.contratoList2.filter(con => con !== contrato)
+                this.ngOnInit();
+                Swal.fire('Deshabilitado con exito',
+                  `Se deshabilito el contrato del cliente ${contrato.cliente.nombres_Cliente} ${contrato.cliente.apellidoP_Cliente} `,
+                  'success');
+              }
+            );
           }
-        );
+        })
+    
       }
-    })
-  }
+    });
+
+   
+     }
 
   public cambiaEstadoContrato(con: Contrato): void {
     this.service.cambiarEstadoContrato(con, con.id_contrato)

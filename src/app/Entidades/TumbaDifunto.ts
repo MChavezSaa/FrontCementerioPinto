@@ -10,7 +10,7 @@ export class TumbaDifunto {
     tumba: string;
     contrato: Contrato;
     fecha_Entierro_TD: Date;
-
+    estadoTumbaDifunto: boolean;
 
 }
 
