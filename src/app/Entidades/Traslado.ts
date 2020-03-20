@@ -9,7 +9,7 @@ export class Traslado {
     rut_Solicitante:string;
     direccion_Solicitante:string;
     fecha_Traslado:Date;
-    tipoDeCambio:string;//interno-externo
+    tipoDeCambio:string;
     lugarviejo:string;
     lugarnuevo:string;
     observaciones:string;    

@@ -31,10 +31,7 @@ export class ExportTrasladoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.id = params['id'];
       this.service.getTrasladoXID(this.id).subscribe(fun => {
-        this.trasladoParams = fun
-        console.log(this.trasladoParams);
-        console.log(this.trasladoParams.nombreC_Solicitante);
-        console.log(this.trasladoParams.tipoDeCambio);
+        this.trasladoParams = fun       
       });
     });
   }

@@ -51,22 +51,15 @@ export class ReportesComponent implements OnInit {
 
 
 
-  imprimirMeses() {
-    console.log(new Date().getMonth())
-  }
-
   cargarGraficocontratos() {
-    //inicializar grafico clientes
     this.cargarTabla = true;
     this.chart3 = am4core.create("chartdiv3", am4charts.XYChart);
     this.chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
     this.chart3.paddingRight = 10;
     this.fechas = { fechaInicio: this.model + "", fechaFin: this.model2 + "" };
-    //Datos
     this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
       this.contratos = res;
-      //console.log(this.contratos);
-       this.contEnero = 0;
+      this.contEnero = 0;
       this.contFebrero = 0;
       this.contMarzo = 0;
       this.contAbril = 0;
@@ -176,13 +169,11 @@ export class ReportesComponent implements OnInit {
     }, err => {
       this.contratos = [];
     })
-    // Create axes
     let categoryAxis = this.chart3.xAxes.push(new am4charts.CategoryAxis());
     categoryAxis.dataFields.category = "country";
     categoryAxis.renderer.grid.template.location = 0;
     categoryAxis.renderer.minGridDistance = 30;
     let valueAxis = this.chart3.yAxes.push(new am4charts.ValueAxis());
-    // Create series
     let series = this.chart3.series.push(new am4charts.ColumnSeries());
     valueAxis.title.text = "Ventas"
     series.dataFields.valueY = "visits";
@@ -194,7 +185,6 @@ export class ReportesComponent implements OnInit {
     let columnTemplate = series.columns.template;
     columnTemplate.strokeWidth = 2;
     columnTemplate.strokeOpacity = 1;
-    //exportacion 
     this.chart3.exporting.menu = new am4core.ExportMenu();
     this.chart3.exporting.filePrefix = "Reporte: " + this.model + "-" + this.model2;
     this.chart3.exporting.title = "Reporte de venta";
@@ -217,27 +207,23 @@ export class ReportesComponent implements OnInit {
     
     var data = document.getElementById('contenido');
     html2canvas(data).then(canvas => {
-      // configuraciones de la pagina
       var imgWidth = 208;
       var pageHeight = 295;
       var imgHeight = canvas.height * imgWidth / canvas.width;
       var heightLeft = imgHeight;
 
       const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('p', 'mm', 'a4'); // tamaaño A4 para pdf
-      var position = 0;
-     // pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      let pdf = new jsPDF('p', 'mm', 'a4'); 
+      var position = 0;     
       pdf.addImage(contentDataURL, 'JPEG', 15, 40, 180, 160)
-      pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf"); // generar PDF  
+      pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf");
     });
   }
 
   generarPDF() {
     html2canvas(this.content.nativeElement, {
-      // Opciones
       allowTaint: true,
       useCORS: false,
-      // Calidad del PDF
       scale: 2
 
     }).then(canvas => {

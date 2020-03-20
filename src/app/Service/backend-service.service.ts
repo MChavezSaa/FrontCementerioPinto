@@ -38,9 +38,11 @@ export class BackendServiceService {
   private _token: string;
 
   /*
-  private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
-   */
+  
   private urlEndPoint: string = 'http://localhost:8080/';
+   */
+  
+  private urlEndPoint = 'http://parra.chillan.ubiobio.cl:8080/matias.chavez1501/'; 
   private urlEndPoint2: string = this.urlEndPoint + 'DeleteFuncionario/';
   private urlEndPoint3: string = this.urlEndPoint + 'DeleteTerreno/';
   private urlEndPoint4: string = this.urlEndPoint + 'DeleteCliente/';
@@ -114,7 +116,7 @@ export class BackendServiceService {
     params.set('grant_type', 'password');
     params.set('username', usuario.username);
     params.set('password', usuario.password);
-    //console.log(params.toString());
+    
     return this.http.post<any>(urlEndPoint2, params.toString(), { headers: httpHeaders });
   }
 
@@ -327,8 +329,7 @@ export class BackendServiceService {
       catchError(e => {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
-        }
-        // this.router.navigate(['/administracion-inicio/AVentas']);
+        }        
         console.error(e.error.mensaje);
         Swal.fire('Error al editar', e.error.mensaje, 'error');
         return throwError(e);
@@ -377,9 +378,9 @@ export class BackendServiceService {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
-        // this.router.navigate(['/administracion-inicio/AVentas']);
+        
         console.error(e.error.mensaje);
-        // Swal.fire('Error al editar', e.error.mensaje, 'error');
+        
         return throwError(e);
       })
     );
@@ -391,9 +392,9 @@ export class BackendServiceService {
         if (this.isNoAutorizado(e)) {
           return throwError(e);
         }
-        // this.router.navigate(['/administracion-inicio/AVentas']);
+        
         console.error(e.error.mensaje);
-        // Swal.fire('Error al editar', e.error.mensaje, 'error');
+        
         return throwError(e);
       })
     );
@@ -429,10 +430,7 @@ export class BackendServiceService {
 
         if (this.isNoAutorizado(e)) {
           return throwError(e);
-        }
-        //this.router.navigate(['/administracion-inicio/Afuncionarios']);
-        //console.error(e.error.mensaje);
-        //Swal.fire('Error al editar', e.error.mensaje, 'error');
+        }        
         return throwError(e);
       })
     );
@@ -1105,8 +1103,7 @@ export class BackendServiceService {
   renovarCuotaMantencion(id: number): Observable<any> {
     return this.http.post<any>(this.urlEndPoint + "renovarCuotaMantencion/" + id,
       { headers: this.agregarAuthorizationHeader() }).pipe(
-        catchError(e => {
-          // this.isNoAutorizado(e);
+        catchError(e => {          
           return throwError(e);
         })
       );
@@ -1114,8 +1111,7 @@ export class BackendServiceService {
   renovarcuotasDerecho10(id: number): Observable<any> {
     return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor10anios/" + id,
       { headers: this.agregarAuthorizationHeader() }).pipe(
-        catchError(e => {
-          // this.isNoAutorizado(e);
+        catchError(e => {          
           return throwError(e);
         })
       );
@@ -1124,7 +1120,7 @@ export class BackendServiceService {
     return this.http.post<any>(this.urlEndPoint + "renovarCuotaDerechopor20anios/" + id,
       { headers: this.agregarAuthorizationHeader() }).pipe(
         catchError(e => {
-          // this.isNoAutorizado(e);
+          
           return throwError(e);
         })
       );

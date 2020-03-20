@@ -1,4 +1,4 @@
-<!-- este es el que muestra el mapa con la disponibilidad solo eso no deja registrar nada-->
+  
 <br>
 <div class="container">
   <div class="card">
@@ -26,10 +26,7 @@
         <div class="container" style="text-align: center;">
           <img class="rosa" src="assets/img/rosaPNG.png" alt="" height="150px" width="150px">
           <img src="assets/img/cementerio3.jpg" alt="" width="910px" height="845px">
-          <!--cambiar el ng for por el de la query -->
-
-
-          <!-- Patio A-->
+        
           <div *ngFor="let person of peopleA; let i = index">
             <div *ngIf="person.estado_Tumba === 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio A, Número {{person.numero_Tumba}}">
@@ -52,8 +49,7 @@
             </div>
           </div>
 
-          <!-- Fin Patio A-->
-          <!-- Patio B-->
+      
           <div *ngFor="let personB of peopleB; let i = index">
             <div *ngIf="personB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio B, Número {{personB.numero_Tumba}}">
@@ -75,8 +71,7 @@
               </div>
             </div>
           </div>
-          <!--Fin Patio B-->
-          <!-- Patio C-->
+     
           <div *ngFor="let personC of peopleC; let i = index">
             <div *ngIf="personC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio C, Número {{personC.numero_Tumba}}">
@@ -98,8 +93,7 @@
               </div>
             </div>
           </div>
-          <!--Fin Patio C-->
-          <!-- Patio D-->
+      
           <div *ngFor="let personD of peopleD; let i = index">
             <div *ngIf="personD.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio D, Número {{personD.numero_Tumba}}">
@@ -121,8 +115,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Patio D-->
-          <!-- Patio E-->
+        
           <div *ngFor="let personE of peopleE; let i = index">
             <div *ngIf="personE.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio E, Número {{personE.numero_Tumba}}">
@@ -144,8 +137,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio E-->
-          <!-- Patio F-->
+        
           <div *ngFor="let personF of peopleF; let i = index">
             <div *ngIf="personF.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio F, Número {{personF.numero_Tumba}}">
@@ -167,8 +159,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio F-->
-          <!-- Patio G-->
+       
           <div *ngFor="let personG of peopleG; let i = index">
             <div *ngIf="personG.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio G, Número {{personG.numero_Tumba}}">
@@ -190,8 +181,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio G-->
-          <!-- Patio H-->
+           
           <div *ngFor="let personH of peopleH; let i = index">
             <div *ngIf="personH.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio H, Número {{personH.numero_Tumba}}">
@@ -213,8 +203,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio H-->
-          <!-- Patio i-->
+       
           <div *ngFor="let personI of peopleI; let i = index">
             <div *ngIf="personI.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio I, Número {{personI.numero_Tumba}}">
@@ -236,8 +225,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio I-->
-          <!-- Patio J-->
+         
           <div *ngFor="let personJ of peopleJ; let i = index">
             <div *ngIf="personJ.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio J, Número {{personJ.numero_Tumba}}">
@@ -259,8 +247,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio J-->
-          <!-- Patio K-->
+          
           <div *ngFor="let personK of peopleK; let i = index">
             <div *ngIf="personK.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio K, Número {{personK.numero_Tumba}}">
@@ -282,9 +269,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio K-->
-
-          <!-- Patio L-->
+        
           <div *ngFor="let personL of peopleL; let i = index">
             <div *ngIf="personL.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Patio L, Número {{personL.numero_Tumba}}">
@@ -306,9 +291,7 @@
               </div>
             </div>
           </div>
-          <!-- fin patio L-->
-
-          <!-- Mausoleo A-->
+        
           <div *ngFor="let mauA of MausoleoA; let i = index">
             <div *ngIf="mauA.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo A, Número {{mauA.numero_Tumba}}">
@@ -329,9 +312,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Mausoleo A-->
-
-          <!-- Mausoleo B-->
+        
           <div *ngFor="let mauB of MausoleoB; let i = index">
             <div *ngIf="mauB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo B, Número {{mauB.numero_Tumba}}">
@@ -352,9 +333,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Mausoleo B-->
-
-          <!-- Mausoleo C-->
+      
           <div *ngFor="let mauC of MausoleoC; let i = index">
             <div *ngIf="mauC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo C, Número {{mauC.numero_Tumba}}">
@@ -375,9 +354,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Mausoleo C-->
 
-          <!-- Mausoleo D-->
           <div *ngFor="let mauD of MausoleoD; let i = index">
             <div *ngIf="mauD.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top" title="Mausoleo D, Número {{mauD.numero_Tumba}}">
@@ -398,9 +375,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Mausoleo D-->
-
-          <!-- Nichos A-->
+    
           <div *ngFor="let niA of NichoA; let i = index">
             <div *ngIf="niA.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
@@ -424,9 +399,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Nichos A-->
-
-          <!-- Nichos B-->
+        
           <div *ngFor="let niB of NichoA; let i = index">
             <div *ngIf="niB.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
@@ -450,9 +423,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Nichos B-->
-
-          <!-- Nichos C-->
+       
           <div *ngFor="let niC of NichoC; let i = index">
             <div *ngIf="niC.estado_Tumba == 'Disponible'">
               <div data-toggle="tooltip" data-placement="top"
@@ -476,7 +447,7 @@
               </div>
             </div>
           </div>
-          <!-- Fin Nichos C-->
+            
         </div>
       </div>
     </div>

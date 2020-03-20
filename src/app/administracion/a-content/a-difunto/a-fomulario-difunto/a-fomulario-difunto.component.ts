@@ -31,8 +31,7 @@ export class AFomularioDifuntoComponent implements OnInit {
       genero_Difunto: ['', [Validators.required]],
       fecha_Nacimiento_Difunto: ['', [Validators.required]],
       fecha_Defuncion: ['', [Validators.required]],
-      fecha_Inscripcion_Difunto: ['', [Validators.required]],
-      //fecha_Entierro: ['', [Validators.required]],
+      fecha_Inscripcion_Difunto: ['', [Validators.required]],      
       nombreC_Padre: ['', [Validators.required, Validators.minLength(3)]],
       nombreC_Madre: ['', [Validators.required, Validators.minLength(3)]],
 
@@ -55,8 +54,7 @@ export class AFomularioDifuntoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getDifuntoPorID(id).subscribe((dif) => this.difuntoParams = dif)
-        console.log(this.difuntoParams);
+        this.service.getDifuntoPorID(id).subscribe((dif) => this.difuntoParams = dif)       
       }
     })
   }

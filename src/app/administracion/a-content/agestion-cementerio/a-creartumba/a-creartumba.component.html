@@ -1,35 +1,35 @@
 <div class="container">
 
-    <!--MIGAS DE PAN-->
+
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Tumbas</li>
         </ol>
     </nav>
-    <!--FIN MIGAS DE PAN-->
-<hr>
-<br>
-<div class="container">
-    <div class="row ">
-        <!--SECCION PARA FILTRAR-->
-        <div class="col-4">
-            <input type="text" class="form-control" placeholder="Ingrese un nombre a buscar">
 
-        </div>
-        <div class="col-2 ">
-            <button class="btn btn-outline-primary" type="button"> Buscar</button>
-        </div>
+    <hr>
+    <br>
+    <div class="container">
+        <div class="row ">
 
-        <div class="col-6 text-right">
+            <div class="col-4">
+                <input type="text" class="form-control" placeholder="Ingrese un nombre a buscar">
+
+            </div>
+            <div class="col-2 ">
+                <button class="btn btn-outline-primary" type="button"> Buscar</button>
+            </div>
+
+            <div class="col-6 text-right">
+            </div>
         </div>
     </div>
-</div>
-<br>
+    <br>
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="nav-disponible-tab" data-toggle="tab" href="#nav-disponible" role="tab"
-                aria-controls="nav-disponible" aria-selected="true">Disponibles</a>
+            <a class="nav-item nav-link active" id="nav-disponible-tab" data-toggle="tab" href="#nav-disponible"
+                role="tab" aria-controls="nav-disponible" aria-selected="true">Disponibles</a>
             <a class="nav-item nav-link" id="nav-ocupado-tab" data-toggle="tab" href="#nav-ocupado" role="tab"
                 aria-controls="nav-ocupado" aria-selected="false">Ocupados</a>
             <a class="nav-item nav-link" id="nav-reservado-tab" data-toggle="tab" href="#nav-reservado" role="tab"
@@ -45,15 +45,14 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA -->
+
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Patio</th>
                                     <th scope="col">Número</th>
-                                    <!-- <th scope="col">Tipo de Tumba </th> -->
                                     <th scope="col">Estado</th>
-                                    
+
                                     <th scope="col">Largo</th>
                                     <th scope="col">Ancho</th>
                                     <th scope="col">Nivel</th>
@@ -61,24 +60,23 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                    <tr *ngFor="let tub of tumbasLibresList">
-                                        <td>{{tub.patio.nombre_Patio}} </td>
-                                        <td>{{tub.numero_Tumba}}</td>
-                                        <!-- <td>{{tub.tipo_Tumba.nombretipo_tumba}}</td>-->
-                                        <td>{{tub.estado_Tumba}}</td>
-                                        
-                                        <td>{{tub.largo}}</td>
-                                        <td>{{tub.ancho}}</td>
-                                        <td>{{tub.nivel}}</td>
-                                        <td><button type="button" name="editar"
-                                                [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_tumba]"
-                                                class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                                            &nbsp;
-                                            <!--<button type="button" name="eliminar" class="btn btn-danger"><i
-                                                    class="fas fa-trash-alt"></i>
-                                            </button>-->
-                                        </td>
-                                    </tr>
+                                <tr *ngFor="let tub of tumbasLibresList">
+                                    <td>{{tub.patio.nombre_Patio}} </td>
+                                    <td>{{tub.numero_Tumba}}</td>
+                                    <td>{{tub.estado_Tumba}}</td>
+
+                                    <td>{{tub.largo}}</td>
+                                    <td>{{tub.ancho}}</td>
+                                    <td>{{tub.nivel}}</td>
+                                    <td><button type="button" name="editar"
+                                            [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_tumba]"
+                                            class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
+                                        &nbsp;
+                                        <button type="button" name="eliminar" class="btn btn-danger"><i
+                                                class="fas fa-trash-alt"></i>
+                                        </button>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -93,15 +91,14 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA -->
+                        
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Patio</th>
                                     <th scope="col">Número</th>
-                                    <!-- <th scope="col">Tipo de Tumba </th> -->
                                     <th scope="col">Estado</th>
-                                    
+
                                     <th scope="col">Largo</th>
                                     <th scope="col">Ancho</th>
                                     <th scope="col">Acciones</th>
@@ -111,9 +108,6 @@
                                 <tr *ngFor="let tub of tumbasOcupadoList">
                                     <td>{{tub.patio.nombre_Patio}} </td>
                                     <td>{{tub.numero_Tumba}}</td>
-                                    <!-- <td>{{tub.tipo_Tumba.nombretipo_tumba}}</td>-->
-                                    <td>{{tub.estado_Tumba}}</td>
-                                    
                                     <td>{{tub.largo}}</td>
                                     <td>{{tub.ancho}}</td>
                                     <td><button type="button" name="editar"
@@ -138,27 +132,25 @@
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <!--INICIO LISTADO DE TABLA -->
+                        
                         <table class="table table-hover" style="text-align: center">
                             <thead class="thead-dark">
                                 <tr>
                                     <th scope="col">Patio</th>
                                     <th scope="col">Número</th>
-                                    <!-- <th scope="col">Tipo de Tumba </th> -->
                                     <th scope="col">Estado</th>
-                                    
+
                                     <th scope="col">Largo</th>
                                     <th scope="col">Ancho</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
-                            <tbody >
+                            <tbody>
                                 <tr *ngFor="let tub of tumbasReservadoList">
                                     <td>{{tub.patio.nombre_Patio}} </td>
                                     <td>{{tub.numero_Tumba}}</td>
-                                    <!-- <td>{{tub.tipo_Tumba.nombretipo_tumba}}</td>-->
                                     <td>{{tub.estado_Tumba}}</td>
-                                                                    
+
                                     <td>{{tub.largo}}</td>
                                     <td>{{tub.ancho}}</td>
                                     <td><button type="button" name="editar"
@@ -176,6 +168,5 @@
                 </div>
             </div>
         </div>
-    
-    </div>
 
+    </div>

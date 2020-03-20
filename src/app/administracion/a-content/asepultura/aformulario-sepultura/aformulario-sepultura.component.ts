@@ -61,25 +61,18 @@ export class AFormularioSepulturaComponent implements OnInit {
   ngOnInit() {
     this.service.getContratoDistinct().subscribe(r2 => {
       this.clientesList = r2;
-      // this.service.getTumbaDifunto().subscribe(fun => this.tumbaDifuntos = fun);
+      
       this.service.getContrato().subscribe(fun => {
         this.contratosList = fun;
-        //   console.log(this.contratosList)
+       
         this.service.getDifuntos().subscribe(response => {
           this.DifuntosList = response;
-         /**
-          *  for (let i = 0; i<this.DifuntosList.length; i++) {
-              if(this.DifuntosList[i].estadoDifunto=="Activo"){
-        
-              }
-          }
-          */
+         
           this.service.getTumbaDifunto().subscribe(response => {
             this.tumbaDifuntoParaCont = response;
             this.service.getDistinctDifuntos().subscribe(fun  =>{
               this.DifuntosListAux = fun;
-              console.log("listadistinct");
-              console.log(this.DifuntosListAux);
+              
             });
           });
         });
@@ -108,7 +101,7 @@ export class AFormularioSepulturaComponent implements OnInit {
 
 
   mostrarDifuntos() {
-    console.log(this.formSepultura.get("difunto").value);
+   
     if (this.sepultura2.difunto != null) {
       this.mostrarDifunto = true;
     } else {
@@ -156,7 +149,7 @@ export class AFormularioSepulturaComponent implements OnInit {
       for (let i = 0; i < this.tumbaDifuntos.length; i++) {
         if (this.tumbaDifuntos[i].contrato.tumba == this.sepultura2.contrato.tumba) {
           this.cont = this.cont + 1;
-          // console.log(this.cont);
+         
         }
       }
     } else {
@@ -166,17 +159,17 @@ export class AFormularioSepulturaComponent implements OnInit {
   saveTumbaDifunto() {
     this.sepultura2.tumba = this.sepultura2.contrato.tumba;
     this.sepultura2.fecha_Entierro_TD = new Date();
-    console.log(this.sepultura2);
+    
 
   }
   create(): void {
     let fechaDef = new Date(this.sepultura2.difunto.fecha_Defuncion).getTime();
-    console.log(fechaDef);
+    
     let fechaEnt = new Date(this.sepultura2.fecha_Entierro_TD).getTime();
-    console.log(fechaEnt);
+    
     if (fechaEnt > fechaDef) {
       this.sepultura2.tumba = this.sepultura2.contrato.tumba;
-      console.log(this.sepultura2);
+      
       this.service.saveTumbaDifunto(this.sepultura2)
         .subscribe(
           cementerio => {

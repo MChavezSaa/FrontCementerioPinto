@@ -35,7 +35,6 @@ export class AFormularioTumbaComponent implements OnInit {
       let id = params['id'];
       if (id) {
         this.service.getTipoTumbaPorID(id).subscribe((tipoTumba) => this.tipotumbaParams = tipoTumba)
-        console.log(this.tipotumbaParams);
       }
     })
   }
@@ -51,12 +50,10 @@ export class AFormularioTumbaComponent implements OnInit {
           console.log(err);
         });
   }
-  public createTipoTumba(): void {
-    console.log(this.formTipoTumba);
+  public createTipoTumba(): void {   
     this.service.saveTipoTumba(this.formTipoTumba.value)
       .subscribe(
-        tipoTumba => {
-          //ver como tomar valor de nombre para funcion swal
+        tipoTumba => {         
           Swal.fire('Nuevo Tipo Tumba', `Tipo Tumba ${tipoTumba} creado con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/ATumba']);
         },

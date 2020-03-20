@@ -1,17 +1,17 @@
 <div class="container">
 
     <nav aria-label="breadcrumb">
-        <!--MIGAS DE PAN-->
+
         <ol class="breadcrumb bg-white pl-0">
             <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a></li>
             <li class="breadcrumb-item active" aria-current="page">Cementerios</li>
         </ol>
     </nav>
-    <!--FIN MIGAS DE PAN-->
+
 
     <div class="container">
         <div class="row ">
-            <!--SECCION PARA FILTRAR-->
+
             <div class="input-group mb-3 col-4">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
@@ -27,21 +27,8 @@
         </div>
     </div>
     <br>
-<!--SECCION PARA FILTRAR
-    <div class="row my-3">
-        
-        <div class="col-2 my-auto">
-            Filtrar por nombre:
-        </div>
-        <div class="col-4 my-auto">
-            <input type="text" >
-        </div>
-        <div class="col-6 text-right">
-            <button type="button" class="btn btn-info"
-                [routerLink]="['/administracion-inicio/AFormularioCementerio']">Formulario Ingreso</button>
-        </div>
-    </div>-->
-    <!--FIN SECCION PARA FILTRAR-->
+    
+
 
     <div class="card mb-3">
         <div class="card-header text-center">
@@ -49,7 +36,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <!--INICIO LISTADO DE TABLA -->
+
                 <table class="table table-hover" style="text-align: center">
                     <thead class="thead-dark">
                         <tr>
@@ -62,7 +49,7 @@
                     </thead>
                     <tbody>
 
-                        <tr *ngFor="let cem of cementerioList2 | filter5: searchText5" >
+                        <tr *ngFor="let cem of cementerioList2 | filter5: searchText5">
                             <td>{{cem.nombre_Cementerio}}</td>
                             <td>{{cem.capacidad_Terrenos}}</td>
                             <td>{{cem.direccion_Cementerio}}</td>
@@ -70,10 +57,10 @@
                             <td><button type="button" name="editar"
                                     [routerLink]="['/administracion-inicio/AFormularioCementerio/',cem.id_Cementerio]"
                                     class="btn btn-warning"><i class="fas fa-pencil-alt"></i></button>
-                             <!--   &nbsp;
+                                &nbsp;
                                 <button type="button" name="eliminar" class="btn btn-danger"><i
                                         class="fas fa-trash-alt"></i>
-                                </button>-->
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -81,8 +68,4 @@
             </div>
         </div>
     </div>
-
-
-
-
 </div>
