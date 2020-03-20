@@ -9,19 +9,20 @@
     </nav>
 
     <hr>
-    <br>
     <div class="container">
         <div class="row ">
 
-            <div class="col-4">
-                <input type="text" class="form-control" placeholder="Ingrese un nombre a buscar">
-
+            <div class="input-group mb-3 col-4">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
+                </div>
+                <input type="text" class="form-control" [(ngModel)]="searchCreaTumba"
+                    placeholder="Filtrar por Nombre Patio" aria-describedby="basic-addon1">
             </div>
-            <div class="col-2 ">
-                <button class="btn btn-outline-primary" type="button"> Buscar</button>
-            </div>
-
+            <div class="col-2"></div>
             <div class="col-6 text-right">
+                <button type="button" class="btn btn-info"
+                    [routerLink]="['/administracion-inicio/AFormularioCementerio']">Formulario de Ingreso</button>
             </div>
         </div>
     </div>
@@ -52,21 +53,15 @@
                                     <th scope="col">Patio</th>
                                     <th scope="col">Número</th>
                                     <th scope="col">Estado</th>
-
-                                    <th scope="col">Largo</th>
-                                    <th scope="col">Ancho</th>
                                     <th scope="col">Nivel</th>
                                     <th scope="col">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let tub of tumbasLibresList">
+                                <tr *ngFor="let tub of tumbasLibresList | filterCreaTumba: searchCreaTumba">
                                     <td>{{tub.patio.nombre_Patio}} </td>
                                     <td>{{tub.numero_Tumba}}</td>
                                     <td>{{tub.estado_Tumba}}</td>
-
-                                    <td>{{tub.largo}}</td>
-                                    <td>{{tub.ancho}}</td>
                                     <td>{{tub.nivel}}</td>
                                     <td><button type="button" name="editar"
                                             [routerLink]="['/administracion-inicio/AFormularioCreaTumba/',tub.id_tumba]"
@@ -105,7 +100,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let tub of tumbasOcupadoList">
+                                <tr *ngFor="let tub of tumbasOcupadoList | filterCreaTumba: searchCreaTumba">
                                     <td>{{tub.patio.nombre_Patio}} </td>
                                     <td>{{tub.numero_Tumba}}</td>
                                     <td>{{tub.largo}}</td>
@@ -146,7 +141,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let tub of tumbasReservadoList">
+                                <tr *ngFor="let tub of tumbasReservadoList | filterCreaTumba: searchCreaTumba">
                                     <td>{{tub.patio.nombre_Patio}} </td>
                                     <td>{{tub.numero_Tumba}}</td>
                                     <td>{{tub.estado_Tumba}}</td>

@@ -83,6 +83,7 @@ import { ExportPaseComponent } from './administracion/a-content/asepultura/expor
 import { SearchSepulturaPipe } from './pipes/search-sepultura.pipe';
 import { ExportContratoClienteComponent } from './administracion/a-content/c-cuotas/export-contrato-cliente/export-contrato-cliente.component';
 import { CuotasClienteComponent } from './administracion/a-content/c-cuotas/cuotas-cliente/cuotas-cliente.component';
+import { SearchCreaTumbaPipe } from './pipes/search-crea-tumba.pipe';
 
 
 const routes: Routes = [
@@ -513,7 +514,8 @@ const routes: Routes = [
     ExportPaseComponent,
     SearchSepulturaPipe,
     ExportContratoClienteComponent,
-    CuotasClienteComponent
+    CuotasClienteComponent,
+    SearchCreaTumbaPipe
   ],
   imports: [
     BrowserModule,

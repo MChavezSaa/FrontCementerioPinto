@@ -12,6 +12,7 @@ export class ACreartumbaComponent implements OnInit {
   tumbasLibresList: Tumba[] = [];
   tumbasOcupadoList: Tumba[] = [];
   tumbasReservadoList: Tumba[] = [];
+  searchCreaTumba: string;
 
   constructor(public service: BackendServiceService) { }
 

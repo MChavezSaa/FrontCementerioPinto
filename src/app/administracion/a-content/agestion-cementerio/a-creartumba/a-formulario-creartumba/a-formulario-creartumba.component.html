@@ -31,22 +31,6 @@
                             formControlName="numero_Tumba" [(ngModel)]="creaTumbaParams.numero_Tumba">
                     </div>
 
-                    <select formControlName="numero_Tumba" [(ngModel)]="creaTumbaParams.numero_Tumba"
-                        class="form-control" id="exampleFormControlSelect1">
-                        <option value="" selected disabled>Seleccione número de Tumba </option>
-                        <option *ngFor="let l of tumbaList" [ngValue]="l">{{l.patio.nombre_Patio}} - Número
-                            {{l.numero_Tumba}}</option>
-
-                    </select>
-
-                    <div class="col">
-                        <label> Tipo de Tumba</label>
-                        <select class="form-control" id="tipo_Tumba" formControlName="tipo_Tumba"
-                            [(ngModel)]="creaTumbaParams.tipo_Tumba">
-                            <option value="" selected disabled>Seleccione tipo de tumba </option>
-                            <option *ngFor="let c of tipoTumbaList" [ngValue]="c">{{c.nombretipo_tumba}}</option>
-                        </select>
-                    </div>
                     <div class="col">
                         <label for="exampleFormControlSelect1"> Estado de la tumba</label>
                         <select formControlName="estado_Tumba" [(ngModel)]="creaTumbaParams.estado_Tumba"
@@ -63,20 +47,6 @@
             </div>
             <div class="form-group">
                 <div class="row">
-
-
-                    <div class="col">
-                        <label for="exampleFormControlSelect1"> Orientación de la tumba</label>
-                        <select class="form-control" id="orientacion_Tumba" formControlName="orientacion_Tumba"
-                            [(ngModel)]="creaTumbaParams.orientacion_Tumba">
-                            <option value="" selected disabled>Seleccione una orientación</option>
-                            <option> Por Definir</option>
-                            <option> Norte - Sur</option>
-                            <option> Sur - Norte</option>
-                            <option> Este - Oeste</option>
-                            <option> Oeste - Este</option>
-                        </select>
-                    </div>
                     
                     <div class="col">
                         <label> Largo Tumba</label>

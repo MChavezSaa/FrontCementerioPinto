@@ -48,7 +48,6 @@
             <table class="table table-hover" style="text-align: center">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Id Occiso</th>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
                   <th scope="col">Apellido Materno</th>
@@ -60,8 +59,7 @@
               </thead>
               <tbody>
                 <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
-                    <tr *ngIf="dif.estadoDifunto== 'Activo' " >
-                      <td>{{dif.id_Difunto}}</td>   
+                    <tr *ngIf="dif.estadoDifunto== 'Activo' " > 
                       <td>{{dif.nombres_Difunto}}</td>
                       <td>{{dif.apellidoP_Difunto}}</td>
                       <td>{{dif.apellidoM_Difunto}}</td>
@@ -91,7 +89,6 @@
             <table class="table table-hover" style="text-align: center">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Id Occiso</th>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
                   <th scope="col">Apellido Materno</th>
@@ -102,8 +99,7 @@
               </thead>
               <tbody>
                 <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
-                  <tr *ngIf="dif.estadoDifunto== 'Reduccion'" >
-                    <td>{{dif.id_Difunto}}</td>   
+                  <tr *ngIf="dif.estadoDifunto== 'Reduccion'" >   
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>
@@ -129,7 +125,6 @@
             <table class="table table-hover" style="text-align: center">
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">Id Occiso</th>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
                   <th scope="col">Apellido Materno</th>
@@ -141,8 +136,7 @@
               </thead>
               <tbody>
                 <ng-container *ngFor="let dif of DifuntosList | filter4: searchText4">
-                  <tr *ngIf="dif.estadoDifunto== 'Traslado'" >
-                    <td>{{dif.id_Difunto}}</td>   
+                  <tr *ngIf="dif.estadoDifunto== 'Traslado'" > 
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>

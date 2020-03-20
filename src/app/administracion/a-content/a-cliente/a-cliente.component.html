@@ -1,21 +1,22 @@
 <div class="container">
 
         <nav aria-label="breadcrumb">
-                 
+
                 <ol class="breadcrumb bg-white pl-0">
                         <li class="breadcrumb-item"><a [routerLink]="['/administracion-inicio']" href="#">Inicio</a>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page">Clientes</li>
                 </ol>
         </nav>
-         
-<hr>
-<br>
+
+        <hr>
+        <br>
         <div class="container">
                 <div class="row ">
                         <div class="input-group mb-3 col-4">
                                 <div class="input-group-prepend">
-                                        <span class="input-group-text" id="basic-addon1"><i class="fas fa-filter"></i></span>
+                                        <span class="input-group-text" id="basic-addon1"><i
+                                                        class="fas fa-filter"></i></span>
                                 </div>
                                 <input type="text" class="form-control" [(ngModel)]="searchText3"
                                         placeholder="Filtrar por nombre del Cliente" aria-describedby="basic-addon1">
@@ -54,11 +55,12 @@
                                                                         <th scope="col">Apellidos</th>
                                                                         <th scope="col">Teléfono</th>
                                                                         <th scope="col">Dirección</th>
-                                                                        <th scope="col">Acciones</th>
+                                                                        <th scope="col" colspan="3">Acciones</th>
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
-                                                                <ng-container *ngFor="let cli of clienteList2 | filter3: searchText3">
+                                                                <ng-container
+                                                                        *ngFor="let cli of clienteList2 | filter3: searchText3">
                                                                         <tr *ngIf="cli.estadoCliente==true">
                                                                                 <td>{{cli.rut_Cliente}}</td>
                                                                                 <td>{{cli.nombres_Cliente}}</td>
@@ -72,20 +74,26 @@
                                                                                                 data-toggle="modal"
                                                                                                 data-target="#datosCliente"
                                                                                                 (click)="cargarDatosModalCliente(cli.id_Cliente)">
-                                                                                                <i class="fas fa-eye"></i>
+                                                                                                <i
+                                                                                                        class="fas fa-eye"></i>
                                                                                         </button>
-                                                                                        &nbsp;
+                                                                                </td>
+                                                                                <td>
                                                                                         <button type="button"
                                                                                                 name="editar"
                                                                                                 [routerLink]="['/administracion-inicio/AFormCliente/',cli.id_Cliente]"
                                                                                                 class="btn btn-warning">
-                                                                                                <i class="fas fa-pencil-alt"></i></button>
-                                                                                        &nbsp;
+                                                                                                <i
+                                                                                                        class="fas fa-pencil-alt"></i>
+                                                                                        </button>
+                                                                                </td>
+                                                                                <td>
                                                                                         <button type="button"
                                                                                                 name="eliminar"
                                                                                                 class="btn btn-danger"
                                                                                                 (click)="delete(cli)">
-                                                                                                <i class="fas fa-trash-alt"></i>
+                                                                                                <i
+                                                                                                        class="fas fa-trash-alt"></i>
                                                                                         </button>
                                                                                 </td>
                                                                         </tr>
@@ -111,7 +119,7 @@
                                                                         <th scope="col">Apellidos</th>
                                                                         <th scope="col">Teléfono</th>
                                                                         <th scope="col">Dirección</th>
-                                                                        <th scope="col">Acciones</th>
+                                                                        <th scope="col" colspan="3">Acciones</th>
                                                                 </tr>
                                                         </thead>
                                                         <tbody>
@@ -129,17 +137,23 @@
                                                                                                 class="btn btn-primary"
                                                                                                 data-toggle="modal"
                                                                                                 data-target="#datosCliente"
-                                                                                                (click)="cargarDatosModalCliente(cli.id_Cliente)"><i
-                                                                                                        class="fas fa-eye"></i>
+                                                                                                (click)="cargarDatosModalCliente(cli.id_Cliente)">
+                                                                                                <i class="fas fa-eye"></i>
                                                                                         </button>
-                                                                                        &nbsp;
+                                                                                </td>
+                                                                                <td>
                                                                                         <button type="button"
                                                                                                 name="editar"
                                                                                                 [routerLink]="['/personal-inicio/clientes-form',cli.id_Cliente]"
-                                                                                                class="btn btn-warning"><i
-                                                                                                        class="fas fa-pencil-alt"></i></button>
-                                                                                        &nbsp;
-                                                                                        <button type="button" name="eliminar" class="btn btn-success" (click)="darAltaCliente(cli)">
+                                                                                                class="btn btn-warning">
+                                                                                                <i class="fas fa-pencil-alt"></i>
+                                                                                        </button>
+                                                                                </td>
+                                                                                <td> 
+                                                                                        <button type="button"
+                                                                                                name="eliminar"
+                                                                                                class="btn btn-success"
+                                                                                                (click)="darAltaCliente(cli)">
                                                                                                 <i class="fas fa-check-double"></i>
                                                                                         </button>
                                                                                 </td>
@@ -157,18 +171,18 @@
 </div>
 
 
-        <div class="modal" id="datosCliente">
+<div class="modal" id="datosCliente">
         <div class="modal-dialog">
                 <div class="modal-content">
 
-                        
+
                         <div class="modal-header">
                                 <h4 style="font-family: 'Times New Roman', Times, serif;" class="modal-title"><b>Ver
                                                 Cliente</b></h4>
                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
 
-                        
+
                         <div class="modal-body">
                                 <h4 style="font-family: 'Times New Roman', Times, serif;"><b>Datos Cliente</b></h4>
                                 <hr>
@@ -192,7 +206,7 @@
                                 </label>
                         </div>
 
-                        
+
                         <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
                         </div>
