@@ -48,8 +48,7 @@ export class AFormularioCreartumbaComponent implements OnInit {
       let id = params['id'];
       if (id) {
         this.service.getTumbasPorID(id).subscribe((creaT) => {
-          this.creaTumbaParams = creaT;
-          console.log(this.creaTumbaParams.patio.nombre_Patio);
+          this.creaTumbaParams = creaT;          
         })
       }
     })
@@ -58,7 +57,6 @@ export class AFormularioCreartumbaComponent implements OnInit {
     this.service.saveTumba(this.formCreaTumba.value)
       .subscribe(
         creaTumba => {
-          //ver como tomar valor de nombre para funcion swal ${document.getElementById("nombre_Cementerio")}
           Swal.fire('Nueva Tumba', `Tumba creada con Exito`, 'success');
           this.router.navigate(['/administracion-inicio/ACreaTumba']);
           this.creaTumbaParams = null;
