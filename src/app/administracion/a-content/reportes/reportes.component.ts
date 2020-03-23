@@ -241,7 +241,7 @@ export class ReportesComponent implements OnInit {
       data.push([
         { text: index + 1 },
         { text: contr.tipoTumba.nombretipo_tumba },
-        { text: contr.tumba},
+        { text: this.numerosTumba(contr) },
         { text: contr.valor_Terreno }
       ])
     });
