@@ -33,7 +33,7 @@ export class AFuncionarioComponent implements OnInit {
         json => {
           this.funcionarioList2 = this.funcionarioList2.filter(func => func!== fun)
           this.ngOnInit();
-          Swal.fire('Funcionario dado de alta',' Dado de alta con Exito', 'success');          
+          Swal.fire('Cambio de estado',' Cambio de estado realizado con éxito', 'success');          
         },
         err => {
           console.log(err);
@@ -64,7 +64,7 @@ export class AFuncionarioComponent implements OnInit {
             this.funcionarioList2 = this.funcionarioList2.filter(fun => fun!== funcionario)
             this.ngOnInit();
             Swal.fire('Eliminado Satisfactorio', 
-              `Se elimino el funcionario al funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario}`,
+              `Se elimino al funcionario ${funcionario.nombres_Funcionario} ${funcionario.apellidoP_Funcionario}`,
             'success');
           }
         );

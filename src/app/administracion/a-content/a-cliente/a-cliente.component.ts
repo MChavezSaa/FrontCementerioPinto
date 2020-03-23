@@ -49,7 +49,7 @@ export class AClienteComponent implements OnInit {
 
     swalWithBootstrapButtons.fire({
       title: '¿Está seguro?',
-      text: `¿Está seguro que desea eliminar el cliente con ID: ${cliente.id_Cliente}?`,
+      text: `¿Está seguro que desea eliminar a ${cliente.nombres_Cliente} ${cliente.apellidoP_Cliente} ${cliente.apellidoM_Cliente} como cliente?`,
       type: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si, eliminar!',
@@ -62,7 +62,7 @@ export class AClienteComponent implements OnInit {
             this.clienteList2 = this.clienteList2.filter(fun => fun!== cliente)
             this.ngOnInit();
             Swal.fire('Eliminado Satisfactorio', 
-            `se elimino el cliente con id ${cliente.id_Cliente}`,
+            `Se elimino al cliente ${cliente.nombres_Cliente} ${cliente.apellidoP_Cliente} ${cliente.apellidoM_Cliente}`,
             'success');
           }
         );

@@ -25,7 +25,7 @@ export class ATerrenoComponent implements OnInit {
         json => {
           this.terrenoList2 = this.terrenoList2.filter(terr => terr !== ter)
           this.ngOnInit();
-          Swal.fire('Cambio de Estado', ' Cambio de estado con Exito', 'success');
+          Swal.fire('Cambio de Estado', ' Cambio de estado realizado con éxito', 'success');
         },
         err => {
           console.log(err);
