@@ -25,7 +25,7 @@ export class AFormularioPatioComponent implements OnInit {
       this.patioParams.terreno = new Terreno();
 
     this.formPatio = this.formBuilder.group({
-      capacidad_Patio: {value: '', disabled: true},
+      capacidad_Patio: {value: ''},
       nombre_Patio: ['', [Validators.required, Validators.minLength(3)]],
       terreno: ['', [Validators.required]],
       nombreTT: ['', [Validators.required]], 

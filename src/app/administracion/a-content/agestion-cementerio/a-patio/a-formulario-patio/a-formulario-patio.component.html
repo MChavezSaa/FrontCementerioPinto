@@ -70,7 +70,7 @@
 
                     <div class="col">
                         <label>Capacidad Patio</label>
-                        <input formControlName="capacidad_Patio" [disabled]="true" [(ngModel)]="patioParams.capacidad_Patio" type="number"
+                        <input formControlName="capacidad_Patio" [(ngModel)]="patioParams.capacidad_Patio" type="number"
                             class="form-control" id="capacidadPatio" placeholder="Ingrese la capacidad del patio">
                             <div *ngIf="formPatio.get('capacidad_Patio').hasError('required') && 
                                 (formPatio.get('capacidad_Patio').touched || formPatio.get('capacidad_Patio').dirty)"

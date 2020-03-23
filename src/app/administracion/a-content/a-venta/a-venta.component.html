@@ -55,7 +55,6 @@
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
                                     <th scope="col" colspan="2">Acciones</th>
-
                                     <th scope="col">Cuotas</th>
                                 </tr>
                             </thead>
@@ -128,7 +127,7 @@
                                     <th scope="col">Cliente</th>
                                     <th scope="col">Tipo de tumba</th>
                                     <th scope="col">Número de Tumba</th>
-                                    <th scope="col">Acciones</th>
+                                    <th scope="col" colspan="2">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -145,7 +144,8 @@
                                                 data-target="#datosCliente" (click)="cargarContrato(ven.id_contrato)"><i
                                                     class="fas fa-eye"></i>
                                             </button>
-                                            &nbsp;
+                                        </td>
+                                        <td>
                                             <button
                                                 [routerLink]="[ '/administracion-inicio/exportPDF/', ven.id_contrato ]"
                                                 type="button" name="pdf" class="btn btn-info">

@@ -46,7 +46,7 @@ export class ExportContratoClienteComponent implements OnInit {
         this.id = params['id'];
         this.service.getContratoXID(this.id).subscribe(fun => {
           this.contratoParams = fun          
-          this.dias = new Date(this.contratoParams.fecha_Pago).getDate();
+          this.dias = new Date(this.contratoParams.fecha_Pago).getDate()+1;
           this.service.getTumbasPorID(Number(this.contratoParams.tumba.split("-")[0])).subscribe(lel => {
             this.tumbaL = lel
             this.service.getTumba().subscribe(tumbaList1 => {
