@@ -16,6 +16,7 @@ export class AFormularioPatioComponent implements OnInit {
   terrenoList:Terreno[] = [];
   formPatio:FormGroup;
   patioParams : Patio;
+  editado: boolean = false;
 
   constructor(public service: BackendServiceService, 
     private formBuilder: FormBuilder,
@@ -23,9 +24,15 @@ export class AFormularioPatioComponent implements OnInit {
     private activatedRoute:ActivatedRoute) {
       this.patioParams = new Patio();
       this.patioParams.terreno = new Terreno();
-
+      
+      this.activatedRoute.params.subscribe(params=>{ 
+        let id = params['id'];
+        if(id){
+          this.editado=true;         
+        }
+      })
     this.formPatio = this.formBuilder.group({
-      capacidad_Patio: {value: ''},
+      capacidad_Patio: [{value:"", disabled: this.editado}],
       nombre_Patio: ['', [Validators.required, Validators.minLength(3)]],
       terreno: ['', [Validators.required]],
       nombreTT: ['', [Validators.required]], 
@@ -36,10 +43,11 @@ export class AFormularioPatioComponent implements OnInit {
     this.cargarPatio();
     this.service.getTerreno().subscribe(terrenoList1 => this.terrenoList = terrenoList1);
   }
-  public cargarPatio():void{  
+  public cargarPatio():void{      
     this.activatedRoute.params.subscribe(params=>{ 
       let id = params['id'];
       if(id){
+        this.editado=true;
         this.service.getPatioxID(id).subscribe((patio)=>this.patioParams=patio)
       }
     })
