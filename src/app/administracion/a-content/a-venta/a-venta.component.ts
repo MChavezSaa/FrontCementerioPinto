@@ -99,7 +99,7 @@ export class AVentaComponent implements OnInit {
 
       if(listaValidacion.length != 0){
         Swal.fire('Error al eliminar contrato',
-                  'Aun hay difuntos activos dentro del contrato. Corroborar difuntos antes de eliminar.',
+                  'Aun hay difuntos activos dentro del contrato. Por favor corroborar difuntos antes de eliminar.',
                   'error');
       }else{
         const swalWithBootstrapButtons = Swal.mixin({
