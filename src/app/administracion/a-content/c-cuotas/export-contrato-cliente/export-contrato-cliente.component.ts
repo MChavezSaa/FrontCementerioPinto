@@ -30,7 +30,7 @@ export class ExportContratoClienteComponent implements OnInit {
   tumbaL: Tumba = new Tumba();
   dias: number;
   
-
+  numero_Tumba: string;
   constructor(public service: BackendServiceService,
     public router: Router, public activatedRoute: ActivatedRoute) { 
       this.contratoParams = new Contrato();
@@ -129,7 +129,34 @@ export class ExportContratoClienteComponent implements OnInit {
     }
   
   
-  
+    numerosTumba(contrato: Contrato) {
+      this.numero_Tumba = null;
+      if (contrato.tipoTumba.nombretipo_tumba == "Doble") {
+        let str = contrato.tumba;
+        let tumbas = str.split("-");
+        let tumba1;
+        let tumba2;
+        for (let i = 0; i < this.tumbasList.length; i++) {
+          if (this.tumbasList[i].id_tumba == Number(tumbas[0])) {
+            tumba1 = this.tumbasList[i];
+          }
+          if (this.tumbasList[i].id_tumba == Number(tumbas[1])) {
+            tumba2 = this.tumbasList[i];
+          }
+        }
+        this.numero_Tumba = tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;
+        return this.numero_Tumba;
+      } else {
+        let tumba1;
+        for (let i = 0; i < this.tumbasList.length; i++) {
+          if (this.tumbasList[i].id_tumba == Number(contrato.tumba)) {
+            tumba1 = this.tumbasList[i];
+          }
+        }
+        this.numero_Tumba = tumba1.numero_Tumba
+        return this.numero_Tumba
+      }
+    }
   
     volver() {
       this.router.navigate(['/administracion-inicio/CCuotas/']);
