@@ -8,6 +8,7 @@ import { Funcionario } from 'src/app/Entidades/Funcionario';
 import { Traslado } from 'src/app/Entidades/Traslado';
 import { Contrato } from 'src/app/Entidades/Contrato';
 import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
+import { Cliente } from 'src/app/Entidades/Cliente';
 
 @Component({
   selector: 'app-aform-traslado',
@@ -29,12 +30,12 @@ export class AformTrasladoComponent implements OnInit {
   rut_Solicitante: string;
   direccion_Solicitante: string;
   fecha_Traslado: Date;
-  tipoDeCambio2: string;//interno-externo
+  tipoDeCambio2: string;
   lugarviejo: string;
   lugarnuevo: string;
   observaciones: string;
-  nombreClienteAutorizado: string;
-  nombreFamiliarAutorizado: string;
+  ClienteAutorizado: string ='';
+  FamiliarAutorizado: string='';
 
   cambiodesde: boolean = false;
   cambiohacia: boolean = false;
@@ -46,12 +47,11 @@ export class AformTrasladoComponent implements OnInit {
   constructor(public service: BackendServiceService, public formBuilder: FormBuilder,
     public router: Router, public activatedRoute: ActivatedRoute, ) {
     this.difuntoTraslado = new Difunto();
-
+    this.contratoBuscado.contrato = new Contrato();
+    this.contratoBuscado.contrato.cliente = new Cliente();
     this.formTraslado = this.formBuilder.group({
 
-      //rut_Solicitante: ['', [Validators.required, Validators.pattern(/^\d{1,2}\.\d{3}\.\d{3}[-][0-9kK]{1}$/)]],
-      //nombreC_Solicitante: ['', [Validators.required, Validators.minLength(3)]],
-      //direccion_Solicitante: ['', [Validators.required, Validators.minLength(3)]],
+      
       fecha_Traslado: ['', [Validators.required]],
       tipoDeCambio: ['', [Validators.required]],
       lugarviejo: [''],
@@ -72,21 +72,24 @@ export class AformTrasladoComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       let id = params['id'];
       if (id) {
-        this.service.getDifuntoPorID(id).subscribe((fun) => this.difuntoTraslado = fun);
-        this.service.getDifuntoPorID(id).subscribe((fun1) => this.difuntoAux = fun1);
-        this.service.findContratoPorDifunto1(id).subscribe(fun => {
-          this.contratoBuscado = fun
-          this.nombreClienteAutorizado = this.contratoBuscado.contrato.cliente.nombres_Cliente + " " + this.contratoBuscado.contrato.cliente.apellidoP_Cliente + " " + this.contratoBuscado.contrato.cliente.apellidoM_Cliente;
-          this.nombreFamiliarAutorizado = this.contratoBuscado.contrato.cliente.nombres_Familiar + " " + this.contratoBuscado.contrato.cliente.apellidoP_Familiar + " " + this.contratoBuscado.contrato.cliente.apellidoM_Familiar;
-
-        });
-        this.service.getContrato().subscribe(fun => {
-          let contratoLista = fun;
-          for (let i = 0; i < contratoLista.length; i++) {
-            if (this.contratoBuscado.contrato.cliente.id_Cliente == contratoLista[i].cliente.id_Cliente) {
-              this.contratoList.push(contratoLista[i]);
-            }
-          }
+        this.service.getDifuntoPorID(id).subscribe((fun) => {
+          this.difuntoTraslado = fun
+          this.service.getDifuntoPorID(id).subscribe((fun1) => {
+            this.difuntoAux = fun1
+            this.service.findContratoPorDifunto1(id).subscribe(fun2 => {
+              this.contratoBuscado = fun2              
+              this.ClienteAutorizado = this.contratoBuscado.contrato.cliente.nombres_Cliente +" "+this.contratoBuscado.contrato.cliente.apellidoP_Cliente+" "+ this.contratoBuscado.contrato.cliente.apellidoM_Cliente ;
+              this.FamiliarAutorizado = this.contratoBuscado.contrato.cliente.nombres_Familiar +" "+this.contratoBuscado.contrato.cliente.apellidoP_Familiar+" "+ this.contratoBuscado.contrato.cliente.apellidoM_Familiar ;
+              this.service.getContrato().subscribe(fun3 => {
+                let contratoLista = fun3;
+                for (let i = 0; i < contratoLista.length; i++) {
+                  if (this.contratoBuscado.contrato.cliente.id_Cliente == contratoLista[i].cliente.id_Cliente) {
+                    this.contratoList.push(contratoLista[i]);
+                  }
+                }
+              });
+            });
+          });
         });
       }
     })
