@@ -6,6 +6,8 @@ import * as jsPDF from 'jspdf';
 import { IntervaloFecha } from 'src/app/Entidades/IntervaloFecha';
 import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import html2canvas from 'html2canvas';
+import { Tumba } from 'src/app/Entidades/Tumba';
+import { Contrato } from 'src/app/Entidades/Contrato';
 
 
 @Component({
@@ -22,6 +24,8 @@ export class ReportesComponent implements OnInit {
   contratos: any[] = [];
   show: boolean = false;
   cargarTabla: boolean= false;
+  numero_Tumba: string;
+  tumbasList: Tumba[] = [];
 
 
       contEnero = 0;
@@ -43,7 +47,9 @@ export class ReportesComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.restService.getTumba().subscribe(tumbaList1 => {
+      this.tumbasList = tumbaList1
+    });
   }
   generarReporte() {    
     this.cargarGraficocontratos();
@@ -57,6 +63,8 @@ export class ReportesComponent implements OnInit {
     this.chart3.hiddenState.properties.opacity = 0; // this creates initial fade-in
     this.chart3.paddingRight = 10;
     this.fechas = { fechaInicio: this.model + "", fechaFin: this.model2 + "" };
+    //this.fechas = { fechaInicio: new Date('23/03/2013') +"" , fechaFin: new Date('23/03/2020')+"" };
+    
     this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
       this.contratos = res;
       this.contEnero = 0;
@@ -71,7 +79,6 @@ export class ReportesComponent implements OnInit {
       this.contOctubre = 0;
       this.contNoviembre = 0;
       this.contDiciembre = 0;
-
 
       for (let index = 0; index < this.contratos.length; index++) {
         let fecha1 = this.contratos[index].fecha_Ingreso_Venta+"";
@@ -220,20 +227,138 @@ export class ReportesComponent implements OnInit {
     });
   }
 
-  generarPDF() {
-    html2canvas(this.content.nativeElement, {
-      allowTaint: true,
-      useCORS: false,
-      scale: 2
+  getDatos() {
+    let data = []
+    /* los headers del reporte */
+    data.push([
+      { text: 'N°', bold: true, alignment: 'center' },
+      { text: 'Tipo de tumba', bold: true, alignment: 'center' },
+      { text: 'Número de tumba', bold: true, alignment: 'center' },
+      { text: 'Valor', bold: true, alignment: 'center' }    ]);
 
-    }).then(canvas => {
-      var img = canvas.toDataURL("image/jpeg", 1.0);
-      var doc = new jsPDF('landscape');
-      doc.setFontSize(20);
-      doc.addImage(img, 'JPEG', 10, 10, 280, 150);
+    this.contratos.forEach(function (contr, index) {
 
-      doc.save('reporte.pdf');
+      data.push([
+        { text: index + 1 },
+        { text: contr.tipoTumba.nombretipo_tumba },
+        { text: contr.tumba},
+        { text: contr.valor_Terreno }
+      ])
     });
+    return data;
   }
 
+  generarPDF() {
+    Promise.all([
+      this.chart3.exporting.pdfmake,
+      this.cargarGraficocontratos(),
+      this.chart3.exporting.getImage("png")
+    ]).then((res) => {
+      let data = [];
+      if (!this.contratos) {
+        this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
+          data = this.getDatos();
+        })
+      } else {
+        data = this.getDatos();
+      }
+
+      let pdfMake = res[0];
+
+      let doc = {
+        pageSize: "A4",
+        pageOrientation: "portrait",
+        pageMargins: [40, 30, 40, 30],
+        content: [
+          {
+            text: 'Reporte de ventas',
+            style: 'header'
+          },
+          {
+            text: '\nFecha de creación del reporte: \t' + new Date().toLocaleDateString() ,
+            style: 'normal'
+          },
+          {
+            text: '\nFechas seleccionadas: \t' + new Date(this.fechas.fechaInicio).toLocaleDateString() + ' \ty\t ' + new Date(this.fechas.fechaFin).toLocaleDateString(),
+            style: 'normalB'
+          },
+          {
+            text: '\nGráfico de Ventas por mes\n\n',
+            style: 'bigger'
+          },
+          {
+            image: res[2],
+            width: '500',
+            alignment: 'center'
+          },
+          {
+            text: '\nDetalle de ventas\n\n',
+            style: 'bigger'
+          },
+          {
+            table: {
+              headerRows: 1,
+              widths: ['auto', '*', '*', '*'],
+              body: data,
+              alignment: 'center'
+            }
+
+          }
+
+        ],
+
+        styles: {
+          header: {
+            fontSize: 18,
+            bold: true,
+            alignment: 'center'
+          },
+          bigger: {
+            fontSize: 14,
+            italics: true,
+            alignment: 'center'
+          },
+          normal: {
+            fontSize: 10,
+
+          },
+          normalB: {
+            fontSize: 10,
+            bold: true
+
+          }
+        }
+      };
+      pdfMake.createPdf(doc).download("ReporteVentas" + new Date().toLocaleDateString() + ".pdf");
+    }).catch((error) => console.error(error))
+  }
+
+  numerosTumba(contrato: Contrato) {
+    this.numero_Tumba = null;
+    if (contrato.tipoTumba.nombretipo_tumba == "Doble") {
+      let str = contrato.tumba;
+      let tumbas = str.split("-");
+      let tumba1;
+      let tumba2;
+      for (let i = 0; i < this.tumbasList.length; i++) {
+        if (this.tumbasList[i].id_tumba == Number(tumbas[0])) {
+          tumba1 = this.tumbasList[i];
+        }
+        if (this.tumbasList[i].id_tumba == Number(tumbas[1])) {
+          tumba2 = this.tumbasList[i];
+        }
+      }
+      this.numero_Tumba = tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;
+      return this.numero_Tumba;
+    } else {
+      let tumba1;
+      for (let i = 0; i < this.tumbasList.length; i++) {
+        if (this.tumbasList[i].id_tumba == Number(contrato.tumba)) {
+          tumba1 = this.tumbasList[i];
+        }
+      }
+      this.numero_Tumba = tumba1.numero_Tumba
+      return this.numero_Tumba
+    }
+  }
 }

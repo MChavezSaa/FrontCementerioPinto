@@ -69,33 +69,19 @@
                                     <table class="table table-hover" style="text-align: center">
                                         <thead class="thead-dark">
                                             <tr>
-                                                <th scope="col">Enero</th>
-                                                <th scope="col">Febrero</th>
-                                                <th scope="col">Marzo</th>
-                                                <th scope="col">Abril</th>
-                                                <th scope="col">Mayo</th>
-                                                <th scope="col">Junio</th>
-                                                <th scope="col">Julio</th>
-                                                <th scope="col">Agosto</th>
-                                                <th scope="col">Septiembre</th>
-                                                <th scope="col">Octubre</th>
-                                                <th scope="col">Noviembre</th>
-                                                <th scope="col">Diciembre</th>
+                                                <th scope="col">N°</th>
+                                                <th scope="col">Tipo de tumba</th>
+                                                <th scope="col">Número de tumba</th>
+                                                <th scope="col">Valor</th>
+                                                
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <td>{{contEnero}}</td>
-                                            <td>{{contFebrero}}</td>
-                                            <td>{{contMarzo}}</td>
-                                            <td>{{contAbril}}</td>
-                                            <td>{{contMayo}}</td>
-                                            <td>{{contJunio}}</td>
-                                            <td>{{contJulio}}</td>
-                                            <td>{{contAgosto}}</td>
-                                            <td>{{contSeptiembre}}</td>
-                                            <td>{{contOctubre}}</td>
-                                            <td>{{contNoviembre}}</td>
-                                            <td>{{contDiciembre}}</td>
+                                        <tbody *ngFor="let contr of this.contratos; index as i">
+                                            <td>{{i+1}}</td>
+                                            <td>{{contr.tipoTumba.nombretipo_tumba}}</td>
+                                            <td>{{numerosTumba(contr)}}</td>
+                                            <td>{{contr.valor_Terreno}}</td>
+                                         
                                         </tbody>
                                     </table>
                                 </div>                                
