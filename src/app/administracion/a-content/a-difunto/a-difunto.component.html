@@ -45,8 +45,8 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover" style="text-align: center">
-              <thead class="thead-dark">
+            <table class="table table-hover" >
+              <thead class="thead-dark" style="text-align: center">
                 <tr>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
@@ -63,11 +63,11 @@
                       <td>{{dif.nombres_Difunto}}</td>
                       <td>{{dif.apellidoP_Difunto}}</td>
                       <td>{{dif.apellidoM_Difunto}}</td>
-                      <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+                      <td style="text-align: center">{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
   
-                      <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
-                      <td><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(dif)"><i class="fab fa-pagelines"></i></button></td>
-                      <td><button type="button" name="traslado" [routerLink]="['/administracion-inicio/AFormularioTraslado/',dif.id_Difunto]" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
+                      <td style="text-align: center"><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>
+                      <td style="text-align: center"><button type="button" name="eliminar" class="btn btn-danger" (click)="delete(dif)"><i class="fab fa-pagelines"></i></button></td>
+                      <td style="text-align: center"><button type="button" name="traslado" [routerLink]="['/administracion-inicio/AFormularioTraslado/',dif.id_Difunto]" class="btn btn-warning"><i class="fas fa-random"></i></button></td>
                       
                   </tr>
                 </ng-container>
@@ -86,8 +86,8 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover" style="text-align: center">
-              <thead class="thead-dark">
+            <table class="table table-hover" >
+              <thead class="thead-dark" style="text-align: center">
                 <tr>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
@@ -103,9 +103,9 @@
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>
-                    <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+                    <td style="text-align: center">{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
 
-                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
+                    <td style="text-align: center"><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
                   </tr>
                 </ng-container>
               </tbody>
@@ -122,8 +122,8 @@
         </div>
         <div class="card-body">
           <div class="table-responsive">
-            <table class="table table-hover" style="text-align: center">
-              <thead class="thead-dark">
+            <table class="table table-hover" >
+              <thead class="thead-dark" style="text-align: center">
                 <tr>
                   <th scope="col">Nombres</th>
                   <th scope="col">Apellido Paterno</th>
@@ -140,10 +140,10 @@
                     <td>{{dif.nombres_Difunto}}</td>
                     <td>{{dif.apellidoP_Difunto}}</td>
                     <td>{{dif.apellidoM_Difunto}}</td>
-                    <td>{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
+                    <td style="text-align: center">{{dif.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
 
-                    <td><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
-                    <td><button type="button" name="export" [routerLink]="['/administracion-inicio/comprobanteTraslado/',dif.id_Difunto]" class="btn btn-info"><i class="fas fa-file-pdf"></i></button></td>                    
+                    <td style="text-align: center"><button type="button" name="editar" [routerLink]="['/administracion-inicio/AformularioDifuntos/',dif.id_Difunto]" class="btn btn-primary"><i class="fas fa-edit"></i></button></td>                    
+                    <td style="text-align: center"><button type="button" name="export" [routerLink]="['/administracion-inicio/comprobanteTraslado/',dif.id_Difunto]" class="btn btn-info"><i class="fas fa-file-pdf"></i></button></td>                    
                   </tr>
                 </ng-container>
               </tbody>
