@@ -8,6 +8,7 @@ import { BackendServiceService } from 'src/app/Service/backend-service.service';
 import html2canvas from 'html2canvas';
 import { Tumba } from 'src/app/Entidades/Tumba';
 import { Contrato } from 'src/app/Entidades/Contrato';
+import { element } from 'protractor';
 
 
 @Component({
@@ -23,23 +24,23 @@ export class ReportesComponent implements OnInit {
   private chart3: am4charts.XYChart; //contratos
   contratos: any[] = [];
   show: boolean = false;
-  cargarTabla: boolean= false;
+  cargarTabla: boolean = false;
   numero_Tumba: string;
   tumbasList: Tumba[] = [];
 
 
-      contEnero = 0;
-      contFebrero = 0;
-      contMarzo = 0;
-      contAbril = 0;
-      contMayo = 0;
-      contJunio = 0;
-      contJulio = 0;
-      contAgosto = 0;
-      contSeptiembre = 0;
-      contOctubre = 0;
-      contNoviembre = 0;
-      contDiciembre = 0;
+  contEnero = 0;
+  contFebrero = 0;
+  contMarzo = 0;
+  contAbril = 0;
+  contMayo = 0;
+  contJunio = 0;
+  contJulio = 0;
+  contAgosto = 0;
+  contSeptiembre = 0;
+  contOctubre = 0;
+  contNoviembre = 0;
+  contDiciembre = 0;
 
   constructor(private restService: BackendServiceService) {
     this.model = new Date();
@@ -51,7 +52,7 @@ export class ReportesComponent implements OnInit {
       this.tumbasList = tumbaList1
     });
   }
-  generarReporte() {    
+  generarReporte() {
     this.cargarGraficocontratos();
   }
 
@@ -64,7 +65,7 @@ export class ReportesComponent implements OnInit {
     this.chart3.paddingRight = 10;
     this.fechas = { fechaInicio: this.model + "", fechaFin: this.model2 + "" };
     //this.fechas = { fechaInicio: new Date('23/03/2013') +"" , fechaFin: new Date('23/03/2020')+"" };
-    
+
     this.restService.getContratoFechas(this.fechas).subscribe((res: any) => {
       this.contratos = res;
       this.contEnero = 0;
@@ -81,9 +82,9 @@ export class ReportesComponent implements OnInit {
       this.contDiciembre = 0;
 
       for (let index = 0; index < this.contratos.length; index++) {
-        let fecha1 = this.contratos[index].fecha_Ingreso_Venta+"";
-        let fechas = fecha1.split("-");        
-        
+        let fecha1 = this.contratos[index].fecha_Ingreso_Venta + "";
+        let fechas = fecha1.split("-");
+
         if (Number.parseInt(fechas[1]) == 1) {
           this.contEnero++
         }
@@ -93,34 +94,34 @@ export class ReportesComponent implements OnInit {
         if (Number.parseInt(fechas[1]) == 3) {
           this.contMarzo++
         }
-        if (Number.parseInt(fechas[1])== 4) {
+        if (Number.parseInt(fechas[1]) == 4) {
           this.contAbril++
         }
-        if (Number.parseInt(fechas[1])== 5) {
+        if (Number.parseInt(fechas[1]) == 5) {
           this.contMayo++
         }
-        if (Number.parseInt(fechas[1])== 6) {
+        if (Number.parseInt(fechas[1]) == 6) {
           this.contJunio++
         }
-        if (Number.parseInt(fechas[1])== 7) {
+        if (Number.parseInt(fechas[1]) == 7) {
           this.contJulio++
         }
-        if (Number.parseInt(fechas[1])== 8) {
+        if (Number.parseInt(fechas[1]) == 8) {
           this.contAgosto++
         }
-        if (Number.parseInt(fechas[1])== 9) {
+        if (Number.parseInt(fechas[1]) == 9) {
           this.contSeptiembre++
         }
-        if (Number.parseInt(fechas[1])== 10) {
+        if (Number.parseInt(fechas[1]) == 10) {
           this.contOctubre++
         }
-        if (Number.parseInt(fechas[1])== 11) {
+        if (Number.parseInt(fechas[1]) == 11) {
           this.contNoviembre++
         }
-        if (Number.parseInt(fechas[1])== 12) {
+        if (Number.parseInt(fechas[1]) == 12) {
           this.contDiciembre++
         }
-        
+
       }
 
       this.chart3.data = [{
@@ -211,7 +212,7 @@ export class ReportesComponent implements OnInit {
 
 
   public generatePDF() {
-    
+
     var data = document.getElementById('contenido');
     html2canvas(data).then(canvas => {
       var imgWidth = 208;
@@ -220,10 +221,10 @@ export class ReportesComponent implements OnInit {
       var heightLeft = imgHeight;
 
       const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jsPDF('p', 'mm', 'a4'); 
-      var position = 0;     
+      let pdf = new jsPDF('p', 'mm', 'a4');
+      var position = 0;
       pdf.addImage(contentDataURL, 'JPEG', 15, 40, 180, 160)
-      pdf.save("Reporte: " + this.model + "-" + this.model2+".pdf");
+      pdf.save("Reporte: " + this.model + "-" + this.model2 + ".pdf");
     });
   }
 
@@ -234,14 +235,19 @@ export class ReportesComponent implements OnInit {
       { text: 'N°', bold: true, alignment: 'center' },
       { text: 'Tipo de tumba', bold: true, alignment: 'center' },
       { text: 'Número de tumba', bold: true, alignment: 'center' },
-      { text: 'Valor', bold: true, alignment: 'center' }    ]);
+      { text: 'Patio', bold: true, alignment: 'center' },
+      { text: 'Valor', bold: true, alignment: 'center' }]);
 
+    this.contratos.forEach(element => {
+      element.tumba = this.numerosTumba(element);
+    })
     this.contratos.forEach(function (contr, index) {
 
       data.push([
         { text: index + 1 },
         { text: contr.tipoTumba.nombretipo_tumba },
-        { text: this.numerosTumba(contr) },
+        { text: contr.tumba },//this.numerosTumba(contr)
+        { text: contr.patio.nombre_Patio },
         { text: contr.valor_Terreno }
       ])
     });
@@ -275,7 +281,7 @@ export class ReportesComponent implements OnInit {
             style: 'header'
           },
           {
-            text: '\nFecha de creación del reporte: \t' + new Date().toLocaleDateString() ,
+            text: '\nFecha de creación del reporte: \t' + new Date().toLocaleDateString(),
             style: 'normal'
           },
           {
@@ -298,7 +304,7 @@ export class ReportesComponent implements OnInit {
           {
             table: {
               headerRows: 1,
-              widths: ['auto', '*', '*', '*'],
+              widths: ['auto', '*', '*', '*', '*'],
               body: data,
               alignment: 'center'
             }
