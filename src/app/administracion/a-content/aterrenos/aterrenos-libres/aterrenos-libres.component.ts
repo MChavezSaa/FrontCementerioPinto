@@ -4,6 +4,7 @@ import { Tumba } from 'src/app/Entidades/Tumba';
 import { TumbaDifunto } from 'src/app/Entidades/TumbaDifunto';
 import { ActivatedRoute } from '@angular/router';
 import { object } from '@amcharts/amcharts4/core';
+import { Contrato } from 'src/app/Entidades/Contrato';
 
 @Component({
   selector: 'app-aterrenos-libres',
@@ -15,6 +16,8 @@ export class ATerrenosLibresComponent implements OnInit {
   TodasLastumbasList: Tumba[] = [];
   TumbasLibresList: Tumba[] = [];
   MismaTumba: TumbaDifunto[] = [];  
+  numero_Tumba: string;
+  tumbasList: Tumba[] = [];
 
   constructor(public service: BackendServiceService,
     private activatedRoute:ActivatedRoute) { }
@@ -25,10 +28,15 @@ export class ATerrenosLibresComponent implements OnInit {
       this.llenarListas()
     });
   }
-
+ 
   public cargarMostrarDifuntos(id: Tumba){
+    this.MismaTumba = [];
+
+   
+
+
     let idString: string = id.id_tumba+"";
-        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {          
+        this.service.getMostrarDifuntos(idString).subscribe((mostrar)=> {                 
           for(let i =0; i<mostrar.length ; i++){
             if(mostrar[i].estadoTumbaDifunto == true){
               this.MismaTumba.push(mostrar[i]);             
@@ -141,6 +149,34 @@ export class ATerrenosLibresComponent implements OnInit {
           }
         }
       }
+    }
+  }
+  numerosTumba(contrato: Contrato) {
+    this.numero_Tumba = null;
+    if (contrato.tipoTumba.nombretipo_tumba == "Doble") {
+      let str = contrato.tumba;
+      let tumbas = str.split("-");
+      let tumba1;
+      let tumba2;
+      for (let i = 0; i < this.TumbasLibresList.length; i++) {
+        if (this.TumbasLibresList[i].id_tumba == Number(tumbas[0])) {
+          tumba1 = this.TumbasLibresList[i];
+        }
+        if (this.TumbasLibresList[i].id_tumba == Number(tumbas[1])) {
+          tumba2 = this.TumbasLibresList[i];
+        }
+      }
+      this.numero_Tumba = tumba1.numero_Tumba + " - " + tumba2.numero_Tumba;
+      return this.numero_Tumba;
+    } else {
+      let tumba1;
+      for (let i = 0; i < this.TumbasLibresList.length; i++) {
+        if (this.TumbasLibresList[i].id_tumba == Number(contrato.tumba)) {
+          tumba1 = this.TumbasLibresList[i];
+        }
+      }
+      this.numero_Tumba = tumba1.numero_Tumba
+      return this.numero_Tumba
     }
   }
 }

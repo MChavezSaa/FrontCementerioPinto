@@ -38,6 +38,7 @@ export class AFormularioSepulturaComponent implements OnInit {
   clienteAux: any;//cliente validacion
   cont: number = 0;//contador de uso de tumba 
 
+
   constructor(public service: BackendServiceService,
     private formBuilder: FormBuilder,
     private router: Router,
@@ -71,8 +72,7 @@ export class AFormularioSepulturaComponent implements OnInit {
           this.service.getTumbaDifunto().subscribe(response => {
             this.tumbaDifuntoParaCont = response;
             this.service.getDistinctDifuntos().subscribe(fun  =>{
-              this.DifuntosListAux = fun;
-              
+              this.DifuntosListAux = fun;              
             });
           });
         });
@@ -184,5 +184,6 @@ export class AFormularioSepulturaComponent implements OnInit {
       Swal.fire('Fecha de Entierro Incorrecta', `Fecha de entierro no puede ser menor a fecha de defunción del difunto`, 'error');
     }
   }
+
 
 }

@@ -132,7 +132,8 @@
                                             </button>
                                         </td>
                                         <td>
-                                            <button type="button" 
+                                            <button t
+                                            ype="button" 
                                                     name="editar" 
                                                     [routerLink]="['/administracion-inicio/AFormularioFuncionario/',fun.id_funcionario]"
                                                     class="btn btn-warning">
@@ -142,9 +143,9 @@
                                         <td>
                                             <button type="button" 
                                                     name="eliminar" 
-                                                    class="btn btn-danger" 
-                                                    (click)="delete(fun)">
-                                                    <i class="fas fa-trash-alt"></i>
+                                                    class="btn btn-success"
+                                                    (click)="darAlta(fun)">
+                                                    <i class="fas fa-check-double"></i>
                                             </button>
                                         </td>
                                     </tr>

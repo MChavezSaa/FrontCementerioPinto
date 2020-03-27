@@ -570,7 +570,7 @@
             <tbody>
   
                 <tr *ngFor="let dif of MismaTumba " >
-                    <td>Número {{dif.tumba}}, <br> {{dif.contrato.patio.nombre_Patio}}</td>
+                    <td>Número {{numerosTumba(dif.contrato)}}, <br> {{dif.contrato.patio.nombre_Patio}}</td>
                     <td>{{dif.difunto.rut_Difunto}}</td>
                     <td>{{dif.difunto.nombres_Difunto}} {{dif.difunto.apellidoP_Difunto}} {{dif.difunto.apellidoM_Difunto}}</td>
                     <td>{{dif.difunto.fecha_Defuncion | date:'dd-MM-yyyy'}}</td>
