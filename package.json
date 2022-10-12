@@ -11,7 +11,7 @@
   },
   "private": true,
   "dependencies": {
-    "@amcharts/amcharts4": "^4.9.0",
+    "@amcharts/amcharts4": "^4.10.29",
     "@angular/animations": "~8.0.0",
     "@angular/common": "~8.0.0",
     "@angular/compiler": "~8.0.0",
@@ -24,7 +24,7 @@
     "bootstrap": "^4.3.1",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
-    "jspdf": "^1.5.3",
+    "jspdf": "^2.5.1",
     "popper.js": "^1.15.0",
     "rxjs": "~6.4.0",
     "sweetalert2": "^8.18.3",
